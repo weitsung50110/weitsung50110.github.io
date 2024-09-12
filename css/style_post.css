@@ -1,0 +1,184 @@
+/* 整體文章區域 */
+.post {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  /* margin: 20px auto; */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  max-width: auto; /* 設置最大寬度，避免內容過於寬 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 鼠標懸停效果 */
+.post:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 標題樣式 */
+.post h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  color: #222;
+  text-align: left; /* 標題左對齊 */
+  padding: 5px;
+}
+
+.post h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: left; /* 標題左對齊 */
+}
+
+.post h2 a {
+  color: #ff6f61;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post h2 a:hover {
+  color: #e64a19;
+}
+
+/* 文章信息區 */
+.post p {
+  margin: 10px 0;
+  line-height: 1.6; /* 提升行間距以增強可讀性 */
+}
+
+/* 摘要區,日期,作者 */
+.post-date, .post-author{
+  font-style: italic;
+  color: #666;
+}
+
+.post .excerpt{
+  color: #454242;
+  line-height: 1;
+}
+
+/* 內容區域 */
+.content {
+  max-width: 100%;
+  margin: 0;
+  padding: 18px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  /* font-size: 18px; */
+  line-height: 1.8;
+  margin-right: 250px; /* 讓內容區域有足夠的邊距，避免與右側目錄重疊 */
+}
+
+/* 內容中的圖片樣式 */
+.content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  margin: 10px 0; /* 上下邊距 */
+}
+
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 1; /* Ensure button is above the code block */
+}
+
+.copy-button:hover {
+  background-color: #0056b3;
+}
+
+/* 行內程式碼樣式 */
+code {
+  background-color: #f8f8f8; /* 淺灰色背景 */
+  border-radius: 3px;
+  padding: 0.2em 0.4em;
+  /* font-size: 95%; */
+  color: #d63384; /* 程式碼顏色 */
+}
+
+/* 多行程式碼區塊樣式 */
+pre {
+  background-color: #f0f0f0; /* 淺灰色背景 */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-x: auto; /* 允許橫向滾動 */
+  white-space: pre-wrap; /* 確保空白符號不被折疊 */
+  margin: 0 0 1em 0;
+}
+
+pre code {
+  background: transparent; /* 使內部程式碼塊背景透明 */
+  color: inherit; /* 繼承父元素的顏色 */
+}
+
+/* 超連結樣式 */
+.post a {
+  color: #d63384; /* 連結顏色 */
+  text-decoration: none; /* 去掉下劃線 */
+  transition: color 0.s ease; /* 顏色過渡效果 */
+  font-weight: bold;
+}
+
+.post a:hover,.post a:focus {
+  color: #7a00b3; /* 懸停和焦點時的顏色 */
+  text-decoration: underline; /* 懸停時顯示下劃線 */
+  font-weight: bold;
+}
+
+/* 表格整體樣式 */
+table {
+  width: 100%;
+  border-collapse: collapse; /* 去掉表格間距 */
+  margin-bottom: 1em; /* 底部邊距 */
+}
+
+/* 表格標題行樣式 */
+th {
+  background-color: #ffedd8; /* 表格標題背景顏色 */
+  color: rgb(130, 0, 0); /* 標題文字顏色 */
+  padding: 10px;
+  text-align: left; /* 左對齊 */
+}
+
+/* 表格內容行樣式 */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* 下邊框 */
+}
+
+/* 表格內容行的偶數行背景顏色 */
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* 偶數行背景顏色 */
+}
+
+/* 表格內容行的懸停效果 */
+tr:hover {
+  background-color: #e0e0e0; /* 懸停背景顏色 */
+}
+
+/* Markdown 列表（如 - 或 *） */
+ul {
+  padding-left: 20px; /* 確保列表項目有適當的左邊距 */
+}
+
+ol {
+  padding-left: 30px; /* 確保有相同的左邊距 */
+}
+
+/* 當表格超出容器寬度時顯示滾動條 */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* 平滑滾動 */
+}

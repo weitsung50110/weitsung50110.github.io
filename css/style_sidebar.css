@@ -1,0 +1,90 @@
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* 初始位置在屏幕外 */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transition: all 0.3s ease; /* 讓動畫變化平滑 */
+  padding: 20px;
+  z-index: 1000; /* 確保側邊欄在最上層 */
+}
+
+#sidebar a {
+  text-decoration: none;
+  background: #f9f5fb;
+  color: #cd6000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background 0.1s, color 0.1s;
+}
+
+#sidebar a:hover, #sidebar a:hover {
+  background: #f7e4fc;
+  color: #633000;
+}
+
+#sidebar h2 {
+  margin-top: 0;
+}
+
+#sidebar #close-btn {
+  position: absolute; /* 使用絕對定位 */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  top: 2px; /* 距離頂部20px */
+  right: 10px; /* 距離右邊20px */
+}
+
+#sidebar #close-btn:hover {
+  background:#633000;
+  color: rgb(255, 232, 249);
+}
+
+/* 作者信息樣式 */
+.author-info {
+  text-align: center; /* 圖片和文字居中 */
+}
+
+.author_photo {
+  width: 100px; /* 設置圖片寬度 */
+  height: 100px; /* 設置圖片高度 */
+  border-radius: 50%; /* 圓形圖片 */
+  object-fit: cover; /* 確保圖片不變形 */
+  margin-bottom: 15px; /* 圖片和文字之間的間距 */
+}
+
+body{
+  transition: margin-left 0.3s ease; /* 讓主內容區域的移動平滑 */
+  /* padding: 20px; */
+}
+
+
+
+
+/* 固定在網頁左邊中間的按鈕 */
+#open-btn {
+  position: fixed; /* 固定定位 */
+  left: 2px; /* 距離左邊 20 像素，根據需求調整 */
+  bottom: -15px; /* 垂直中心對齊 */
+  transform: translateY(-50%); /* 垂直居中對齊 */
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #000000; /* 按鈕文字顏色 */
+  border: 2px dashed  #70260e; /* 設置邊框樣式和顏色 */
+  padding: 3px 3px; /* 內邊距 */
+  border-radius: 35px; /* 圓角 */
+  cursor: pointer; /* 滑鼠懸停時顯示手形 */
+  font-size: 1em; /* 字體大小 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 陰影 */
+  z-index: 999;
+  width: 60px; /* 設置按鈕寬度 */
+  height: 60px; /* 設置按鈕高度 */
+}
+
+#open-btn:hover {
+  background-color: #daf6fa; /* 滑鼠懸停時的顏色變化 */
+}

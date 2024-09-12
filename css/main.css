@@ -1,0 +1,197 @@
+/* main.css */
+
+/* 全局樣式 */
+/* 引入其他 CSS 文件 */
+@import url('style.css');
+@import url('style_archives.css');
+@import url('style_header.css');
+@import url('style_index_post.css');
+@import url('style_post.css');
+@import url('style_popup_tag.css');
+@import url('style_search.css');
+@import url('style_post_tags_categories.css');
+@import url('style_sidebar.css');
+@import url('style_toc.css');
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .header-content img {
+      order: 1; /* 確保圖片顯示在標題左邊 */
+    }
+
+    .header-content h1 {
+      order: 2; /* 確保標題顯示在圖片右邊 */
+    }
+
+    .home-intro h2 {
+      font-size: 1.5em; /* 平板或小屏幕的字體大小 */
+    }
+
+    header h1 {
+      font-size: 1.8em; /* 根據需要調整 */
+    }
+
+    header .logo2 {
+      display: none; /* 隱藏 logo2 */
+    }
+  
+    header {
+      flex-direction: column;
+    }
+  
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    nav a {
+      margin-bottom: 10px;
+    }
+  
+    /* Archives 主內容 */
+    main {
+      padding: 10px;
+    }
+
+    
+
+    /* 移動版選單的顯示 */
+    .nav-top {
+      position: relative; /* 固定在頁面上 */
+    }
+
+    .mobile-nav.active {
+        display: block; /* 顯示菜單 */
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    
+    .mobile-nav {
+      display: none; /* 初始隱藏 */
+      position: fixed; /* 使用固定定位 */
+      top: 50px; /* 調整為適合的距離 */
+      right: 10px; /* 調整為適合的距離 */
+      width: 95%; /* 設置為螢幕的 90% 寬度 */
+      /* max-width: 300px; 最大寬度限制 */
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      overflow: auto; /* 防止內容超出範圍 */
+    }
+    
+    .mobile-nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    .mobile-nav ul li a {
+        display: block;
+        padding: 10px;
+        color: #ffffff;
+        text-decoration: none;
+        white-space: nowrap; /* 防止內容換行 */
+    }
+
+    #open-btn {
+      width: 60px; /* 在小屏幕上設置較小的寬度 */
+      height: 60px; /* 在小屏幕上設置較小的高度 */
+      font-size: 0.9em; /* 減少字體大小 */
+    }
+
+    #sidebar {
+      width: 200px; /* 在小屏幕上縮小側邊欄的寬度 */
+    }
+
+
+    .toc {
+      display: none; /* 隱藏目錄 */
+    }
+    
+    .toc.show {
+      display: block; /* 顯示目錄 */
+    }
+
+    .toc-toggle-btn {
+      bottom: 50%;
+    }
+
+    .toc-toggle-btn:hover {
+      background-color: rgba(0, 0, 0, 0.2); /* 恢復原本的背景色 */
+    }
+
+    .scroll-to-top-btn:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home-intro h2 {
+      font-size: 1.2em; /* 手機屏幕的字體大小 */
+    }
+  
+    header h1 {
+      font-size: 1.5em; /* 根據需要調整 */
+    }
+
+    header .logo2 {
+      display: none; /* 隱藏 logo2 */
+    }
+  
+    header {
+      padding: 15px;
+    }
+
+  
+    nav {
+      align-items: center;
+    }
+  
+    button {
+      padding: 8px 16px;
+      font-size: 0.9em;
+    }
+  
+    /* Archives 主內容 */
+    main {
+      padding: 5px;
+    }
+
+    #open-btn {
+      width: 55px; /* 在非常小的屏幕上設置最小的寬度 */
+      height: 55px; /* 在非常小的屏幕上設置最小的高度 */
+      font-size: 0.6em; /* 進一步減少字體大小 */
+    }
+
+    #sidebar {
+      width: 180px; /* 在更小屏幕上進一步縮小側邊欄的寬度 */
+    }
+
+    #sidebar #close-btn {
+      right: 5px; /* 距離右邊20px */
+    }
+
+    .toc {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: auto; /* 高度自動調整 */
+      box-shadow: none; /* 移除陰影 */
+      border-left: none; /* 移除邊框 */
+      border-top: 1px solid #ddd; /* 增加上邊框 */
+      background: #f9f9f9;
+    }
+  
+    .toc ul {
+      padding: 10px; /* 增加內邊距 */
+    }
+  
+    .toc ul li a {
+      font-size: 0.9em; /* 調整字體大小 */
+      padding: 12px; /* 增加內邊距 */
+    }
+  }
