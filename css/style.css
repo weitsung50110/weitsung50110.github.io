@@ -14,8 +14,9 @@ body {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #4fc3f7;
-  color: #fff;
+  background: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
+  background-size: 400% 400%; /* 增加背景圖像的覆蓋範圍 */
+  color: #fff7df;
 }
 
 footer p {
@@ -31,7 +32,7 @@ footer p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  color: #ffffff;
+  color: #000000;
   /* 移除背景圖片 */
 }
 
@@ -51,18 +52,6 @@ footer p {
   color: #f07b9c;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
   animation: textPulse 1.5s ease infinite;
-}
-
-/* 添加動畫樣式 */
-.home-intro {
-  animation: gradientShift 15s ease infinite;
-}
-
-/* 添加動態背景的樣式，若有需要 */
-@keyframes gradientShift {
-  0% { background: linear-gradient(to right, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5)); }
-  50% { background: linear-gradient(to right, rgba(255, 0, 150, 0.5), rgba(255, 204, 0, 0.5)); }
-  100% { background: linear-gradient(to right, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5)); }
 }
 
 @keyframes textPulse {
