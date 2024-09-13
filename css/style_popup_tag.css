@@ -110,3 +110,16 @@
   color: #633000;
   font-weight: bold;
 }
+
+
+
+
+#content-area * {
+  box-sizing: border-box;
+  width: 100%;
+}
+#content-area {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
