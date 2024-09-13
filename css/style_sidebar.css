@@ -11,7 +11,7 @@
   z-index: 1000; /* 確保側邊欄在最上層 */
 }
 
-#sidebar a {
+#sidebar .author-info a {
   text-decoration: none;
   background: #f9f5fb;
   color: #cd6000;
@@ -20,7 +20,7 @@
   transition: background 0.1s, color 0.1s;
 }
 
-#sidebar a:hover, #sidebar a:hover {
+#sidebar .author-info a:hover{
   background: #f7e4fc;
   color: #633000;
 }
@@ -87,4 +87,51 @@ body{
 
 #open-btn:hover {
   background-color: #daf6fa; /* 滑鼠懸停時的顏色變化 */
+}
+
+
+
+/* 標籤和分類區域樣式 */
+.side_categories-section, .side_tags-section {
+  margin-top: 10px; /* 上方間距 */
+  padding: 10px; /* 內邊距 */
+  background: #2c2c2c; /* 背景顏色（側邊欄背景色） */
+  border-radius: 8px; /* 圓角 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 輕微陰影 */
+}
+
+.side_categories-section h3, .side_tags-section h3 {
+  font-size: 1.1em; /* 標題字體大小 */
+  color: #e1f5fe; /* 標題顏色 */
+  margin-bottom: 10px; /* 標題下方間距 */
+  border-bottom: 1px solid #444; /* 底部邊框 */
+  padding-bottom: 5px; /* 標題底部內邊距 */
+  text-align: left; /* 標題左對齊 */
+  font-weight: 600; /* 標題字體粗細 */
+}
+
+.side_categories-container, .side_tags-container {
+  display: flex; /* 使用彈性布局 */
+  flex-wrap: wrap; /* 允許換行 */
+  gap: 8px; /* 內部間距 */
+}
+
+.side_category-item, .side_tag-item {
+  display: inline-block; /* 行內顯示 */
+  background: #444; /* 背景顏色 */
+  color: #e1f5fe; /* 文字顏色 */
+  text-decoration: none; /* 去掉下劃線 */
+  padding: 5px 10px; /* 內邊距 */
+  border-radius: 15px; /* 圓角 */
+  font-size: 0.9em; /* 字體大小 */
+  text-overflow: ellipsis; /* 當內容超出時使用省略號 */
+  overflow: hidden; /* 隱藏超出內容 */
+  white-space: nowrap; /* 防止換行 */
+  transition: background 0.1s, color 0.1s; /* 背景顏色和文字顏色過渡效果 */
+}
+
+.side_category-item:hover, .side_tag-item:hover {
+  background: #3f3c3c; /* 懸停背景顏色 */
+  color: #ffffff; /* 懸停文字顏色 */
+  text-decoration: underline; /* 懸停時顯示下劃線 */
 }
