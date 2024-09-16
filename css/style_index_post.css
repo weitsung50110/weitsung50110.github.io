@@ -70,3 +70,11 @@
 .index_post .read-more:hover {
   text-decoration: underline;
 }
+
+
+
+/* post-count 樣式 */
+.post-count {
+  color: #fffee5; /* 設定字體顏色 */
+  text-align: center; /* 文字置中 */
+}
