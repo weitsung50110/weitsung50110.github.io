@@ -147,7 +147,7 @@ nav {
 /* 漢堡選單樣式 */
 .menu-toggle {
   display: none;
-  background: #4fc3f7;
+  background: linear-gradient(45deg, #51595d, #384b55);
   color: #fff;
   border: none;
   padding: 10px;
