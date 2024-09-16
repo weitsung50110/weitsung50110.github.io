@@ -33,9 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', function(event) {
       event.preventDefault();
       const tagName = this.getAttribute('data-tag');
-      fetchContent('tags', tagName);
-      document.getElementById('content-area').innerHTML = 'tag222';
       console.log("Hello, world!");
+      fetchContent('tags', tagName);
+      document.getElementById('content-area').innerHTML = 'Loading...<3';
+      
 
     });
   });
@@ -45,9 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', function(event) {
       event.preventDefault();
       const categoryName = this.getAttribute('data-category');
-      fetchContent('categories', categoryName);
-      document.getElementById('content-area').innerHTML = 'category';
       console.log("Hello, world!");
+      fetchContent('categories', categoryName);
+      document.getElementById('content-area').innerHTML = 'Loading...<3';
+      
 
     });
   });

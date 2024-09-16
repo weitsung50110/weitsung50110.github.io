@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const tagName = this.getAttribute('data-tag');
         fetchContent('tags', tagName);
-        document.getElementById('content-area').innerHTML = 'tag222';
+        document.getElementById('content-area').innerHTML = 'Loading...<3';
 
         // 顯示彈跳視窗
         const modal = document.querySelector('#modal');
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const categoryName = this.getAttribute('data-category');
         fetchContent('categories', categoryName);
-        document.getElementById('content-area').innerHTML = 'category';
+        document.getElementById('content-area').innerHTML = 'Loading...<3';
 
         // 顯示彈跳視窗
         const modal = document.querySelector('#modal');
