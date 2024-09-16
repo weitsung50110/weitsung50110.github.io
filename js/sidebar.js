@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             bodyElement.style.marginLeft = sidebar.style.left === '0px' ? '250px' : '0';
         } else {
             // 在手機模式下，確保主內容區域不變
-            bodyElement.style.marginLeft = '0';
+            bodyElement.style.marginLeft = '0'; // 確保主內容區域不被推動
         }
     }
 

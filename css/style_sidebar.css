@@ -9,7 +9,30 @@
   transition: all 0.3s ease; /* 讓動畫變化平滑 */
   padding: 20px;
   z-index: 1000; /* 確保側邊欄在最上層 */
+  overflow-y: auto; /* 垂直方向顯示滾動條 */
+  overflow-x: hidden; /* 水平方向不顯示滾動條 */
 }
+
+/* 基本滾動條樣式 */
+#sidebar::-webkit-scrollbar {
+  width: 12px; /* 設定滾動條寬度 */
+}
+
+#sidebar::-webkit-scrollbar-track {
+  background: #2c2c2c; /* 滾動條背景顏色 */
+  border-radius: 10px; /* 滾動條背景圓角 */
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background: #555; /* 滾動條滑塊顏色 */
+  border-radius: 10px; /* 滾動條滑塊圓角 */
+  border: 3px solid #333; /* 滾動條滑塊邊框 */
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background: #888; /* 滾動條滑塊懸停顏色 */
+}
+
 
 #sidebar .author-info a {
   text-decoration: none;
