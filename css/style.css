@@ -58,6 +58,14 @@ footer p {
   50% { transform: scale(1.01); }
 }
 
+.welcome-desktop {
+  display: block; /* 預設為顯示 */
+}
+
+.welcome-mobile {
+  display: none; /* 預設為隱藏 */
+}
+
 
 
 /* 返回頂部按鈕樣式 */

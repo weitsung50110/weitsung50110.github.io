@@ -194,4 +194,12 @@
       font-size: 0.9em; /* 調整字體大小 */
       padding: 12px; /* 增加內邊距 */
     }
+
+    .welcome-desktop {
+      display: none; /* 隱藏桌面版本 */
+    }
+  
+    .welcome-mobile {
+      display: block; /* 顯示手機版本 */
+    }
   }

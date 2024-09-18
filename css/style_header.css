@@ -97,6 +97,7 @@ nav {
 
 .nav-top li a:hover{
   text-decoration: underline;
+  background-color: #9f3f00;
 }
 
 /* 下拉菜單樣式 */
@@ -166,4 +167,10 @@ nav {
   padding: 0;
   margin: 0;
   margin-top: 10px;
+}
+
+
+#press_show_cute img {
+  width: 30px; /* 設定圖片寬度 */
+  height: 30px; /* 設定圖片高度 */
 }
