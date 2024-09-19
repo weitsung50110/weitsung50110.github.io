@@ -16,8 +16,8 @@
 /* 響應式設計 */
 @media (max-width: 768px) {
     .post {
-      max-width: 100%;
-      width: 100%;
+      max-width: 100%; 
+      width: 100%; /* 手機模式目錄不會直接跳出 因此可以直接滿版 */
     }
 
     .header-content img {
