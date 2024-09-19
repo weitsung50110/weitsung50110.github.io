@@ -7,7 +7,8 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  max-width: auto; /* 設置最大寬度，避免內容過於寬 */
+  max-width: 100%;
+  width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
