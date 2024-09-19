@@ -138,7 +138,7 @@
 <li><strong>SMSSpamCollection_bert_predict.py</strong>: 預測檔案</li>
 </ul>
 <h2 id="GitHub-Repository"><a href="#GitHub-Repository" class="headerlink" title="GitHub Repository"></a>GitHub Repository</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Bert_HugginFace_Train_Predict_SpamEmails">Bert_HugginFace_Train_Predict_SpamEmails</a><br>Contribute to weitsung50110&#x2F;Bert_HugginFace_Train_Predict_SpamEmails development by creating an account on GitHub.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Bert_HugginFace_Train_Predict_SpamEmails">Bert HugginFace Train Predict SpamEmails</a><br>Contribute to weitsung50110&#x2F;Bert HugginFace Train Predict SpamEmails development by creating an account on GitHub.</li>
 </ul>
 <h2 id="指令介紹"><a href="#指令介紹" class="headerlink" title="指令介紹"></a>指令介紹</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python SMSSpamCollection_bert.py  <span class="comment"># 訓練指令</span></span><br><span class="line">python SMSSpamCollection_bert_predict.py  <span class="comment"># 預測指令</span></span><br></pre></td></tr></table></figure>
 
@@ -252,8 +252,13 @@
 <h2 id="預測模型"><a href="#預測模型" class="headerlink" title="預測模型"></a>預測模型</h2><h3 id="文本被-tokenized-後會變成什麼模樣"><a href="#文本被-tokenized-後會變成什麼模樣" class="headerlink" title="文本被 tokenized 後會變成什麼模樣?"></a>文本被 tokenized 後會變成什麼模樣?</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X_test_tokenized = tokenizer(X_test, padding=<span class="literal">True</span>, truncation=<span class="literal">True</span>, max_length=<span class="number">512</span>)</span><br><span class="line"><span class="built_in">print</span>(X_test_tokenized)</span><br></pre></td></tr></table></figure>
 
 <p>X_test_tokenized 裡面包含 Tokenization 的結果，每個樣本都包含了三個部分：<code>input_ids</code>、<code>token_type_ids</code> 和 <code>attention_mask</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;input_ids&#x27;: [[101, 2323, 1045, 3288, 1037, 5835, 1997, 4511, 2000, 2562, 2149, 21474, 1029, 2074, 12489, 999, 1045, 1521, 2222, 3288, 2028, 7539, 1012, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], </span><br><span class="line">[101, 2131, 1996, 6745, 2718, 3614, 5524, 2005, 2489, 999, 11562, 2023, 4957, 1024, 8299, 1013, 1013, 1056, 5244, 1012, 2898, 3669, 3726, 1012, 4012, 1013, 5950, 1012, 1059, 19968, 1029, 8909, 1027, 26667, 24087, 2549, 4215, 2692, 27717, 19841, 24087, 2581, 22907, 14526, 1004, 2034, 1027, 2995, 1067, 1039, 102]], </span><br><span class="line">&#x27;token_type_ids&#x27;: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], </span><br><span class="line">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], </span><br><span class="line">&#x27;attention_mask&#x27;: [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], </span><br><span class="line">[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code>&#123;&#39;input_ids&#39;: [[101, 2323, 1045, 3288, 1037, 5835, 1997, 4511, 2000, 2562, 2149, 21474, 1029, 2074, 12489, 999, 1045, 1521, 2222, 3288, 2028, 7539, 1012, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[101, 2131, 1996, 6745, 2718, 3614, 5524, 2005, 2489, 999, 11562, 2023, 4957, 1024, 8299, 1013, 1013, 1056, 5244, 1012, 2898, 3669, 3726, 1012, 4012, 1013, 5950, 1012, 1059, 19968, 1029, 8909, 1027, 26667, 24087, 2549, 4215, 2692, 27717, 19841, 24087, 2581, 22907, 14526, 1004, 2034, 1027, 2995, 1067, 1039, 102]], 
+&#39;token_type_ids&#39;: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
+&#39;attention_mask&#39;: [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]&#125;
+</code></pre>
 <h4 id="1-input-ids"><a href="#1-input-ids" class="headerlink" title="1. input_ids"></a>1. input_ids</h4><p>這是每個文本樣本轉換後的 token 序列。每個 token 都對應到 BERT 模型的詞彙表中的一個索引。在這個例子中，每個樣本都包含了一個長度為 50 的 token 序列。如果某個樣本的 token 數量不足 50，則會使用 0 進行填充，直到達到指定的序列長度。</p>
 <ul>
 <li><strong>101</strong> 代表 <code>[CLS]</code> 符號。 表示句子的開始。</li>
@@ -276,7 +281,7 @@
 <p>基本上只要在內容有寫上 “free”、”click link” 之類的字樣，就很容易判斷為垃圾郵件。</p>
 <h2 id="測試-Dataset"><a href="#測試-Dataset" class="headerlink" title="測試 Dataset"></a>測試 Dataset</h2><p>在 <code>SMSSpamCollection_test</code> 當中，</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Bert_HugginFace_Train_Predict_SpamEmails/blob/main/SMSSpamCollection_test?source=post_page-----50899c41f239--------------------------------">Bert_HugginFace_Train_Predict_SpamEmails&#x2F;SMSSpamCollection_test</a><br>Contribute to weitsung50110&#x2F;Bert_HugginFace_Train_Predict_SpamEmails</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Bert_HugginFace_Train_Predict_SpamEmails/blob/main/SMSSpamCollection_test?source=post_page-----50899c41f239--------------------------------">Bert HugginFace Train Predict SpamEmails&#x2F;SMSSpamCollection test</a><br>Contribute to weitsung50110&#x2F;Bert HugginFace Train Predict SpamEmails</li>
 </ul>
 <p>大家可以發揮創意，在測試 Dataset 加入自己的郵件語句，實測模型能否辨認出來。</p>
 <h3 id="添加方式"><a href="#添加方式" class="headerlink" title="添加方式"></a>添加方式</h3><ol>
