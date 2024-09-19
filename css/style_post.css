@@ -192,12 +192,26 @@ tr:hover {
 }
 
 /* Markdown 列表（如 - 或 *） */
+/* 無序列表（如 - 或 *） */
 ul {
-  padding-left: 20px; /* 確保列表項目有適當的左邊距 */
+  padding-left: 20px; /* 無序列表的左邊距 */
+  margin-left: 0; /* 去除外邊距 */
 }
 
+/* 有序列表（如 1. 或 2.） */
 ol {
-  padding-left: 30px; /* 確保有相同的左邊距 */
+  padding-left: 20px; /* 有序列表的左邊距 */
+  margin-left: 0; /* 去除外邊距 */
+}
+
+/* 讓有序列表的數字部分變大 */
+/* ol li {
+  font-size: 1em;  其他文字保持原狀 
+} */
+
+ol li::marker {
+  font-size: 1.2em; /* 數字部分變大 */
+  font-weight: bold; /* 可選：讓數字更突出 */
 }
 
 /* 當表格超出容器寬度時顯示滾動條 */
