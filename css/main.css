@@ -15,6 +15,11 @@
 
 /* 響應式設計 */
 @media (max-width: 768px) {
+    .post {
+      max-width: 100%;
+      width: 100%;
+    }
+
     .header-content img {
       order: 1; /* 確保圖片顯示在標題左邊 */
     }
