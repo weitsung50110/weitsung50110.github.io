@@ -147,63 +147,6 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull weitsung50110/bert_huggingface:1.0</span><br></pre></td></tr></table></figure>
 
-<h2 id="訓練模型"><a href="#訓練模型" class="headerlink" title="訓練模型"></a>訓練模型</h2><h3 id="資料準備"><a href="#資料準備" class="headerlink" title="資料準備"></a>資料準備</h3><p>SMS Spam Collection Dataset 可以在 Kaggle 下載，我也有放在我的 GitHub repo 當中，SMSSpamCollection 歡迎大家取用。</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset">Kaggle Dataset</a></li>
-</ul>
-<h3 id="模型準備"><a href="#模型準備" class="headerlink" title="模型準備"></a>模型準備</h3><p>使用 BERT 模型的預訓練版本 “bert-base-uncased”，透過 <code>BertForSequenceClassification</code> 來建立文本分類模型。</p>
-<p>初始化 tokenizer，將文本轉換成模型可接受的輸入格式。</p>
-<table>
-<thead>
-<tr>
-<th>Model</th>
-<th>#params</th>
-<th>Language</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>bert-base-uncased</td>
-<td>110M</td>
-<td>English</td>
-</tr>
-<tr>
-<td>bert-large-uncased</td>
-<td>340M</td>
-<td>English</td>
-</tr>
-<tr>
-<td>bert-base-cased</td>
-<td>110M</td>
-<td>English</td>
-</tr>
-<tr>
-<td>bert-large-cased</td>
-<td>340M</td>
-<td>English</td>
-</tr>
-<tr>
-<td>bert-base-chinese</td>
-<td>110M</td>
-<td>Chinese</td>
-</tr>
-<tr>
-<td>bert-base-multilingual-cased</td>
-<td>110M</td>
-<td>Multiple</td>
-</tr>
-<tr>
-<td>bert-large-uncased-whole-word-masking</td>
-<td>340M</td>
-<td>English</td>
-</tr>
-<tr>
-<td>bert-large-cased-whole-word-masking</td>
-<td>340M</td>
-<td>English</td>
-</tr>
-</tbody></table>
-<p>根據 Hugging Face 官方文檔中，可以看到有非常多模型可以選擇，而本研究是使用 <code>google-bert/bert-base-uncased</code>。</p>
-<p>Hugging Face BERT community: <a target="_blank" rel="noopener" href="https://huggingface.co/google-bert">Hugging Face</a></p>
 <ol>
 <li><p>初始化 tokenizer 和模型：使用 Hugging Face 的 Transformers 庫中的 <code>BertTokenizer</code> 和 <code>BertForSequenceClassification</code> 類別，從預訓練的 BERT 模型中初始化 tokenizer 和分類模型。<code>model_name</code> 指定了要使用的預訓練模型，這裡使用了 <code>bert-base-uncased</code>，這是一個英文模型。</p>
 <p> 在後面預測的部分，tokenizer 有更詳細的教學。</p>
@@ -218,10 +161,15 @@
 </li>
 </ol>
 <p>這樣做的目的是為了準備好訓練所需的資料格式，使其可以被 PyTorch 模型接受並用於訓練。</p>
+<h3 id="使用-tokenizer-轉換文字"><a href="#使用-tokenizer-轉換文字" class="headerlink" title="使用 tokenizer 轉換文字"></a>使用 tokenizer 轉換文字</h3><p>定義了一個自訂的 Dataset 類別，用來建立訓練集和驗證集的 Dataset。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化 tokenizer</span></span><br><span class="line">tokenizer = BertTokenizer.from_pretrained(model_name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化模型</span></span><br><span class="line">model = BertForSequenceClassification.from_pretrained(model_name, num_labels=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 將資料集分成訓練集和驗證集</span></span><br><span class="line">X = <span class="built_in">list</span>(df[<span class="string">&#x27;message&#x27;</span>])</span><br><span class="line">y = <span class="built_in">list</span>(df[<span class="string">&#x27;label&#x27;</span>])</span><br><span class="line">X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=<span class="number">0.2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 tokenizer 將文字轉換為模型可接受的輸入格式</span></span><br><span class="line">X_train_tokenized = tokenizer(X_train, padding=<span class="literal">True</span>, truncation=<span class="literal">True</span>, max_length=<span class="number">512</span>)</span><br><span class="line">X_val_tokenized = tokenizer(X_val, padding=<span class="literal">True</span>, truncation=<span class="literal">True</span>, max_length=<span class="number">512</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="建立自訂的-Dataset-類別"><a href="#建立自訂的-Dataset-類別" class="headerlink" title="建立自訂的 Dataset 類別"></a>建立自訂的 Dataset 類別</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Dataset</span>(torch.utils.data.Dataset):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, encodings, labels=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.encodings = encodings</span><br><span class="line">        <span class="variable language_">self</span>.labels = labels</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self, idx</span>):</span><br><span class="line">        item = &#123;key: torch.tensor(val[idx]) <span class="keyword">for</span> key, val <span class="keyword">in</span> <span class="variable language_">self</span>.encodings.items()&#125;</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.labels:</span><br><span class="line">            item[<span class="string">&quot;labels&quot;</span>] = torch.tensor(<span class="variable language_">self</span>.labels[idx])</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.encodings[<span class="string">&quot;input_ids&quot;</span>])</span><br></pre></td></tr></table></figure>
+
 <p>建立訓練集和驗證集的 Dataset 物件：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_dataset = Dataset(X_train_tokenized, y_train)</span><br><span class="line">val_dataset = Dataset(X_val_tokenized, y_val)</span><br></pre></td></tr></table></figure>
 
-<h3 id="訓練模型-1"><a href="#訓練模型-1" class="headerlink" title="訓練模型"></a>訓練模型</h3><p>定義了計算評估指標的函式，包括準確率（accuracy）、召回率（recall）、精確率（precision）、F1 分數（F1 score）。</p>
+<h3 id="訓練模型"><a href="#訓練模型" class="headerlink" title="訓練模型"></a>訓練模型</h3><p>定義了計算評估指標的函式，包括準確率（accuracy）、召回率（recall）、精確率（precision）、F1 分數（F1 score）。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">compute_metrics</span>(<span class="params">p</span>):</span><br><span class="line">    pred, labels = p</span><br><span class="line">    pred = np.argmax(pred, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    accuracy = accuracy_score(y_true=labels, y_pred=pred)</span><br><span class="line">    recall = recall_score(y_true=labels, y_pred=pred)</span><br><span class="line">    precision = precision_score(y_true=labels, y_pred=pred)</span><br><span class="line">    f1 = f1_score(y_true=labels, y_pred=pred)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;accuracy&quot;</span>: accuracy, <span class="string">&quot;precision&quot;</span>: precision, <span class="string">&quot;recall&quot;</span>: recall, <span class="string">&quot;f1&quot;</span>: f1&#125;</span><br></pre></td></tr></table></figure>
 
 <p>初始化了 Trainer，設定了訓練相關的參數，包括訓練集、驗證集、計算評估指標的函式等。</p>
