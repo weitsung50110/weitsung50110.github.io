@@ -252,13 +252,6 @@
 <h2 id="預測模型"><a href="#預測模型" class="headerlink" title="預測模型"></a>預測模型</h2><h3 id="文本被-tokenized-後會變成什麼模樣"><a href="#文本被-tokenized-後會變成什麼模樣" class="headerlink" title="文本被 tokenized 後會變成什麼模樣?"></a>文本被 tokenized 後會變成什麼模樣?</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X_test_tokenized = tokenizer(X_test, padding=<span class="literal">True</span>, truncation=<span class="literal">True</span>, max_length=<span class="number">512</span>)</span><br><span class="line"><span class="built_in">print</span>(X_test_tokenized)</span><br></pre></td></tr></table></figure>
 
 <p>X_test_tokenized 裡面包含 Tokenization 的結果，每個樣本都包含了三個部分：<code>input_ids</code>、<code>token_type_ids</code> 和 <code>attention_mask</code>。</p>
-<pre><code>&#123;&#39;input_ids&#39;: [[101, 2323, 1045, 3288, 1037, 5835, 1997, 4511, 2000, 2562, 2149, 21474, 1029, 2074, 12489, 999, 1045, 1521, 2222, 3288, 2028, 7539, 1012, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[101, 2131, 1996, 6745, 2718, 3614, 5524, 2005, 2489, 999, 11562, 2023, 4957, 1024, 8299, 1013, 1013, 1056, 5244, 1012, 2898, 3669, 3726, 1012, 4012, 1013, 5950, 1012, 1059, 19968, 1029, 8909, 1027, 26667, 24087, 2549, 4215, 2692, 27717, 19841, 24087, 2581, 22907, 14526, 1004, 2034, 1027, 2995, 1067, 1039, 102]], 
-&#39;token_type_ids&#39;: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
-&#39;attention_mask&#39;: [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]&#125;
-</code></pre>
 <h4 id="1-input-ids"><a href="#1-input-ids" class="headerlink" title="1. input_ids"></a>1. input_ids</h4><p>這是每個文本樣本轉換後的 token 序列。每個 token 都對應到 BERT 模型的詞彙表中的一個索引。在這個例子中，每個樣本都包含了一個長度為 50 的 token 序列。如果某個樣本的 token 數量不足 50，則會使用 0 進行填充，直到達到指定的序列長度。</p>
 <ul>
 <li><strong>101</strong> 代表 <code>[CLS]</code> 符號。 表示句子的開始。</li>
