@@ -218,45 +218,7 @@
 </li>
 </ol>
 <p>這樣做的目的是為了準備好訓練所需的資料格式，使其可以被 PyTorch 模型接受並用於訓練。</p>
-<h3 id="使用-tokenizer-轉換文字"><a href="#使用-tokenizer-轉換文字" class="headerlink" title="使用 tokenizer 轉換文字"></a>使用 tokenizer 轉換文字</h3><p>定義了一個自訂的 Dataset 類別，用來建立訓練集和驗證集的 Dataset。</p>
-<h3 id="建立自訂的-Dataset-類別"><a href="#建立自訂的-Dataset-類別" class="headerlink" title="建立自訂的 Dataset 類別"></a>建立自訂的 Dataset 類別</h3><p>建立訓練集和驗證集的 Dataset 物件：</p>
-<h3 id="訓練模型-1"><a href="#訓練模型-1" class="headerlink" title="訓練模型"></a>訓練模型</h3><p>定義了計算評估指標的函式，包括準確率（accuracy）、召回率（recall）、精確率（precision）、F1 分數（F1 score）。</p>
-<p>初始化了 Trainer，設定了訓練相關的參數，包括訓練集、驗證集、計算評估指標的函式等。</p>
-<p>使用 <code>trainer.train()</code> 開始訓練模型，同時設置了提前停止訓練的機制，以防止過度擬合。</p>
-<h3 id="訓練參數說明"><a href="#訓練參數說明" class="headerlink" title="訓練參數說明"></a>訓練參數說明</h3><ul>
-<li><strong>output_dir</strong>: 指定訓練過程中模型和日誌等輸出的目錄。</li>
-<li><strong>evaluation_strategy</strong>: 指定評估策略，這裡設置為 “steps”，表示基於步驟數進行評估。</li>
-<li><strong>eval_steps</strong>: 指定在訓練過程中每隔多少步進行一次評估。</li>
-<li><strong>per_device_train_batch_size</strong>: 每個訓練裝置（device）的批次大小。</li>
-<li><strong>per_device_eval_batch_size</strong>: 每個評估裝置的批次大小。</li>
-<li><strong>num_train_epochs</strong>: 訓練的總時代數（epochs）。</li>
-<li><strong>seed</strong>: 隨機種子，用於重現性。</li>
-<li><strong>load_best_model_at_end</strong>: 是否在訓練結束時載入最佳模型。</li>
-<li><strong>logging_steps</strong>: 每隔多少步輸出一次訓練日誌。</li>
-<li><strong>report_to</strong>: 指定將訓練進度報告到哪個工具，這裡設置為 “tensorboard”，表示將訓練進度報告到 TensorBoard。</li>
-</ul>
-<p><code>seed</code> 參數是用於設置隨機種子的，它的作用是確保在訓練過程中的隨機操作（例如參數初始化、數據順序洗牌等）是可重現的。通常情況下，當我們希望每次運行訓練過程時得到相同的結果時，就會設置隨機種子。這對於實驗的可重現性和結果的一致性非常重要。</p>
-<p><code>load_best_model_at_end</code> 參數用於控制是否在訓練結束時載入最佳的模型。在訓練過程中，模型的性能可能會隨著時間逐漸提升或者下降，因此通常會在每個評估步驟或者一定間隔之後進行模型性能的評估，並保存當前最佳的模型。當訓練結束時，這個參數可以確保載入最佳的模型，而不是最後一個模型，這樣可以確保我們得到的是在驗證集上性能最好的模型。</p>
-<p><img src="/assets/images/%E4%BD%BF%E7%94%A8-Hugging-Face-%E7%9A%84-Transformers-%E5%BA%AB%E4%BE%86%E5%AF%A6%E7%8F%BE-BERT-%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%A8%93%E7%B7%B4%E5%BE%AE%E8%AA%BF%EF%BC%88fine-tuning%EF%BC%89-%E4%BB%A5%E9%80%B2%E8%A1%8C%E5%9E%83%E5%9C%BE%E9%83%B5%E4%BB%B6%E7%9A%84%E8%BE%A8%E8%AD%98%E5%88%86%E9%A1%9E/0.png"></p>
-<h2 id="預測模型"><a href="#預測模型" class="headerlink" title="預測模型"></a>預測模型</h2><h3 id="文本被-tokenized-後會變成什麼模樣"><a href="#文本被-tokenized-後會變成什麼模樣" class="headerlink" title="文本被 tokenized 後會變成什麼模樣?"></a>文本被 tokenized 後會變成什麼模樣?</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X_test_tokenized = tokenizer(X_test, padding=True, truncation=True, max_length=512)</span><br><span class="line">print(X_test_tokenized)</span><br></pre></td></tr></table></figure>
-
-<p>X_test_tokenized 裡面包含 Tokenization 的結果，每個樣本都包含了三個部分：<code>input_ids</code>、<code>token_type_ids</code> 和 <code>attention_mask</code>。</p>
-<pre><code>&#123;&#39;input_ids&#39;: [[101, 2323, 1045, 3288, 1037, 5835, 1997, 4511, 2000, 2562, 2149, 21474, 1029, 2074, 12489, 999, 1045, 1521, 2222, 3288, 2028, 7539, 1012, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[101, 2131, 1996, 6745, 2718, 3614, 5524, 2005, 2489, 999, 11562, 2023, 4957, 1024, 8299, 1013, 1013, 1056, 5244, 1012, 2898, 3669, 3726, 1012, 4012, 1013, 5950, 1012, 1059, 19968, 1029, 8909, 1027, 26667, 24087, 2549, 4215, 2692, 27717, 19841, 24087, 2581, 22907, 14526, 1004, 2034, 1027, 2995, 1067, 1039, 102]], 
-&#39;token_type_ids&#39;: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
-&#39;attention_mask&#39;: [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]&#125;
-</code></pre>
-<h4 id="1-input-ids"><a href="#1-input-ids" class="headerlink" title="1. input_ids"></a>1. input_ids</h4><p>這是每個文本樣本轉換後的 token 序列。每個 token 都對應到 BERT 模型的詞彙表中的一個索引。在這個例子中，每個樣本都包含了一個長度為 50 的 token 序列。如果某個樣本的 token 數量不足 50，則會使用 0 進行填充，直到達到指定的序列長度。</p>
-<ul>
-<li><strong>101</strong> 代表 <code>[CLS]</code> 符號。 表示句子的開始。</li>
-<li><strong>102</strong> 代表 <code>[SEP]</code> 符號。 表示句子的結束或分隔不同的句子。</li>
-</ul>
-<h4 id="2-token-type-ids"><a href="#2-token-type-ids" class="headerlink" title="2. token_type_ids"></a>2. token_type_ids</h4><p>這個部分是用來區分不同句子的。在這裡，所有的 token 都屬於同一個句子，因此對應的值都是 0。在處理文本對任務時，將會有兩個句子，並使用 0 和 1 來區分它們。</p>
-<h4 id="3-attention-mask"><a href="#3-attention-mask" class="headerlink" title="3. attention_mask"></a>3. attention_mask</h4><p>這個部分用來指示哪些 token 是模型在處理時應該關注的。在這裡，所有的 token 都是被處理的，因此對應的值都是 1。在填充的部分，對應的值則是 0，用於告訴模型這些部分是填充的，不應該參與計算。</p>
-<p>這些 tokenization 結果是 BERT 模型在處理文本數據時所需的輸入格式，其中包括了文本的 token 序列、句子區分和注意力遮罩等信息。</p>
-<h3 id="預測結果"><a href="#預測結果" class="headerlink" title="預測結果"></a>預測結果</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Make prediction</span><br><span class="line">raw_pred, _, _ = test_trainer.predict(test_dataset)</span><br><span class="line"></span><br><span class="line"># Preprocess raw predictions</span><br><span class="line">y_pred = np.argmax(raw_pred, axis=1)</span><br></pre></td></tr></table></figure>
+<h3 id="預測結果"><a href="#預測結果" class="headerlink" title="預測結果"></a>預測結果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Make prediction</span></span><br><span class="line">raw_pred, _, _ = test_trainer.predict(test_dataset)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Preprocess raw predictions</span></span><br><span class="line">y_pred = np.argmax(raw_pred, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
 <p><code>raw_pred</code> 為包含 9 個元素的一維數組。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[[ 4.478097 -4.762506 ]</span><br><span class="line">[-3.7398722 3.903498 ]</span><br><span class="line">[-3.7016623 3.8625014]</span><br><span class="line">[-3.7578042 3.9365413]</span><br><span class="line">[-3.6734304 3.8043854]</span><br><span class="line">[ 4.5997095 -4.8369007]</span><br><span class="line">[-3.3514545 3.4255216]</span><br><span class="line">[-3.7296603 3.8799422]</span><br><span class="line">[ 3.270107 -3.534067 ]]</span><br></pre></td></tr></table></figure>
