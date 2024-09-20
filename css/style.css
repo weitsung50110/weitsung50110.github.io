@@ -92,7 +92,7 @@ footer p {
 /* 游標所在位置添加可愛的特效 */
 .cursor-effect {
   position: absolute;
-  width: 20px; /* 維持寬度 */
+  width: 22px; /* 維持寬度 */
   height: 20px; /* 維持高度 */
   border-radius: 50%; /* 圓形 */
   background: rgba(255, 105, 180, 0.4); /* 調整透明度，降低至 0.4 */
