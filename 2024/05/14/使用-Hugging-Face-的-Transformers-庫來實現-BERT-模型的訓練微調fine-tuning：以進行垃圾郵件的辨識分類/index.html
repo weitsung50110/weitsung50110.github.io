@@ -117,7 +117,10 @@
   <!-- 目錄容器 -->
   <div class="article-container">
     <div class="article-content">
-      <h3 id="Using-Hugging-Face’s-Transformers-to-implement-fine-tuning-of-the-BERT-model-for-classifying-spam-emails"><a href="#Using-Hugging-Face’s-Transformers-to-implement-fine-tuning-of-the-BERT-model-for-classifying-spam-emails" class="headerlink" title="Using Hugging Face’s Transformers to implement fine-tuning of the BERT model for classifying spam emails."></a>Using Hugging Face’s Transformers to implement fine-tuning of the BERT model for classifying spam emails.</h3><p>此文章也有發表在Medium上 &gt;&gt;</p>
+      <blockquote>
+<p>Using Hugging Face’s Transformers to implement fine-tuning of the BERT model for classifying spam emails.</p>
+</blockquote>
+<p>此文章也有發表在Medium上 &gt;&gt;</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/%E4%BD%BF%E7%94%A8-hugging-face-%E7%9A%84-transformers-%E5%BA%AB%E4%BE%86%E5%AF%A6%E7%8F%BE-bert-%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%A8%93%E7%B7%B4%E5%BE%AE%E8%AA%BF-fine-tuning-%E4%BB%A5%E9%80%B2%E8%A1%8C%E5%9E%83%E5%9C%BE%E9%83%B5%E4%BB%B6%E7%9A%84%E8%BE%A8%E8%AD%98%E5%88%86%E9%A1%9E-50899c41f239">使用 Hugging Face 的 Transformers 庫來實現 BERT 模型的訓練微調（fine-tuning），以進行垃圾郵件的辨識分類。</a></li>
 </ul>
@@ -262,13 +265,21 @@
 <h3 id="預測結果"><a href="#預測結果" class="headerlink" title="預測結果"></a>預測結果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Make prediction</span></span><br><span class="line">raw_pred, _, _ = test_trainer.predict(test_dataset)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Preprocess raw predictions</span></span><br><span class="line">y_pred = np.argmax(raw_pred, axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
 <p><code>raw_pred</code> 為包含 9 個元素的一維數組。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[[ 4.478097 -4.762506 ]</span><br><span class="line">[-3.7398722 3.903498 ]</span><br><span class="line">[-3.7016623 3.8625014]</span><br><span class="line">[-3.7578042 3.9365413]</span><br><span class="line">[-3.6734304 3.8043854]</span><br><span class="line">[ 4.5997095 -4.8369007]</span><br><span class="line">[-3.3514545 3.4255216]</span><br><span class="line">[-3.7296603 3.8799422]</span><br><span class="line">[ 3.270107 -3.534067 ]]</span><br></pre></td></tr></table></figure>
-
+<pre><code>[[ 4.478097 -4.762506 ]
+[-3.7398722 3.903498 ]
+[-3.7016623 3.8625014]
+[-3.7578042 3.9365413]
+[-3.6734304 3.8043854]
+[ 4.5997095 -4.8369007]
+[-3.3514545 3.4255216]
+[-3.7296603 3.8799422]
+[ 3.270107 -3.534067 ]]
+</code></pre>
 <p><code>np.argmax</code> 函式返回一個包含 9 個元素的一維數組，其中每個元素是對應行的預測結果（0 或 1）。<br>如果第一個數值較大，則對應位置的元素為 0；如果第二個數值較大，則對應位置的元素為 1。</p>
 <p><img src="/assets/images/%E4%BD%BF%E7%94%A8-Hugging-Face-%E7%9A%84-Transformers-%E5%BA%AB%E4%BE%86%E5%AF%A6%E7%8F%BE-BERT-%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%A8%93%E7%B7%B4%E5%BE%AE%E8%AA%BF%EF%BC%88fine-tuning%EF%BC%89-%E4%BB%A5%E9%80%B2%E8%A1%8C%E5%9E%83%E5%9C%BE%E9%83%B5%E4%BB%B6%E7%9A%84%E8%BE%A8%E8%AD%98%E5%88%86%E9%A1%9E/1.png"></p>
 <p>最後預測出來的答案如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[0, 1, 1, 1, 1, 0, 1, 1, 0]  # 預測答案</span><br></pre></td></tr></table></figure>
-
+<pre><code>[0, 1, 1, 1, 1, 0, 1, 1, 0]  # 預測答案
+</code></pre>
 <p>預測正確!!</p>
 <p>基本上只要在內容有寫上 “free”、”click link” 之類的字樣，就很容易判斷為垃圾郵件。</p>
 <h2 id="測試-Dataset"><a href="#測試-Dataset" class="headerlink" title="測試 Dataset"></a>測試 Dataset</h2><p>在 <code>SMSSpamCollection_test</code> 當中，</p>
@@ -321,6 +332,8 @@
         
           <a href="#" class="side_category-item" data-category="NLP">NLP</a>
         
+          <a href="#" class="side_category-item" data-category="AI">AI</a>
+        
       </div>
     </div>
   
@@ -358,6 +371,10 @@
         
           <a href="#" class="side_tag-item" data-tag="Hugging-Face">Hugging-Face</a>
         
+          <a href="#" class="side_tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+        
       </div>
     </div>
   
@@ -387,6 +404,8 @@
               <a href="#" class="category-item" data-category="Hexo主題">Hexo主題</a>
             
               <a href="#" class="category-item" data-category="NLP">NLP</a>
+            
+              <a href="#" class="category-item" data-category="AI">AI</a>
             
           </div>
         </div>
@@ -425,6 +444,10 @@
             
               <a href="#" class="tag-item" data-tag="Hugging-Face">Hugging-Face</a>
             
+              <a href="#" class="tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+            
+              <a href="#" class="tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+            
           </div>
         </div>
       
@@ -459,6 +482,10 @@
         
           <a href="https://weitsung50110.github.io/tags/Hugging-Face/" class="tag-item">Hugging-Face</a>
         
+          <a href="https://weitsung50110.github.io/tags/Text-to-Image/" class="tag-item">Text-to-Image</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Stable-Diffusion/" class="tag-item">Stable-Diffusion</a>
+        
       </div>
       
       <div id="category-content" style="display:none;">
@@ -468,6 +495,8 @@
           <a href="https://weitsung50110.github.io/categories/Hexo%E4%B8%BB%E9%A1%8C/" class="category-item">Hexo主題</a>
         
           <a href="https://weitsung50110.github.io/categories/NLP/" class="category-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/categories/AI/" class="category-item">AI</a>
         
       </div> -->
       
