@@ -128,3 +128,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
+
+// 當點擊 <h3> 標題時，控制下方容器的顯示和隱藏。
+const toggleSections = document.querySelectorAll('.h3-toggle-section');
+toggleSections.forEach(section => {
+    section.addEventListener('click', function() {
+        const container = this.nextElementSibling;
+        if (container.style.maxHeight) {
+            container.style.maxHeight = null; // 收起
+        } else {
+            container.style.display = 'block'; // 顯示
+            const height = container.scrollHeight + 'px'; // 獲取實際高度
+            container.style.maxHeight = height; // 設置為實際高度
+        }
+    });
+});

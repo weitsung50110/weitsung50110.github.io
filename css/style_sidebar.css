@@ -164,3 +164,12 @@ body{
   color: #ffffff; /* 懸停文字顏色 */
   text-decoration: underline; /* 懸停時顯示下劃線 */
 }
+
+
+.side_categories-container,
+.side_tags-container {
+  display: none; /* 初始隱藏 */
+  overflow: hidden; /* 確保內容不外露 */
+  max-height: 0; /* 使其高度為 0 */
+  transition: max-height 0.3s ease; /* 加入過渡效果 */
+}

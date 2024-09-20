@@ -87,3 +87,22 @@ header.addEventListener('click', (event) => {
     img.remove();
   }, 800); // 2 秒後移除圖片
 });
+
+
+// 游標所在位置添加可愛的特效
+document.addEventListener('mousemove', function(e) {
+  // 檢查螢幕寬度
+  if (window.innerWidth >= 768) { // 768px 以上才顯示特效
+    const cursorEffect = document.getElementById('cursor-effect');
+    cursorEffect.style.left = (e.pageX + 5) + 'px'; // 向右偏移 10 像素
+    cursorEffect.style.top = (e.pageY + 13) + 'px'; // 向下偏移 10 像素
+
+    cursorEffect.style.opacity = 1; // 顯示特效
+  }
+});
+
+// 當滑鼠移開時隱藏特效
+document.addEventListener('mouseleave', function() {
+  const cursorEffect = document.getElementById('cursor-effect');
+  cursorEffect.style.opacity = 0; // 隱藏特效
+});

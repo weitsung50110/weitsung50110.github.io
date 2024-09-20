@@ -214,8 +214,8 @@ image.save(output_filename)
 
   
     <div class="side_categories-section">
-      <h3>類別</h3>
-      <div class="side_categories-container">
+      <h3 class="h3-toggle-section">類別</h3>
+      <div class="side_categories-container" style="display: none;">
         
           <a href="#" class="side_category-item" data-category="GitHub">GitHub</a>
         
@@ -231,10 +231,8 @@ image.save(output_filename)
 
   
     <div class="side_tags-section">
-      <h3>標籤</h3>
-      <div class="side_tags-container">
-        
-          <a href="#" class="side_tag-item" data-tag="教學">教學</a>
+      <h3 class="h3-toggle-section">標籤</h3>
+      <div class="side_tags-container" style="display: none;">
         
           <a href="#" class="side_tag-item" data-tag="GitHub">GitHub</a>
         
@@ -277,13 +275,13 @@ image.save(output_filename)
   <div class="modal-content">
     <span class="close" id="closeButton">&times;</span>
     <div class="modal-sections">
-      <div class="social-links-section">
+      <!-- <div class="social-links-section">
         <h3>跟隨我</h3>
         <div class="social-links">
           <a href="https://github.com/weitsung50110" target="_blank"><i class="fab fa-github"></i>GitHub</a>
           <a href="https://medium.com/@weiberson" target="_blank"><i class="fab fa-medium"></i>Medium</a>
         </div>
-      </div>
+      </div> -->
       
       
         <div class="categories-section">
@@ -306,8 +304,6 @@ image.save(output_filename)
         <div class="tags-section">
           <h3>標籤</h3>
           <div class="tags-container">
-            
-              <a href="#" class="tag-item" data-tag="教學">教學</a>
             
               <a href="#" class="tag-item" data-tag="GitHub">GitHub</a>
             
@@ -344,8 +340,6 @@ image.save(output_filename)
       
       
       <!-- <div id="tag-content" style="display:none;">
-        
-          <a href="https://weitsung50110.github.io/tags/%E6%95%99%E5%AD%B8/" class="tag-item">教學</a>
         
           <a href="https://weitsung50110.github.io/tags/GitHub/" class="tag-item">GitHub</a>
         
@@ -414,3 +408,5 @@ image.save(output_filename)
 </html>
 <!-- 返回頂部按鈕 -->
 <button id="scroll-to-top-btn" class="scroll-to-top-btn">▲</button>
+
+<div id="cursor-effect" class="cursor-effect"></div>

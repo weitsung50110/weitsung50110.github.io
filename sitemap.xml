@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://weitsung50110.github.io/2022/09/15/Hello%20World/</loc>
+    <loc>https://weitsung50110.github.io/2024/09/04/hexo-theme-animal%E7%9A%84RWD%E6%95%99%E5%AD%B8/</loc>
     
     <lastmod>2024-09-20</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://weitsung50110.github.io/2024/09/04/hexo-theme-animal%E7%9A%84RWD%E6%95%99%E5%AD%B8/</loc>
+    <loc>https://weitsung50110.github.io/2022/09/15/Hello%20World/</loc>
     
     <lastmod>2024-09-20</lastmod>
     
@@ -81,13 +81,6 @@
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>https://weitsung50110.github.io/tags/%E6%95%99%E5%AD%B8/</loc>
-    <lastmod>2024-09-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>https://weitsung50110.github.io/tags/GitHub/</loc>
