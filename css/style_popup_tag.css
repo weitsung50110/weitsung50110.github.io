@@ -94,6 +94,8 @@
   display: flex;
   flex-wrap: wrap; /* 自動換行 */
   gap: 10px; /* 項目之間的間距 */
+  max-height: 200px; /* 設置最大高度 */
+  overflow-y: auto;  /* 允許垂直滾動 */
 }
 
 .category-item, .tag-item {
