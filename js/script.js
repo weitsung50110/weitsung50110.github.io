@@ -89,15 +89,20 @@ header.addEventListener('click', (event) => {
 });
 
 
-// 游標所在位置添加可愛的特效
 document.addEventListener('mousemove', function(e) {
-  // 檢查螢幕寬度
-  // if (window.innerWidth >= 768) { // 768px 以上才顯示特效
   const cursorEffect = document.getElementById('cursor-effect');
-  cursorEffect.style.left = (e.pageX + 3) + 'px'; // 向右偏移 10 像素
-  cursorEffect.style.top = (e.pageY + 10) + 'px'; // 向下偏移 10 像素
-  cursorEffect.style.opacity = 1; // 顯示特效
-  // }
+  const scrollbarWidth = 12; // 根據你的滾動條寬度設置
+
+  // 檢查滑鼠是否在滾動條範圍內
+  const isOverScrollbar = (e.pageX > window.innerWidth - scrollbarWidth-50);
+
+  if (isOverScrollbar) {
+    cursorEffect.style.opacity = 0; // 隱藏特效
+  } else {
+    cursorEffect.style.left = (e.pageX + 3) + 'px'; // 向右偏移 3 像素
+    cursorEffect.style.top = (e.pageY + 10) + 'px'; // 向下偏移 10 像素
+    cursorEffect.style.opacity = 1; // 顯示特效
+  }
 });
 
 // 當滑鼠移開時隱藏特效
