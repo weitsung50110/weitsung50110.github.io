@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weiberson&#39;s Blog - 程式設計與教學</title>
+<meta name="description" content="Weiberson Chang 的部落格，分享 AI、深度學習、機器學習、Hexo 主題開發及技術教學。探索最新的技術趨勢和開源項目。">
+<meta name="keywords" content="Weiberson Chang, AI, 深度學習, 機器學習, Hexo, GitHub, 教學, 開源, BERT, Transformers">
+<meta name="author" content="Weiberson Chang(weitsung50110)">
+<meta name="google-site-verification" content="jWAoNzh1Gol-JoVVT5Q0DjtDlWhLkB2STELvHuQipNE" />
+
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  
+
+  <header>
+  <div class="header-content">
+    <img src="https://weitsung50110.github.io/images/dog0.png" alt="Logo" class="logo">
+    <h1><a href="https://weitsung50110.github.io">Weiberson&#39;s Blog -<br/>程式設計與教學</a></h1>
+    <img src="https://weitsung50110.github.io/images/0.gif" alt="Logo2" class="logo2">
+
+    <!-- 在 nav 中包裹選單 -->
+    <nav class="mobile-nav">
+      <ul class="nav-top">
+        <li><a href="https://weitsung50110.github.io/">首頁</a></li>
+        <li><a href="https://weitsung50110.github.io/about">關於</a></li>
+        <li><a href="https://weitsung50110.github.io/archives">檔案</a></li>
+        <li><a id="tag_toggleButton">標籤&類別</a></li>
+        <li class="dropdown">
+          <a class="menu-button">跟隨我</a>
+          <div class="nav-menu">
+            <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">GitHub</a>
+            <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">Medium</a>
+          </div>
+        </li>
+      </ul>
+      <!-- 搜尋框 -->
+      <ul class="nav-bottom">
+        <li>
+          <div id="search-container">
+            <input type="text" id="search-input" placeholder="搜尋文章..." />
+            <button id="search-button">搜尋</button>
+            
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- 在 header 中添加漢堡選單 -->
+  <button class="menu-toggle" aria-label="Toggle Navigation">
+    ☰
+  </button>
+  
+  <div id="press_show_cute"></div>
+</header>
+
+  
+  <div id="container">
+    <div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <h3>搜尋結果</h3>
+    <span id="search-close" class="search-close">&times;</span>
+    <div id="search-results"></div>
+  </div>
+</div>
+    
+  
+    <article class="post">
+  <h1>LangChain RAG實作教學，結合Llama3讓LLM可以讀取PDF和DOC文件，並產生回應</h1>
+  <!-- <p class="post-date">日期：Tue May 28 2024 14:53:38 GMT+0000</p> -->
+  <p class="post-date">日期：2024-05-28 22:53:38</p>
+  <p class="post-author">作者：</p>
+  
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Hugging-Face/">Hugging Face</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LangChain/">LangChain</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Llama3/">Llama3</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/RAG/">RAG</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Ollama/">Ollama</a></li>
+            
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/LangChain/">LangChain</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>使用Ollama來引入最新的Llama3大語言模型，來實作LangChain RAG教學。</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <p>LangChain Retrieval Augmented</p>
+<blockquote>
+<p>本文是使用Ollama來引入最新的Llama3大語言模型，來實作LangChain RAG教學，可以讓LLM讀取PDF和DOC文件，達到客製化聊天機器人的效果。</p>
+</blockquote>
+<p>因為RAG不用重新訓練模型，而且Dataset是你自己準備的，餵食LLM即時又準確的Dataset，可以解決LLM資料有時間限制的問題，因此近期在NLP領域非常受歡迎。</p>
+<p>此文章也有發表在Medium上 &gt;&gt;</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/langchain-rag%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8-%E7%B5%90%E5%90%88llama3%E8%AE%93llm%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96pdf%E5%92%8Cdoc%E6%96%87%E4%BB%B6-%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89-2e7a0b2aacc1">LangChain RAG實作教學，結合Llama3讓LLM可以讀取PDF和DOC文件，並產生回應</a></p>
+</li>
+<li><p>Github Repository — <a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit">weitsung50110&#x2F;Huggingface Langchain kit</a></p>
+</li>
+</ul>
+<p>本文是使用到裡面的<a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/langchain_rag_doc.py">langchain_rag_doc.py</a>和<a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/langchain_rag_pdf.py">langchain_rag_pdf.py</a>檔案。</p>
+<p>關於Hugging Face的介紹可以參考這篇 - <a target="_blank" rel="noopener" href="https://medium.com/@weiberson/%E4%BD%BF%E7%94%A8-hugging-face-%E7%9A%84pipeline%E4%BE%86%E5%AF%A6%E7%8F%BE%E6%9C%AC%E5%9C%B0%E7%AB%AF%E6%96%87%E5%AD%97%E8%BD%89%E5%9C%96%E7%89%87-text-to-image-%E5%B7%B2%E9%80%B2%E8%A1%8C%E5%9C%96%E7%89%87%E7%94%9F%E6%88%90-707a69e9525d">使用 Hugging Face 的Pipeline來實現本地端文字轉圖片(Text-to-Image)，進行圖片生成</a></p>
+<h2 id="RAG流程圖"><a href="#RAG流程圖" class="headerlink" title="RAG流程圖"></a>RAG流程圖</h2><p><img src="/assets/images/LangChain-RAG%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8%EF%BC%8C%E7%B5%90%E5%90%88Llama3%E8%AE%93LLM%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96PDF%E5%92%8CDOC%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89/0.png"></p>
+<p>RAG運作圖參考自 <a target="_blank" rel="noopener" href="https://huggingface.co/learn/cookbook/zh-CN/advanced_rag">https://huggingface.co/learn/cookbook/zh-CN/advanced_rag</a></p>
+<p><img src="/assets/images/LangChain-RAG%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8%EF%BC%8C%E7%B5%90%E5%90%88Llama3%E8%AE%93LLM%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96PDF%E5%92%8CDOC%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89/1.png"><br>圖引用自 <a target="_blank" rel="noopener" href="https://python.langchain.com/docs/modules/data_connection/">Langchain</a></p>
+<h2 id="實作教學"><a href="#實作教學" class="headerlink" title="實作教學"></a>實作教學</h2><p><strong>langchain_rag_doc.py &gt;&gt; 這個_doc代表是匯入文件檔案doc</strong></p>
+<ol>
+<li><p>你會需要import以下套件</p>
+<pre><code> from langchain.chains.combine_documents import create_stuff_documents_chain
+ from langchain.chains import create_retrieval_chain
+ from langchain_core.prompts import ChatPromptTemplate
+ from langchain_community.llms import Ollama
+ from langchain_community.embeddings import OllamaEmbeddings
+ from langchain_community.vectorstores import FAISS
+ from langchain_core.documents import Document
+ from langchain_community.document_loaders import PyPDFLoader
+
+ from langchain.text_splitter import CharacterTextSplitter
+</code></pre>
+</li>
+</ol>
+<p>本文會匯入Doc文件和PDF來示範，分別為以下兩行</p>
+<pre><code>from langchain_core.documents import Document
+from langchain_community.document_loaders import PyPDFLoader
+</code></pre>
+<ol start="2">
+<li><p>建立模型和文件</p>
+<pre><code> # 初始化Ollama模型
+ llm = Ollama(model=&#39;llama3&#39;)
+
+ # 建立文件列表，每個文件包含一段文字內容
+ docs = [
+     Document(page_content=&#39;曼德珍珠奶茶草：這種植物具有強大的魔法屬性，常用於恢復被石化的受害者。&#39;),
+     Document(page_content=&#39;山羊可愛蓮花石 ：是一種從山羊胃中取出的石頭，可以解百毒。在緊急情況下，它被認為是最有效的解毒劑。&#39;),
+     Document(page_content=&#39;日本小可愛佐籐鱗片：這些鱗片具有強大的治愈能力，常用於製作治療藥水，特別是用於治療深層傷口。&#39;),
+ ]
+</code></pre>
+</li>
+</ol>
+<p>文件中的內容建議自創，因為你若寫普世通俗的內容，那麼Llama3本來就已經知道了，因此效果會沒那麼顯著~</p>
+<ol start="3">
+<li><p>設定文本分割器</p>
+<pre><code> # 設定文本分割器，chunk_size是分割的大小，chunk_overlap是重疊的部分
+ text_splitter = CharacterTextSplitter(chunk_size=20, chunk_overlap=5)
+ documents = text_splitter.split_documents(docs)  # 將文件分割成更小的部分
+</code></pre>
+</li>
+</ol>
+<h4 id="chunk-size-塊大小"><a href="#chunk-size-塊大小" class="headerlink" title="chunk_size (塊大小)"></a>chunk_size (塊大小)</h4><p>定義: 每個分割塊的大小，以字符數量為單位。<br>作用: 決定每個文本塊包含多少字符。</p>
+<h4 id="chunk-overlap-塊重疊"><a href="#chunk-overlap-塊重疊" class="headerlink" title="chunk_overlap (塊重疊)"></a>chunk_overlap (塊重疊)</h4><p>定義: 相鄰文本塊之間重疊的字符數量。<br>作用: 確保每個分割後的文本塊之間有一些重疊部分，以保證連貫性和上下文不丟失。</p>
+<h4 id="為什麼需要-chunk-overlap"><a href="#為什麼需要-chunk-overlap" class="headerlink" title="為什麼需要 chunk_overlap?"></a>為什麼需要 chunk_overlap?</h4><p>在自然語言處理和其他文本分析任務中，連貫性和上下文信息非常重要。<br>通過設置塊重疊部分，我們可以確保每個分割後的文本塊仍然包含足夠的上下文信息，避免因切割造成的信息丟失或語義斷裂。</p>
+<blockquote>
+<p>文本分割器的選擇非常多，詳情可以參考<a target="_blank" rel="noopener" href="https://api.python.langchain.com/en/latest/text_splitters_api_reference.html#">官方api文獻</a>和<a target="_blank" rel="noopener" href="https://python.langchain.com/v0.1/docs/modules/data_connection/document_transformers/">官方Text Splitters說明</a>，不過多數情況用 Recursive 即可，關於RecursiveCharacterTextSplitter的使用可以參考<a target="_blank" rel="noopener" href="https://python.langchain.com/v0.1/docs/modules/data_connection/document_transformers/recursive_text_splitter/">Recursively split by character文檔</a>。</p>
+</blockquote>
+<ol start="4">
+<li><p>建置embeddings和向量資料庫</p>
+<pre><code> # 初始化嵌入模型
+ embeddings = OllamaEmbeddings()
+
+ # 使用FAISS建立向量資料庫
+ vectordb = FAISS.from_documents(docs, embeddings)
+ # 將向量資料庫設為檢索器
+ retriever = vectordb.as_retriever()
+</code></pre>
+</li>
+<li><p>設定提示模板</p>
+<pre><code> # 設定提示模板，將系統和使用者的提示組合
+ prompt = ChatPromptTemplate.from_messages([
+     (&#39;system&#39;, &#39;Answer the user\&#39;s questions in Chinese, based on the context provided below:\n\n&#123;context&#125;&#39;),
+     (&#39;user&#39;, &#39;Question: &#123;input&#125;&#39;),
+ ])
+</code></pre>
+</li>
+<li><p>llm和提示模板結合</p>
+<pre><code> # 創建文件鏈，將llm和提示模板結合
+ document_chain = create_stuff_documents_chain(llm, prompt)
+
+ # 創建檢索鏈，將檢索器和文件鏈結合
+ retrieval_chain = create_retrieval_chain(retriever, document_chain)
+</code></pre>
+</li>
+<li><p>從用戶輸入中獲取問題，並用retrieval_chain來回答</p>
+<pre><code> context = []
+ input_text = input(&#39;&gt;&gt;&gt; &#39;)
+ while input_text.lower() != &#39;bye&#39;:
+     response = retrieval_chain.invoke(&#123;
+         &#39;input&#39;: input_text,
+         &#39;context&#39;: context
+     &#125;)
+     print(response[&#39;answer&#39;])
+     context = response[&#39;context&#39;]
+     input_text = input(&#39;&gt;&gt;&gt; &#39;)
+</code></pre>
+</li>
+</ol>
+<blockquote>
+<p>retrieval_chain.invoke 是執行這條chain的代碼，以前的教學或許會看到.run，但最新版本的LangChain會慢慢用.invoke當主流。</p>
+</blockquote>
+<h3 id="RUN程式，開始問Llama3問題吧"><a href="#RUN程式，開始問Llama3問題吧" class="headerlink" title="RUN程式，開始問Llama3問題吧:&gt;"></a>RUN程式，開始問Llama3問題吧:&gt;</h3><pre><code>root@4be643ba6a94:/app# python3 langchain_rag_doc.py
+&gt;&gt;&gt; 請告訴我珍珠奶茶是？
+🤔
+
+曼德珍珠奶茶草：這種植物具有強大的魔法屬性，常用於恢復被石化的受害者。
+</code></pre>
+<h4 id="‘context’-context"><a href="#‘context’-context" class="headerlink" title="‘context’: context"></a>‘context’: context</h4><p>如果把context註解掉的話，程式也可以RUN，但留著 ‘context’: context看起來會比較直觀。</p>
+<pre><code># context = []
+input_text = input(&#39;&gt;&gt;&gt; &#39;)
+while input_text.lower() != &#39;bye&#39;:
+    response = retrieval_chain.invoke(&#123;
+        &#39;input&#39;: input_text,
+        # &#39;context&#39;: context
+    &#125;)
+    print(response[&#39;answer&#39;])
+    # context = response[&#39;context&#39;]
+    input_text = input(&#39;&gt;&gt;&gt; &#39;)
+</code></pre>
+<p>若我們把程式碼改成如下，把response給print出來~</p>
+<pre><code>while input_text.lower() != &#39;bye&#39;:
+    response = retrieval_chain.invoke(&#123;
+        &#39;input&#39;: input_text,
+        &#39;context&#39;: context
+    &#125;)
+    print(response[&#39;answer&#39;])
+    context = response[&#39;context&#39;]
+    print(&quot;-------------------&quot;)
+    print(response)
+    input_text = input(&#39;&gt;&gt;&gt; &#39;)
+</code></pre>
+<p>可以看到結果如下，裡面會分別有<code>response[&#39;input&#39;]</code>、<code>response[&#39;context&#39;]</code>、<code>response[&#39;answer&#39;]</code></p>
+<pre><code>root@4be643ba6a94:/app# python3 langchain_rag_doc.py
+&gt;&gt;&gt; 有哪些工具可以用？
+🐐💧️
+
+有以下幾種工具可以使用：
+
+* 山羊可愛蓮花石：可以解百毒，對於急性中毒非常有效。
+* 日本小可愛佐籐鱗片：具有強大的治愈能力，可以用於製作治療藥水，特別是深層傷口的治療。
+* 曼德珍珠奶茶草：具有強大的魔法屬性，常用於恢復被石化的受害者。
+
+這些工具都可以幫助你解決問題！ 💪️
+-------------------
+&#123;&#39;input&#39;: &#39;有哪些工具可以用？&#39;, 
+&#39;context&#39;: [Document(page_content=&#39;山羊可愛蓮花石 ：是一種從山羊胃中取出的石頭，可以解百毒。在緊急情況下，它被認為是最有效的解毒劑。&#39;), 
+Document(page_content=&#39;日本小可愛佐籐鱗片：這些鱗片具有強大的治愈能力，常用於製作治療藥水，特別是用於治療深層傷口。&#39;), 
+Document(page_content=&#39;曼德珍珠奶茶草：這種植物具有強大的魔法屬性，常用於恢復被石化的受害者。&#39;)], 
+&#39;answer&#39;: &#39;🐐💧️\n\n有以下幾種工具可以使用：\n\n* 山羊可愛蓮花石：可以解百毒，對於急性中毒非常有效。\n* 
+日本小可愛佐籐鱗片：具有強大的治愈能力，可以用於製作治療藥水，特別是深層傷口的治療。\n* 
+曼德珍珠奶茶草：具有強大的魔法屬性，常用於恢復被石化的受害者。\n\n這些工具都可以幫助你解決問題！ 💪️&#39;&#125;\n這些工具都可以幫助你解決問題！ 💪️&#39;&#125;
+</code></pre>
+<h2 id="實作教學2"><a href="#實作教學2" class="headerlink" title="實作教學2"></a>實作教學2</h2><p><strong>langchain_rag_pdf.py &gt;&gt; 這個_pdf代表是匯入pdf檔案</strong></p>
+<p>把前面建立模型和文件的程式碼，更改為以下</p>
+<pre><code># 初始化Ollama模型
+llm = Ollama(model=&#39;llama3&#39;)
+
+# 載入並分割PDF文件
+loader = PyPDFLoader(&quot;文件名稱.pdf&quot;)
+docs = loader.load_and_split()
+</code></pre>
+<p>本文是使用PyPDFLoader來讀入PDF，LangChain中還有很多其他的API，可以參考官方文獻。<a target="_blank" rel="noopener" href="https://api.python.langchain.com/en/latest/community_api_reference.html#module-langchain_community.document_loaders">官方文獻</a>。</p>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><p>本文有在GitHub放了我寫的PDF測試檔案叫做<a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/pdf_test.pdf">pdf_test.pdf</a>，大家也可以拿來測試用。</p>
+<pre><code>loader = PyPDFLoader(&quot;pdf_test.pdf&quot;)
+
+root@4be643ba6a94:/app# python3 langchain_rag_pdf.py
+&gt;&gt;&gt; 請給我50字的摘要
+🇨🇳
+Wei tsung chang 的簡介：碩士畢業、AI軟體工程師，熱心工作，喜歡撰寫教學文章。他的技術栈包括Python、JavaScript、C#、Kotlin等程式語言，以及 Git 版本控制、Docker 等知識。
+(Translation: Introduction to Wei tsung chang: Master&#39;s degree holder, AI software engineer, enthusiastic about work, likes writing tutorial articles. His technical stack includes programming languages such as Python, JavaScript, C#, Kotlin, and version control tools like Git.)🇨🇳
+
+&gt;&gt;&gt; 文件中軟體工程師的名字叫什麼？
+🤔
+Answer: Wei Tsung Chang 碩士畢業，同樣可以稱呼為 Weiberson。 
+(The software engineer&#39;s name is Wei Tsung Chang, and can also be called Weiberson.)
+</code></pre>
+<h4 id="print-response"><a href="#print-response" class="headerlink" title="print(response)"></a>print(response)</h4><p>print(response) 也就是把retrieval_chain.invoke給print出來，可以讓大家更清楚RAG所生成東西的架構。</p>
+<pre><code>&#123;&#39;input&#39;: &#39;這篇pdf在說什麼？&#39;,
+&#39;context&#39;: 
+[Document(page_content=&#39;全部的PDF文字都會顯示在這裡&#39;, 
+metadata=&#123;&#39;source&#39;: &#39;weibert.pdf&#39;, &#39;page&#39;: 0&#125;)],
+&#39;answer&#39;: &#39;LLM給的答案會顯示在這裡.&#39;&#125;
+</code></pre>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">目錄</button>
+
+  <script>
+      
+  </script>
+</article>
+
+<div id="cursor-effect" class="cursor-effect"></div> 
+    
+  </div>
+  
+  <!-- 側邊欄 -->
+<div id="sidebar">
+  <button id="close-btn">&times;</button>
+  <div class="author-info">
+    <img src="https://weitsung50110.github.io/images/a1.png" alt="作者照片" class="author_photo">
+    <h2>Weiberson Chang</h2>
+    <p>(Wei Tsung Chang)</p>
+    <span>Master of Computer Science / AI Software Engineer</span>
+    <!-- <span>Medium: @weiberson</span>  -->
+    <a href="https://weitsung50110.github.io/about">About me</a>
+  </div>
+
+  
+    <div class="side_categories-section">
+      <h3 class="h3-toggle-section">類別</h3>
+      <div class="side_categories-container" style="display: none;">
+        
+          <a href="#" class="side_category-item" data-category="GitHub">GitHub</a>
+        
+          <a href="#" class="side_category-item" data-category="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_category-item" data-category="NLP">NLP</a>
+        
+          <a href="#" class="side_category-item" data-category="AI">AI</a>
+        
+          <a href="#" class="side_category-item" data-category="LangChain">LangChain</a>
+        
+      </div>
+    </div>
+  
+
+  
+    <div class="side_tags-section">
+      <h3 class="h3-toggle-section">標籤</h3>
+      <div class="side_tags-container" style="display: none;">
+        
+          <a href="#" class="side_tag-item" data-tag="GitHub">GitHub</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RWD">RWD</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_tag-item" data-tag="開源">開源</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Transformers">Transformers</a>
+        
+          <a href="#" class="side_tag-item" data-tag="BERT">BERT</a>
+        
+          <a href="#" class="side_tag-item" data-tag="NLP">NLP</a>
+        
+          <a href="#" class="side_tag-item" data-tag="ML">ML</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+        
+          <a href="#" class="side_tag-item" data-tag="git">git</a>
+        
+          <a href="#" class="side_tag-item" data-tag="fork">fork</a>
+        
+          <a href="#" class="side_tag-item" data-tag="EJS">EJS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hugging Face">Hugging Face</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+        
+          <a href="#" class="side_tag-item" data-tag="LangChain">LangChain</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Llama3">Llama3</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RAG">RAG</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Ollama">Ollama</a>
+        
+      </div>
+    </div>
+  
+</div>
+
+<button id="open-btn">🤗</button>
+  <!-- 彈跳視窗容器 -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="closeButton">&times;</span>
+    <div class="modal-sections">
+      <!-- <div class="social-links-section">
+        <h3>跟隨我</h3>
+        <div class="social-links">
+          <a href="https://github.com/weitsung50110" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+          <a href="https://medium.com/@weiberson" target="_blank"><i class="fab fa-medium"></i>Medium</a>
+        </div>
+      </div> -->
+      
+      
+        <div class="categories-section">
+          <h3>類別</h3>
+          <div class="categories-container">
+            
+              <a href="#" class="category-item" data-category="GitHub">GitHub</a>
+            
+              <a href="#" class="category-item" data-category="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="category-item" data-category="NLP">NLP</a>
+            
+              <a href="#" class="category-item" data-category="AI">AI</a>
+            
+              <a href="#" class="category-item" data-category="LangChain">LangChain</a>
+            
+          </div>
+        </div>
+      
+
+      
+        <div class="tags-section">
+          <h3>標籤</h3>
+          <div class="tags-container">
+            
+              <a href="#" class="tag-item" data-tag="GitHub">GitHub</a>
+            
+              <a href="#" class="tag-item" data-tag="RWD">RWD</a>
+            
+              <a href="#" class="tag-item" data-tag="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="tag-item" data-tag="開源">開源</a>
+            
+              <a href="#" class="tag-item" data-tag="Transformers">Transformers</a>
+            
+              <a href="#" class="tag-item" data-tag="BERT">BERT</a>
+            
+              <a href="#" class="tag-item" data-tag="NLP">NLP</a>
+            
+              <a href="#" class="tag-item" data-tag="ML">ML</a>
+            
+              <a href="#" class="tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+            
+              <a href="#" class="tag-item" data-tag="git">git</a>
+            
+              <a href="#" class="tag-item" data-tag="fork">fork</a>
+            
+              <a href="#" class="tag-item" data-tag="EJS">EJS</a>
+            
+              <a href="#" class="tag-item" data-tag="Hugging Face">Hugging Face</a>
+            
+              <a href="#" class="tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+            
+              <a href="#" class="tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+            
+              <a href="#" class="tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+            
+              <a href="#" class="tag-item" data-tag="LangChain">LangChain</a>
+            
+              <a href="#" class="tag-item" data-tag="Llama3">Llama3</a>
+            
+              <a href="#" class="tag-item" data-tag="RAG">RAG</a>
+            
+              <a href="#" class="tag-item" data-tag="Ollama">Ollama</a>
+            
+          </div>
+        </div>
+      
+      
+      <!-- <div id="tag-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/tags/GitHub/" class="tag-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RWD/" class="tag-item">RWD</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hexo%E4%B8%BB%E9%A1%8C/" class="tag-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E9%96%8B%E6%BA%90/" class="tag-item">開源</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Transformers/" class="tag-item">Transformers</a>
+        
+          <a href="https://weitsung50110.github.io/tags/BERT/" class="tag-item">BERT</a>
+        
+          <a href="https://weitsung50110.github.io/tags/NLP/" class="tag-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/tags/ML/" class="tag-item">ML</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Fine-tuning/" class="tag-item">Fine-tuning</a>
+        
+          <a href="https://weitsung50110.github.io/tags/git/" class="tag-item">git</a>
+        
+          <a href="https://weitsung50110.github.io/tags/fork/" class="tag-item">fork</a>
+        
+          <a href="https://weitsung50110.github.io/tags/EJS/" class="tag-item">EJS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hugging-Face/" class="tag-item">Hugging Face</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hugging-Face/" class="tag-item">Hugging-Face</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Text-to-Image/" class="tag-item">Text-to-Image</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Stable-Diffusion/" class="tag-item">Stable-Diffusion</a>
+        
+          <a href="https://weitsung50110.github.io/tags/LangChain/" class="tag-item">LangChain</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Llama3/" class="tag-item">Llama3</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RAG/" class="tag-item">RAG</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Ollama/" class="tag-item">Ollama</a>
+        
+      </div>
+      
+      <div id="category-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/categories/GitHub/" class="category-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Hexo%E4%B8%BB%E9%A1%8C/" class="category-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/categories/NLP/" class="category-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/categories/AI/" class="category-item">AI</a>
+        
+          <a href="https://weitsung50110.github.io/categories/LangChain/" class="category-item">LangChain</a>
+        
+      </div> -->
+      
+      <!-- 顯示內容的區域 -->
+      <div id="content-area"></div>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <p>&copy; 2024 Weiberson Chang (weitsung50110). All rights reserved.</p>
+  <!-- <script src="/js/main.js"></script> -->
+  <!-- <script src="/js/script.js"></script> -->
+  <script src="/js/script.js"></script>
+  <script src="/js/popup_tag.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/toc.js"></script>
+  <script src="/js/post.js"></script>  
+  
+</footer>
+
+</body>
+</html>
+<!-- 返回頂部按鈕 -->
+<button id="scroll-to-top-btn" class="scroll-to-top-btn">▲</button>

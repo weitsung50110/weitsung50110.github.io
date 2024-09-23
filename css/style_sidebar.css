@@ -143,6 +143,8 @@ body{
   display: flex; /* 使用彈性布局 */
   flex-wrap: wrap; /* 允許換行 */
   gap: 8px; /* 內部間距 */
+  max-height: 200px; /* 設置最大高度 */
+  overflow-y: auto; /* 垂直滾動 */
 }
 
 .side_category-item, .side_tag-item {
@@ -169,7 +171,7 @@ body{
 .side_categories-container,
 .side_tags-container {
   display: none; /* 初始隱藏 */
-  overflow: hidden; /* 確保內容不外露 */
+  /* overflow: hidden; 確保內容不外露 */
   max-height: 0; /* 使其高度為 0 */
   transition: max-height 0.3s ease; /* 加入過渡效果 */
 }
