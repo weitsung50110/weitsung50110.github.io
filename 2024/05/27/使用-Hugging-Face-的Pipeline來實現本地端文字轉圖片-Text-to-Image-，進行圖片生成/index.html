@@ -212,13 +212,14 @@ image.save(output_filename)
 <script>
   var gitalk = new Gitalk({
     clientID: 'Ov23ctkBVw5yvCF7tTYy',
-    clientSecret: '302780db2b5f5a3d82c04e639992227ee9141f10',
+    clientSecret: '302780db2b5f5a3d82c04e639992227ee9141f10',  // 替換為最新的 client secret
     repo: 'weitsung50110.github.io',
     owner: 'weitsung50110',
     admin: ['weitsung50110'],
     id: location.pathname,
-    distractionFreeMode: true
+    distractionFreeMode: false
   });
+  gitalk.render('gitalk-container');
 </script>
 
 <div id="cursor-effect" class="cursor-effect"></div> 
