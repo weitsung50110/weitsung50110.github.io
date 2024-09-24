@@ -136,8 +136,7 @@ nav {
 
 /* 連結懸停樣式 */
 .nav-menu a:hover {
-  background: #f8f9fa;
-  color: #007bff !important;
+  color: #ddd !important;
 }
 
 /* 確保 .dropdown 使用相對定位 */
