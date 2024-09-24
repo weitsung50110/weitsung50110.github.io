@@ -44,6 +44,11 @@
   color: #e64a19;
 }
 
+.post h3 {
+  margin-top: 1em; /* 調整標題與上方內容的距離 */
+  margin-bottom: 0.1em; /* 調整標題與下方內容的距離 */
+}
+
 /* 文章信息區 */
 .post p {
   margin: 10px 0;
