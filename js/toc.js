@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(generateTOC, 100);
 });
 
+// toc的toggle button 出現和消失控制
 document.addEventListener('DOMContentLoaded', function() {
     const toc = document.getElementById('toc');
     const tocToggle = document.getElementById('toc-toggle-btn');
@@ -60,6 +61,26 @@ document.addEventListener('DOMContentLoaded', function() {
             toc.classList.toggle('close');
             tocToggle.style.bottom = toc.classList.contains('close') ? '50%' : '55px';
             postElement.style.marginRight = toc.classList.contains('close') ? '0' : '250px';
+        }
+    });
+});
+
+// 控制png圖案出現在toc目錄的上面 當滑一定距離之後
+document.addEventListener('DOMContentLoaded', function() {
+    const imageContainer = document.querySelector('.toc_image-container');
+    const toc = document.getElementById('toc');
+    const showDistance = 138; // 設定滾動距離（以像素為單位）
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > showDistance) {
+            const tocRect = toc.getBoundingClientRect(); // 獲取目錄的位置
+            const imageHeight = imageContainer.offsetHeight; // 獲取圖片高度
+
+            // 設置圖片容器的top位置在目錄上方
+            imageContainer.style.top = `${tocRect.top + window.scrollY - imageHeight}px`;
+            imageContainer.style.display = 'block'; // 顯示圖片
+        } else {
+            imageContainer.style.display = 'none'; // 隱藏圖片
         }
     });
 });

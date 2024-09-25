@@ -68,3 +68,17 @@
 .toc.close {
   display: none;
 }
+
+
+
+.toc_image-container {
+  position: absolute; /* 使用絕對定位 */
+  right: 0;
+  display: none; /* 初始隱藏 */
+
+}
+
+.toc_floating-image {
+  width: 100px; /* 調整為你想要的大小 */
+  transition: all 0.3s ease; /* 平滑顯示 */
+}
