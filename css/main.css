@@ -12,6 +12,7 @@
 @import url('style_post_tags_categories.css');
 @import url('style_sidebar.css');
 @import url('style_toc.css');
+@import url('style_post_comments.css');
 
 /* 響應式設計 */
 @media (max-width: 768px) {

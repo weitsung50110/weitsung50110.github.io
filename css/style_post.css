@@ -228,7 +228,10 @@ ol li::marker {
 /* 使用 > 符號來創建引用框 */
 .custom-quote {
   border: 1px solid #ccc;
+  background-color: #fefefe; /* 背景顏色 */
   padding: 10px;
   font-weight: bold;
   font-size: larger;
+  border-radius: 8px; /* 圓角 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 陰影 */
 }
