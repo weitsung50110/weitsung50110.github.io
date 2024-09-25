@@ -40,8 +40,17 @@
         <li class="dropdown">
           <a class="menu-button">跟隨我</a>
           <div class="nav-menu">
-            <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">GitHub</a>
-            <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">Medium</a>
+            <div class="menu-content">
+              <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">
+                <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="dropdown_social-icon">
+                GitHub</a>
+              <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">
+                <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="dropdown_social-icon">
+                Medium</a>
+              <a target="_blank" rel="noopener" href="https://www.instagram.com/weiberson_blog/">
+                <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="dropdown_social-icon">
+                IG</a>
+            </div>
           </div>
         </li>
       </ul>
@@ -316,11 +325,16 @@ Answer: Wei Tsung Chang 碩士畢業，同樣可以稱呼為 Weiberson。
 metadata=&#123;&#39;source&#39;: &#39;weibert.pdf&#39;, &#39;page&#39;: 0&#125;)],
 &#39;answer&#39;: &#39;LLM給的答案會顯示在這裡.&#39;&#125;
 </code></pre>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a target="_blank" rel="noopener" href="https://huggingface.co/learn/cookbook/zh-CN/advanced_rag">https://huggingface.co/learn/cookbook/zh-CN/advanced_rag</a></p>
-<p><a target="_blank" rel="noopener" href="https://chatgpt.com/share/e0f169d7-8620-4468-ba0a-581e7d9f5676">https://chatgpt.com/share/e0f169d7-8620-4468-ba0a-581e7d9f5676</a></p>
-<p><a target="_blank" rel="noopener" href="https://medium.com/@jackcheang5/%E5%BB%BA%E6%A7%8B%E7%B0%A1%E6%98%93rag%E7%B3%BB%E7%B5%B1-ca4e593f3fed">https://medium.com/@jackcheang5/%E5%BB%BA%E6%A7%8B%E7%B0%A1%E6%98%93rag%E7%B3%BB%E7%B5%B1-ca4e593f3fed</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.linkedin.com/pulse/beginners-guide-retrieval-chain-using-langchain-vijaykumar-kartha-kuinc?trk=article-ssr-frontend-pulse_little-text-block">https://www.linkedin.com/pulse/beginners-guide-retrieval-chain-using-langchain-vijaykumar-kartha-kuinc?trk=article-ssr-frontend-pulse_little-text-block</a></p>
-<p><a target="_blank" rel="noopener" href="https://myapollo.com.tw/blog/langchain-tutorial-retrieval/">https://myapollo.com.tw/blog/langchain-tutorial-retrieval/</a></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><pre><code>https://huggingface.co/learn/cookbook/zh-CN/advanced_rag
+
+https://chatgpt.com/share/e0f169d7-8620-4468-ba0a-581e7d9f5676
+
+https://medium.com/@jackcheang5/%E5%BB%BA%E6%A7%8B%E7%B0%A1%E6%98%93rag%E7%B3%BB%E7%B5%B1-ca4e593f3fed
+
+https://www.linkedin.com/pulse/beginners-guide-retrieval-chain-using-langchain-vijaykumar-kartha-kuinc?trk=article-ssr-frontend-pulse_little-text-block
+
+https://myapollo.com.tw/blog/langchain-tutorial-retrieval/
+</code></pre>
 
     </div>
     <div id="toc" class="toc">
@@ -346,10 +360,7 @@ metadata=&#123;&#39;source&#39;: &#39;weibert.pdf&#39;, &#39;page&#39;: 0&#125;)
     gitalk.render('gitalk-container');
   </script>
 </article>
-
-
-
-<div id="cursor-effect" class="cursor-effect"></div> 
+ 
     
   </div>
   
@@ -357,12 +368,26 @@ metadata=&#123;&#39;source&#39;: &#39;weibert.pdf&#39;, &#39;page&#39;: 0&#125;)
 <div id="sidebar">
   <button id="close-btn">&times;</button>
   <div class="author-info">
-    <img src="https://weitsung50110.github.io/images/a1.png" alt="作者照片" class="author_photo">
+    <div class="info-wrapper">
+      <div class="social-icons">
+        <a href="https://github.com/weitsung50110" target="_blank">
+          <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://medium.com/@weiberson" target="_blank">
+          <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="social-icon">
+        </a>
+        <a href="https://www.instagram.com/weiberson_blog/" target="_blank">
+          <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
+      <img src="https://weitsung50110.github.io/images/a1.png" alt="作者照片" class="author_photo">
+    </div>
     <h2>Weiberson Chang</h2>
     <p>(Wei Tsung Chang)</p>
     <span>Master of Computer Science / AI Software Engineer</span>
-    <!-- <span>Medium: @weiberson</span>  -->
-    <a href="https://weitsung50110.github.io/about">About me</a>
+    <div class="About">
+      <a href="https://weitsung50110.github.io/about">About me</a>
+    </div>
   </div>
 
   
@@ -590,6 +615,7 @@ metadata=&#123;&#39;source&#39;: &#39;weibert.pdf&#39;, &#39;page&#39;: 0&#125;)
   <script src="/js/sidebar.js"></script>
   <script src="/js/toc.js"></script>
   <script src="/js/post.js"></script>  
+  <script src="/js/header.js"></script>  
   
 </footer>
 

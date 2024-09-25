@@ -40,8 +40,17 @@
         <li class="dropdown">
           <a class="menu-button">跟隨我</a>
           <div class="nav-menu">
-            <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">GitHub</a>
-            <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">Medium</a>
+            <div class="menu-content">
+              <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">
+                <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="dropdown_social-icon">
+                GitHub</a>
+              <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">
+                <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="dropdown_social-icon">
+                Medium</a>
+              <a target="_blank" rel="noopener" href="https://www.instagram.com/weiberson_blog/">
+                <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="dropdown_social-icon">
+                IG</a>
+            </div>
           </div>
         </li>
       </ul>
@@ -137,12 +146,26 @@
 <div id="sidebar">
   <button id="close-btn">&times;</button>
   <div class="author-info">
-    <img src="https://weitsung50110.github.io/images/a1.png" alt="作者照片" class="author_photo">
+    <div class="info-wrapper">
+      <div class="social-icons">
+        <a href="https://github.com/weitsung50110" target="_blank">
+          <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://medium.com/@weiberson" target="_blank">
+          <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="social-icon">
+        </a>
+        <a href="https://www.instagram.com/weiberson_blog/" target="_blank">
+          <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
+      <img src="https://weitsung50110.github.io/images/a1.png" alt="作者照片" class="author_photo">
+    </div>
     <h2>Weiberson Chang</h2>
     <p>(Wei Tsung Chang)</p>
     <span>Master of Computer Science / AI Software Engineer</span>
-    <!-- <span>Medium: @weiberson</span>  -->
-    <a href="https://weitsung50110.github.io/about">About me</a>
+    <div class="About">
+      <a href="https://weitsung50110.github.io/about">About me</a>
+    </div>
   </div>
 
   
@@ -370,6 +393,7 @@
   <script src="/js/sidebar.js"></script>
   <script src="/js/toc.js"></script>
   <script src="/js/post.js"></script>  
+  <script src="/js/header.js"></script>  
   
 </footer>
 
