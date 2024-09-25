@@ -87,10 +87,10 @@
     
   
     <article class="post">
-  <h1>GitHub fork實作和介紹：如何將 Hexo 修改提交PR到官方 hexojs/site 儲存庫</h1>
-  <!-- <p class="post-date">日期：Mon Sep 09 2024 12:02:23 GMT+0000</p> -->
-  <p class="post-date">日期：2024-09-09 20:02:23</p>
-  <p class="post-author">作者：Weiberson</p>
+  <h1>用LangChain使Llama3藉由對話生成文章和SEO標題，把語言模型變成愛情作家之教學</h1>
+  <!-- <p class="post-date">日期：Thu May 30 2024 16:22:09 GMT+0000</p> -->
+  <p class="post-date">日期：2024-05-31 00:22:09</p>
+  <p class="post-author">作者：</p>
   
     <div class="post-meta">
       
@@ -98,15 +98,19 @@
           <span>標籤:</span>
           <ul>
             
-              <li><a href="https://weitsung50110.github.io/tags/GitHub/">GitHub</a></li>
+              <li><a href="https://weitsung50110.github.io/tags/NLP/">NLP</a></li>
             
-              <li><a href="https://weitsung50110.github.io/tags/Hexo%E4%B8%BB%E9%A1%8C/">Hexo主題</a></li>
+              <li><a href="https://weitsung50110.github.io/tags/Hugging-Face/">Hugging-Face</a></li>
             
-              <li><a href="https://weitsung50110.github.io/tags/%E9%96%8B%E6%BA%90/">開源</a></li>
+              <li><a href="https://weitsung50110.github.io/tags/LangChain/">LangChain</a></li>
             
-              <li><a href="https://weitsung50110.github.io/tags/git/">git</a></li>
+              <li><a href="https://weitsung50110.github.io/tags/Llama3/">Llama3</a></li>
             
-              <li><a href="https://weitsung50110.github.io/tags/fork/">fork</a></li>
+              <li><a href="https://weitsung50110.github.io/tags/Ollama/">Ollama</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/SEO/">SEO</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Prompt-Engineering/">Prompt-Engineering</a></li>
             
           </ul>
         </div>
@@ -117,7 +121,7 @@
           <span>類別:</span>
           <ul>
             
-              <li><a href="https://weitsung50110.github.io/categories/GitHub/">GitHub</a></li>
+              <li><a href="https://weitsung50110.github.io/categories/LangChain/">LangChain</a></li>
             
           </ul>
         </div>
@@ -126,51 +130,156 @@
   
   
       <div class="excerpt">
-          <p>教你將修改提交到 Hexo 官方的 hexojs/site，從 fork 儲存庫到發送 Pull Request，為開源貢獻。</p>
+          <p>教你如何利用LangChain和Llama3模型，通過對話生成愛情故事和SEO標題，讓語言模型成為你的愛情作家！</p>
       </div>
   
 
   <!-- 目錄容器 -->
   <div class="article-container">
     <div class="article-content">
-      <p><cen>這篇文章將逐步教你如何將修改提交到 Hexo 官方的 hexojs&#x2F;site，從 fork 儲存庫到發送 Pull Request，幫助你更好地參與開源社區，並讓更多人受益於你的工作。</p>
-<p>此文章也有發表在Medium上 &gt;&gt;</p>
+      <p><cen>有了LangChain後，讓prompt工程升上一個全新的等級，使我們可以更容易在NLP領域和大型語言模型(LLM)互動。</p>
+<p>基本教學的部分是讓大家體會prompt工程，進階教學會加入<code>CallbackManager</code>，使LLM更接近chat gpt，以此來<strong>達到即時互動</strong>。</p>
+<p>本文的LLM是使用最新發表的Llama3，並藉由ollama來匯入，ollama內有很多不同的模型，大家也可以參考<a target="_blank" rel="noopener" href="https://github.com/ollama/ollama">ollama github</a>。</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Parameters Size</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Llama 3</td>
+<td>8B</td>
+<td>4.7GB</td>
+</tr>
+</tbody></table>
+<h2 id="需要文件下載"><a href="#需要文件下載" class="headerlink" title="需要文件下載"></a>需要文件下載</h2><ul>
+<li>Github Repository — <a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit">weitsung50110&#x2F;Huggingface Langchain kit</a></li>
+</ul>
+<p>本文是使用到裡面的<a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/langchain_sys_SEOtitle_article_generate.py">langchain sys SEOtitle article generate.py</a>檔案。</p>
+<blockquote>
+<p>藉由Chain和系統指令，讓LLM可以生成我們想要的內容吧😊</p>
+</blockquote>
+<p>此文章也有發表在Medium上 &gt;&gt;<a target="_blank" rel="noopener" href="https://medium.com/@weiberson/%E7%94%A8langchain%E8%AE%93llama3%E8%97%89%E7%94%B1%E8%81%8A%E5%A4%A9%E7%94%9F%E6%88%90seo%E6%A8%99%E9%A1%8C%E5%92%8C%E6%84%9B%E6%83%85%E6%96%87%E7%AB%A0-157caf89fd11">用LangChain使Llama3藉由對話生成文章和SEO標題，把語言模型變成愛情作家之教學</a></p>
+<h2 id="基本教學"><a href="#基本教學" class="headerlink" title="基本教學"></a>基本教學</h2><pre><code>python langchain_sys_SEOtitle_article_generate.py #程式執行指令
+</code></pre>
+<ol>
+<li><h3 id="需要套件"><a href="#需要套件" class="headerlink" title="需要套件"></a>需要套件</h3></li>
+</ol>
+<p>匯入我們需要的llama3</p>
+<pre><code>    from langchain_community.llms import Ollama
+    llm = Ollama(model=&#39;llama3&#39;)
+</code></pre>
+<ol start="2">
+<li><h3 id="prompt工程和賦予模型系統指令"><a href="#prompt工程和賦予模型系統指令" class="headerlink" title="prompt工程和賦予模型系統指令"></a>prompt工程和賦予模型系統指令</h3></li>
+</ol>
+<p>使用 <code>langchain_core.prompts</code> 模組中的 <code>ChatPromptTemplate</code></p>
+<pre><code>    from langchain_core.prompts import ChatPromptTemplate
+    prompt = ChatPromptTemplate.from_messages([
+        (&quot;system&quot;, &quot;You are a love story creator with extensive SEO knowledge. Your task is to write an article with about 100 words, and create a SEO title for the article you wrote.&quot;),
+        (&quot;user&quot;, &quot;&#123;input&#125;&quot;),
+    ])
+</code></pre>
+<p>可以看到在<code>system</code>裡面，我們輸入了一些文字，大意是說<strong>你是一位愛情故事作家，請幫我們寫愛情故事並產生SEO標題</strong>。</p>
+<p>這個<code>system</code>會在每次執行程式時固定輸入給LLM，也就是說llama3它已經成為了愛情作家和SEO標題專家了!!</p>
+<p>若我們把prompt 給print出來會變成如下&gt;&gt;</p>
+<pre><code>root@c8c21d9dfc73:/app# python3 langchain_sys_SEOtitle_article_generate.py
+input_variables=[&#39;input&#39;] messages=
+[SystemMessagePromptTemplate(prompt=PromptTemplate(input_variables=[],
+template=&#39;You are a love story creator with extensive SEO knowledge.
+Your task is to write an article with about 100 words, 
+and create a SEO title for the article you wrote.&#39;)), 
+HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=[&#39;input&#39;],
+template=&#39;&#123;input&#125;&#39;))]
+</code></pre>
+<ol start="3">
+<li><h3 id="變成Chain並執行"><a href="#變成Chain並執行" class="headerlink" title="變成Chain並執行"></a>變成Chain並執行</h3></li>
+</ol>
+<p>把prompt和llm合成為Chain，藉由<code>.invoke</code>傳入我們想要輸入的字串~</p>
+<pre><code>    chain = prompt | llm
+    print(chain.invoke(&#123;&quot;input&quot;: input(&#39;&gt;&gt;&gt; &#39;)&#125;))
+</code></pre>
+<p>因為我希望在terminal中自己輸入想要的問題，因此輸入input(‘&gt;&gt;&gt; ‘)</p>
+<h2 id="進階教學"><a href="#進階教學" class="headerlink" title="進階教學"></a>進階教學</h2><ol>
+<li><h3 id="需要套件-1"><a href="#需要套件-1" class="headerlink" title="需要套件"></a>需要套件</h3><pre><code> from langchain.callbacks.manager import CallbackManager
+ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+</code></pre>
+</li>
+<li><h3 id="匯入模型同時加上CallbackManager"><a href="#匯入模型同時加上CallbackManager" class="headerlink" title="匯入模型同時加上CallbackManager"></a>匯入模型同時加上CallbackManager</h3></li>
+</ol>
+<p>如果加上了CallbackManager就可以即時看到llm生成的文字，<br>沒加CallbackManager則是要等到llm把文字全部生成完成後，才會顯示出來。</p>
+<pre><code>    llm = Ollama(model=&#39;llama3&#39;, 
+    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
+</code></pre>
+<p>後面的部分基本都相同~</p>
+<blockquote>
+<p>注意: 使用CallbackManager時，最後不用再print出來，不然會重複輸出兩次。</p>
+</blockquote>
+<p>̶p̶r̶i̶n̶t̶(̶c̶h̶a̶i̶n̶.̶i̶n̶v̶o̶k̶e̶(̶{̶”̶i̶n̶p̶u̶t̶”̶:̶ ̶i̶n̶p̶u̶t̶(̶’̶&gt;̶&gt;̶&gt;̶ ̶’̶)̶}̶)̶)̶ &gt;&gt; 把print拿掉</p>
+<pre><code>prompt = ChatPromptTemplate.from_messages([    
+(&quot;system&quot;, &quot;You are a love story creator with extensive SEO knowledge. Your task is to write an article with about 100 words, and create a SEO title for the article you wrote.&quot;),    
+(&quot;user&quot;, &quot;&#123;input&#125;&quot;),])
+
+chain = prompt | llm
+chain.invoke(&#123;&quot;input&quot;: input(&#39;&gt;&gt;&gt; &#39;)&#125;)
+</code></pre>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p>我們來看看Llama3回答得如何吧~</p>
+<p><strong>輸入 : happy marriage</strong></p>
+<pre><code>root@c8c21d9dfc73:/app# python3 langchain_sys_SEOtitle_article_generate.py
+&gt;&gt;&gt; happy marriage
+
+What a lovely topic!
+
+Here&#39;s my attempt at crafting a 100-word article:
+
+**Article Title:** 
+&quot;The Recipe for Happiness in Marriage: 5 Essential Ingredients&quot;
+
+As the saying goes, &quot;love is a choice.&quot; 
+But what makes a marriage truly happy? 
+It&#39;s not just about finding that special someone; 
+it&#39;s about nurturing the relationship. 
+Here are five essential ingredients to ensure a long-term love affair
+: communication, trust, mutual respect, shared laughter, 
+and emotional intimacy. By incorporating these elements 
+into your daily life, you&#39;ll be well on your way to creating a 
+lifelong bond with your partner. Remember, happiness is a 
+choice – choose it every day!
+
+**SEO Title:** &quot;Happy Marriage Secrets: 5 Essential Ingredients 
+for a Lifelong Love&quot;
+
+I hope this article meets your expectations!What a lovely topic!
+</code></pre>
+<p><strong>輸入 : fireworks</strong></p>
+<pre><code>root@c8c21d9dfc73:/app# python3 langchain_sys_SEOtitle_article_generate.py
+&gt;&gt;&gt; fireworks
+What a romantic challenge!
+
+Here&#39;s my attempt at creating a love story article:
+
+**The Spark That Ignited Forever**
+
+As the night sky lit up with fireworks, 
+Emily and Ryan shared their first kiss under the star-studded canvas. 
+It was as if the bursts of color and light had orchestrated their 
+chance encounter. A chance meeting at a music festival had brought them 
+together, but it was the magic of that fireworks display that sealed 
+their fate. As they gazed into each other&#39;s eyes, the boom of the 
+explosions seemed to echo the excitement in their hearts. 
+And just like the sparks that lit up the sky, their love continued 
+to shine bright for years to come.
+
+**SEO Title:** &quot;Fireworks: The Romantic Spark That Ignites True Love&quot;
+What a romantic challenge!
+</code></pre>
+<p>你有沒有發現這個時候LLM回答問題的時候<code>沒有記憶功能</code>呀!? 也就是說當我們跟他說一件事情後，下次再問LLM時，他又會忘記了。</p>
+<p>這個時候我們需要可以實作Conversational Retrieval Chain的聊天機器人，讓LLM可以基於<code>對話歷史</code>生成相關的<code>搜索查詢</code>，並利用檢索到的信息來回答使用者的問題。</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/github-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9-%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB-28b08f3078bd">GitHub fork實作和介紹：如何將你的 Hexo 修改提交PR到官方 hexojs&#x2F;site 儲存庫</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/%E4%BD%BF%E7%94%A8langchain%E5%92%8Cllama3%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA-conversational-retrieval-chain-3784db4ebfee">使用LangChain和大型語言模型(LLM)實作有記憶性的聊天機器人(Conversational Retrieval Chain)</a></li>
 </ul>
-<h2 id="GitHub-Fork-介紹"><a href="#GitHub-Fork-介紹" class="headerlink" title="GitHub Fork 介紹"></a>GitHub Fork 介紹</h2><p>在 GitHub 上，<code>fork</code> 是一個將他人的儲存庫複製到自己帳戶下的操作。這樣做的目的是讓你能在保留原始儲存庫內容的基礎上進行修改，而不影響原始作者的專案。<code>Fork</code> 讓你可以：</p>
-<ul>
-<li><strong>獨立進行修改</strong>：一旦你 fork 了儲存庫，你就有了這個專案的副本，可以自由進行修改或添加功能。</li>
-<li><strong>提交 Pull Request</strong>：當你對 fork 出來的專案進行了修改，並希望將這些改動反饋到原始專案時，可以發送 Pull Request，由原作者審核後決定是否合併你的更改。</li>
-<li><strong>貢獻開源專案</strong>：Fork 是開源專案貢獻者的一個重要工具，允許你從別人的專案基礎上創建自己的功能，並向原始專案提交改進。</li>
-</ul>
-<h2 id="Fork-的常見用途"><a href="#Fork-的常見用途" class="headerlink" title="Fork 的常見用途"></a>Fork 的常見用途</h2><ul>
-<li><strong>參與開源項目</strong>：開發者可以 fork 一個開源專案，添加新功能或修復 bug，然後通過 Pull Request 提交回原始專案。</li>
-<li><strong>自定義專案</strong>：你可以 fork 一個公開的儲存庫，並根據自己的需求修改或擴展它，無需擔心影響原始專案。</li>
-<li><strong>實驗性修改</strong>：fork 後，你可以進行實驗性修改，而不用擔心損壞原始專案。</li>
-</ul>
-<p>簡單來說，fork 是一種複製 GitHub 儲存庫到自己帳戶並進行獨立修改的功能，特別適合於開源協作和個人項目的定制開發。</p>
-<h2 id="GitHub-Fork-實作"><a href="#GitHub-Fork-實作" class="headerlink" title="GitHub Fork 實作"></a>GitHub Fork 實作</h2><p>會想寫這篇是因為我之前做的 Hexo 模板有做一些更新，我是使用 EJS 內嵌式的樣板引擎來進行實作，有開源在我的 GitHub。 因此我需要把我的變動 merge 進去 Hexo 的官方 site 裡面，因此想順便記錄起來，給大家參考。</p>
-<ul>
-<li><strong>GitHub - weitsung50110&#x2F;hexo-theme-animal</strong>: an animal theme. Contribute to weitsung50110&#x2F;hexo-theme-animal development by creating an account on GitHub. <a target="_blank" rel="noopener" href="https://github.com/weitsung50110/hexo-theme-animal">github.com</a></li>
-</ul>
-<p>這個 Hexo Theme Animal 模板我有用 GitHub Page 做成部落格網站，有興趣的話歡迎查看: <a href="https://weitsung50110.github.io/hexo-theme-animal-site/">https://weitsung50110.github.io/hexo-theme-animal-site/</a></p>
-<h3 id="提交-Pull-Request"><a href="#提交-Pull-Request" class="headerlink" title="提交 Pull Request"></a>提交 Pull Request</h3><h3 id="1-點擊-Fork-按鈕"><a href="#1-點擊-Fork-按鈕" class="headerlink" title="1. 點擊 Fork 按鈕"></a>1. 點擊 Fork 按鈕</h3><p>在儲存庫的右上角，你會看到一個名為 <code>Fork</code> 的按鈕，點擊它。這會將這個儲存庫複製到你的 GitHub 帳號下。<br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/0.png"><br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/1.png"></p>
-<h3 id="2-Clone-到本地端"><a href="#2-Clone-到本地端" class="headerlink" title="2. Clone 到本地端"></a>2. Clone 到本地端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/weitsung50110/site.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-建立新的分支"><a href="#3-建立新的分支" class="headerlink" title="3. 建立新的分支"></a>3. 建立新的分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b modify240909</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-提交變更"><a href="#4-提交變更" class="headerlink" title="4. 提交變更"></a>4. 提交變更</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch modify240909</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">&quot;git restore &lt;file&gt;...&quot;</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line">        modified:   <span class="built_in">source</span>/_data/themes/Animal.yml</span><br><span class="line">        modified:   <span class="built_in">source</span>/themes/screenshots/Animal.png</span><br><span class="line"></span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">&quot;modify github imgs and desc&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-推送變更到-GitHub"><a href="#5-推送變更到-GitHub" class="headerlink" title="5. 推送變更到 GitHub"></a>5. 推送變更到 GitHub</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push --set-upstream origin modify240909</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-提交-Pull-Request"><a href="#6-提交-Pull-Request" class="headerlink" title="6. 提交 Pull Request"></a>6. 提交 Pull Request</h3><p>GitHub 會建議你建立一個 Pull Request。點擊 <code>Compare &amp; pull request</code>，並填寫相關描述，然後提交你的 Pull Request。<br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/2.png"><br>選擇要合併的 branch，我剛剛創的分支是 <code>modify240909</code>，所以把它併入 <code>site</code> 的 <code>master</code> 當中。<br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/3.png"><br>通常比較大的開源項目當你提 PR 時，會要求你填寫一些資料。<br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/4.png"></p>
-<h3 id="7-完成"><a href="#7-完成" class="headerlink" title="7. 完成"></a>7. 完成</h3><p>接下來等待審核！<br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/5.png"><br>原作者就可以審核你的變更，並決定是否將你的代碼合併到原始儲存庫中。</p>
-<h3 id="8-審核完成"><a href="#8-審核完成" class="headerlink" title="8. 審核完成"></a>8. 審核完成</h3><p>可以看到我的 PR 有一個 <code>Open</code> 代表還在審核中，另外兩個 <code>Closed</code> 代表審核完成。<br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/6.png"><br>因為我才剛提出 PR，這邊給大家看我以前提出並審核通過的 PR。</p>
-<p>審核完成後會把你的 PR 併入 <code>Master</code> 當中，會從 <code>Open</code> 調成 <code>Closed</code>。<br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/7.png"></p>
-<hr>
-<p>**更新 (2024-09-10)**：我的 PR 審核完成了</p>
-<p><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/8.png"><br>我新提的 PR 也變成 <code>Closed</code> 的狀態了！<br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/9.png"><br>By the way，你在 Hexo 官網可以找到我做的主題！<br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/10.png"><br><img src="/assets/images/GitHub-fork%E5%AF%A6%E4%BD%9C%E5%92%8C%E4%BB%8B%E7%B4%B9%EF%BC%9A%E5%A6%82%E4%BD%95%E5%B0%87%E4%BD%A0%E7%9A%84-Hexo-%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4PR%E5%88%B0%E5%AE%98%E6%96%B9-hexojs-site-%E5%84%B2%E5%AD%98%E5%BA%AB/11.png"></p>
+<p><img src="/assets/images/%E7%94%A8LangChain%E4%BD%BFLlama3%E8%97%89%E7%94%B1%E5%B0%8D%E8%A9%B1%E7%94%9F%E6%88%90%E6%96%87%E7%AB%A0%E5%92%8CSEO%E6%A8%99%E9%A1%8C%EF%BC%8C%E6%8A%8A%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8B%E8%AE%8A%E6%88%90%E6%84%9B%E6%83%85%E4%BD%9C%E5%AE%B6%E4%B9%8B%E6%95%99%E5%AD%B8/0.png"></p>
 
     </div>
     <div id="toc" class="toc">

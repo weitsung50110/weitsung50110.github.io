@@ -73,15 +73,15 @@ footer p {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   color: rgb(255, 131, 131);
   border: none;
-  padding: 10px 15px;
+  padding: 3px 13px;
   border-radius: 5px;
   cursor: pointer;
   display: none; /* 默認隱藏按鈕 */
   z-index: 1000; /* 確保按鈕在最上層 */
-  font-size: 16px;
+  font-size: 26px;
   transition: opacity 0.3s ease;
 }
 
@@ -94,15 +94,28 @@ footer p {
 /* 游標所在位置添加可愛的特效 */
 .cursor-effect {
   position: absolute;
-  width: 22px; /* 維持寬度 */
-  height: 20px; /* 維持高度 */
+  width: 26px; /* 增加寬度 */
+  height: 26px; /* 增加高度 */
   border-radius: 50%; /* 圓形 */
   background: rgba(255, 105, 180, 0.4); /* 調整透明度，降低至 0.4 */
   border: 2px solid rgba(255, 255, 255, 0.4); /* 調整邊框的透明度 */
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3); /* 調整陰影的透明度 */
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5), 0 0 30px rgba(255, 105, 180, 0.5); /* 添加雙重陰影效果 */
   pointer-events: none; /* 讓這個元素不會阻止滑鼠事件 */
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.3s ease; /* 增加背景顏色變化 */
+  animation: pulse 1.5s infinite; /* 添加脈動動畫 */
+}
 
+/* 增加動畫效果 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 

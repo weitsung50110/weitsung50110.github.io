@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 當點擊按鈕時，滾動到頁面頂部
   scrollToTopBtn.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'auto' });
   });
 });
 
