@@ -13,6 +13,8 @@
 @import url('style_sidebar.css');
 @import url('style_toc.css');
 @import url('style_post_comments.css');
+@import url('style_footer.css');
+
 
 /* 響應式設計 */
 @media (max-width: 768px) {
@@ -139,6 +141,15 @@
 
     .scroll-to-top-btn:hover {
       background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /* 背景設定 */
+    .posts-container{
+      background-size: 0%; /* 設置背景圖片的大小0 */
+    }
+
+    .post_bg, .archive_bg {
+      background-position: center top; /* 置中對齊 */
     }
   }
   
