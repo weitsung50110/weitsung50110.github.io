@@ -91,9 +91,9 @@
 
 /* 類別和標籤區域 */
 .categories-container, .tags-container {
-  display: flex;
-  flex-wrap: wrap; /* 自動換行 */
-  gap: 10px; /* 項目之間的間距 */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* 自動適應 */
+  gap: 10px; /* 項目間距 */
   max-height: 200px; /* 設置最大高度 */
   overflow-y: auto;  /* 允許垂直滾動 */
 }
