@@ -151,6 +151,14 @@
     .post_bg, .archive_bg {
       background-position: center top; /* 置中對齊 */
     }
+
+    .footer-logo {
+      display: none; /* 隱藏一般 logo */
+    }
+    
+    .footer-rwd-logo {
+      display: block; /* 顯示 RWD logo */
+    }
   }
   
   @media (max-width: 480px) {
@@ -189,6 +197,7 @@
       width: 55px; /* 在非常小的屏幕上設置最小的寬度 */
       height: 55px; /* 在非常小的屏幕上設置最小的高度 */
       font-size: 0.6em; /* 進一步減少字體大小 */
+      top: 50%;
     }
 
     #sidebar {

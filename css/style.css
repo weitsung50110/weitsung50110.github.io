@@ -20,8 +20,8 @@ body {
 }
 
 .archive_bg {
-  background-size: auto 23%; /* 設置背景圖片的大小 */
-  background-position: calc(100% - 10px) 35%; /* 調整背景圖片的位置 */
+  background-size: auto 90%; /* 設置背景圖片的大小 */
+  background-position: calc(100% - 10px) 100%; /* 調整背景圖片的位置 */
   background-repeat: no-repeat; /* 不重複背景圖片 */
   background-attachment: fixed; /* 使背景圖片固定 */
 }
@@ -29,22 +29,33 @@ body {
 .posts-container{
   background-position: right bottom; /* 針對 index 的背景圖片位置 */
   background-repeat: no-repeat; /* 不重複背景圖片 */
-  background-size: 50% 40%; /* 設置背景圖片的大小 */
+  background-size: auto 20%; /* 設置背景圖片的大小 */
+}
+
+.title-link {
+  position: relative; /* 使其為定位基準 */
+}
+
+.hover-icon {
+  display: none; /* 默認隱藏圖片 */
+  position: absolute; /* 絕對定位 */
+  left: 100%; /* 讓圖片在標題右側顯示 */
+  top: 75%; /* 垂直居中 */
+  margin-left: 15%; /* 可根據需要調整間距 */
+  z-index: 1;
+}
+
+.title-link:hover .hover-icon {
+  display: block; /* 懸停時顯示圖片 */
+}
+
+.hover-icon img {
+  width: 100px; /* 根據需要設置圖片大小 */
+  height: auto; /* 保持比例 */
 }
 
 
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
-  background-size: 400% 400%; /* 增加背景圖像的覆蓋範圍 */
-  color: #fff7df;
-}
-
-footer p {
-  margin: 0;
-}
 
 
 
