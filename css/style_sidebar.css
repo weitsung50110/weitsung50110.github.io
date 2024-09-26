@@ -103,7 +103,7 @@ body{
   transform: translateY(-50%); /* 垂直居中對齊 */
   background-color: rgba(0, 0, 0, 0.07);
   color: #000000; /* 按鈕文字顏色 */
-  border: 2px dashed  #70260e; /* 設置邊框樣式和顏色 */
+  border: 1px dashed  #a513a1; /* 設置邊框樣式和顏色 */
   padding: 3px 3px; /* 內邊距 */
   border-radius: 35px; /* 圓角 */
   cursor: pointer; /* 滑鼠懸停時顯示手形 */

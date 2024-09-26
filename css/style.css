@@ -41,7 +41,7 @@ body {
   position: absolute; /* 絕對定位 */
   left: 100%; /* 讓圖片在標題右側顯示 */
   top: 75%; /* 垂直居中 */
-  margin-left: 15%; /* 可根據需要調整間距 */
+  margin-left: 5%; /* 可根據需要調整間距 */
   z-index: 1;
 }
 

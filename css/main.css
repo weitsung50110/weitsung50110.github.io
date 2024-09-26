@@ -163,7 +163,7 @@
   
   @media (max-width: 480px) {
     .home-intro h2 {
-      font-size: 1em; /* 手機屏幕的字體大小 */
+      font-size: 1.2em; /* 手機屏幕的字體大小 */
     }
   
     header h1 {
@@ -194,10 +194,13 @@
     }
 
     #open-btn {
-      width: 55px; /* 在非常小的屏幕上設置最小的寬度 */
+      width: 50px; /* 在非常小的屏幕上設置最小的寬度 */
       height: 55px; /* 在非常小的屏幕上設置最小的高度 */
+      left: 2px;
       font-size: 0.6em; /* 進一步減少字體大小 */
-      top: 50%;
+      padding: 0px; /* 內邊距 */
+      box-shadow: none;
+      border: none;
     }
 
     #sidebar {
