@@ -36,3 +36,28 @@ document.addEventListener("DOMContentLoaded", function() {
         quote.classList.add("custom-quote");
     });
 });
+
+//查找 pre 標籤中的文本並標記含有引號的部分，以便應用自定義的顏色和樣式。
+document.addEventListener("DOMContentLoaded", function() {
+  const preElements = document.querySelectorAll('pre');
+
+  preElements.forEach(pre => {
+    let html = pre.innerHTML;
+
+    // 高亮字串
+    html = html.replace(/(['"])(.*?)\1/g, '<span class="highlight-string">$&</span>');
+
+    // 高亮數字
+    html = html.replace(/\b\d+(\.\d+)?\b/g, '<span class="highlight-number">$&</span>');
+
+    // 高亮註解（示例，根據語言不同可以調整）
+    html = html.replace(/(\/\/.*|\/\*[\s\S]*?\*\/)/g, '<span class="highlight-comment">$&</span>');
+    html = html.replace(/#.*$/gm, '<span class="highlight-comment">$&</span>'); // 單行註解
+    html = html.replace(/('''[\s\S]*?'''|"""[\s\S]*?""")/g, '<span class="highlight-comment">$&</span>'); // 多行註解
+    
+    // 高亮括號
+    html = html.replace(/([(){}[\]])/g, '<span class="highlight-bracket">$&</span>');
+
+    pre.innerHTML = html;
+  });
+});

@@ -111,7 +111,7 @@ code {
   padding: 0.2em 0.4em;
   font-size: 15.8px;
   color: #9233d6; /* 程式碼顏色 */
-  font-weight: bold;
+  font-weight: 500;
 }
 
 /* 多行程式碼區塊樣式 */
@@ -151,6 +151,22 @@ pre code {
   font-weight: normal; /* 將多行程式碼設置為正常字體 */
 }
 
+.highlight-string {
+  color: #e76d3c; /* 字串顏色 */
+}
+
+.highlight-number {
+  color: #d94fd2; /* 數字顏色 */
+}
+
+.highlight-comment {
+  color: #1f9c53; /* 註解顏色 */
+  font-style: italic;
+}
+
+.highlight-bracket {
+  color: #34495e; /* 括號顏色 */
+}
 
 
 /* 超連結樣式 */

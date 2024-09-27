@@ -140,11 +140,11 @@ body{
 }
 
 .side_categories-container, .side_tags-container {
-  display: flex; /* 使用彈性布局 */
-  flex-wrap: wrap; /* 允許換行 */
-  gap: 8px; /* 內部間距 */
-  max-height: 150px; /* 設置最大高度 */
-  overflow-y: auto; /* 垂直滾動 */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* 自動適應 */
+  gap: 10px; /* 項目間距 */
+  max-height: 200px; /* 設置最大高度 */
+  overflow-y: auto;  /* 允許垂直滾動 */
 }
 
 .side_category-item, .side_tag-item {
