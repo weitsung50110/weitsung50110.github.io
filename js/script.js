@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 當頁面滾動時顯示/隱藏按鈕
   window.addEventListener('scroll', function() {
-      if (window.scrollY > 300) { // 當滾動超過 300px 顯示按鈕
+      if (window.scrollY > 50) { // 當滾動超過 50px 顯示按鈕
           scrollToTopBtn.style.display = 'block';
       } else {
           scrollToTopBtn.style.display = 'none';
@@ -18,42 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// 壓下去顯示圖案
-const header = document.querySelector('header');
-const imageContainer = document.getElementById('press_show_cute');
-
-header.addEventListener('click', (event) => {
-  // 獲取游標的座標
-  const x = event.clientX; // 游標的 X 軸位置
-  const y = event.clientY; // 游標的 Y 軸位置
-
-  // 創建新的圖片元素
-  const img = document.createElement('img');
-  img.src = '/images/0.png'; // 設定圖片來源
-  img.style.position = 'absolute'; // 使圖片絕對定位
-  
-  // 設置圖片在游標旁邊的位置
-  img.style.left = `${x + 5}px`; // 向右偏移10像素
-  img.style.top = `${y - 25}px`; // 向上偏移25像素（根據圖片大小調整）
-  
-  // 設置圖片大小
-  img.style.width = '30px'; // 設定寬度
-  img.style.height = '30px'; // 設定高度
-  
-  imageContainer.appendChild(img); // 將圖片添加到容器中
-
-  // 設定圖片的顯示時間，然後移除
-  setTimeout(() => {
-    img.remove();
-  }, 800); // 2 秒後移除圖片
-});
 
 
+//cursor滑鼠的特效
 document.addEventListener('mousemove', function(e) {
   const cursorEffect = document.getElementById('cursor-effect');
   const scrollbarWidth = 12; // 根據你的滾動條寬度設置
 
-  // 檢查滑鼠是否在滾動條範圍內
+  // 檢查滑鼠是否在滾動條範圍內 如果在裡面就隱藏
   const isOverScrollbar = (e.pageX > window.innerWidth - scrollbarWidth-50);
 
   if (isOverScrollbar) {

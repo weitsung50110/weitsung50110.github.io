@@ -25,24 +25,18 @@
 /* 標題樣式 */
 .index_post h2 {
   font-size: 1.5em;
-  color: #333;
+  color: #d04d41;
+  text-decoration: none;
+  transition: color 0.1s ease;  
   text-align: center;
   background: linear-gradient(to right, #fffdfc, #fffaf1); /* 柔和的奶油色漸層 */
 }
 
 .index_post h2:hover {
-  background: linear-gradient(to right, #fffefc, #fdf4e6); /* 柔和的奶油色漸層 */
-}
-
-.index_post h2 a {
-  color: #d04d41;
-  text-decoration: none;
-  transition: color 0.1s ease;  
-}
-
-.index_post h2 a:hover {
   color: #e64a19;
   background-color: rgb(253, 252, 238);
+  cursor: pointer;
+  background: linear-gradient(to right, #fffefc, #fdf4e6); /* 柔和的奶油色漸層 */
 }
 
 /* 文章信息區 */
@@ -109,3 +103,25 @@
   margin-right: 5px; /* 標籤或類別名稱與項目之間的間距 */
   font-weight: bold; /* 可以加粗字體 */
 }
+
+
+
+
+.hover-icon {
+  display: none; /* 默認隱藏圖片 */
+  position: absolute; /* 絕對定位 */
+  left: 66%; /* 讓圖片在標題右側顯示 */
+  top: 75%; /* 垂直居中 */
+  margin-left: 0%; /* 可根據需要調整間距 */
+  z-index: 1;
+}
+
+.title-link:hover .hover-icon {
+  display: block; /* 懸停時顯示圖片 */
+}
+
+.hover-icon img {
+  width: 100px; /* 根據需要設置圖片大小 */
+  height: auto; /* 保持比例 */
+}
+

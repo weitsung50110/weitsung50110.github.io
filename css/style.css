@@ -32,29 +32,6 @@ body {
   background-size: auto 20%; /* 設置背景圖片的大小 */
 }
 
-.title-link {
-  position: relative; /* 使其為定位基準 */
-}
-
-.hover-icon {
-  display: none; /* 默認隱藏圖片 */
-  position: absolute; /* 絕對定位 */
-  left: 100%; /* 讓圖片在標題右側顯示 */
-  top: 75%; /* 垂直居中 */
-  margin-left: 5%; /* 可根據需要調整間距 */
-  z-index: 1;
-}
-
-.title-link:hover .hover-icon {
-  display: block; /* 懸停時顯示圖片 */
-}
-
-.hover-icon img {
-  width: 100px; /* 根據需要設置圖片大小 */
-  height: auto; /* 保持比例 */
-}
-
-
 
 
 

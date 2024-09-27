@@ -153,11 +153,26 @@
 <p>Hugging Face 已經把很多模型幫大家分類完成，因此可以從裡面挑取自己想要使用的模型即可！</p>
 <p><img src="/assets/images/%E4%BD%BF%E7%94%A8-Hugging-Face-%E7%9A%84Pipeline%E4%BE%86%E5%AF%A6%E7%8F%BE%E6%9C%AC%E5%9C%B0%E7%AB%AF%E6%96%87%E5%AD%97%E8%BD%89%E5%9C%96%E7%89%87-Text-to-Image-%EF%BC%8C%E9%80%B2%E8%A1%8C%E5%9C%96%E7%89%87%E7%94%9F%E6%88%90/1.png"></p>
 <p>本文是挑選 <code>runwayml/stable-diffusion-v1-5</code> 來使用。</p>
-<h2 id="程式碼講解教學"><a href="#程式碼講解教學" class="headerlink" title="程式碼講解教學"></a>程式碼講解教學</h2><h3 id="1-套件導入"><a href="#1-套件導入" class="headerlink" title="1. 套件導入"></a>1. 套件導入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> diffusers <span class="keyword">import</span> StableDiffusionPipeline</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> argparse</span><br></pre></td></tr></table></figure>
-
+<h2 id="程式碼講解教學"><a href="#程式碼講解教學" class="headerlink" title="程式碼講解教學"></a>程式碼講解教學</h2><h3 id="1-套件導入"><a href="#1-套件導入" class="headerlink" title="1. 套件導入"></a>1. 套件導入</h3><pre><code>from diffusers import StableDiffusionPipeline
+import torch
+import argparse
+</code></pre>
 <p>比較多人想到 Hugging Face 可能會想到 <code>Transformers</code>，但其實還有很多其他的套件，像是 <code>diffusers</code> 也是他們家的。</p>
-<h3 id="2-定義使用模型的主要函式"><a href="#2-定義使用模型的主要函式" class="headerlink" title="2. 定義使用模型的主要函式"></a>2. 定義使用模型的主要函式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定義 main 函數，接收一個參數 output_filename</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">prompt, output_filename</span>):</span><br><span class="line">    <span class="comment"># 設定模型 ID</span></span><br><span class="line">    model_id = <span class="string">&quot;runwayml/stable-diffusion-v1-5&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 從預訓練模型載入 Stable Diffusion 管道</span></span><br><span class="line">    pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float32)</span><br><span class="line">    pipe = pipe.to(<span class="string">&quot;cpu&quot;</span>)  <span class="comment"># 使用 CPU 運行</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成圖像</span></span><br><span class="line">    image = pipe(prompt).images[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 將圖像保存到指定的文件名</span></span><br><span class="line">    image.save(output_filename)</span><br></pre></td></tr></table></figure>
+<h3 id="2-定義使用模型的主要函式"><a href="#2-定義使用模型的主要函式" class="headerlink" title="2. 定義使用模型的主要函式"></a>2. 定義使用模型的主要函式</h3><pre><code># 定義 main 函數，接收一個參數 output_filename
+def main(prompt, output_filename):
+    # 設定模型 ID
+    model_id = &quot;runwayml/stable-diffusion-v1-5&quot;
 
+    # 從預訓練模型載入 Stable Diffusion 管道
+    pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float32)
+    pipe = pipe.to(&quot;cpu&quot;)  # 使用 CPU 運行
+
+    # 生成圖像
+    image = pipe(prompt).images[0]
+
+    # 將圖像保存到指定的文件名
+    image.save(output_filename)
+</code></pre>
 <p>如果你有 GPU，可以改成使用 GPU。</p>
 <pre><code>pipe = pipe.to(&quot;cpu&quot;)
 </code></pre>
@@ -169,8 +184,22 @@ image = pipe(prompt).images[0]
 image.save(output_filename)
 </code></pre>
 <p>這邊的output_filename和prompt都還沒有定義，我們會在初始函式中定義。</p>
-<h3 id="3-設定初始函式"><a href="#3-設定初始函式" class="headerlink" title="3. 設定初始函式"></a>3. 設定初始函式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 檢查程式是否以主程式運行</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 創建參數解析器</span></span><br><span class="line">    parser = argparse.ArgumentParser(description=<span class="string">&quot;Generate an image with Stable Diffusion and save it.&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 添加 --prompt 參數，用於指定生成圖像的提示詞</span></span><br><span class="line">    parser.add_argument(<span class="string">&quot;--prompt&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, required=<span class="literal">True</span>, <span class="built_in">help</span>=<span class="string">&quot;The prompt for generating the image.&quot;</span>)</span><br><span class="line">    <span class="comment"># 添加 --output 參數，用於指定輸出文件名</span></span><br><span class="line">    parser.add_argument(<span class="string">&quot;--output&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, required=<span class="literal">True</span>, <span class="built_in">help</span>=<span class="string">&quot;The output filename for the generated image.&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 解析命令列參數</span></span><br><span class="line">    args = parser.parse_args()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 呼叫 main 函數並傳遞解析到的輸出文件名</span></span><br><span class="line">    main(args.prompt, args.output)</span><br></pre></td></tr></table></figure>
+<h3 id="3-設定初始函式"><a href="#3-設定初始函式" class="headerlink" title="3. 設定初始函式"></a>3. 設定初始函式</h3><pre><code># 檢查程式是否以主程式運行
+if __name__ == &quot;__main__&quot;:
+    # 創建參數解析器
+    parser = argparse.ArgumentParser(description=&quot;Generate an image with Stable Diffusion and save it.&quot;)
 
+    # 添加 --prompt 參數，用於指定生成圖像的提示詞
+    parser.add_argument(&quot;--prompt&quot;, type=str, required=True, help=&quot;The prompt for generating the image.&quot;)
+    # 添加 --output 參數，用於指定輸出文件名
+    parser.add_argument(&quot;--output&quot;, type=str, required=True, help=&quot;The output filename for the generated image.&quot;)
+
+    # 解析命令列參數
+    args = parser.parse_args()
+
+    # 呼叫 main 函數並傳遞解析到的輸出文件名
+    main(args.prompt, args.output)
+</code></pre>
 <p>使用 <code>argparse</code> 的好處是，你可以直接在命令行輸入想要的變數，而不需要在程式碼中更改變數的值。</p>
 <pre><code>main(args.prompt, args.output)
 </code></pre>
@@ -332,6 +361,8 @@ image.save(output_filename)
         
           <a href="#" class="side_tag-item" data-tag="YouTube">YouTube</a>
         
+          <a href="#" class="side_tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+        
       </div>
     </div>
   
@@ -427,6 +458,8 @@ image.save(output_filename)
             
               <a href="#" class="tag-item" data-tag="YouTube">YouTube</a>
             
+              <a href="#" class="tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+            
           </div>
         </div>
       
@@ -485,6 +518,8 @@ image.save(output_filename)
         
           <a href="https://weitsung50110.github.io/tags/YouTube/" class="tag-item">YouTube</a>
         
+          <a href="https://weitsung50110.github.io/tags/Web-Scraping/" class="tag-item">Web-Scraping</a>
+        
       </div>
       
       <div id="category-content" style="display:none;">
@@ -526,7 +561,9 @@ image.save(output_filename)
       
     </div>
   </div>
+  
+  <!-- 返回頂部按鈕 -->
+  <button id="scroll-to-top-btn" class="scroll-to-top-btn">▲</button>
+  
 </body>
 </html>
-<!-- 返回頂部按鈕 -->
-<button id="scroll-to-top-btn" class="scroll-to-top-btn">▲</button>

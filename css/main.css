@@ -225,7 +225,7 @@
     }
 
 
-    
+
     #open-btn {
       width: 50px; /* 在非常小的屏幕上設置最小的寬度 */
       height: 55px; /* 在非常小的屏幕上設置最小的高度 */
@@ -240,7 +240,7 @@
     }
 
     #sidebar #close-btn {
-      font-size: 22px;
+      font-size: 24px;
       padding: 9px;
       cursor: pointer;
       top: 0px; /* 距離頂部20px */
@@ -264,4 +264,10 @@
       height: 30px; /* 圖標高度 */
       padding: 0%;
     }
+
+    .hover-icon {
+      left: 66%; /* 讓圖片在標題右側顯示 */
+      top: 30%; /* 垂直居中 */
+    }
+    
   }
