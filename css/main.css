@@ -133,10 +133,15 @@
 
     .toc-toggle-btn {
       bottom: 50%;
+      padding: 5px 10px; /* 上下 10px，左右 15px */
     }
 
     .toc-toggle-btn:hover {
       background-color: rgba(0, 0, 0, 0.2); /* 恢復原本的背景色 */
+    }
+
+    .scroll-to-top-btn {
+      padding: 10px 13px;
     }
 
     .scroll-to-top-btn:hover {

@@ -138,8 +138,11 @@ toggleSections.forEach(section => {
             container.style.maxHeight = null; // 收起
         } else {
             container.style.display = 'block'; // 顯示
-            const height = container.scrollHeight + 'px'; // 獲取實際高度
-            container.style.maxHeight = height; // 設置為實際高度
+            // const height = container.scrollHeight + 'px'; // 獲取實際高度
+            // container.style.maxHeight = height; // 設置為實際高度
+
+            //如果希望不限制高度，可以設置為 max-height: none;
+            container.style.maxHeight = 'none';
         }
     });
 });

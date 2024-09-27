@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // 桌面模式
             toc.classList.toggle('close');
-            tocToggle.style.bottom = toc.classList.contains('close') ? '50%' : '55px';
+            tocToggle.style.bottom = toc.classList.contains('close') ? '50%' : '75px';
             postElement.style.marginRight = toc.classList.contains('close') ? '0' : '250px';
         }
     });

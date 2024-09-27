@@ -87,7 +87,7 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   color: rgb(255, 131, 131);
   border: none;
-  padding: 3px 13px;
+  padding: 10px 16px;
   border-radius: 5px;
   cursor: pointer;
   display: none; /* 默認隱藏按鈕 */

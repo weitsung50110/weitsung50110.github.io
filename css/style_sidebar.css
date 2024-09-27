@@ -139,11 +139,13 @@ body{
   font-weight: 600; /* 標題字體粗細 */
 }
 
+/* 最大高度 max-height 在 sidebar.js中設定, 一開始 */
 .side_categories-container, .side_tags-container {
+  display: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* 自動適應 */
   gap: 10px; /* 項目間距 */
-  max-height: 200px; /* 設置最大高度 */
+  /* 設置最大高度 max-height在sidebar.js中設定 */
   overflow-y: auto;  /* 允許垂直滾動 */
 }
 
@@ -158,7 +160,6 @@ body{
   text-overflow: ellipsis; /* 當內容超出時使用省略號 */
   overflow: hidden; /* 隱藏超出內容 */
   white-space: nowrap; /* 防止換行 */
-  transition: background 0.1s, color 0.1s; /* 背景顏色和文字顏色過渡效果 */
 }
 
 .side_category-item:hover, .side_tag-item:hover {
