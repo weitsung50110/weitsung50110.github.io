@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //查找 pre 標籤中的文本並標記含有引號的部分，以便應用自定義的顏色和樣式。
 document.addEventListener("DOMContentLoaded", function() {
-  const preElements = document.querySelectorAll('pre');
+  const preElements = document.querySelectorAll('pre code');
 
   preElements.forEach(pre => {
     let html = pre.innerHTML;
