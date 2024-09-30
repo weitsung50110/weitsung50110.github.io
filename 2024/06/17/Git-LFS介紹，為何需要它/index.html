@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weiberson&#39;s Blog - 程式設計與教學</title>
+<meta name="description" content="Weiberson Chang 的部落格，分享 AI、深度學習、機器學習、Hexo 主題開發及技術教學。探索最新的技術趨勢和開源項目。">
+<meta name="keywords" content="Weiberson Chang, AI, 深度學習, 機器學習, Hexo, GitHub, 教學, 開源, BERT, Transformers, weitsung50110">
+<meta name="author" content="Weiberson Chang(weitsung50110)">
+<meta name="google-site-verification" content="jWAoNzh1Gol-JoVVT5Q0DjtDlWhLkB2STELvHuQipNE" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q85YRD51M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q85YRD51M0');
+</script>
+
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
+    <div class="archive_bg" style="">
+      
+      <header>
+  <div class="header-content">
+    <img src="https://weitsung50110.github.io/images/boy11.png" alt="Logo" class="logo">
+    <h1><a href="https://weitsung50110.github.io">Weiberson&#39;s Blog -<br/>程式設計與教學</a></h1>
+    <img src="https://weitsung50110.github.io/images/boy5.png" alt="Logo2" class="logo2">
+
+    <!-- 在 nav 中包裹選單 -->
+    <nav class="mobile-nav">
+      <ul class="nav-top">
+        <li><a href="https://weitsung50110.github.io/">首頁</a></li>
+        <li><a href="https://weitsung50110.github.io/about">關於</a></li>
+        <li><a href="https://weitsung50110.github.io/archives">檔案</a></li>
+        <li><a id="tag_toggleButton">標籤&類別</a></li>
+        <li class="dropdown">
+          <a class="menu-button">跟隨我</a>
+          <div class="nav-menu">
+            <div class="menu-content">
+              <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">
+                <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="dropdown_social-icon">
+                GitHub</a>
+              <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">
+                <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="dropdown_social-icon">
+                Medium</a>
+              <a target="_blank" rel="noopener" href="https://www.instagram.com/weiberson_blog/">
+                <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="dropdown_social-icon">
+                IG</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- 搜尋框 -->
+      <ul class="nav-bottom">
+        <li>
+          <div id="search-container">
+            <input type="text" id="search-input" placeholder="搜尋文章..." />
+            <button id="search-button">搜尋</button>
+            
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- 在 header 中添加漢堡選單 -->
+  <button class="menu-toggle" aria-label="Toggle Navigation">
+    ☰
+  </button>
+  
+  <div id="press_show_cute"></div>
+</header>
+
+    
+      <div id="container">
+        <div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <h3>搜尋結果</h3>
+    <span id="search-close" class="search-close">&times;</span>
+    <div id="search-results"></div>
+  </div>
+</div>
+        
+<article class="post">
+  <h1>Git LFS介紹，為何需要它?</h1>
+  <!-- <p class="post-date">日期：Mon Jun 17 2024 18:59:23 GMT+0000</p> -->
+  <p class="post-date">日期：2024-06-18 02:59:23</p>
+  <p class="post-author">作者：Weiberson</p>
+  
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Git/">Git</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Git-LFS/">Git-LFS</a></li>
+            
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/Git-LFS/">Git-LFS</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>了解 Git LFS 的基本概念及其重要性，為什麼在處理大型文件時需要使用 Git LFS 來改善性能和管理效率。</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <p><cen>Git LFS（Large File Storage）是 Git 的一個擴充套件，用於管理大型文件。</p>
+<blockquote>
+<p>因為傳統的Git它對文件的版本控制和合併非常高效。然而，對於<strong>大型文件或二進制檔案</strong>（如圖片、音訊、影片、大型數據集等），Git 的<strong>性能和效率會明顯下降</strong>。</p>
+</blockquote>
+<p>此文章也有發表在Medium上 &gt;&gt;</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/git-lfs%E4%BB%8B%E7%B4%B9-%E7%82%BA%E4%BD%95%E9%9C%80%E8%A6%81%E5%AE%83-86d9ea3f3ed7">Git LFS 介紹：為何需要它</a></li>
+</ul>
+<h2 id="Git-LFS-的主要功能和特點"><a href="#Git-LFS-的主要功能和特點" class="headerlink" title="Git LFS 的主要功能和特點"></a>Git LFS 的主要功能和特點</h2><p>當你將一個大型文件添加到 Git 倉庫中並使用 Git LFS 進行管理時，會發生以下幾個步驟：</p>
+<ol>
+<li><p><strong>提交指標文件</strong><br>你提交到 Git 倉庫中的實際是這個小的指標文件，而不是原本的大型文件。</p>
+</li>
+<li><p><strong>替換大型文件</strong><br>Git LFS 會將大型文件替換為一個指向它們的文本指標（pointer），這個指標文件會被存儲在 Git 中，而實際的文件內容則被存儲在一個獨立的服務中。</p>
+</li>
+<li><p><strong>儲存大型文件</strong><br>原本的大型文件內容會被上傳並存儲到 Git LFS 的儲存系統中。這個存儲系統可以是專門的 Git LFS 服務，也可以是你設定的其他儲存後端。</p>
+</li>
+<li><p><strong>減少倉庫大小</strong><br>由於大型文件不直接儲存在 Git 倉庫中，這樣可以大大減少倉庫的大小，提高操作速度和效率。</p>
+</li>
+<li><p><strong>檢索大型文件</strong><br>當你或其他協作者 Clone 或 Pull 這個 Git 倉庫時，Git LFS 會自動下載這些指標文件並將其替換為實際的大型文件內容，從 Git LFS 的儲存系統中檢索回來。</p>
+</li>
+<li><p><strong>簡化文件管理</strong><br>開發者仍然可以像平常一樣使用 Git 命令來管理這些大型文件，因為 Git LFS 會在背後處理文件的儲存和檢索。</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>所以GIT倉庫中的大型文件 其實很小 可能只有幾KB 真實的文件存在LFS存儲系統中</strong></p>
+</blockquote>
+<p>這樣做有幾個好處：</p>
+<ol>
+<li><p><strong>減小倉庫大小</strong><br>因為 Git 倉庫中只存儲了小的指標文件，所以倉庫的大小會大大減小。</p>
+</li>
+<li><p><strong>提高性能</strong><br>Git 操作的性能會提高，因為 Git 不需要處理大型文件。</p>
+</li>
+<li><p><strong>便捷管理</strong><br>方便地跟蹤和管理大型文件。</p>
+</li>
+</ol>
+<p>EX: 如果你有一個 100 MB 的大型文件 <code>largefile.bin</code>，使用 Git LFS 後，Git 倉庫中保存的可能只是幾 KB 的指標文件，而 100 MB 的真實文件內容則存儲在 Git LFS 的存儲系統中。</p>
+<h2 id="Git-LFS-如何處理文件儲存的流程"><a href="#Git-LFS-如何處理文件儲存的流程" class="headerlink" title="Git LFS 如何處理文件儲存的流程"></a>Git LFS 如何處理文件儲存的流程</h2><ol>
+<li><p><strong>提交文件</strong><br>當你添加並提交這些被追蹤的文件時，Git LFS 會將這些文件替換為指標文件，指標文件中包含了一個指向實際文件位置的指針。</p>
+</li>
+<li><p><strong>上傳文件</strong><br>在執行 <code>git push</code> 時，Git LFS 會自動將這些大型文件上傳到 LFS 儲存服務器。這個服務器可以是 Git 提供的 LFS 儲存服務，也可以是其他第三方 LFS 儲存服務，例如 AWS S3、GitHub LFS、GitLab LFS 等。</p>
+</li>
+<li><p><strong>下載文件</strong><br>當其他用戶 Clone 或 Pull 這個儲存庫時，Git LFS 會自動從 LFS 儲存服務器下載實際的文件，而不是指標文件。</p>
+</li>
+</ol>
+<h2 id="Git-LFS-是否需要支付費用？"><a href="#Git-LFS-是否需要支付費用？" class="headerlink" title="Git LFS 是否需要支付費用？"></a>Git LFS 是否需要支付費用？</h2><p>對於是否需要支付費用，這取決於你選擇的服務提供商和使用量。我們以 GitHub 的 LFS 來看。</p>
+<p><strong>GitHub 為公有倉庫提供了一定的免費 LFS 配額：</strong></p>
+<ul>
+<li>每個 GitHub 帳戶（包括免費和付費帳戶）都有 1 GB 的免費 LFS 存儲空間和每月 1 GB 的免費 LFS 傳輸量。</li>
+</ul>
+<p><strong>如果你需要更多的存儲空間或傳輸量，可以購買額外的配額：</strong></p>
+<ul>
+<li>額外的存儲空間和傳輸量，每個數據包每月費用為 5 美元，並提供每月 50 GiB 的帶寬和 50 GiB 的存儲配額。你可以根據需要購買任意數量的數據包。例如，如果你需要 150 GB 的存儲空間，則需要購買三個數據包。</li>
+</ul>
+<p>費用的更詳細說明請參見<a target="_blank" rel="noopener" href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage">官方文件</a>。</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>Git LFS (Large File Storage) 專門用來管理 Git 儲存庫中的大型文件。通過使用 Git LFS，你可以有效地解決傳統 Git 在處理大型文件時面臨的性能和儲存問題。它通過將大型文件替換為指標文件，並將實際文件存儲在專門的 LFS 儲存服務器上，減少了儲存庫的大小並提升了操作速度。</p>
+<p>會想寫這篇科普文是因為在HuggingFace下載模型的時候，會用到lfs相關的指令，關於指令的教學會在之後再寫。</p>
+<pre><code># Make sure you have git-lfs installed (https://git-lfs.com)
+git lfs install
+
+git clone https://huggingface.co/audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF
+
+# If you want to clone without large files - just their pointers
+GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/audreyt/Taiwan-LLM-7B-v2.0.1-chat-GGUF
+</code></pre>
+<p>下一篇會寫Git LFS安裝教學以及容易遇到的錯誤。</p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/linux-git-lfs%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-unable-to-locate-package-git-lfs%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95-28e228d71a02">Linux Git LFS 安裝教學：Unable to locate package git-lfs 解決方法</a></p>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
+      </div>
+      
+      <!-- 側邊欄 -->
+<div id="sidebar">
+  <button id="close-btn">&times;</button>
+  <div class="author-info">
+    <div class="info-wrapper">
+      <div class="social-icons">
+        <a href="https://github.com/weitsung50110" target="_blank">
+          <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://medium.com/@weiberson" target="_blank">
+          <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="social-icon">
+        </a>
+        <a href="https://www.instagram.com/weiberson_blog/" target="_blank">
+          <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
+      <img src="https://weitsung50110.github.io/images/a1.png" alt="作者照片" class="author_photo">
+    </div>
+    <h2>Weiberson Chang</h2>
+    <p>(Wei Tsung Chang)</p>
+    <span>Master of Computer Science / AI Software Engineer</span>
+    <div class="About">
+      <a href="https://weitsung50110.github.io/about">About me</a>
+    </div>
+  </div>
+
+  
+    <div class="side_categories-section">
+      <h3 class="h3-toggle-section">類別</h3>
+      <div class="side_categories-container">
+        
+          <a href="#" class="side_category-item" data-category="GitHub">GitHub</a>
+        
+          <a href="#" class="side_category-item" data-category="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_category-item" data-category="NLP">NLP</a>
+        
+          <a href="#" class="side_category-item" data-category="LangChain">LangChain</a>
+        
+          <a href="#" class="side_category-item" data-category="Hugging-Face">Hugging-Face</a>
+        
+          <a href="#" class="side_category-item" data-category="Git-LFS">Git-LFS</a>
+        
+          <a href="#" class="side_category-item" data-category="Docker">Docker</a>
+        
+      </div>
+    </div>
+  
+
+  
+    <div class="side_tags-section">
+      <h3 class="h3-toggle-section">標籤</h3>
+      <div class="side_tags-container">
+        
+          <a href="#" class="side_tag-item" data-tag="GitHub">GitHub</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RWD">RWD</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_tag-item" data-tag="開源">開源</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Transformers">Transformers</a>
+        
+          <a href="#" class="side_tag-item" data-tag="BERT">BERT</a>
+        
+          <a href="#" class="side_tag-item" data-tag="NLP">NLP</a>
+        
+          <a href="#" class="side_tag-item" data-tag="ML">ML</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+        
+          <a href="#" class="side_tag-item" data-tag="fork">fork</a>
+        
+          <a href="#" class="side_tag-item" data-tag="EJS">EJS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+        
+          <a href="#" class="side_tag-item" data-tag="LangChain">LangChain</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Llama3">Llama3</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RAG">RAG</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Ollama">Ollama</a>
+        
+          <a href="#" class="side_tag-item" data-tag="SEO">SEO</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Prompt-Engineering">Prompt-Engineering</a>
+        
+          <a href="#" class="side_tag-item" data-tag="LLM">LLM</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Chatbot">Chatbot</a>
+        
+          <a href="#" class="side_tag-item" data-tag="DuckDuckGo">DuckDuckGo</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Wikipedia">Wikipedia</a>
+        
+          <a href="#" class="side_tag-item" data-tag="YouTube">YouTube</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+        
+          <a href="#" class="side_tag-item" data-tag="JavaScript">JavaScript</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Flask">Flask</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Jinja2">Jinja2</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Tailwind-CSS">Tailwind-CSS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Git">Git</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Git-LFS">Git-LFS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Linux">Linux</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Ubuntu">Ubuntu</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Docker">Docker</a>
+        
+          <a href="#" class="side_tag-item" data-tag="WSL">WSL</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Windows-11">Windows-11</a>
+        
+      </div>
+    </div>
+  
+</div>
+
+<button id="open-btn">🤗</button>
+      <!-- 彈跳視窗容器 -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="closeButton">&times;</span>
+    <div class="modal-sections">
+      <!-- <div class="social-links-section">
+        <h3>跟隨我</h3>
+        <div class="social-links">
+          <a href="https://github.com/weitsung50110" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+          <a href="https://medium.com/@weiberson" target="_blank"><i class="fab fa-medium"></i>Medium</a>
+        </div>
+      </div> -->
+      
+      
+        <div class="categories-section">
+          <h3>類別</h3>
+          <div class="categories-container">
+            
+              <a href="#" class="category-item" data-category="GitHub">GitHub</a>
+            
+              <a href="#" class="category-item" data-category="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="category-item" data-category="NLP">NLP</a>
+            
+              <a href="#" class="category-item" data-category="LangChain">LangChain</a>
+            
+              <a href="#" class="category-item" data-category="Hugging-Face">Hugging-Face</a>
+            
+              <a href="#" class="category-item" data-category="Git-LFS">Git-LFS</a>
+            
+              <a href="#" class="category-item" data-category="Docker">Docker</a>
+            
+          </div>
+        </div>
+      
+
+      
+        <div class="tags-section">
+          <h3>標籤</h3>
+          <div class="tags-container">
+            
+              <a href="#" class="tag-item" data-tag="GitHub">GitHub</a>
+            
+              <a href="#" class="tag-item" data-tag="RWD">RWD</a>
+            
+              <a href="#" class="tag-item" data-tag="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="tag-item" data-tag="開源">開源</a>
+            
+              <a href="#" class="tag-item" data-tag="Transformers">Transformers</a>
+            
+              <a href="#" class="tag-item" data-tag="BERT">BERT</a>
+            
+              <a href="#" class="tag-item" data-tag="NLP">NLP</a>
+            
+              <a href="#" class="tag-item" data-tag="ML">ML</a>
+            
+              <a href="#" class="tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+            
+              <a href="#" class="tag-item" data-tag="fork">fork</a>
+            
+              <a href="#" class="tag-item" data-tag="EJS">EJS</a>
+            
+              <a href="#" class="tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+            
+              <a href="#" class="tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+            
+              <a href="#" class="tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+            
+              <a href="#" class="tag-item" data-tag="LangChain">LangChain</a>
+            
+              <a href="#" class="tag-item" data-tag="Llama3">Llama3</a>
+            
+              <a href="#" class="tag-item" data-tag="RAG">RAG</a>
+            
+              <a href="#" class="tag-item" data-tag="Ollama">Ollama</a>
+            
+              <a href="#" class="tag-item" data-tag="SEO">SEO</a>
+            
+              <a href="#" class="tag-item" data-tag="Prompt-Engineering">Prompt-Engineering</a>
+            
+              <a href="#" class="tag-item" data-tag="LLM">LLM</a>
+            
+              <a href="#" class="tag-item" data-tag="Chatbot">Chatbot</a>
+            
+              <a href="#" class="tag-item" data-tag="DuckDuckGo">DuckDuckGo</a>
+            
+              <a href="#" class="tag-item" data-tag="Wikipedia">Wikipedia</a>
+            
+              <a href="#" class="tag-item" data-tag="YouTube">YouTube</a>
+            
+              <a href="#" class="tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+            
+              <a href="#" class="tag-item" data-tag="JavaScript">JavaScript</a>
+            
+              <a href="#" class="tag-item" data-tag="Flask">Flask</a>
+            
+              <a href="#" class="tag-item" data-tag="Jinja2">Jinja2</a>
+            
+              <a href="#" class="tag-item" data-tag="Tailwind-CSS">Tailwind-CSS</a>
+            
+              <a href="#" class="tag-item" data-tag="Git">Git</a>
+            
+              <a href="#" class="tag-item" data-tag="Git-LFS">Git-LFS</a>
+            
+              <a href="#" class="tag-item" data-tag="Linux">Linux</a>
+            
+              <a href="#" class="tag-item" data-tag="Ubuntu">Ubuntu</a>
+            
+              <a href="#" class="tag-item" data-tag="Docker">Docker</a>
+            
+              <a href="#" class="tag-item" data-tag="WSL">WSL</a>
+            
+              <a href="#" class="tag-item" data-tag="Windows-11">Windows-11</a>
+            
+          </div>
+        </div>
+      
+      
+      <!-- <div id="tag-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/tags/GitHub/" class="tag-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RWD/" class="tag-item">RWD</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hexo%E4%B8%BB%E9%A1%8C/" class="tag-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E9%96%8B%E6%BA%90/" class="tag-item">開源</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Transformers/" class="tag-item">Transformers</a>
+        
+          <a href="https://weitsung50110.github.io/tags/BERT/" class="tag-item">BERT</a>
+        
+          <a href="https://weitsung50110.github.io/tags/NLP/" class="tag-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/tags/ML/" class="tag-item">ML</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Fine-tuning/" class="tag-item">Fine-tuning</a>
+        
+          <a href="https://weitsung50110.github.io/tags/fork/" class="tag-item">fork</a>
+        
+          <a href="https://weitsung50110.github.io/tags/EJS/" class="tag-item">EJS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hugging-Face/" class="tag-item">Hugging-Face</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Text-to-Image/" class="tag-item">Text-to-Image</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Stable-Diffusion/" class="tag-item">Stable-Diffusion</a>
+        
+          <a href="https://weitsung50110.github.io/tags/LangChain/" class="tag-item">LangChain</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Llama3/" class="tag-item">Llama3</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RAG/" class="tag-item">RAG</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Ollama/" class="tag-item">Ollama</a>
+        
+          <a href="https://weitsung50110.github.io/tags/SEO/" class="tag-item">SEO</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Prompt-Engineering/" class="tag-item">Prompt-Engineering</a>
+        
+          <a href="https://weitsung50110.github.io/tags/LLM/" class="tag-item">LLM</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Chatbot/" class="tag-item">Chatbot</a>
+        
+          <a href="https://weitsung50110.github.io/tags/DuckDuckGo/" class="tag-item">DuckDuckGo</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Wikipedia/" class="tag-item">Wikipedia</a>
+        
+          <a href="https://weitsung50110.github.io/tags/YouTube/" class="tag-item">YouTube</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Web-Scraping/" class="tag-item">Web-Scraping</a>
+        
+          <a href="https://weitsung50110.github.io/tags/JavaScript/" class="tag-item">JavaScript</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Flask/" class="tag-item">Flask</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Jinja2/" class="tag-item">Jinja2</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Tailwind-CSS/" class="tag-item">Tailwind-CSS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Git/" class="tag-item">Git</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Git-LFS/" class="tag-item">Git-LFS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Linux/" class="tag-item">Linux</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Ubuntu/" class="tag-item">Ubuntu</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Docker/" class="tag-item">Docker</a>
+        
+          <a href="https://weitsung50110.github.io/tags/WSL/" class="tag-item">WSL</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Windows-11/" class="tag-item">Windows-11</a>
+        
+      </div>
+      
+      <div id="category-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/categories/GitHub/" class="category-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Hexo%E4%B8%BB%E9%A1%8C/" class="category-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/categories/NLP/" class="category-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/categories/LangChain/" class="category-item">LangChain</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Hugging-Face/" class="category-item">Hugging-Face</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Git-LFS/" class="category-item">Git-LFS</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Docker/" class="category-item">Docker</a>
+        
+      </div> -->
+      
+      <!-- 顯示內容的區域 -->
+      <div id="content-area"></div>
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <img src="https://weitsung50110.github.io/images/boy10.png" class="footer-logo"> 
+  <img src="https://weitsung50110.github.io/images/boy9.png" class="footer-rwd-logo"> 
+  <p>&copy; 2024 Weiberson Chang (weitsung50110). All rights reserved.</p>
+  <!-- <script src="/js/main.js"></script> -->
+  <!-- <script src="/js/script.js"></script> -->
+  <script src="/js/script.js"></script>
+  <script src="/js/popup_tag.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/toc.js"></script>
+  <script src="/js/post.js"></script>  
+  <script src="/js/header.js"></script>  
+  
+</footer>
+
+      
+    </div>
+  </div>
+  
+  <!-- 返回頂部按鈕 -->
+  <button id="scroll-to-top-btn" class="scroll-to-top-btn">▲</button>
+  
+</body>
+</html>

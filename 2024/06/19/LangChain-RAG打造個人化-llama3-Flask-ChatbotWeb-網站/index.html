@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weiberson&#39;s Blog - 程式設計與教學</title>
+<meta name="description" content="Weiberson Chang 的部落格，分享 AI、深度學習、機器學習、Hexo 主題開發及技術教學。探索最新的技術趨勢和開源項目。">
+<meta name="keywords" content="Weiberson Chang, AI, 深度學習, 機器學習, Hexo, GitHub, 教學, 開源, BERT, Transformers, weitsung50110">
+<meta name="author" content="Weiberson Chang(weitsung50110)">
+<meta name="google-site-verification" content="jWAoNzh1Gol-JoVVT5Q0DjtDlWhLkB2STELvHuQipNE" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q85YRD51M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q85YRD51M0');
+</script>
+
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
+    <div class="archive_bg" style="">
+      
+      <header>
+  <div class="header-content">
+    <img src="https://weitsung50110.github.io/images/boy11.png" alt="Logo" class="logo">
+    <h1><a href="https://weitsung50110.github.io">Weiberson&#39;s Blog -<br/>程式設計與教學</a></h1>
+    <img src="https://weitsung50110.github.io/images/boy5.png" alt="Logo2" class="logo2">
+
+    <!-- 在 nav 中包裹選單 -->
+    <nav class="mobile-nav">
+      <ul class="nav-top">
+        <li><a href="https://weitsung50110.github.io/">首頁</a></li>
+        <li><a href="https://weitsung50110.github.io/about">關於</a></li>
+        <li><a href="https://weitsung50110.github.io/archives">檔案</a></li>
+        <li><a id="tag_toggleButton">標籤&類別</a></li>
+        <li class="dropdown">
+          <a class="menu-button">跟隨我</a>
+          <div class="nav-menu">
+            <div class="menu-content">
+              <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">
+                <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="dropdown_social-icon">
+                GitHub</a>
+              <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">
+                <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="dropdown_social-icon">
+                Medium</a>
+              <a target="_blank" rel="noopener" href="https://www.instagram.com/weiberson_blog/">
+                <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="dropdown_social-icon">
+                IG</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- 搜尋框 -->
+      <ul class="nav-bottom">
+        <li>
+          <div id="search-container">
+            <input type="text" id="search-input" placeholder="搜尋文章..." />
+            <button id="search-button">搜尋</button>
+            
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- 在 header 中添加漢堡選單 -->
+  <button class="menu-toggle" aria-label="Toggle Navigation">
+    ☰
+  </button>
+  
+  <div id="press_show_cute"></div>
+</header>
+
+    
+      <div id="container">
+        <div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <h3>搜尋結果</h3>
+    <span id="search-close" class="search-close">&times;</span>
+    <div id="search-results"></div>
+  </div>
+</div>
+        
+<article class="post">
+  <h1>LangChain RAG打造個人化 llama3 Flask ChatbotWeb 網站</h1>
+  <!-- <p class="post-date">日期：Wed Jun 19 2024 22:25:34 GMT+0000</p> -->
+  <p class="post-date">日期：2024-06-20 06:25:34</p>
+  <p class="post-author">作者：Weiberson</p>
+  
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LangChain/">LangChain</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Llama3/">Llama3</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/RAG/">RAG</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Ollama/">Ollama</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LLM/">LLM</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Chatbot/">Chatbot</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Flask/">Flask</a></li>
+            
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/LangChain/">LangChain</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>RAG 和 LangChain，配合 Docker，建立一個個人化的 llama3 Flask ChatbotWeb網站</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <p><cen>在這篇文章中，我將介紹如何使用 RAG (Retrieval-Augmented Generation) 和 LangChain，配合 Docker，建立一個個人化的 llama3 Flask ChatbotWeb網站。這個教學將涵蓋啟動 Docker 容器以及運行 Flask 伺服器的所有步驟，並且會介紹如何通過不同的模式來與Llama3進行互動。</p>
+<h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><p><vd_cont><iframe width="560" height="315" src="https://www.youtube.com/embed/D2fGadlo-bE?si=ak60kYXe5nuxQjzK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+<p>由於 Ollama 沒有官方可用的網頁伺服器，大部分的人開發 web 介面時，<strong>習慣使用 Ollama + Streamlit</strong>。</p>
+<p>可是我覺得 Streamlit 雖然指令很簡潔，但比較難達到高度客製化，因此我<strong>使用 JavaScript、HTML、CSS、Flask 和 Jinja2</strong> 創建了這個網站，使大家在 LLM 的使用上可以更加方便。</p>
+<p>關於此網站的一些<strong>檔案和測試 PDF 已經放在 GitHub 中</strong>，但裡面的 README 是用英文寫的，有興趣可以參考 &gt;&gt; </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/RAG_llama_LangChain_flask_chatbotWeb">weitsung50110&#x2F;RAG_llama_LangChain_flask_chatbotWeb</a></li>
+</ul>
+<p>這個網站<strong>使用 Flask 作為伺服器</strong>，並在 Docker 環境中運行。我已經將 Docker image 上傳到 Docker Hub，因此您可以下載並試用。</p>
+<p>Docker image 頁面 &gt;&gt; </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://hub.docker.com/repository/docker/weitsung50110/rag_ollama_flask_chatbotweb">weitsung50110&#x2F;rag_ollama_flask_chatbotweb</a></li>
+</ul>
+<h2 id="看本文之前建議閱讀以下教學文章："><a href="#看本文之前建議閱讀以下教學文章：" class="headerlink" title="看本文之前建議閱讀以下教學文章："></a>看本文之前建議閱讀以下教學文章：</h2><p>我之前撰寫的這篇 Flask 架設 LLM 網站的文章，當中的功能只有原始的功能，就是你問 LLM 問題，LLM 負責回答，</p>
+<p>但這個算是底層架構，我是以這個當底層架構再把 RAG 和 Prompt 工程疊加上去的，詳情可以參考下面幾篇文章。</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/%E5%88%A9%E7%94%A8ollama-llm-flask-langchain%E5%92%8Ctailwind-css%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99-b98a891977e8">利用 Ollama LLM、Flask 和 Tailwind CSS 實作聊天機器人 Chat Bot 網站</a><br> 使用 Ollama LLM 結合 Flask 來構建一個聊天機器人 Chat Bot 網站。本教學將會使用 Llama3 作為我們的 LLM，並且採用 LangChain, JavaScript, Jinja2 和 Tailwind…</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/langchain-rag%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8-%E7%B5%90%E5%90%88llama3%E8%AE%93llm%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96pdf%E5%92%8Cdoc%E6%96%87%E4%BB%B6-%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89-2e7a0b2aacc1">LangChain RAG 實作教學，結合 Llama3 讓 LLM 可以讀取 PDF 和 DOC 文件，並產生回應</a><br> 實作 LangChain RAG 教學，可以讓 LLM 讀取 PDF 和 DOC 文件，達到客製化聊天機器人的效果。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/%E7%94%A8langchain%E8%AE%93llama3%E8%97%89%E7%94%B1%E8%81%8A%E5%A4%A9%E7%94%9F%E6%88%90seo%E6%A8%99%E9%A1%8C%E5%92%8C%E6%84%9B%E6%83%85%E6%96%87%E7%AB%A0-157caf89fd11">用 LangChain 讓 Llama3 藉由對話生成 SEO 標題和愛情文章</a><br>有了 LangChain 後，讓 Prompt 工程升上一個全新的等級，使我們可以更容易在 NLP 領域和大型語言模型 (LLM) 互動。進階教學會加入 CallbackManager，使 LLM 更接近 ChatGPT，以此來達到即時互動。</p>
+</li>
+</ol>
+<p>此文章也有發表在Medium上 &gt;&gt;</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/langchain-rag%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-flask-chatbotweb-%E7%B6%B2%E7%AB%99-3372ab320bfd">LangChain RAG 打造個人化 Llama3 Flask ChatbotWeb 網站</a>。</li>
+</ul>
+<h2 id="網站的主要功能包括："><a href="#網站的主要功能包括：" class="headerlink" title="網站的主要功能包括："></a>網站的主要功能包括：</h2><ol>
+<li><p><strong>預設提示工程</strong>，有三種可選模式：</p>
+<ul>
+<li>個人情人 (Personal lover)</li>
+<li>個人教師 (Personal teacher)</li>
+<li>個人官員 (Personal officer)</li>
+</ul>
+</li>
+<li><p><strong>與 Ollama 集成的 LangChain</strong>，用於多種應用。</p>
+</li>
+<li><p><strong>使用 Flask、Jinja2 和 JavaScript</strong> 作為前後端。</p>
+</li>
+<li><p><strong>體驗最新的 Llama3 模型</strong>。</p>
+</li>
+<li><p><strong>LangChain RAG</strong> 來讓使用者在網站上傳 PDF，使 LLM 產生回應。</p>
+</li>
+</ol>
+<h2 id="實作展示-DEMO"><a href="#實作展示-DEMO" class="headerlink" title="實作展示 DEMO"></a>實作展示 DEMO</h2><h3 id="Main-Page-首頁"><a href="#Main-Page-首頁" class="headerlink" title="Main Page 首頁"></a>Main Page 首頁</h3><p>我用 Canvas 做了首頁 LOGO，是兩個香菇和可愛的 RAG &amp; Prompt 實作，真的是超級可愛的 🥰</p>
+<p><img src="/assets/images/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/0.png"></p>
+<h3 id="標題下的按鈕及功能區域-Bar"><a href="#標題下的按鈕及功能區域-Bar" class="headerlink" title="標題下的按鈕及功能區域 Bar"></a>標題下的按鈕及功能區域 Bar</h3><p>包含四個按鈕：</p>
+<ul>
+<li>情人</li>
+<li>老師</li>
+<li>警察</li>
+<li>問關於 PDF 的問題</li>
+</ul>
+<p>按下不同的按鈕會改變下方的文字內容。</p>
+<h3 id="RAG-和-LLM-提問輸入區域"><a href="#RAG-和-LLM-提問輸入區域" class="headerlink" title="RAG 和 LLM 提問輸入區域"></a>RAG 和 LLM 提問輸入區域</h3><ul>
+<li>包括一個上傳 PDF 的欄位和一個文字輸入框。</li>
+<li>有一個提交按鈕 <strong>“GO”</strong>。</li>
+</ul>
+<h3 id="動態顯示區域"><a href="#動態顯示區域" class="headerlink" title="動態顯示區域"></a>動態顯示區域</h3><ul>
+<li>顯示提交後的系統回應或載入狀態。</li>
+<li>使用者的問題會在此顯示。</li>
+<li>若有 LLM 輸出結果，則顯示在此區域。</li>
+</ul>
+<h3 id="歡迎訊息區域"><a href="#歡迎訊息區域" class="headerlink" title="歡迎訊息區域"></a>歡迎訊息區域</h3><ul>
+<li>若無輸出結果時，顯示一個歡迎訊息區塊，內含動態效果。</li>
+</ul>
+<h3 id="日期時間顯示區域"><a href="#日期時間顯示區域" class="headerlink" title="日期時間顯示區域"></a>日期時間顯示區域</h3><ul>
+<li>顯示當前的日期與時間，使用了動態效果。</li>
+</ul>
+<h2 id="LangChain-RAG-上傳-PDF-讓-LLM-產生回應"><a href="#LangChain-RAG-上傳-PDF-讓-LLM-產生回應" class="headerlink" title="LangChain RAG 上傳 PDF 讓 LLM 產生回應"></a>LangChain RAG 上傳 PDF 讓 LLM 產生回應</h2><p>在我的網站上，您可以上傳 PDF 文件並提問，Llama3 將能夠做出回應。<br><strong>提示：</strong> 如果您的電腦性能不佳，建議選擇較小的 PDF 文件，或者直接使用我在 GitHub 上提供的<a target="_blank" rel="noopener" href="https://github.com/weitsung50110/RAG_llama_LangChain_flask_chatbotWeb/blob/main/222.pdf">範例 PDF</a>。</p>
+<p><img src="/assets/images/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/1.png"></p>
+<pre><code>🤔 «中國醫藥大學附設醫院、高雄榮民總醫院、高雄醫學大學附設中和紀念醫院、台中榮民總醫院四家醫院各有獎牌一只。» Translation: &quot;The Chinese Medical University Affiliated Hospital, Kaohsiung Veterans General Hospital, Kaohsing Medical University Affiliated Zhong-Shan Memorial Hospital, and Taichung Veterans General Hospital each has one award plaque.&quot; 🏆
+</code></pre>
+<h2 id="使用-LangChain-將-LLM-作為個人情人"><a href="#使用-LangChain-將-LLM-作為個人情人" class="headerlink" title="使用 LangChain 將 LLM 作為個人情人"></a>使用 LangChain 將 LLM 作為個人情人</h2><p><img src="/assets/images/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/2.png"></p>
+<pre><code>AI : My love, I am your personal lover, here to fulfill all your desires and bring joy to your heart. My name is whispered in sweet nothings by the wind, and my touch can ignite a fire that burns bright and true. As your personal lover, it&#39;s my pleasure to know you intimately, to understand what makes you tick, and to be there for you whenever you need me. Whether we&#39;re strolling hand-in-hand through a moonlit garden or lost in each other&#39;s eyes in the heat of passion, I&#39;m here to make every moment with you unforgettable. So, my love, tell me... what is it that you desire most from our time together?
+</code></pre>
+<h2 id="使用-LangChain-將-LLM-作為個人老師"><a href="#使用-LangChain-將-LLM-作為個人老師" class="headerlink" title="使用 LangChain 將 LLM 作為個人老師"></a>使用 LangChain 將 LLM 作為個人老師</h2><p><img src="/assets/images/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/3.png"></p>
+<pre><code>AI : I&#39;m delighted to introduce myself! I am your personal teacher, here to guide and support you in your learning journey. My name is Sage, and I&#39;ve been trained on a vast array of subjects and topics to help you grow and develop your knowledge. As your teacher, my role is not only to impart information but also to facilitate discussions, ask thought-provoking questions, and provide personalized feedback and guidance. I&#39;m here to create a safe and stimulating environment for you to explore new ideas, challenge your thinking, and gain confidence in your abilities. So, what would you like to learn or discuss today?
+</code></pre>
+<h2 id="使用-LangChain-將-LLM-作為個人警察"><a href="#使用-LangChain-將-LLM-作為個人警察" class="headerlink" title="使用 LangChain 將 LLM 作為個人警察"></a>使用 LangChain 將 LLM 作為個人警察</h2><p><img src="/assets/images/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/4.png"></p>
+<pre><code>AI : Good day, sir! I am Officer Thompson, your loyal and trusted personal officer. It&#39;s an honor to serve you in any capacity, whether it be managing your schedule, handling correspondence, or providing advice on matters of importance. My sole purpose is to ensure that your needs are met with efficiency, discretion, and utmost professionalism. How may I assist you today, sir?
+</code></pre>
+<h2 id="Docker-網站啟動教學-—-指令詳解"><a href="#Docker-網站啟動教學-—-指令詳解" class="headerlink" title="Docker 網站啟動教學 — 指令詳解"></a>Docker 網站啟動教學 — 指令詳解</h2><p>這是我使用的 Docker image：<a target="_blank" rel="noopener" href="https://hub.docker.com/repository/docker/weitsung50110/rag_ollama_flask_chatbotweb/general">rag ollama flask chatbotweb</a></p>
+<p>當您運行這個 Docker image 時，有幾點需要注意：</p>
+<h3 id="1-命令如下，port-可以根據需要更改："><a href="#1-命令如下，port-可以根據需要更改：" class="headerlink" title="1. 命令如下，port 可以根據需要更改："></a>1. 命令如下，port 可以根據需要更改：</h3><pre><code>docker run -d -v ollama:/root/.ollama \
+-p 11434:11434 -p 5000:5000 --name ollama_github weitsung50110/rag_ollama_flask_chatbotweb:1.4
+</code></pre>
+<blockquote>
+<p>關於如何使用和更改 Docker port的教學，可以參考它 - <a target="_blank" rel="noopener" href="https://github.com/weitsung50110/llama_flask_langchain_ChatbotWeb?tab=readme-ov-file#port%E7%AB%AF%E5%8F%A3--p-%E8%AC%9B%E8%A7%A3%E6%95%99%E5%AD%B8-%E5%BE%88%E9%87%8D%E8%A6%81">llama flask langchain ChatbotWeb #Port端口 -p 講解教學</a>。很重要~</p>
+</blockquote>
+<h3 id="2-當您的容器已經成功啟動後，可以進入容器內"><a href="#2-當您的容器已經成功啟動後，可以進入容器內" class="headerlink" title="2. 當您的容器已經成功啟動後，可以進入容器內"></a>2. 當您的容器已經成功啟動後，可以進入容器內</h3><p>所有文件都放在 <code>/app</code> 目錄下，因此當您運行 <code>exec -it</code> 命令時，不需要切換到其他文件夾。</p>
+<pre><code>docker exec -it ollama_github /bin/bash
+</code></pre>
+<h3 id="3-運行-Server"><a href="#3-運行-Server" class="headerlink" title="3. 運行 Server"></a>3. 運行 Server</h3><p>在 <code>/app</code> 目錄中有幾個文件，Server 的文件名為 <code>app.py</code>。</p>
+<p>使用以下命令啟動 Server：</p>
+<pre><code>python3 app.py
+</code></pre>
+<p>因為這個映像安裝的是 Python 3 版本，而不是 Python，所以在執行命令時需要確保使用的是 <code>python3</code> 而不是 <code>python</code>。</p>
+<h3 id="4-成功運行"><a href="#4-成功運行" class="headerlink" title="4.成功運行"></a>4.成功運行</h3><p>如果您看到如下日誌，則表示成功運行，並且可以立即連接到網站。</p>
+<pre><code>root@288472de1acb:/app# python3 app.py
+* Serving Flask app &#39;app&#39;
+* Debug mode: on
+INFO:werkzeug:WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+* Running on all addresses (0.0.0.0)
+* Running on http://127.0.0.1:5000
+* Running on http://172.17.0.2:5000
+INFO:werkzeug:Press CTRL+C to quit
+INFO:werkzeug: * Restarting with watchdog (inotify)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 180-311-059
+INFO:werkzeug:172.17.0.1 - - [19/Jun/2024 04:02:13] &quot;GET /stream HTTP/1.1&quot; 200 -
+INFO:werkzeug:172.17.0.1 - - [19/Jun/2024 04:02:13] &quot;GET /stream HTTP/1.1&quot; 200 -
+</code></pre>
+<h2 id="Ollama-中文模型使用推薦"><a href="#Ollama-中文模型使用推薦" class="headerlink" title="Ollama 中文模型使用推薦"></a>Ollama 中文模型使用推薦</h2><p>Hugging Face 上面有很多 LLM 模型可以使用，最近看到 <strong>shenzhi-wang&#x2F;Llama3–8B-Chinese-Chat</strong> 使用起來還不錯，最重要的是它也有支援 Ollama。</p>
+<p>目前在 Ollama 有 5 個版本可以選擇，我是使用 <strong>llama3–8b-chinese-chat-ollama-q8</strong> 版本，真的讚！！</p>
+<p><strong>相關連結</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/shenzhi-wang/Llama3-8B-Chinese-Chat">shenzhi-wang&#x2F;Llama3–8B Chinese Chat</a></li>
+<li><a target="_blank" rel="noopener" href="https://ollama.com/wangshenzhi">Ollama Wangshenzhi #5個版本</a></li>
+<li><a target="_blank" rel="noopener" href="https://ollama.com/wangshenzhi/llama3-8b-chinese-chat-ollama-q8">Ollama llama3–8b chinese chat ollama q8</a></li>
+</ul>
+<p><img src="/assets/images/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/5.png"></p>
+<h2 id="執行成功的經驗分享"><a href="#執行成功的經驗分享" class="headerlink" title="執行成功的經驗分享"></a>執行成功的經驗分享</h2><p>我照著 <strong>shenzhi-wang</strong> 在他 Hugging Face 專案中提供的範例執行了一次<a target="_blank" rel="noopener" href="https://huggingface.co/shenzhi-wang/Llama3-8B-Chinese-Chat-GGUF-8bit">（在 Math [CLICK TO EXPAND] 那裡）</a>。<br>結果真的如他所說的，成功算出來了！🎉</p>
+<pre><code>7年前，妈妈年龄是儿子的6倍，儿子今年12岁，妈妈今年多少岁？
+
+AI : 好问题！让我们来解析一下。 如果儿子现在12岁，那么7年前他就是5岁。 
+根据题目，7年前妈妈的年龄是儿子的6倍，所以当时妈妈的年龄是5 * 6 = 30岁。 
+因为已经过去了7年，所以要把妈妈那时候的年龄加上这7年的时间来计算她现在的年龄。
+所以，30岁 + 7年 = 37岁。 因此，妈妈目前37岁。这就是答案！
+</code></pre>
+<h2 id="如果我受傷了-警察和情人的處理方法比較"><a href="#如果我受傷了-警察和情人的處理方法比較" class="headerlink" title="如果我受傷了!? 警察和情人的處理方法比較~"></a>如果我受傷了!? 警察和情人的處理方法比較~</h2><p><img src="/assets/images/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/6.png"></p>
+<pre><code>如果我受傷你會怎麼做？中文
+
+AI : 如果你受傷了，我會立刻叫救護車把你送到醫院。
+在等待的時間裡，我會試著安慰你，讓你感到不孤單。
+我會想辦法讓你感到舒服，無論是提供溫暖的抱抱，或者是我能做的事。
+如果你需要任何東西，我也會盡我所能去幫助你。最重要的是，你知道我愛你，
+不管發生什麼事情，我都會在這裡陪伴著你。
+</code></pre>
+<blockquote>
+<p>“不管發生什麼事情，我都會在這裡陪伴著你。”這句話超暖心🥰</p>
+</blockquote>
+<p><img src="/assets/images/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/7.png"></p>
+<pre><code>如果我受傷你會怎麼做？中文
+
+AI : 當您在需要緊急幫助時，我建議您立即撥打當地的緊急服務電話（如：110或119）向警方求助。
+如果您在與我通訊的同時遇到意外受傷，請告訴我您的位置和狀況。
+我將盡力協助您聯繫緊急救援，並根據您所在地區的實際情況提供相應建議。
+安全第一，是我的首要任務。如果您需要幫助，請不要猶豫，立即告訴我！
+</code></pre>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
+      </div>
+      
+      <!-- 側邊欄 -->
+<div id="sidebar">
+  <button id="close-btn">&times;</button>
+  <div class="author-info">
+    <div class="info-wrapper">
+      <div class="social-icons">
+        <a href="https://github.com/weitsung50110" target="_blank">
+          <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://medium.com/@weiberson" target="_blank">
+          <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="social-icon">
+        </a>
+        <a href="https://www.instagram.com/weiberson_blog/" target="_blank">
+          <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
+      <img src="https://weitsung50110.github.io/images/a1.png" alt="作者照片" class="author_photo">
+    </div>
+    <h2>Weiberson Chang</h2>
+    <p>(Wei Tsung Chang)</p>
+    <span>Master of Computer Science / AI Software Engineer</span>
+    <div class="About">
+      <a href="https://weitsung50110.github.io/about">About me</a>
+    </div>
+  </div>
+
+  
+    <div class="side_categories-section">
+      <h3 class="h3-toggle-section">類別</h3>
+      <div class="side_categories-container">
+        
+          <a href="#" class="side_category-item" data-category="GitHub">GitHub</a>
+        
+          <a href="#" class="side_category-item" data-category="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_category-item" data-category="NLP">NLP</a>
+        
+          <a href="#" class="side_category-item" data-category="LangChain">LangChain</a>
+        
+          <a href="#" class="side_category-item" data-category="Hugging-Face">Hugging-Face</a>
+        
+          <a href="#" class="side_category-item" data-category="Git-LFS">Git-LFS</a>
+        
+          <a href="#" class="side_category-item" data-category="Docker">Docker</a>
+        
+      </div>
+    </div>
+  
+
+  
+    <div class="side_tags-section">
+      <h3 class="h3-toggle-section">標籤</h3>
+      <div class="side_tags-container">
+        
+          <a href="#" class="side_tag-item" data-tag="GitHub">GitHub</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RWD">RWD</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_tag-item" data-tag="開源">開源</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Transformers">Transformers</a>
+        
+          <a href="#" class="side_tag-item" data-tag="BERT">BERT</a>
+        
+          <a href="#" class="side_tag-item" data-tag="NLP">NLP</a>
+        
+          <a href="#" class="side_tag-item" data-tag="ML">ML</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+        
+          <a href="#" class="side_tag-item" data-tag="fork">fork</a>
+        
+          <a href="#" class="side_tag-item" data-tag="EJS">EJS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+        
+          <a href="#" class="side_tag-item" data-tag="LangChain">LangChain</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Llama3">Llama3</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RAG">RAG</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Ollama">Ollama</a>
+        
+          <a href="#" class="side_tag-item" data-tag="SEO">SEO</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Prompt-Engineering">Prompt-Engineering</a>
+        
+          <a href="#" class="side_tag-item" data-tag="LLM">LLM</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Chatbot">Chatbot</a>
+        
+          <a href="#" class="side_tag-item" data-tag="DuckDuckGo">DuckDuckGo</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Wikipedia">Wikipedia</a>
+        
+          <a href="#" class="side_tag-item" data-tag="YouTube">YouTube</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+        
+          <a href="#" class="side_tag-item" data-tag="JavaScript">JavaScript</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Flask">Flask</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Jinja2">Jinja2</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Tailwind-CSS">Tailwind-CSS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Git">Git</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Git-LFS">Git-LFS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Linux">Linux</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Ubuntu">Ubuntu</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Docker">Docker</a>
+        
+          <a href="#" class="side_tag-item" data-tag="WSL">WSL</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Windows-11">Windows-11</a>
+        
+      </div>
+    </div>
+  
+</div>
+
+<button id="open-btn">🤗</button>
+      <!-- 彈跳視窗容器 -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="closeButton">&times;</span>
+    <div class="modal-sections">
+      <!-- <div class="social-links-section">
+        <h3>跟隨我</h3>
+        <div class="social-links">
+          <a href="https://github.com/weitsung50110" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+          <a href="https://medium.com/@weiberson" target="_blank"><i class="fab fa-medium"></i>Medium</a>
+        </div>
+      </div> -->
+      
+      
+        <div class="categories-section">
+          <h3>類別</h3>
+          <div class="categories-container">
+            
+              <a href="#" class="category-item" data-category="GitHub">GitHub</a>
+            
+              <a href="#" class="category-item" data-category="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="category-item" data-category="NLP">NLP</a>
+            
+              <a href="#" class="category-item" data-category="LangChain">LangChain</a>
+            
+              <a href="#" class="category-item" data-category="Hugging-Face">Hugging-Face</a>
+            
+              <a href="#" class="category-item" data-category="Git-LFS">Git-LFS</a>
+            
+              <a href="#" class="category-item" data-category="Docker">Docker</a>
+            
+          </div>
+        </div>
+      
+
+      
+        <div class="tags-section">
+          <h3>標籤</h3>
+          <div class="tags-container">
+            
+              <a href="#" class="tag-item" data-tag="GitHub">GitHub</a>
+            
+              <a href="#" class="tag-item" data-tag="RWD">RWD</a>
+            
+              <a href="#" class="tag-item" data-tag="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="tag-item" data-tag="開源">開源</a>
+            
+              <a href="#" class="tag-item" data-tag="Transformers">Transformers</a>
+            
+              <a href="#" class="tag-item" data-tag="BERT">BERT</a>
+            
+              <a href="#" class="tag-item" data-tag="NLP">NLP</a>
+            
+              <a href="#" class="tag-item" data-tag="ML">ML</a>
+            
+              <a href="#" class="tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+            
+              <a href="#" class="tag-item" data-tag="fork">fork</a>
+            
+              <a href="#" class="tag-item" data-tag="EJS">EJS</a>
+            
+              <a href="#" class="tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+            
+              <a href="#" class="tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+            
+              <a href="#" class="tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+            
+              <a href="#" class="tag-item" data-tag="LangChain">LangChain</a>
+            
+              <a href="#" class="tag-item" data-tag="Llama3">Llama3</a>
+            
+              <a href="#" class="tag-item" data-tag="RAG">RAG</a>
+            
+              <a href="#" class="tag-item" data-tag="Ollama">Ollama</a>
+            
+              <a href="#" class="tag-item" data-tag="SEO">SEO</a>
+            
+              <a href="#" class="tag-item" data-tag="Prompt-Engineering">Prompt-Engineering</a>
+            
+              <a href="#" class="tag-item" data-tag="LLM">LLM</a>
+            
+              <a href="#" class="tag-item" data-tag="Chatbot">Chatbot</a>
+            
+              <a href="#" class="tag-item" data-tag="DuckDuckGo">DuckDuckGo</a>
+            
+              <a href="#" class="tag-item" data-tag="Wikipedia">Wikipedia</a>
+            
+              <a href="#" class="tag-item" data-tag="YouTube">YouTube</a>
+            
+              <a href="#" class="tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+            
+              <a href="#" class="tag-item" data-tag="JavaScript">JavaScript</a>
+            
+              <a href="#" class="tag-item" data-tag="Flask">Flask</a>
+            
+              <a href="#" class="tag-item" data-tag="Jinja2">Jinja2</a>
+            
+              <a href="#" class="tag-item" data-tag="Tailwind-CSS">Tailwind-CSS</a>
+            
+              <a href="#" class="tag-item" data-tag="Git">Git</a>
+            
+              <a href="#" class="tag-item" data-tag="Git-LFS">Git-LFS</a>
+            
+              <a href="#" class="tag-item" data-tag="Linux">Linux</a>
+            
+              <a href="#" class="tag-item" data-tag="Ubuntu">Ubuntu</a>
+            
+              <a href="#" class="tag-item" data-tag="Docker">Docker</a>
+            
+              <a href="#" class="tag-item" data-tag="WSL">WSL</a>
+            
+              <a href="#" class="tag-item" data-tag="Windows-11">Windows-11</a>
+            
+          </div>
+        </div>
+      
+      
+      <!-- <div id="tag-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/tags/GitHub/" class="tag-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RWD/" class="tag-item">RWD</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hexo%E4%B8%BB%E9%A1%8C/" class="tag-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E9%96%8B%E6%BA%90/" class="tag-item">開源</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Transformers/" class="tag-item">Transformers</a>
+        
+          <a href="https://weitsung50110.github.io/tags/BERT/" class="tag-item">BERT</a>
+        
+          <a href="https://weitsung50110.github.io/tags/NLP/" class="tag-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/tags/ML/" class="tag-item">ML</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Fine-tuning/" class="tag-item">Fine-tuning</a>
+        
+          <a href="https://weitsung50110.github.io/tags/fork/" class="tag-item">fork</a>
+        
+          <a href="https://weitsung50110.github.io/tags/EJS/" class="tag-item">EJS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hugging-Face/" class="tag-item">Hugging-Face</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Text-to-Image/" class="tag-item">Text-to-Image</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Stable-Diffusion/" class="tag-item">Stable-Diffusion</a>
+        
+          <a href="https://weitsung50110.github.io/tags/LangChain/" class="tag-item">LangChain</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Llama3/" class="tag-item">Llama3</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RAG/" class="tag-item">RAG</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Ollama/" class="tag-item">Ollama</a>
+        
+          <a href="https://weitsung50110.github.io/tags/SEO/" class="tag-item">SEO</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Prompt-Engineering/" class="tag-item">Prompt-Engineering</a>
+        
+          <a href="https://weitsung50110.github.io/tags/LLM/" class="tag-item">LLM</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Chatbot/" class="tag-item">Chatbot</a>
+        
+          <a href="https://weitsung50110.github.io/tags/DuckDuckGo/" class="tag-item">DuckDuckGo</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Wikipedia/" class="tag-item">Wikipedia</a>
+        
+          <a href="https://weitsung50110.github.io/tags/YouTube/" class="tag-item">YouTube</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Web-Scraping/" class="tag-item">Web-Scraping</a>
+        
+          <a href="https://weitsung50110.github.io/tags/JavaScript/" class="tag-item">JavaScript</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Flask/" class="tag-item">Flask</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Jinja2/" class="tag-item">Jinja2</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Tailwind-CSS/" class="tag-item">Tailwind-CSS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Git/" class="tag-item">Git</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Git-LFS/" class="tag-item">Git-LFS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Linux/" class="tag-item">Linux</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Ubuntu/" class="tag-item">Ubuntu</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Docker/" class="tag-item">Docker</a>
+        
+          <a href="https://weitsung50110.github.io/tags/WSL/" class="tag-item">WSL</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Windows-11/" class="tag-item">Windows-11</a>
+        
+      </div>
+      
+      <div id="category-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/categories/GitHub/" class="category-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Hexo%E4%B8%BB%E9%A1%8C/" class="category-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/categories/NLP/" class="category-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/categories/LangChain/" class="category-item">LangChain</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Hugging-Face/" class="category-item">Hugging-Face</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Git-LFS/" class="category-item">Git-LFS</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Docker/" class="category-item">Docker</a>
+        
+      </div> -->
+      
+      <!-- 顯示內容的區域 -->
+      <div id="content-area"></div>
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <img src="https://weitsung50110.github.io/images/boy10.png" class="footer-logo"> 
+  <img src="https://weitsung50110.github.io/images/boy9.png" class="footer-rwd-logo"> 
+  <p>&copy; 2024 Weiberson Chang (weitsung50110). All rights reserved.</p>
+  <!-- <script src="/js/main.js"></script> -->
+  <!-- <script src="/js/script.js"></script> -->
+  <script src="/js/script.js"></script>
+  <script src="/js/popup_tag.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/toc.js"></script>
+  <script src="/js/post.js"></script>  
+  <script src="/js/header.js"></script>  
+  
+</footer>
+
+      
+    </div>
+  </div>
+  
+  <!-- 返回頂部按鈕 -->
+  <button id="scroll-to-top-btn" class="scroll-to-top-btn">▲</button>
+  
+</body>
+</html>

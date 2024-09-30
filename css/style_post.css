@@ -9,6 +9,9 @@
   background-color: #f9f9f9;
   max-width: auto; /* 設置最大寬度，避免內容過於寬 */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* 鼠標懸停效果 */
@@ -274,3 +277,5 @@ cen:hover{
   border: 4px dashed rgb(255, 164, 164);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35); /* 陰影 */
 }
+
+
