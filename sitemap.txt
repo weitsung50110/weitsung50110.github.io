@@ -1,3 +1,4 @@
+https://weitsung50110.github.io/2024/09/23/%E4%BD%BF%E7%94%A8-Gitalk-%E5%AF%A6%E7%8F%BE%E5%9F%BA%E6%96%BC-GitHub-%E7%9A%84%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1-%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8/
 https://weitsung50110.github.io/2024/06/19/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/
 https://weitsung50110.github.io/2024/06/13/%E5%9C%A8win11%E5%AE%89%E8%A3%9Dwsl%E5%92%8CDocker%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/
 https://weitsung50110.github.io/2024/06/11/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/
@@ -55,6 +56,7 @@ https://weitsung50110.github.io/tags/Ubuntu/
 https://weitsung50110.github.io/tags/Docker/
 https://weitsung50110.github.io/tags/WSL/
 https://weitsung50110.github.io/tags/Windows-11/
+https://weitsung50110.github.io/tags/Gitalk/
 https://weitsung50110.github.io/categories/GitHub/
 https://weitsung50110.github.io/categories/Hexo%E4%B8%BB%E9%A1%8C/
 https://weitsung50110.github.io/categories/NLP/

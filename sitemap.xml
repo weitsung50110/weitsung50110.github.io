@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://weitsung50110.github.io/2024/09/23/%E4%BD%BF%E7%94%A8-Gitalk-%E5%AF%A6%E7%8F%BE%E5%9F%BA%E6%96%BC-GitHub-%E7%9A%84%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1-%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8/</loc>
+    
+    <lastmod>2024-09-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://weitsung50110.github.io/2024/06/19/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/</loc>
     
     <lastmod>2024-09-30</lastmod>
@@ -435,6 +444,13 @@
   
   <url>
     <loc>https://weitsung50110.github.io/tags/Windows-11/</loc>
+    <lastmod>2024-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://weitsung50110.github.io/tags/Gitalk/</loc>
     <lastmod>2024-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

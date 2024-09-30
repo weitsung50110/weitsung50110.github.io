@@ -22,7 +22,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
-  <div class="post_bg" style="">
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
     <div class="archive_bg" style="">
       
       <header>
@@ -85,26 +85,183 @@
     <div id="search-results"></div>
   </div>
 </div>
-        <div id="tags" >
-    <h1></h1>
-    
-    
-      <ul class="post-list">
         
-          <li>
+<article class="post">
+  <h1>使用 Gitalk 實現基於 GitHub 的評論系統:實作教學</h1>
+  <!-- <p class="post-date">日期：Mon Sep 23 2024 17:47:52 GMT+0000</p> -->
+  <p class="post-date">日期：2024-09-24 01:47:52</p>
+  <p class="post-author">作者：Weiberson</p>
+  
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
             
-              <a href="/2024/09/03/hexo-theme-animal%E7%9A%84RWD%E6%95%99%E5%AD%B8/">
-                hexo-theme-animal的RWD教學
-              </a>
+              <li><a href="https://weitsung50110.github.io/tags/GitHub/">GitHub</a></li>
             
-            <time datetime="2024-09-03T17:03:54.000Z">
-              2024-09-04
-            </time>
-          </li>
-        
-      </ul>
-    
-  </div> 
+              <li><a href="https://weitsung50110.github.io/tags/Git/">Git</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Gitalk/">Gitalk</a></li>
+            
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/GitHub/">GitHub</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>使用 Gitalk 實現基於 GitHub 的評論系統，詳細介紹註冊應用、配置和整合過程。</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <p><cen>Gitalk 是一個基於 GitHub Issues 的評論系統，適合用於靜態網站。這篇文章將介紹如何在網站中集成 Gitalk，並使用 OAuth 來實現用戶認證。</p>
+<h2 id="什麼是-OAuth？"><a href="#什麼是-OAuth？" class="headerlink" title="什麼是 OAuth？"></a>什麼是 OAuth？</h2><p>OAuth（Open Authorization）是一種開放標準，用於授權第三方應用程式訪問用戶的資訊，而不需要用戶直接提供帳號密碼。OAuth 主要用於網路應用程式之間的安全授權，特別是社交媒體和 API 接口。它使得用戶可以在不暴露密碼的情況下，安全地授權第三方應用程式訪問其資訊。</p>
+<p><img src="/assets/images/%E4%BD%BF%E7%94%A8-Gitalk-%E5%AF%A6%E7%8F%BE%E5%9F%BA%E6%96%BC-GitHub-%E7%9A%84%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1-%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8/0.png"></p>
+<h2 id="什麼是-Gitalk？"><a href="#什麼是-Gitalk？" class="headerlink" title="什麼是 Gitalk？"></a>什麼是 Gitalk？</h2><p>Gitalk 是一個簡單易用的評論系統，允許用戶使用 GitHub 帳號進行評論。它將所有的評論存儲在 GitHub 的 Issues 中，這樣不僅方便管理，還能保證評論的真實性。</p>
+<h2 id="Gitalk-的工作原理"><a href="#Gitalk-的工作原理" class="headerlink" title="Gitalk 的工作原理"></a>Gitalk 的工作原理</h2><p>Gitalk 主要依賴 GitHub Issues 來存儲評論，同時使用 OAuth 進行用戶認證。整個流程可以分為幾個主要步驟：</p>
+<ol>
+<li><p><strong>註冊應用程式</strong><br>在使用 Gitalk 之前，你需要在 GitHub 上註冊一個 OAuth 應用程式。這將生成一個 <code>Client ID</code> 和 <code>Client Secret</code>，這兩個資訊是認證過程中必不可少的。</p>
+</li>
+<li><p><strong>用戶觸發認證</strong><br>當用戶在你的網站上想要發表評論時，Gitalk 會引導用戶進行認證。這個觸發通常是用戶點擊「<code>登入</code>」或「<code>發表評論</code>」的按鈕。</p>
+</li>
+<li><p><strong>發送授權請求</strong><br>Gitalk 會構建一個 URL，並重定向用戶到 GitHub 的授權頁面，這個 URL 包含了以下關鍵參數：</p>
+<ul>
+<li><strong>client_id</strong>：你的應用程式的 Client ID。</li>
+<li><strong>redirect_uri</strong>：用於重定向用戶的網址，這是你在註冊應用程式時指定的。</li>
+<li><strong>scope</strong>：請求的權限範圍（如：repo、user），這決定了應用程式可以訪問哪些資料。</li>
+</ul>
+</li>
+<li><p><strong>用戶授權</strong><br>用戶將被引導到 GitHub 的授權頁面，在這裡他們需要登入（如果尚未登入），然後同意授權應用程式訪問其 GitHub 賬號。授權後，GitHub 會將用戶重定向回你指定的 <code>redirect_uri</code>，並附上授權碼（code）。</p>
+</li>
+<li><p><strong>獲取訪問令牌（Access Token）</strong><br>在用戶重定向回你的應用程式後，你的應用程式需要使用授權碼向 GitHub 發送請求，來獲取訪問令牌。這個請求需要包含以下資訊：</p>
+<ul>
+<li><strong>client_id</strong>：你的應用程式的 Client ID。</li>
+<li><strong>client_secret</strong>：你的 Client Secret。</li>
+<li><strong>code</strong>：從 GitHub 獲取的授權碼。</li>
+<li><strong>redirect_uri</strong>：重定向的 URL，必須與之前的請求一致。</li>
+</ul>
+</li>
+</ol>
+<p><strong>示例請求</strong>：</p>
+<pre><code>POST https://github.com/login/oauth/access_token
+</code></pre>
+<p><strong>請求（request body）格式通常為</strong>：</p>
+<pre><code>client_id=YOUR_CLIENT_ID&amp;client_secret=YOUR_CLIENT_SECRET&amp;code=YOUR_AUTHORIZATION_CODE&amp;redirect_uri=YOUR_REDIRECT_URI
+</code></pre>
+<ol start="6">
+<li><p><strong>成功獲取令牌（Access Token）</strong><br>如果請求成功，GitHub 將返回一個 JSON 格式的響應，包含訪問令牌（<code>access_token</code>）。這個令牌可以用於代表用戶進行 API 請求。</p>
+</li>
+<li><p><strong>發表評論</strong><br>獲取訪問令牌後，Gitalk 可以<strong>使用這個令牌向 GitHub API 發送請求</strong>，創建或查詢 Issues。當用戶在 Gitalk 中發表評論時，Gitalk 會執行以下操作：</p>
+<ul>
+<li><p>構建一個 POST 請求，請求 URL 通常是：</p>
+<pre><code>  POST https://api.github.com/repos/OWNER/REPO/issues/ISSUE_NUMBER/comments
+</code></pre>
+</li>
+<li><p>在請求中包含評論內容和訪問令牌。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>顯示評論區域</strong><br>每次用戶訪問評論區域時，Gitalk 會自動從 GitHub Issues 中獲取相關評論並顯示。這樣，用戶可以查看和發表評論，所有的資料都存儲在 GitHub 上，保證了安全性和可追蹤性。</p>
+</li>
+</ol>
+<h2 id="以-HEXO-來進行實作教學"><a href="#以-HEXO-來進行實作教學" class="headerlink" title="以 HEXO 來進行實作教學"></a>以 HEXO 來進行實作教學</h2><h3 id="步驟一：註冊-GitHub-應用程式"><a href="#步驟一：註冊-GitHub-應用程式" class="headerlink" title="步驟一：註冊 GitHub 應用程式"></a>步驟一：註冊 GitHub 應用程式</h3><ol>
+<li>登入你的 GitHub 帳號，前往 <a target="_blank" rel="noopener" href="https://github.com/login?return_to=https://github.com/settings/developers">GitHub Developer Settings</a>。</li>
+<li>點擊「新建 OAuth 應用程式」。</li>
+</ol>
+<p><img src="/assets/images/%E4%BD%BF%E7%94%A8-Gitalk-%E5%AF%A6%E7%8F%BE%E5%9F%BA%E6%96%BC-GitHub-%E7%9A%84%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1-%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8/1.png"></p>
+<p>填寫以下信息：</p>
+<ul>
+<li><strong>應用程式名稱</strong>：你的應用名稱。</li>
+<li><strong>網站 URL</strong>：你的 Hexo 網址（例如：<code>https://weitsung50110.github.io/</code>）。</li>
+<li><strong>Callback URL</strong>：例如：<code>https://weitsung50110.github.io/</code>。</li>
+</ul>
+<p><img src="/assets/images/%E4%BD%BF%E7%94%A8-Gitalk-%E5%AF%A6%E7%8F%BE%E5%9F%BA%E6%96%BC-GitHub-%E7%9A%84%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1-%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8/2.png"></p>
+<blockquote>
+<p>如果是本地測試環境記得Callback URL要改成&gt;&gt; <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a></p>
+</blockquote>
+<ul>
+<li>提交後，記下 <code>Client ID</code> 和 <code>Client Secret</code>。</li>
+</ul>
+<h3 id="步驟二：安裝-Gitalk"><a href="#步驟二：安裝-Gitalk" class="headerlink" title="步驟二：安裝 Gitalk"></a>步驟二：安裝 Gitalk</h3><p>在你的 Hexo 項目中，安裝 Gitalk。可以直接在 Hexo 的主目錄下使用 npm 安裝：</p>
+<pre><code>npm install gitalk --save
+</code></pre>
+<h3 id="步驟三：配置-Gitalk"><a href="#步驟三：配置-Gitalk" class="headerlink" title="步驟三：配置 Gitalk"></a>步驟三：配置 Gitalk</h3><p>在 Hexo 的配置文件中（我選擇在 <code>themes/your-theme/layout/_partial/post.ejs</code>），添加以下 Gitalk 配置：</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;&gt;
+&lt;script src=&quot;https://unpkg.com/gitalk/dist/gitalk.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;div id=&quot;gitalk-container&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var gitalk = new Gitalk(&#123;
+    clientID: &#39;YOUR_CLIENT_ID&#39;,
+    clientSecret: &#39;YOUR_CLIENT_SECRET&#39;, // 不需要在前端暴露，這裡只需放置 Client ID
+    repo: &#39;weitsung50110.github.io&#39;, // 儲存評論的 GitHub 倉庫
+    owner: &#39;weitsung50110&#39;, // 倉庫擁有者
+    admin: [&#39;weitsung50110&#39;], // 具有寫入權限的 GitHub 使用者名稱
+    id: location.pathname.slice(0, 50), // 唯一標識，通常用於每個頁面
+    distractionFreeMode: true // 啟用無干擾模式
+&#125;);
+
+gitalk.render(&#39;gitalk-container&#39;); // 渲染 Gitalk 評論區
+&lt;/script&gt;
+</code></pre>
+<h4 id="Gitalk-配置參數說明"><a href="#Gitalk-配置參數說明" class="headerlink" title="Gitalk 配置參數說明"></a>Gitalk 配置參數說明</h4><ul>
+<li><strong>clientID</strong>：你在 GitHub 上註冊的應用程式的 Client ID。</li>
+<li><strong>repo</strong>：用於存儲評論的 GitHub 倉庫名稱（例如 <code>username/repo</code>）。</li>
+<li><strong>owner</strong>：GitHub 倉庫的擁有者（通常是你的 GitHub 用戶名）。</li>
+<li><strong>id</strong>：用於標識每個頁面的唯一 ID，可以使用 <code>location.pathname</code> 來獲取當前頁面的路徑。</li>
+</ul>
+<h3 id="1-為什麼需要唯一-ID？"><a href="#1-為什麼需要唯一-ID？" class="headerlink" title="1. 為什麼需要唯一 ID？"></a>1. 為什麼需要唯一 ID？</h3><p>在 Gitalk 中，每個留言區都需要一個唯一的 <code>ID</code> 來識別。這個 <code>ID</code> 會用來存儲和檢索留言。如果多個頁面使用相同的 <code>ID</code>，會造成衝突，導致留言無法正常顯示或存儲。</p>
+<h3 id="2-使用-location-pathname-slice-0-50"><a href="#2-使用-location-pathname-slice-0-50" class="headerlink" title="2. 使用 location.pathname.slice(0, 50)"></a>2. 使用 <code>location.pathname.slice(0, 50)</code></h3><ul>
+<li>location.pathname：這是當前頁面的 URL 路徑，例如 <code>/my-post</code>。</li>
+<li>.slice(0, 50)：這段代碼的作用是取 <code>location.pathname</code> 的前 50 個字符，確保這個 ID 不會過長。因為某些系統對於字符串的長度是有限制的，這樣做可以避免因為過長而導致的錯誤。</li>
+</ul>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p><img src="/assets/images/%E4%BD%BF%E7%94%A8-Gitalk-%E5%AF%A6%E7%8F%BE%E5%9F%BA%E6%96%BC-GitHub-%E7%9A%84%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1-%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8/3.png"></p>
+<p><img src="/assets/images/%E4%BD%BF%E7%94%A8-Gitalk-%E5%AF%A6%E7%8F%BE%E5%9F%BA%E6%96%BC-GitHub-%E7%9A%84%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1-%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8/4.png"></p>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
       </div>
       
       <!-- 側邊欄 -->
