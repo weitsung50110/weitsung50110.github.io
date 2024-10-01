@@ -93,19 +93,24 @@
 
 /* 調整按鈕位置 */
 .copy-button {
-  display: block; /* 使按鈕為塊級元素，並自動在新行中顯示 */
-  background-color: rgba(0, 0, 0, 0.2);
-  color: rgb(13, 0, 97);
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
+  position: absolute;
+  top: 10px; /* 距離上方的距離 */
+  right: 10px; /* 距離右側的距離 */
+  background-color: #d2f0f9; /* 水藍色 */
+  border: 1.5px dashed #1313a5; /* 設置邊框樣式和顏色 */
+  color: rgb(52, 52, 224); /* 按鈕文字顏色 */
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px; /* 按鈕與程式碼區塊之間的距離 */
+  padding: 8px 12px; /* 增加內邊距 */
+  transition: background-color 0.1s, transform 0.1s; /* 增加變形過渡 */
+  z-index: 10; /* 確保按鈕在最上層 */
 }
 
 .copy-button:hover {
-  background-color: #c3e0ff;
+  border: 1.5px dashed #bd1f1f; /* 設置邊框樣式和顏色 */
+  background-color: #d2f9f2; /* 水藍色 */
 }
+
 
 /* 行內程式碼樣式 */
 code {

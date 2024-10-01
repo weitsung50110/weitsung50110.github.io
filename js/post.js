@@ -1,23 +1,36 @@
-// document.addEventListener('DOMContentLoaded', function() {
-//     const codeBlocks = document.querySelectorAll('pre code');
-//     codeBlocks.forEach(block => {
-//         const button = document.createElement('button');
-//         button.textContent = 'Copy';
-//         button.className = 'copy-button';
-//         block.parentElement.style.position = 'relative';
-//         block.parentElement.appendChild(button);
+document.addEventListener('DOMContentLoaded', function() {
+  const codeBlocks = document.querySelectorAll('pre code');
+  codeBlocks.forEach(block => {
+      const button = document.createElement('button');
+      button.textContent = 'Copy';
+      button.className = 'copy-button';
+      block.parentElement.style.position = 'relative'; // 確保父元素相對定位
+      block.parentElement.appendChild(button);
 
-//         button.addEventListener('click', () => {
-//             const range = document.createRange();
-//             range.selectNode(block);
-//             window.getSelection().removeAllRanges();
-//             window.getSelection().addRange(range);
-//             document.execCommand('copy');
-//             window.getSelection().removeAllRanges();
-//             // alert('Code copied to clipboard!');
-//         });
-//     });
-// });
+      button.addEventListener('click', () => {
+          const range = document.createRange();
+          range.selectNode(block);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          document.execCommand('copy');
+          window.getSelection().removeAllRanges();
+      });
+
+      // 初始隱藏按鈕
+      button.style.display = 'none';
+      button.style.position = 'absolute'; // 使按鈕絕對定位
+
+      // 當 hover 時顯示按鈕
+      block.parentElement.addEventListener('mouseenter', () => {
+          button.style.display = 'block';
+      });
+
+      block.parentElement.addEventListener('mouseleave', () => {
+          button.style.display = 'none';
+      });
+  });
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
   const tables = document.querySelectorAll('article table');

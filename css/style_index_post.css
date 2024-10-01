@@ -93,9 +93,11 @@
   margin: 10px 0; /* 加一些外邊距 */
 }
 
-.post-tags li,
-.post-categories li {
-  margin-right: 10px; /* 每個項目之間的間距 */
+.post-tags ul {
+  display: flex; /* 使用 flexbox */
+  flex-wrap: wrap; /* 允許換行 */
+  padding: 0; /* 去掉預設內邊距 */
+  margin: 0; /* 去掉預設外邊距 */
 }
 
 .post-tags span,
