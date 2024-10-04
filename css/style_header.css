@@ -94,7 +94,7 @@ nav {
   position: fixed; /* 固定在頁面上 */
   right: 0; /* 距離頁面左側 */
   top: 0; /* 距離頁面頂部 */
-  background-color: rgba(0, 0, 0, 0.3); /* 半透明底色 */
+  background-color: rgba(0, 0, 0, 0.4); /* 半透明底色 */
   padding: 0;
   margin: 0;
   display: flex;
@@ -131,7 +131,7 @@ nav {
   position: absolute; /* 絕對定位 */
   top: 100%; /* 從父元素（menu-button）底部開始 */
   left: 0; /* 與父元素（menu-button）左邊對齊 */
-  background: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -152,8 +152,7 @@ nav {
 .nav-menu a {
   display: block;
   padding: 10px 15px;
-  color: #ddd !important;
-  background-color: #292626 !important;
+  color: #ddd ;
   text-decoration: none;
   border-bottom: 1px solid #ddd;
 }
@@ -161,7 +160,7 @@ nav {
 /* 連結懸停樣式 */
 .nav-menu a:hover {
   color: #ffffff !important;
-  background-color: rgb(196, 82, 33) !important;
+  background-color: rgb(196, 82, 33) ;
 }
 
 .dropdown_social-icon {
@@ -169,6 +168,7 @@ nav {
   height: 20px; /* 圖標高度 */
   margin-right: 8px; /* 圖標與文字之間的間距 */
 }
+
 
 
 /* 漢堡選單樣式 */
