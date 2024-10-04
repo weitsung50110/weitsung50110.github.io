@@ -193,6 +193,13 @@
     header .logo2 {
       display: none; /* 隱藏 logo2 */
     }
+
+    
+    header img {
+      max-width: 130px;
+      height: auto;
+      border-radius: 100%;
+    }
   
     header {
       padding: 15px;
@@ -290,4 +297,13 @@
       top: 30%; /* 垂直居中 */
     }
     
+
+    /* 使用 > 符號來創建引用框 */
+    .custom-quote img {
+      max-width: 100%; /* 最大寬度為父元素的 80% */
+      height: auto; /* 自動調整高度 */
+      margin: 0 auto; /* 置中顯示 */
+      display: block; /* 使圖片成為塊級元素以便於置中 */
+      border-radius: 0%; /* 圓角 */
+    }
   }
