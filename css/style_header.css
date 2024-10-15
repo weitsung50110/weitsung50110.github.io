@@ -23,11 +23,11 @@ header .logo2 {
   position: absolute;
   top: 0;
   right: 30%;
-  width: 15%;
-  height: 100%;
   background-repeat: no-repeat;
   border-radius: 0; /* 確保不會變成圓形 */
-  /* opacity: 0.3; 設置透明度以便背景漸變顯示出來 */
+  opacity: 0; /* 初始不顯示 */
+  visibility: hidden; /* 初始不顯示 */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* 添加過渡效果 */
 }
 
 /* Header 內容 */
@@ -46,6 +46,12 @@ header img {
 header h1 {
   margin: 0;
   z-index: 1; 
+}
+
+/* h1 hover 時顯示 logo2 */
+header h1:hover + .logo2 {
+  opacity: 1; /* 顯示 logo2 */
+  visibility: visible; /* 設置為可見 */
 }
 
 header h1 a {
