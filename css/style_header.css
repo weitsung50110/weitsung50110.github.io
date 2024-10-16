@@ -124,6 +124,7 @@ nav {
   padding: 10px;
   cursor: pointer;
   z-index: 2; 
+  border-radius: 25px; /* 添加圓角，讓邊緣看起來更柔和 */
 }
 
 .nav-top li a:hover{
@@ -145,6 +146,10 @@ nav {
   pointer-events: none; /* 初始禁用點擊事件 */
   opacity: 0; /* 初始不透明 */
   transition: opacity 0.3s; /* 添加過渡效果 */
+
+  /* 新增的屬性 */
+  max-height: 300px; /* 設定最大高度 */
+  overflow-y: auto; /* 當內容超出時顯示垂直滾動條 */
 }
 
 /* 顯示下拉菜單 */

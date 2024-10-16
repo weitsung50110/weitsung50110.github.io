@@ -4,7 +4,16 @@
   <url>
     <loc>https://weitsung50110.github.io/about/index.html</loc>
     
-    <lastmod>2024-10-15</lastmod>
+    <lastmod>2024-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://weitsung50110.github.io/2024/09/10/hexo-theme-animal%E7%9A%84Github%E6%89%80%E6%9C%89%E7%9B%B8%E9%97%9Crepositories/</loc>
+    
+    <lastmod>2024-10-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>https://weitsung50110.github.io/2024/09/03/hexo-theme-animal%E7%9A%84RWD%E6%95%99%E5%AD%B8/</loc>
-    
-    <lastmod>2024-10-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://weitsung50110.github.io/2024/09/10/hexo-theme-animal%E7%9A%84Github%E6%89%80%E6%9C%89%E7%9B%B8%E9%97%9Crepositories/</loc>
     
     <lastmod>2024-10-08</lastmod>
     

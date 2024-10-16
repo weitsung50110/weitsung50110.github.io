@@ -66,6 +66,7 @@
     /* 移動版選單的顯示 */
     .nav-top {
       position: relative; /* 固定在頁面上 */
+      background-color:rgba(0, 0, 0, 0.6); /* 半透明底色 */
     }
 
     .mobile-nav.active {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Well崴寶程式開發天堂 Weibert Weiberson 程式設計與教學</title>
+<title>Well崴寶程式開發天堂 - 崴寶 Weibert Weiberson</title>
 <meta name="description" content="崴寶Weibert Weiberson 的網站，分享 AI、深度學習、機器學習、Hexo 主題開發及技術教學。探索最新的技術趨勢和開源項目。">
 <meta name="keywords" content="Well崴寶, Well威寶, 威寶weiberson, 威寶,威寶weibert, 崴寶Weibert, Weibert, Weiberson, 崴寶,Weiberson Chang, AI, 深度學習, 機器學習, Hexo, GitHub, 教學, 開源, BERT, Transformers, weitsung50110">
 <meta name="author" content="崴寶Weibert Weiberson">
@@ -28,21 +28,22 @@
       <header>
   <div class="header-content">
     <img property="og:image" src="https://weitsung50110.github.io/images/boy11.png" alt="Logo" class="logo">
-    <h1><a href="https://weitsung50110.github.io">崴寶 Weibert Weiberson<br/>Well崴寶程式開發天堂</a></h1>
+    <h1><a href="https://weitsung50110.github.io">Well崴寶程式開發天堂<br/>崴寶 Weibert Weiberson</a></h1>
     <img src="https://weitsung50110.github.io/images/boy5.png" alt="Logo2" class="logo2">
 
     <!-- 在 nav 中包裹選單 -->
     <nav class="mobile-nav">
       <ul class="nav-top">
-        <li><a href="https://weitsung50110.github.io/">首頁</a></li>
+        <!-- <li><a href="https://weitsung50110.github.io/">首頁</a></li> -->
         <li><a href="https://weitsung50110.github.io/about">關於</a></li>
         <li><a href="https://weitsung50110.github.io/archives">檔案</a></li>
         <li><a id="tag_toggleButton">文章分類</a></li>
+        <li><a target="_blank" rel="noopener" href="https://weibert.ck.page/e24ac23d09">電子報</a></li>
         <li class="dropdown">
           <a class="menu-button">跟隨我</a>
           <div class="nav-menu">
             <div class="menu-content">
-              <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">
+              <!-- <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">
                 <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="dropdown_social-icon">
                 GitHub</a>
               <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">
@@ -50,7 +51,36 @@
                 Medium</a>
               <a target="_blank" rel="noopener" href="https://www.instagram.com/weibert_music/">
                 <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="dropdown_social-icon">
-                IG</a>
+                IG</a> -->
+                <div class="dropdown_section">
+                  <strong>🩵 GitHub:</strong>
+                  <a href="https://github.com/weitsung50110" target="_blank">weitsung50110</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 Medium:</strong>
+                  <a href="https://medium.com/@weiberson" target="_blank">@weiberson</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 Instagram:</strong>
+                  <a href="https://www.instagram.com/weibert_music/" target="_blank">@weibert_music</a>
+                  <a href="https://www.instagram.com/weiberson_blog/" target="_blank">@weiberson_blog</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 崴寶網站:</strong>
+                  <a href="https://weitsung50110.github.io/" target="_blank">Well崴寶程式開發天堂</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 YouTube:</strong>
+                  <a href="https://www.youtube.com/@weibert" target="_blank">Well崴寶程式開發天堂</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 Facebook:</strong>
+                  <a href="https://www.facebook.com/weibert1/" target="_blank">Well崴寶程式開發天堂</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 TikTok:</strong>
+                  <a href="https://www.tiktok.com/@weibert1" target="_blank">崴寶Weibert</a>
+                </div>
             </div>
           </div>
         </li>
@@ -129,6 +159,10 @@
   <!-- 目錄容器 -->
   <div class="article-container">
     <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>覺得崴寶的內容實用嗎？ Well崴寶程式開發天堂 電子報讀者募集中！歡迎
+          <a href="https://weibert.ck.page/e24ac23d09" target="_blank">訂閱電子報!</a>！</p>
+      </div>
       <p><cen>Gitalk 是一個基於 GitHub Issues 的評論系統，適合用於靜態網站。這篇文章將介紹如何在網站中集成 Gitalk，並使用 OAuth 來實現用戶認證。</p>
 <h2 id="什麼是-OAuth？"><a href="#什麼是-OAuth？" class="headerlink" title="什麼是 OAuth？"></a>什麼是 OAuth？</h2><p>OAuth（Open Authorization）是一種開放標準，用於授權第三方應用程式訪問用戶的資訊，而不需要用戶直接提供帳號密碼。OAuth 主要用於網路應用程式之間的安全授權，特別是社交媒體和 API 接口。它使得用戶可以在不暴露密碼的情況下，安全地授權第三方應用程式訪問其資訊。</p>
 <p><img src="/assets/images/%E4%BD%BF%E7%94%A8-Gitalk-%E5%AF%A6%E7%8F%BE%E5%9F%BA%E6%96%BC-GitHub-%E7%9A%84%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1-%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8/0.png"></p>
@@ -628,6 +662,10 @@ gitalk.render(&#39;gitalk-container&#39;); // 渲染 Gitalk 評論區
       <footer>
   <img src="https://weitsung50110.github.io/images/boy10.png" class="footer-logo"> 
   <img src="https://weitsung50110.github.io/images/boy9.png" class="footer-rwd-logo"> 
+  <div class="newsletter-subscription">
+    <p>覺得崴寶的內容實用嗎？ Well崴寶程式開發天堂 電子報讀者募集中！歡迎
+      <a href="https://weibert.ck.page/e24ac23d09" target="_blank">訂閱電子報!</a>！</p>
+  </div>
   <p>&copy; 2024 崴寶 Weibert Weiberson. All rights reserved.</p>
   <!-- <script src="/js/main.js"></script> -->
   <!-- <script src="/js/script.js"></script> -->
