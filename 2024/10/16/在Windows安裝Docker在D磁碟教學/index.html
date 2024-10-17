@@ -22,7 +22,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
-  <div class="post_bg" style="">
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
     <div class="archive_bg" style="">
       
       <header>
@@ -115,37 +115,111 @@
     <div id="search-results"></div>
   </div>
 </div>
-        <div id="category">
-    <h1></h1>
-    
-    
-      <ul class="post-list">
         
-          <li>
+<article class="post">
+  <h1>在Windows安裝Docker在D磁碟教學</h1>
+  <!-- <p class="post-date">日期：Wed Oct 16 2024 18:59:23 GMT+0000</p> -->
+  <p class="post-date">日期：2024-10-17 02:59:23</p>
+  <!-- <p class="post-author">作者：Weiberson</p> -->
+  
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
             
-              <a href="/2024/10/16/%E5%9C%A8Windows%E5%AE%89%E8%A3%9DDocker%E5%9C%A8D%E7%A3%81%E7%A2%9F%E6%95%99%E5%AD%B8/">
-                在Windows安裝Docker在D磁碟教學
-              </a>
+              <li><a href="https://weitsung50110.github.io/tags/Docker/">Docker</a></li>
             
-            <time datetime="2024-10-16T18:59:23.000Z">
-              2024-10-17
-            </time>
-          </li>
-        
-          <li>
+              <li><a href="https://weitsung50110.github.io/tags/WSL/">WSL</a></li>
             
-              <a href="/2024/06/13/%E5%9C%A8win11%E5%AE%89%E8%A3%9Dwsl%E5%92%8CDocker%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8/">
-                在win11安裝wsl和Docker安裝教學
-              </a>
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
             
-            <time datetime="2024-06-13T22:02:10.000Z">
-              2024-06-14
-            </time>
-          </li>
-        
-      </ul>
-    
-  </div> 
+              <li><a href="https://weitsung50110.github.io/categories/Docker/">Docker</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>如何在 Windows 系統上使用 PowerShell 將 Docker 安裝到 D 磁碟，並設置 WSL 的數據存儲位置</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>覺得崴寶的內容實用嗎？ Well崴寶程式開發天堂 電子報讀者募集中！歡迎
+          <a href="https://weibert.ck.page/bedbab1756" target="_blank">訂閱電子報!</a>！</p>
+      </div>
+      <p><cen>這篇文章介紹了如何使用PowerShell將 Docker 安裝到 D 磁碟，並設置 WSL 的數據存儲位置。</p>
+<h2 id="1-先去官網下載-Docker-Desktop"><a href="#1-先去官網下載-Docker-Desktop" class="headerlink" title="1. 先去官網下載 Docker Desktop"></a>1. 先去官網下載 Docker Desktop</h2><p><img src="/assets/images/%E5%9C%A8Windows%E5%AE%89%E8%A3%9DDocker%E5%9C%A8D%E7%A3%81%E7%A2%9F%E6%95%99%E5%AD%B8/0.png"></p>
+<h2 id="2-進入安裝好的資料夾中"><a href="#2-進入安裝好的資料夾中" class="headerlink" title="2. 進入安裝好的資料夾中"></a>2. 進入安裝好的資料夾中</h2><p><img src="/assets/images/%E5%9C%A8Windows%E5%AE%89%E8%A3%9DDocker%E5%9C%A8D%E7%A3%81%E7%A2%9F%E6%95%99%E5%AD%B8/1.png"></p>
+<h2 id="3-開啟-PowerShell-輸入以下指令"><a href="#3-開啟-PowerShell-輸入以下指令" class="headerlink" title="3. 開啟 PowerShell 輸入以下指令"></a>3. 開啟 PowerShell 輸入以下指令</h2><p>   Start-Process “D:\Docker\Docker Desktop Installer.exe” -ArgumentList “install”, “-accept-license”, “–installation-dir&#x3D;D:\Docker\Docker”, “–wsl-default-data-root&#x3D;D:\Docker\wsl”, “–windows-containers-default-data-root&#x3D;D:\Docker” -Wait</p>
+<p><img src="/assets/images/%E5%9C%A8Windows%E5%AE%89%E8%A3%9DDocker%E5%9C%A8D%E7%A3%81%E7%A2%9F%E6%95%99%E5%AD%B8/2.png"></p>
+<p>這行命令使用 PowerShell 的 <code>Start-Process</code> 來執行 Docker Desktop 安裝程式，並指定了一系列參數。以下是對這行命令的逐部分解釋：</p>
+<ul>
+<li><p><strong>Start-Process</strong>：這是 PowerShell 用來啟動新進程的命令，可以用來執行應用程式或指令。</p>
+</li>
+<li><p><strong>D:\Docker\Docker Desktop Installer.exe</strong>：這是要執行的應用程式的完整路徑。在這裡，它指向 Docker Desktop 的安裝檔案。</p>
+</li>
+<li><p><strong>-ArgumentList</strong>：這個參數允許你傳遞一組參數到要啟動的應用程式。這些參數會以一個陣列的形式傳遞。</p>
+</li>
+<li><p><strong>install</strong>：這是一個參數，告訴安裝程式進行安裝操作。</p>
+</li>
+<li><p><strong>-accept-license</strong>：這個參數表示你接受安裝過程中的使用條款和許可協議。</p>
+</li>
+<li><p><strong>–installation-dir&#x3D;D:\Docker\Docker</strong>：這個參數指定安裝目錄，即將 Docker 安裝到 <code>D:\Docker\Docker</code> 這個路徑。</p>
+</li>
+<li><p><strong>–wsl-default-data-root&#x3D;D:\Docker\wsl</strong>：這個參數設置 WSL（Windows Subsystem for Linux）的預設數據根目錄，指定為 <code>D:\Docker\wsl</code>。</p>
+</li>
+<li><p><strong>–windows-containers-default-data-root&#x3D;D:\Docker</strong>：這個參數設置 Windows 容器的預設數據根目錄，指定為 <code>D:\Docker</code>。</p>
+</li>
+<li><p><strong>-Wait</strong>：這個參數告訴 PowerShell 等待直到新進程結束後再繼續執行後面的命令。這在安裝過程中是非常有用的，因為你通常希望等到安裝完成後再進行其他操作。</p>
+</li>
+</ul>
+<p>這條命令用於啟動 Docker Desktop 的安裝，並明確指定安裝選項及數據存儲位置，使得安裝過程更加可定制。</p>
+<h2 id="4-安裝完成，可以順利使用啦"><a href="#4-安裝完成，可以順利使用啦" class="headerlink" title="4. 安裝完成，可以順利使用啦~~"></a>4. 安裝完成，可以順利使用啦~~</h2><p><img src="/assets/images/%E5%9C%A8Windows%E5%AE%89%E8%A3%9DDocker%E5%9C%A8D%E7%A3%81%E7%A2%9F%E6%95%99%E5%AD%B8/3.png"><br><img src="/assets/images/%E5%9C%A8Windows%E5%AE%89%E8%A3%9DDocker%E5%9C%A8D%E7%A3%81%E7%A2%9F%E6%95%99%E5%AD%B8/4.png"></p>
+<p>Images也都可以正常安裝，這樣C槽就不會再被塞爆啦!!😊</p>
+<p>— 未來會在yotube頻道<strong>well崴寶程式開發天堂</strong>拍成影片教學</p>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
       </div>
       
       <!-- 側邊欄 -->
