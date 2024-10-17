@@ -54,7 +54,7 @@
 .index_post .excerpt {
   color: #555;
   line-height: 1.8;
-  text-align: center;
+  text-align: left;
 }
 
 .index_post .excerpt:hover{
@@ -67,9 +67,9 @@
   display: block;
   text-align: center;
   font-size: 1em;
-  color: #3773ff;
+  color: #f63fa6;
+  text-shadow: 2px 2px 4px rgba(84, 28, 251, 0.8);
   text-decoration: none;
-  font-weight: bold;
 }
 
 .index_post .read-more:hover {

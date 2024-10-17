@@ -210,4 +210,5 @@ nav {
 #press_show_cute img {
   width: 30px; /* 設定圖片寬度 */
   height: 30px; /* 設定圖片高度 */
+  z-index: 1;
 }
