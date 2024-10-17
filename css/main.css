@@ -109,6 +109,7 @@
       position: fixed; /* 固定定位 */
       top: 200px; /* 調整下拉選單距離頂部的位置 */
       right: 0;
+      left: 0;
     }
 
 
