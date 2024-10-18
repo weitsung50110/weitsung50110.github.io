@@ -67,14 +67,16 @@
   display: block;
   text-align: center;
   font-size: 1em;
-  color: #f63fa6;
-  text-shadow: 4px 4px 6px rgba(166, 141, 255, 0.8);
+  color: #3ff6f6;
   text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
+  border-radius: 50px;
 }
 
 .index_post .read-more:hover {
   text-decoration: underline;
-  background-color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色 */
+  text-shadow: 4px 4px 6px rgba(181, 255, 171, 0.5);
 }
 
 
