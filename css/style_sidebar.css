@@ -180,7 +180,7 @@ body{
 
 
 .info-wrapper {
-  display: flex; /* 使用彈性布局 */
+  /* display: flex; 使用彈性布局 */
   align-items: center; /* 垂直居中對齊 */
 }
 
@@ -209,4 +209,27 @@ body{
 
 .social-icon:hover {
   transform: scale(1.1); /* 鼠標懸停時放大 */
+}
+
+
+/* 聯絡我樣式 */
+.social-links {
+  margin-top: 10px; /* 上方間距 */
+  text-align: left; /* 左對齊 */
+}
+
+.social-links a {
+  transition: color 0.2s, background-color 0.2s; /* 連結懸停效果過渡 */
+  text-decoration: none; /* 移除下劃線 */
+  padding: 5px 10px; /* 內邊距 */
+  border-radius: 5px; /* 圓角 */
+  margin: -5px 0; /* 上下邊距為負值 */
+  word-break: break-all; /* 允許斷行 */
+  overflow-wrap: break-word; /* 支持瀏覽器對長單詞的斷行 */
+  color: #f9ac68;
+}
+
+.social-links a:hover {
+  color: #fff; /* 懸停時文字顏色 */
+  background-color: #a6326c; /* 懸停時背景顏色 */
 }
