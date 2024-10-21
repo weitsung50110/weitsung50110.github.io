@@ -37,13 +37,12 @@ body {
 
 
 .home-intro {
-  padding: 20px 10px;
+  padding: 10px 0px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  color: #ffffff;
 }
 
 .home-intro .home-image {
@@ -56,7 +55,7 @@ body {
   z-index: -1; /* 確保圖片在文字下方 */
 }
 
-.home-intro h2 {
+/* .home-intro h2 {
   font-size: 1.6em;
   margin-bottom: 10px;
   color: #ff83a6;
@@ -67,7 +66,7 @@ body {
 @keyframes textPulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.01); }
-}
+} */
 
 .welcome-desktop {
   display: block; /* 預設為顯示 */

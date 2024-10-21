@@ -67,15 +67,14 @@
   display: block;
   text-align: center;
   font-size: 1em;
-  color: #3ff6f6;
+  color: #005656;
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
   border-radius: 50px;
 }
 
 .index_post .read-more:hover {
   text-decoration: underline;
-  background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色 */
+  background-color: rgba(255, 230, 230, 0.9); /* 半透明黑色 */
   text-shadow: 4px 4px 6px rgba(181, 255, 171, 0.5);
 }
 
@@ -85,6 +84,7 @@
 .post-count {
   color: #fffee5; /* 設定字體顏色 */
   text-align: center; /* 文字置中 */
+  background-color: rgba(62, 40, 40, 0.7); /* 半透明黑色 */;
 }
 
 
