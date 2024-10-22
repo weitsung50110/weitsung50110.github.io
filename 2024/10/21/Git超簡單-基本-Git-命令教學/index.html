@@ -172,8 +172,12 @@
 <p>讓我們一起開始這段Git的冒險吧！🌈</p>
 <h3 id="1-git-init"><a href="#1-git-init" class="headerlink" title="1. git init"></a>1. <code>git init</code></h3><ul>
 <li><strong>用途</strong>：初始化一個新的 Git 儲存庫。 </li>
-<li><strong>功能</strong>：在當前資料夾中建立一個 <code>.git</code> 目錄，這會讓這個資料夾成為一個 Git 儲存庫，並開始追蹤文件的變更。<br><img src="/assets/images/Git%E8%B6%85%E7%B0%A1%E5%96%AE-%E5%9F%BA%E6%9C%AC-Git-%E5%91%BD%E4%BB%A4%E6%95%99%E5%AD%B8/0.png"></li>
+<li><strong>功能</strong>：在當前資料夾中建立一個 <code>.git</code> 目錄，這會讓這個資料夾成為一個 Git 儲存庫，並開始追蹤文件的變更。</li>
 </ul>
+<p><em><strong>如果你想在 PowerShell 中查看當前目錄的隱藏檔案，可以使用以下命令：</strong></em></p>
+<pre><code>Get-ChildItem -Hidden
+</code></pre>
+<p><img src="/assets/images/Git%E8%B6%85%E7%B0%A1%E5%96%AE-%E5%9F%BA%E6%9C%AC-Git-%E5%91%BD%E4%BB%A4%E6%95%99%E5%AD%B8/0.png"></p>
 <h3 id="2-git-add"><a href="#2-git-add" class="headerlink" title="2. git add"></a>2. <code>git add</code></h3><ul>
 <li><strong>用途</strong>：將檔案新增到暫存區（staging area）。 </li>
 <li><strong>功能</strong>：Git 不會自動追蹤你所做的所有更動，使用 <code>git add</code> 來指定哪些檔案或變更需要被納入下一次提交（commit）。 </li>
@@ -191,7 +195,14 @@
 </ul>
 <p>🚀<em><strong>還沒有git add .時，字體會是紅色的</strong></em><br><img src="/assets/images/Git%E8%B6%85%E7%B0%A1%E5%96%AE-%E5%9F%BA%E6%9C%AC-Git-%E5%91%BD%E4%BB%A4%E6%95%99%E5%AD%B8/2.png"></p>
 <p>🚀<em><strong>git add .後，字體會是綠色的</strong></em><br><img src="/assets/images/Git%E8%B6%85%E7%B0%A1%E5%96%AE-%E5%9F%BA%E6%9C%AC-Git-%E5%91%BD%E4%BB%A4%E6%95%99%E5%AD%B8/3.png"></p>
-<p>🚀<em><strong>git commit完成後，顯示如下~</strong></em><br><img src="/assets/images/Git%E8%B6%85%E7%B0%A1%E5%96%AE-%E5%9F%BA%E6%9C%AC-Git-%E5%91%BD%E4%BB%A4%E6%95%99%E5%AD%B8/4.png"></p>
+<p>🚀<em><strong>git commit完成後，顯示如下~</strong></em></p>
+<pre><code>On branch main
+Your branch is ahead of &#39;origin/main&#39; by 1 commit.
+(use &quot;git push&quot; to publish your local commits)
+
+nothing to commit, working tree clean
+</code></pre>
+<p><img src="/assets/images/Git%E8%B6%85%E7%B0%A1%E5%96%AE-%E5%9F%BA%E6%9C%AC-Git-%E5%91%BD%E4%BB%A4%E6%95%99%E5%AD%B8/4.png"></p>
 <h3 id="5-git-log"><a href="#5-git-log" class="headerlink" title="5. git log"></a>5. <code>git log</code></h3><ul>
 <li><strong>用途</strong>：查看提交歷史。 </li>
 <li><strong>功能</strong>：列出所有的提交歷史，顯示每次提交的訊息、作者、日期和提交的哈希值。 </li>
