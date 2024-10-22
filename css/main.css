@@ -293,6 +293,7 @@
       cursor: pointer;
       top: 0px; /* 距離頂部20px */
       right: 0px; /* 距離右邊20px */
+      font-size: 38px;
     }
     
     .info-wrapper {

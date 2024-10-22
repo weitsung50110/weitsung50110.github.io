@@ -63,10 +63,10 @@
   background: none;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 33px;
   cursor: pointer;
   top: 2px; /* 距離頂部20px */
-  right: 10px; /* 距離右邊20px */
+  right: 6px; /* 距離右邊20px */
 }
 
 #sidebar #close-btn:hover {
