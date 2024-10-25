@@ -14,13 +14,19 @@ main:hover {
 }
 
 /* Archives 標題樣式 */
-main h2 {
+
+.year-title {
   font-size: 1.8em; /* 標題字體大小 */
   color: #641919; /* 標題顏色 */
   border-bottom: 1px dashed #0c3559; /* 底部邊框 */
   text-align: center; /* 標題居中對齊 */
   text-transform: uppercase; /* 標題字母大寫 */
   letter-spacing: 1px; /* 標題字母間距 */
+  cursor: pointer; /* 指標變成手形 */
+}
+
+.year-title:hover {
+  background-color: #e3fbfd;
 }
 
 /* 文章列表樣式 */
