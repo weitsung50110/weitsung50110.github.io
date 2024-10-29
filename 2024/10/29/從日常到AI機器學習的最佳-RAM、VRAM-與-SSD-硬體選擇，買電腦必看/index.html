@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Well崴寶程式開發天堂 - 崴寶 Weibert Weiberson</title>
+<meta name="description" content="well崴寶的網站，分享 AI、深度學習、機器學習、Hexo 主題開發及技術教學。well威寶、威寶Weibert、崴崴寶貝、威威寶貝。">
+<meta name="keywords" content="Well崴寶, Well威寶, 威寶weiberson, 威寶,威寶weibert, 崴寶Weibert, Weibert, Weiberson, 崴寶,Weiberson Chang, AI, 深度學習, 機器學習, Hexo, GitHub, 教學, 開源, BERT, Transformers, weitsung50110">
+<meta name="author" content="崴寶 Weibert Weiberson">
+<meta name="google-site-verification" content="jWAoNzh1Gol-JoVVT5Q0DjtDlWhLkB2STELvHuQipNE" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q85YRD51M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q85YRD51M0');
+</script>
+
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
+    <div class="archive_bg" style="">
+      
+      <header>
+  <div class="header-content">
+    <img property="og:image" src="https://weitsung50110.github.io/images/boy11.png" alt="Logo" class="logo">
+    <h1><a href="https://weitsung50110.github.io">Well崴寶程式開發天堂<br/>崴寶 Weibert Weiberson</a></h1>
+    <img src="https://weitsung50110.github.io/images/boy5.png" alt="Logo2" class="logo2">
+
+    <!-- 在 nav 中包裹選單 -->
+    <nav class="mobile-nav">
+      <button class="close-button" aria-label="Close Menu">✖</button>
+      <ul class="nav-top">
+        <!-- <li><a href="https://weitsung50110.github.io/">首頁</a></li> -->
+        <li><a href="https://weitsung50110.github.io/about">關於</a></li>
+        <li><a href="https://weitsung50110.github.io/archives">文章</a></li>
+        <li><a id="tag_toggleButton">分類</a></li>
+        <li><a target="_blank" rel="noopener" href="https://weibertweiberson.ck.page/00a0b8d361">電子報</a></li>
+        <li class="dropdown">
+          <a class="menu-button">跟隨我</a>
+          <div class="nav-menu">
+            <div class="menu-content">
+              <!-- <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">
+                <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="dropdown_social-icon">
+                GitHub</a>
+              <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">
+                <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="dropdown_social-icon">
+                Medium</a>
+              <a target="_blank" rel="noopener" href="https://www.instagram.com/weibert_music/">
+                <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="dropdown_social-icon">
+                IG</a> -->
+                <div class="dropdown_section">
+                  <strong>🩵 GitHub:</strong>
+                  <a href="https://github.com/weitsung50110" target="_blank">weitsung50110</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 Medium:</strong>
+                  <a href="https://medium.com/@weiberson" target="_blank">@weiberson</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 Instagram:</strong>
+                  <a href="https://www.instagram.com/weibert_music/" target="_blank">@weibert_music</a>
+                  <a href="https://www.instagram.com/weibert_coding/" target="_blank">@weibert_coding</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 崴寶網站:</strong>
+                  <a href="https://weitsung50110.github.io/" target="_blank">Well崴寶程式開發天堂</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 YouTube:</strong>
+                  <a href="https://www.youtube.com/@weibert" target="_blank">Well崴寶程式開發天堂</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 Facebook:</strong>
+                  <a href="https://www.facebook.com/weibert1/" target="_blank">Well崴寶程式開發天堂</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 TikTok:</strong>
+                  <a href="https://www.tiktok.com/@weibert1" target="_blank">崴寶Weibert</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 加入崴寶社團:</strong>
+                  <!-- <a href="https://www.facebook.com/groups/weibert/" target="_blank">加入Facebook社團</a> -->
+                  <a href="https://discord.gg/5YsHCRJv8X" target="_blank">加入Discord群組</a>
+                  <a href="https://line.me/ti/g2/Yer7Cw5gxxxr-hWLfKsnDTNug0T1mq5Ml0A3gg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">加入Line社團</a>
+                </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- 搜尋框 -->
+      <ul class="nav-bottom">
+        <li>
+          <div id="search-container">
+            <input type="text" id="search-input" placeholder="搜尋文章..." />
+            <button id="search-button">搜尋</button>
+            
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- 在 header 中添加漢堡選單 -->
+  <button class="menu-toggle" aria-label="Toggle Navigation">
+    ☰
+  </button>
+  
+  <div id="press_show_cute"></div>
+</header>
+
+    
+      <div id="container">
+        <div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <h3>搜尋結果</h3>
+    <span id="search-close" class="search-close">&times;</span>
+    <div id="search-results"></div>
+  </div>
+</div>
+        
+<article class="post">
+  <h1>從日常到AI機器學習的最佳 RAM、VRAM 與 SSD 硬體選擇，買電腦必看</h1>
+  <!-- <p class="post-date">日期：Tue Oct 29 2024 14:01:38 GMT+0000</p> -->
+  <p class="post-date">日期：2024-10-29</p>
+  <!-- <p class="post-author">作者：崴寶 Weibert Weiberson</p> -->
+  
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/RAM/">RAM</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/VRAM/">VRAM</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/SSD/">SSD</a></li>
+            
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/VRAM/">VRAM</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>選擇合適的 RAM、VRAM 與 SSD 硬體配置，以提升日常工作和 AI 機器學習的效率，提供最佳的選購指南。</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>覺得崴寶的內容實用嗎？ Well崴寶程式開發天堂 電子報讀者募集中！歡迎
+          <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
+      </div>
+      <p><cen>本文將詳細介紹如何根據不同需求選擇合適的 RAM、VRAM 以及 SSD，無論是日常軟體使用，還是需要高效能處理的 LLM（大型語言模型）、影像辨識和機器學習任務。本文將幫助你理解這些硬體元件的功能差異，以及它們在不同應用場景中的重要性，從而做出最佳決策以優化你的系統效能。</p>
+<h2 id="RAM-和-VRAM-比較"><a href="#RAM-和-VRAM-比較" class="headerlink" title="RAM 和 VRAM 比較"></a>RAM 和 VRAM 比較</h2><h3 id="RAM（隨機存取記憶體）"><a href="#RAM（隨機存取記憶體）" class="headerlink" title="RAM（隨機存取記憶體）"></a>RAM（隨機存取記憶體）</h3><p>RAM 是影響系統整體性能和應用程式運行流暢度的重要因素。使用者在日常使用軟體（例如瀏覽器、文字處理軟體、遊戲等）時，系統會將正在使用的資料暫時存儲在 RAM 中，以便快速讀寫。因此，若系統 RAM 較小，則可能在多工處理或執行較大程式時感覺到卡頓或緩慢。</p>
+<h3 id="VRAM（視訊隨機存取記憶體）"><a href="#VRAM（視訊隨機存取記憶體）" class="headerlink" title="VRAM（視訊隨機存取記憶體）"></a>VRAM（視訊隨機存取記憶體）</h3><p>VRAM 是顯示卡上的記憶體，主要用於處理圖形密集型工作，比如顯示畫面、遊戲中的 3D 圖形渲染、影像處理、影片剪輯等。如果你要進行與圖形處理、深度學習或大型機器學習模型訓練（如 LLM 或影像辨識）相關的工作，則 VRAM 的大小會非常重要。這是因為這類任務需要大量的圖形計算能力以及數據暫存空間，而這些數據通常是通過 GPU（圖形處理器）來處理的。</p>
+<h3 id="🐯崴寶建議："><a href="#🐯崴寶建議：" class="headerlink" title="🐯崴寶建議："></a>🐯崴寶建議：</h3><ul>
+<li><strong>日常軟體</strong>：需要較多的 RAM，特別是在同時開啟多個應用程式時。</li>
+<li><strong>LLM、影像辨識、機器學習</strong>：更需要考慮顯示卡上的 VRAM，尤其是在進行大型數據集訓練或高解析度圖像處理時。</li>
+</ul>
+<blockquote>
+<p>對於 RAM 和 VRAM 的大小需求，會根據你所進行的具體工作而有所不同。</p>
+</blockquote>
+<h2 id="RAM-使用建議"><a href="#RAM-使用建議" class="headerlink" title="RAM 使用建議"></a>RAM 使用建議</h2><h3 id="基本使用（瀏覽網頁、文書處理、簡單遊戲）"><a href="#基本使用（瀏覽網頁、文書處理、簡單遊戲）" class="headerlink" title="基本使用（瀏覽網頁、文書處理、簡單遊戲）"></a>基本使用（瀏覽網頁、文書處理、簡單遊戲）</h3><ul>
+<li><strong>8GB RAM</strong>：適合一般的日常使用，能應付網頁瀏覽、文書處理以及輕量級遊戲等。</li>
+</ul>
+<h3 id="中度使用（多工操作、輕量圖像處理、開發工作）"><a href="#中度使用（多工操作、輕量圖像處理、開發工作）" class="headerlink" title="中度使用（多工操作、輕量圖像處理、開發工作）"></a>中度使用（多工操作、輕量圖像處理、開發工作）</h3><ul>
+<li><strong>16GB RAM</strong>：對於需要同時運行多個程式或處理稍微複雜一點的圖像和開發工具的使用者來說，16GB 是一個比較理想的選擇。</li>
+</ul>
+<h3 id="高階使用（影片剪輯、虛擬機、遊戲開發、科學計算）"><a href="#高階使用（影片剪輯、虛擬機、遊戲開發、科學計算）" class="headerlink" title="高階使用（影片剪輯、虛擬機、遊戲開發、科學計算）"></a>高階使用（影片剪輯、虛擬機、遊戲開發、科學計算）</h3><ul>
+<li><strong>32GB 或更多 RAM</strong>：如果你處理的是影片剪輯、虛擬機、遊戲開發等大型應用程式，32GB 以上的 RAM 會讓你的工作更加流暢。</li>
+</ul>
+<h2 id="VRAM-使用建議"><a href="#VRAM-使用建議" class="headerlink" title="VRAM 使用建議"></a>VRAM 使用建議</h2><h3 id="一般圖形使用（輕度影像處理、一般遊戲）"><a href="#一般圖形使用（輕度影像處理、一般遊戲）" class="headerlink" title="一般圖形使用（輕度影像處理、一般遊戲）"></a>一般圖形使用（輕度影像處理、一般遊戲）</h3><ul>
+<li><strong>4GB VRAM</strong>：適合基本的圖形處理和中等設定的遊戲，如果你的工作不涉及複雜的 3D 渲染或深度學習，這樣的顯卡記憶體就足夠了。</li>
+</ul>
+<h3 id="中階圖形處理（高解析度影像處理、3D-渲染、遊戲）"><a href="#中階圖形處理（高解析度影像處理、3D-渲染、遊戲）" class="headerlink" title="中階圖形處理（高解析度影像處理、3D 渲染、遊戲）"></a>中階圖形處理（高解析度影像處理、3D 渲染、遊戲）</h3><ul>
+<li><strong>6GB 至 8GB VRAM</strong>：如果你從事影像處理、3D 渲染，或者想要高畫質遊戲體驗，這個級別的 VRAM 是比較常見且適合的。</li>
+</ul>
+<h3 id="高階圖形與-AI-工作（4K-影片編輯、機器學習、LLM-訓練）"><a href="#高階圖形與-AI-工作（4K-影片編輯、機器學習、LLM-訓練）" class="headerlink" title="高階圖形與 AI 工作（4K 影片編輯、機器學習、LLM 訓練）"></a>高階圖形與 AI 工作（4K 影片編輯、機器學習、LLM 訓練）</h3><ul>
+<li><strong>10GB 以上 VRAM</strong>：若你需要進行深度學習模型訓練、LLM、影像辨識，甚至是高解析度影片編輯或處理大量資料的任務，10GB 以上的 VRAM 會是理想的配置。有些專業的 GPU，如 NVIDIA RTX 3090（24GB VRAM），會更適合處理這些工作。</li>
+</ul>
+<h3 id="🐯崴寶建議：-1"><a href="#🐯崴寶建議：-1" class="headerlink" title="🐯崴寶建議："></a>🐯崴寶建議：</h3><ul>
+<li><strong>日常辦公和娛樂</strong>：8GB RAM 和 4GB VRAM 足夠。</li>
+<li><strong>影像編輯和遊戲</strong>：16GB RAM 和 6–8GB VRAM 會讓你在處理影像或遊戲時更加流暢。</li>
+<li><strong>AI、LLM、影像辨識</strong>：32GB RAM 以上以及 10GB 以上的 VRAM 對於這些高負載的專業工作更合適。</li>
+</ul>
+<blockquote>
+<p>SSD（固態硬碟）在日常軟體使用和專業工作（如 LLM、影像辨識、機器學習）中都是非常重要的，因為它影響了系統的整體反應速度、資料存取時間和工作流程效率。</p>
+</blockquote>
+<h2 id="SSD-重要性"><a href="#SSD-重要性" class="headerlink" title="SSD 重要性"></a>SSD 重要性</h2><h3 id="對一般使用者的影響"><a href="#對一般使用者的影響" class="headerlink" title="對一般使用者的影響"></a>對一般使用者的影響</h3><ul>
+<li><p><strong>開啟軟體速度</strong>：SSD 使系統開機和開啟應用程式的速度顯著加快。比起傳統的 HDD（機械硬碟），SSD 具有更快的讀寫速度，可以減少軟體啟動時的等待時間。</p>
+</li>
+<li><p><strong>多工與大檔案處理</strong>：SSD 更適合處理大量檔案的讀寫操作，比如複製、移動大型文件、壓縮和解壓縮等操作。</p>
+</li>
+</ul>
+<h3 id="對-LLM、影像辨識和機器學習的影響"><a href="#對-LLM、影像辨識和機器學習的影響" class="headerlink" title="對 LLM、影像辨識和機器學習的影響"></a>對 LLM、影像辨識和機器學習的影響</h3><ul>
+<li><p><strong>數據讀取速度</strong>：這類專業工作往往涉及大量的資料讀寫，SSD 可以大幅提升從磁碟讀取數據的速度，尤其是處理大型數據集時。這在進行訓練時尤為關鍵，因為它能讓模型更快地獲取資料並進行計算。</p>
+</li>
+<li><p><strong>虛擬記憶體（swap）的優勢</strong>：當 RAM 不夠時，系統會使用硬碟作為虛擬記憶體。如果你使用的是 SSD，而不是較慢的 HDD，則系統會以更快的速度讀寫虛擬記憶體，減少卡頓。</p>
+</li>
+<li><p><strong>工作流程效率</strong>：處理大規模模型、視覺數據集或訓練時，SSD 可以加快數據的載入和儲存，讓工作流程更順暢。</p>
+</li>
+</ul>
+<h3 id="SSD-容量建議"><a href="#SSD-容量建議" class="headerlink" title="SSD 容量建議"></a>SSD 容量建議</h3><ul>
+<li><p><strong>一般日常使用</strong>：</p>
+<ul>
+<li><p><strong>256GB SSD</strong>：這對於一般的日常使用，如瀏覽網頁、文書處理和安裝基本應用程式是足夠的。但你可能會需要外接硬碟或雲端儲存來存放額外的資料（如影片、圖片等大檔案）。</p>
+</li>
+<li><p><strong>512GB SSD</strong>：如果你安裝更多應用程式或遊戲，512GB 提供了更充裕的空間，讓系統運行更為流暢。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>專業工作（LLM、影像辨識、機器學習）</strong>：</p>
+<ul>
+<li><p><strong>1TB SSD</strong>：這是大多數從事 AI、影像處理、機器學習工作者的理想選擇。你會有充足的空間來存放大量的數據集、模型檔案和訓練數據。大型的機器學習模型（尤其是像 GPT-3 這樣的 LLM）和影像數據集會佔據大量硬碟空間，1TB 容量能確保不容易用完。</p>
+</li>
+<li><p><strong>2TB SSD 或以上</strong>：如果你經常處理超大數據集（例如大規模語料庫、數百 GB 的影像或視訊資料集），或者運行虛擬機器和開發環境，2TB 或更大容量會更適合。這能避免頻繁的外部存儲器管理和頻繁的檔案搬移。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="🐯崴寶建議"><a href="#🐯崴寶建議" class="headerlink" title="🐯崴寶建議"></a>🐯崴寶建議</h3><ul>
+<li><strong>日常使用</strong>：256GB 至 512GB 的 SSD 是常見且實用的配置。</li>
+<li><strong>專業使用（LLM、機器學習、影像處理）</strong>：1TB 以上的 SSD 更適合，特別是在處理大型數據集或模型時。如果有額外存儲需求，可以考慮搭配外部儲存設備或雲端服務。</li>
+</ul>
+<h2 id="隨堂考-1"><a href="#隨堂考-1" class="headerlink" title="隨堂考-1"></a>隨堂考-1</h2><ul>
+<li>Q: 請問下面這張圖片代表什麼？</li>
+</ul>
+<p><img src="/assets/images/%E5%BE%9E%E6%97%A5%E5%B8%B8%E5%88%B0AI%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9A%84%E6%9C%80%E4%BD%B3-RAM%E3%80%81VRAM-%E8%88%87-SSD-%E7%A1%AC%E9%AB%94%E9%81%B8%E6%93%87%EF%BC%8C%E8%B2%B7%E9%9B%BB%E8%85%A6%E5%BF%85%E7%9C%8B/0.png"></p>
+<p>如果還是看不出來，可以移到下面的商品規格看更詳細介紹~</p>
+<p><img src="/assets/images/%E5%BE%9E%E6%97%A5%E5%B8%B8%E5%88%B0AI%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9A%84%E6%9C%80%E4%BD%B3-RAM%E3%80%81VRAM-%E8%88%87-SSD-%E7%A1%AC%E9%AB%94%E9%81%B8%E6%93%87%EF%BC%8C%E8%B2%B7%E9%9B%BB%E8%85%A6%E5%BF%85%E7%9C%8B/1.png"></p>
+<h3 id="RTX-4060-GDDR6-8GB"><a href="#RTX-4060-GDDR6-8GB" class="headerlink" title="RTX 4060, GDDR6 8GB"></a>RTX 4060, GDDR6 8GB</h3><ul>
+<li><strong>RTX 4060</strong>：顯示卡型號，NVIDIA 的 GeForce RTX 4060。</li>
+<li><strong>GDDR6 8GB</strong>：顯示記憶體為 8GB 的 GDDR6。</li>
+</ul>
+<h3 id="DDR5-16GB-5600MHz"><a href="#DDR5-16GB-5600MHz" class="headerlink" title="DDR5 16GB (5600MHz)"></a>DDR5 16GB (5600MHz)</h3><ul>
+<li><strong>DDR5</strong>：指的是最新一代的記憶體標準，提供更高的速度和帶寬。</li>
+<li><strong>16GB</strong>：記憶體容量為 16GB，適合多任務和高效能應用。</li>
+<li><strong>5600MHz</strong>：記憶體的速度，越高表示數據傳輸越快。</li>
+</ul>
+<h3 id="512GB-NVMe-PCIe-SSD-Gen4x4-w-o-DRAM"><a href="#512GB-NVMe-PCIe-SSD-Gen4x4-w-o-DRAM" class="headerlink" title="512GB NVMe PCIe SSD Gen4x4 w&#x2F;o DRAM"></a>512GB NVMe PCIe SSD Gen4x4 w&#x2F;o DRAM</h3><ul>
+<li><p><strong>512GB</strong>：儲存容量為 512GB，適合存放操作系統和應用程式。</p>
+</li>
+<li><p><strong>w&#x2F;o DRAM</strong>：表示這個 SSD 沒有獨立的 DRAM 緩存。</p>
+<p>w&#x2F;o DRAM 代表這個 SSD 沒有獨立的 DRAM 緩存。這意味著在沒有額外 DRAM 的情況下，這個 SSD 會使用其他方式來進行數據處理和緩存。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>w&#x2F;o</strong> 是 “without” 的縮寫，意思是「沒有」或「不含」。</p>
+</blockquote>
+<h3 id="i5–13420H-16GB-512GB-RTX4060–8G"><a href="#i5–13420H-16GB-512GB-RTX4060–8G" class="headerlink" title="(i5–13420H&#x2F; 16GB&#x2F;512GB&#x2F;RTX4060–8G )"></a>(i5–13420H&#x2F; 16GB&#x2F;512GB&#x2F;RTX4060–8G )</h3><ul>
+<li><strong>處理器 (Processor)</strong> ：Intel Core i5–13420H</li>
+<li><strong>記憶體 (RAM)</strong> ：16GB</li>
+<li><strong>儲存 (Storage)</strong> ：512GB SSD</li>
+<li><strong>顯示卡 (Graphics Card &#x2F; VRAM)</strong> ：RTX 4060 8GB</li>
+</ul>
+<h2 id="隨堂考-2"><a href="#隨堂考-2" class="headerlink" title="隨堂考-2"></a>隨堂考-2</h2><ul>
+<li>Q: 請問下面這張圖片代表什麼？</li>
+</ul>
+<p><img src="/assets/images/%E5%BE%9E%E6%97%A5%E5%B8%B8%E5%88%B0AI%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9A%84%E6%9C%80%E4%BD%B3-RAM%E3%80%81VRAM-%E8%88%87-SSD-%E7%A1%AC%E9%AB%94%E9%81%B8%E6%93%87%EF%BC%8C%E8%B2%B7%E9%9B%BB%E8%85%A6%E5%BF%85%E7%9C%8B/2.png"></p>
+<p>如果還是看不出來，可以移到下面的商品規格看更詳細介紹~</p>
+<p><img src="/assets/images/%E5%BE%9E%E6%97%A5%E5%B8%B8%E5%88%B0AI%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9A%84%E6%9C%80%E4%BD%B3-RAM%E3%80%81VRAM-%E8%88%87-SSD-%E7%A1%AC%E9%AB%94%E9%81%B8%E6%93%87%EF%BC%8C%E8%B2%B7%E9%9B%BB%E8%85%A6%E5%BF%85%E7%9C%8B/3.png"></p>
+<h3 id="i5–13420H-16G-512G-512G-RTX3050–6G-Win11"><a href="#i5–13420H-16G-512G-512G-RTX3050–6G-Win11" class="headerlink" title="(i5–13420H&#x2F;16G&#x2F;512G+512G&#x2F;RTX3050–6G&#x2F;Win11)"></a>(i5–13420H&#x2F;16G&#x2F;512G+512G&#x2F;RTX3050–6G&#x2F;Win11)</h3><ul>
+<li><strong>處理器 (Processor)</strong> ：Intel® Core i5–13420H (2.1GHz &#x2F; Turbo 4.6GHz, Cache 12MB)</li>
+<li><strong>記憶體 (RAM)</strong> ：16GB (8G*2) DDR5, 2 Slots, Max 64GB  </li>
+<li><strong>儲存 (Storage)</strong> ：512GB M.2 SSD (NVMe PCIe)  </li>
+<li><strong>顯示卡 (Graphics Card &#x2F; VRAM)</strong> ：GeForce RTX 3050 6GB GDDR6</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>16GB (8G*2) DDR5, 2 Slots, Max 64GB</strong>：搭載 16GB 的 DDR5 記憶體，提供快速的數據存取速度。兩個插槽讓你有擴展到最大 64GB 的彈性，未來升級也很方便。</p>
+</li>
+<li><p><strong>512GB M.2 SSD (NVMe PCIe)</strong> ：這款筆記本配備的 512GB SSD 提供快速的數據讀取和寫入速度。配備兩個 512GB 的 M.2 NVMe SSD 插槽，總儲存空間達到 1TB。</p>
+</li>
+<li><p><strong>GeForce RTX 3050 6GB GDDR6</strong>：RTX 3050 是一款中階顯示卡，具備 6GB 的 GDDR6 VRAM。</p>
+</li>
+</ul>
+<h2 id="使用nvidia指令看VRAM"><a href="#使用nvidia指令看VRAM" class="headerlink" title="使用nvidia指令看VRAM"></a>使用nvidia指令看VRAM</h2><pre><code>nvidia-smi
+</code></pre>
+<p>要查看你的 GPU 使用情況和記憶體使用量，你可以使用 <code>nvidia-smi</code> 命令，這個命令會顯示 NVIDIA 驅動程式和 GPU 的狀態。</p>
+<pre><code>ubuntu@ubuntu:~/inpaint-anything$ nvidia-smi
+Tue Oct 29 10:28:13 2024
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 465.19.01    Driver Version: 465.19.01    CUDA Version: 11.3     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:65:00.0  On |                  N/A |
+|  0%   55C    P8    41W / 250W |    627MiB / 11011MiB |     10%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1414      G   /usr/lib/xorg/Xorg                528MiB |
+|    0   N/A  N/A      3407      G   compiz                             38MiB |
+|    0   N/A  N/A      3566      G   fcitx-qimpanel                      8MiB |
+|    0   N/A  N/A      3727      G   ...AAAAAAAAA= --shared-files       20MiB |
+|    0   N/A  N/A      4230      G   ...AAAAAAAAA= --shared-files       27MiB
+</code></pre>
+<h3 id="GPU-使用情況"><a href="#GPU-使用情況" class="headerlink" title="GPU 使用情況"></a>GPU 使用情況</h3><ul>
+<li><strong>顯示卡</strong>：你有一個 NVIDIA 顯示卡（顯示名稱部分被截斷）。</li>
+<li><strong>當前 GPU 溫度</strong>：55°C</li>
+<li><strong>GPU 使用率</strong>：10%<br>這表示 GPU 正在被輕微使用。</li>
+</ul>
+<h3 id="記憶體使用量"><a href="#記憶體使用量" class="headerlink" title="記憶體使用量"></a>記憶體使用量</h3><ul>
+<li><strong>當前使用的顯示記憶體</strong>：627 MiB<br>總共有 11011 MiB 可用。<br>表示你有相當多的可用顯示記憶體（大約 10 GB）。</li>
+</ul>
+<h3 id="正在運行的進程"><a href="#正在運行的進程" class="headerlink" title="正在運行的進程"></a>正在運行的進程</h3><ul>
+<li>列出了幾個正在使用 GPU 的進程，例如 <code>/usr/lib/xorg/Xorg</code> 和 <code>compiz</code> 等，並顯示了它們各自使用的顯示記憶體。</li>
+</ul>
+<blockquote>
+<p>注意：<code>nvidia-smi</code> 輸出中，顯示的記憶體使用量（如 627 MiB）是指 GPU 顯示記憶體（VRAM），而不是系統的 RAM（隨機存取記憶體）。</p>
+</blockquote>
+<h2 id="🦉-總結"><a href="#🦉-總結" class="headerlink" title="🦉 總結"></a>🦉 總結</h2><p>選擇合適的硬體配置對於提升日常工作和專業任務的效率至關重要。RAM 主要影響系統的多工能力和應用程式的流暢度，VRAM 則是處理圖形密集型任務如 LLM、影像辨識和機器學習的關鍵。而 SSD 則能加速系統和應用程式的啟動速度，並大幅提升數據讀寫效能，對於處理大型數據集或模型時尤為重要。</p>
+<p>根據具體需求選擇適合的 RAM、VRAM 和 SSD 容量，能夠顯著提高整體工作效率和使用體驗。</p>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 崴寶 Weibert Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
+      </div>
+      
+      <!-- 側邊欄 -->
+<div id="sidebar">
+  <button id="close-btn">&times;</button>
+  <div class="author-info">
+    <div class="info-wrapper">
+      <!-- <div class="social-icons">
+        <a href="https://github.com/weitsung50110" target="_blank">
+          <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://medium.com/@weiberson" target="_blank">
+          <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="social-icon">
+        </a>
+        <a href="https://www.instagram.com/weibert_music/" target="_blank">
+          <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="social-icon">
+        </a>
+      </div> -->
+      <img src="https://weitsung50110.github.io/images/a2.jpg" alt="作者照片" class="author_photo">
+    </div>
+    <h2>崴寶</h2>
+    <p>(Weibert Weiberson)</p>
+    <span>Master of Computer Science / AI Software Engineer</span>
+    <div class="About">
+      <a href="https://weitsung50110.github.io/about">About me</a>
+    </div>
+  </div>
+
+  
+    <div class="side_categories-section">
+      <h3 class="h3-toggle-section">類別</h3>
+      <div class="side_categories-container">
+        
+          <a href="#" class="side_category-item" data-category="GitHub">GitHub</a>
+        
+          <a href="#" class="side_category-item" data-category="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_category-item" data-category="NLP">NLP</a>
+        
+          <a href="#" class="side_category-item" data-category="LangChain">LangChain</a>
+        
+          <a href="#" class="side_category-item" data-category="Hugging-Face">Hugging-Face</a>
+        
+          <a href="#" class="side_category-item" data-category="Git-LFS">Git-LFS</a>
+        
+          <a href="#" class="side_category-item" data-category="Docker">Docker</a>
+        
+          <a href="#" class="side_category-item" data-category="線上課程">線上課程</a>
+        
+          <a href="#" class="side_category-item" data-category="社團群組">社團群組</a>
+        
+          <a href="#" class="side_category-item" data-category="git">git</a>
+        
+          <a href="#" class="side_category-item" data-category="fb">fb</a>
+        
+          <a href="#" class="side_category-item" data-category="VRAM">VRAM</a>
+        
+      </div>
+    </div>
+  
+
+  
+    <div class="side_tags-section">
+      <h3 class="h3-toggle-section">標籤</h3>
+      <div class="side_tags-container">
+        
+          <a href="#" class="side_tag-item" data-tag="GitHub">GitHub</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RWD">RWD</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_tag-item" data-tag="開源">開源</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Transformers">Transformers</a>
+        
+          <a href="#" class="side_tag-item" data-tag="BERT">BERT</a>
+        
+          <a href="#" class="side_tag-item" data-tag="NLP">NLP</a>
+        
+          <a href="#" class="side_tag-item" data-tag="ML">ML</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+        
+          <a href="#" class="side_tag-item" data-tag="git">git</a>
+        
+          <a href="#" class="side_tag-item" data-tag="fork">fork</a>
+        
+          <a href="#" class="side_tag-item" data-tag="EJS">EJS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+        
+          <a href="#" class="side_tag-item" data-tag="LangChain">LangChain</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Llama3">Llama3</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RAG">RAG</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Ollama">Ollama</a>
+        
+          <a href="#" class="side_tag-item" data-tag="SEO">SEO</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Prompt-Engineering">Prompt-Engineering</a>
+        
+          <a href="#" class="side_tag-item" data-tag="LLM">LLM</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Chatbot">Chatbot</a>
+        
+          <a href="#" class="side_tag-item" data-tag="DuckDuckGo">DuckDuckGo</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Wikipedia">Wikipedia</a>
+        
+          <a href="#" class="side_tag-item" data-tag="YouTube">YouTube</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+        
+          <a href="#" class="side_tag-item" data-tag="JavaScript">JavaScript</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Flask">Flask</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Jinja2">Jinja2</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Tailwind-CSS">Tailwind-CSS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Git-LFS">Git-LFS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Linux">Linux</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Ubuntu">Ubuntu</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Docker">Docker</a>
+        
+          <a href="#" class="side_tag-item" data-tag="WSL">WSL</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Windows-11">Windows-11</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Gitalk">Gitalk</a>
+        
+          <a href="#" class="side_tag-item" data-tag="程式教學">程式教學</a>
+        
+          <a href="#" class="side_tag-item" data-tag="線上課程">線上課程</a>
+        
+          <a href="#" class="side_tag-item" data-tag="社團群組">社團群組</a>
+        
+          <a href="#" class="side_tag-item" data-tag="fb">fb</a>
+        
+          <a href="#" class="side_tag-item" data-tag="粉絲專頁">粉絲專頁</a>
+        
+          <a href="#" class="side_tag-item" data-tag="社群">社群</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RAM">RAM</a>
+        
+          <a href="#" class="side_tag-item" data-tag="VRAM">VRAM</a>
+        
+          <a href="#" class="side_tag-item" data-tag="SSD">SSD</a>
+        
+      </div>
+    </div>
+  
+
+  <div class="social-links">
+    <ul>
+      <li><strong>Instagram:</strong> 
+        <a href="https://www.instagram.com/weibert_music/" target="_blank">@weibert_music</a>
+        <a href="https://www.instagram.com/weibert_coding/" target="_blank">@weibert_coding</a>
+      </li>
+      <li><strong>YouTube:</strong> 
+        <a href="https://www.youtube.com/@weibert" target="_blank">Well崴寶程式開發天堂</a>
+      </li>
+      <li><strong>TikTok:</strong> 
+        <a href="https://www.tiktok.com/@weibert1" target="_blank">崴寶Weibert</a> 
+      </li>
+      <li><strong>Facebook:</strong> 
+        <a href="https://www.facebook.com/weibert1/" target="_blank">Well崴寶程式開發天堂</a>
+      </li>
+      <li><strong>GitHub:</strong> 
+        <a href="https://github.com/weitsung50110" target="_blank">weitsung50110</a>
+      </li>
+      <li><strong>Medium:</strong> 
+        <a href="https://medium.com/@weiberson" target="_blank">@weiberson</a>
+      </li>
+      <li><strong>Email:</strong> <a href="mailto:weibertweiberson@gmail.com">weibertweiberson@gmail.com</a></li>
+      <li><strong>加入崴寶社團:</strong>
+        <!-- <a href="https://www.facebook.com/groups/weibert/" target="_blank">加入Facebook社團</a> -->
+        <a href="https://discord.gg/5YsHCRJv8X" target="_blank">加入Discord群組</a>
+        <a href="https://line.me/ti/g2/Yer7Cw5gxxxr-hWLfKsnDTNug0T1mq5Ml0A3gg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">加入Line社團</a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<button id="open-btn">🤗</button>
+      <!-- 彈跳視窗容器 -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="closeButton">&times;</span>
+    <div class="modal-sections">
+      <!-- <div class="social-links-section">
+        <h3>跟隨我</h3>
+        <div class="social-links">
+          <a href="https://github.com/weitsung50110" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+          <a href="https://medium.com/@weiberson" target="_blank"><i class="fab fa-medium"></i>Medium</a>
+        </div>
+      </div> -->
+      
+      
+        <div class="categories-section">
+          <h3>類別</h3>
+          <div class="categories-container">
+            
+              <a href="#" class="category-item" data-category="GitHub">GitHub</a>
+            
+              <a href="#" class="category-item" data-category="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="category-item" data-category="NLP">NLP</a>
+            
+              <a href="#" class="category-item" data-category="LangChain">LangChain</a>
+            
+              <a href="#" class="category-item" data-category="Hugging-Face">Hugging-Face</a>
+            
+              <a href="#" class="category-item" data-category="Git-LFS">Git-LFS</a>
+            
+              <a href="#" class="category-item" data-category="Docker">Docker</a>
+            
+              <a href="#" class="category-item" data-category="線上課程">線上課程</a>
+            
+              <a href="#" class="category-item" data-category="社團群組">社團群組</a>
+            
+              <a href="#" class="category-item" data-category="git">git</a>
+            
+              <a href="#" class="category-item" data-category="fb">fb</a>
+            
+              <a href="#" class="category-item" data-category="VRAM">VRAM</a>
+            
+          </div>
+        </div>
+      
+
+      
+        <div class="tags-section">
+          <h3>標籤</h3>
+          <div class="tags-container">
+            
+              <a href="#" class="tag-item" data-tag="GitHub">GitHub</a>
+            
+              <a href="#" class="tag-item" data-tag="RWD">RWD</a>
+            
+              <a href="#" class="tag-item" data-tag="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="tag-item" data-tag="開源">開源</a>
+            
+              <a href="#" class="tag-item" data-tag="Transformers">Transformers</a>
+            
+              <a href="#" class="tag-item" data-tag="BERT">BERT</a>
+            
+              <a href="#" class="tag-item" data-tag="NLP">NLP</a>
+            
+              <a href="#" class="tag-item" data-tag="ML">ML</a>
+            
+              <a href="#" class="tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+            
+              <a href="#" class="tag-item" data-tag="git">git</a>
+            
+              <a href="#" class="tag-item" data-tag="fork">fork</a>
+            
+              <a href="#" class="tag-item" data-tag="EJS">EJS</a>
+            
+              <a href="#" class="tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+            
+              <a href="#" class="tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+            
+              <a href="#" class="tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+            
+              <a href="#" class="tag-item" data-tag="LangChain">LangChain</a>
+            
+              <a href="#" class="tag-item" data-tag="Llama3">Llama3</a>
+            
+              <a href="#" class="tag-item" data-tag="RAG">RAG</a>
+            
+              <a href="#" class="tag-item" data-tag="Ollama">Ollama</a>
+            
+              <a href="#" class="tag-item" data-tag="SEO">SEO</a>
+            
+              <a href="#" class="tag-item" data-tag="Prompt-Engineering">Prompt-Engineering</a>
+            
+              <a href="#" class="tag-item" data-tag="LLM">LLM</a>
+            
+              <a href="#" class="tag-item" data-tag="Chatbot">Chatbot</a>
+            
+              <a href="#" class="tag-item" data-tag="DuckDuckGo">DuckDuckGo</a>
+            
+              <a href="#" class="tag-item" data-tag="Wikipedia">Wikipedia</a>
+            
+              <a href="#" class="tag-item" data-tag="YouTube">YouTube</a>
+            
+              <a href="#" class="tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+            
+              <a href="#" class="tag-item" data-tag="JavaScript">JavaScript</a>
+            
+              <a href="#" class="tag-item" data-tag="Flask">Flask</a>
+            
+              <a href="#" class="tag-item" data-tag="Jinja2">Jinja2</a>
+            
+              <a href="#" class="tag-item" data-tag="Tailwind-CSS">Tailwind-CSS</a>
+            
+              <a href="#" class="tag-item" data-tag="Git-LFS">Git-LFS</a>
+            
+              <a href="#" class="tag-item" data-tag="Linux">Linux</a>
+            
+              <a href="#" class="tag-item" data-tag="Ubuntu">Ubuntu</a>
+            
+              <a href="#" class="tag-item" data-tag="Docker">Docker</a>
+            
+              <a href="#" class="tag-item" data-tag="WSL">WSL</a>
+            
+              <a href="#" class="tag-item" data-tag="Windows-11">Windows-11</a>
+            
+              <a href="#" class="tag-item" data-tag="Gitalk">Gitalk</a>
+            
+              <a href="#" class="tag-item" data-tag="程式教學">程式教學</a>
+            
+              <a href="#" class="tag-item" data-tag="線上課程">線上課程</a>
+            
+              <a href="#" class="tag-item" data-tag="社團群組">社團群組</a>
+            
+              <a href="#" class="tag-item" data-tag="fb">fb</a>
+            
+              <a href="#" class="tag-item" data-tag="粉絲專頁">粉絲專頁</a>
+            
+              <a href="#" class="tag-item" data-tag="社群">社群</a>
+            
+              <a href="#" class="tag-item" data-tag="RAM">RAM</a>
+            
+              <a href="#" class="tag-item" data-tag="VRAM">VRAM</a>
+            
+              <a href="#" class="tag-item" data-tag="SSD">SSD</a>
+            
+          </div>
+        </div>
+      
+      
+      <!-- <div id="tag-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/tags/GitHub/" class="tag-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RWD/" class="tag-item">RWD</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hexo%E4%B8%BB%E9%A1%8C/" class="tag-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E9%96%8B%E6%BA%90/" class="tag-item">開源</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Transformers/" class="tag-item">Transformers</a>
+        
+          <a href="https://weitsung50110.github.io/tags/BERT/" class="tag-item">BERT</a>
+        
+          <a href="https://weitsung50110.github.io/tags/NLP/" class="tag-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/tags/ML/" class="tag-item">ML</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Fine-tuning/" class="tag-item">Fine-tuning</a>
+        
+          <a href="https://weitsung50110.github.io/tags/git/" class="tag-item">git</a>
+        
+          <a href="https://weitsung50110.github.io/tags/fork/" class="tag-item">fork</a>
+        
+          <a href="https://weitsung50110.github.io/tags/EJS/" class="tag-item">EJS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hugging-Face/" class="tag-item">Hugging-Face</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Text-to-Image/" class="tag-item">Text-to-Image</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Stable-Diffusion/" class="tag-item">Stable-Diffusion</a>
+        
+          <a href="https://weitsung50110.github.io/tags/LangChain/" class="tag-item">LangChain</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Llama3/" class="tag-item">Llama3</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RAG/" class="tag-item">RAG</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Ollama/" class="tag-item">Ollama</a>
+        
+          <a href="https://weitsung50110.github.io/tags/SEO/" class="tag-item">SEO</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Prompt-Engineering/" class="tag-item">Prompt-Engineering</a>
+        
+          <a href="https://weitsung50110.github.io/tags/LLM/" class="tag-item">LLM</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Chatbot/" class="tag-item">Chatbot</a>
+        
+          <a href="https://weitsung50110.github.io/tags/DuckDuckGo/" class="tag-item">DuckDuckGo</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Wikipedia/" class="tag-item">Wikipedia</a>
+        
+          <a href="https://weitsung50110.github.io/tags/YouTube/" class="tag-item">YouTube</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Web-Scraping/" class="tag-item">Web-Scraping</a>
+        
+          <a href="https://weitsung50110.github.io/tags/JavaScript/" class="tag-item">JavaScript</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Flask/" class="tag-item">Flask</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Jinja2/" class="tag-item">Jinja2</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Tailwind-CSS/" class="tag-item">Tailwind-CSS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Git-LFS/" class="tag-item">Git-LFS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Linux/" class="tag-item">Linux</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Ubuntu/" class="tag-item">Ubuntu</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Docker/" class="tag-item">Docker</a>
+        
+          <a href="https://weitsung50110.github.io/tags/WSL/" class="tag-item">WSL</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Windows-11/" class="tag-item">Windows-11</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Gitalk/" class="tag-item">Gitalk</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E7%A8%8B%E5%BC%8F%E6%95%99%E5%AD%B8/" class="tag-item">程式教學</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" class="tag-item">線上課程</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E7%A4%BE%E5%9C%98%E7%BE%A4%E7%B5%84/" class="tag-item">社團群組</a>
+        
+          <a href="https://weitsung50110.github.io/tags/fb/" class="tag-item">fb</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E7%B2%89%E7%B5%B2%E5%B0%88%E9%A0%81/" class="tag-item">粉絲專頁</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E7%A4%BE%E7%BE%A4/" class="tag-item">社群</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RAM/" class="tag-item">RAM</a>
+        
+          <a href="https://weitsung50110.github.io/tags/VRAM/" class="tag-item">VRAM</a>
+        
+          <a href="https://weitsung50110.github.io/tags/SSD/" class="tag-item">SSD</a>
+        
+      </div>
+      
+      <div id="category-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/categories/GitHub/" class="category-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Hexo%E4%B8%BB%E9%A1%8C/" class="category-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/categories/NLP/" class="category-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/categories/LangChain/" class="category-item">LangChain</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Hugging-Face/" class="category-item">Hugging-Face</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Git-LFS/" class="category-item">Git-LFS</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Docker/" class="category-item">Docker</a>
+        
+          <a href="https://weitsung50110.github.io/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" class="category-item">線上課程</a>
+        
+          <a href="https://weitsung50110.github.io/categories/%E7%A4%BE%E5%9C%98%E7%BE%A4%E7%B5%84/" class="category-item">社團群組</a>
+        
+          <a href="https://weitsung50110.github.io/categories/git/" class="category-item">git</a>
+        
+          <a href="https://weitsung50110.github.io/categories/fb/" class="category-item">fb</a>
+        
+          <a href="https://weitsung50110.github.io/categories/VRAM/" class="category-item">VRAM</a>
+        
+      </div> -->
+      
+      <!-- 顯示內容的區域 -->
+      <div id="content-area"></div>
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <img src="https://weitsung50110.github.io/images/boy10.png" class="footer-logo"> 
+  <img src="https://weitsung50110.github.io/images/boy9.png" class="footer-rwd-logo"> 
+  <div class="newsletter-subscription">
+    <p>覺得崴寶的內容實用嗎？ Well崴寶程式開發天堂 電子報讀者募集中！歡迎
+      <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
+  </div>
+  <p>&copy; 2024 崴寶 Weibert Weiberson. All rights reserved.</p>
+  <!-- <script src="/js/main.js"></script> -->
+  <!-- <script src="/js/script.js"></script> -->
+  <script src="/js/script.js"></script>
+  <script src="/js/popup_tag.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/toc.js"></script>
+  <script src="/js/post.js"></script>  
+  <script src="/js/header.js"></script>  
+  <script src="/js/archive.js"></script>  
+  
+  
+</footer>
+
+      
+    </div>
+  </div>
+  
+  <!-- 返回頂部按鈕 -->
+  <button id="scroll-to-top-btn" class="scroll-to-top-btn">▲</button>
+  
+</body>
+</html>
