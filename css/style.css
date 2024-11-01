@@ -70,10 +70,14 @@ body {
 
 .welcome-desktop {
   display: block; /* 預設為顯示 */
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .welcome-mobile {
   display: none; /* 預設為隱藏 */
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 
