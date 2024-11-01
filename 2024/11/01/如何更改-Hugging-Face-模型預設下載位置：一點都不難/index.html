@@ -22,8 +22,8 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
-  <div class="post_bg" style="">
-    <div class="archive_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy15.png&#39;);">
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
+    <div class="archive_bg" style="">
       
       <header>
   <div class="header-content">
@@ -119,69 +119,192 @@
   </div>
 </div>
         
-<main id="archives">
+<article class="post">
+  <h1>如何更改 Hugging Face 模型預設下載位置：一點都不難</h1>
+  <!-- <p class="post-date">日期：Fri Nov 01 2024 14:41:53 GMT+0000</p> -->
+  <p class="post-date">日期：2024-11-01</p>
+  <!-- <p class="post-author">作者：</p> -->
   
-  <h1></h1>
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Transformers/">Transformers</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Hugging-Face/">Hugging-Face</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Docker/">Docker</a></li>
+            
+          </ul>
+        </div>
+      
 
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/Hugging-Face/">Hugging-Face</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>輕鬆地更改 Hugging Face 模型的預設下載位置。無論是為了節省磁碟空間、方便管理還是版本控制。</p>
+      </div>
   
 
-  
-    
-      <section class="archive-year">
-        <h2 class="year-title" id="year-2024">2024</h2>
-        <ul class="post-list" id="posts-2024" style="display: none;">
-          
-            <li>
-              
-                <a href="/2024/10/29/%E5%BE%9E%E6%97%A5%E5%B8%B8%E5%88%B0AI%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9A%84%E6%9C%80%E4%BD%B3-RAM%E3%80%81VRAM-%E8%88%87-SSD-%E7%A1%AC%E9%AB%94%E9%81%B8%E6%93%87%EF%BC%8C%E8%B2%B7%E9%9B%BB%E8%85%A6%E5%BF%85%E7%9C%8B/">
-                  從日常到AI機器學習的最佳 RAM、VRAM 與 SSD 硬體選擇，買電腦必看
-                </a>
-              
-              <time datetime="2024-10-29T14:01:38.000Z">
-                2024-10-29
-              </time>
-            </li>
-          
-            <li>
-              
-                <a href="/2024/10/25/2025%E6%89%8B%E6%A9%9F-%E8%AE%8A%E6%9B%B4FB%E7%B2%89%E7%B5%B2%E5%B0%88%E6%A5%AD%E5%90%8D%E7%A8%B1%E6%95%99%E5%AD%B8/">
-                  2025手機-變更FB粉絲專頁名稱教學
-                </a>
-              
-              <time datetime="2024-10-25T14:24:19.000Z">
-                2024-10-25
-              </time>
-            </li>
-          
-            <li>
-              
-                <a href="/2024/10/22/Git%E8%B6%85%E7%B0%A1%E5%96%AE-%E5%9F%BA%E6%9C%AC-Git-%E5%91%BD%E4%BB%A4%E6%95%99%E5%AD%B8/">
-                  Git超簡單-基本 Git 命令教學
-                </a>
-              
-              <time datetime="2024-10-22T14:01:23.000Z">
-                2024-10-22
-              </time>
-            </li>
-          
-            <li>
-              
-                <a href="/2024/10/17/%E5%AE%89%E8%A3%9DDocker%E9%80%B2D%E6%A7%BD%E6%95%99%E5%AD%B8/">
-                  安裝Docker進D槽教學
-                </a>
-              
-              <time datetime="2024-10-17T14:59:23.000Z">
-                2024-10-17
-              </time>
-            </li>
-          
-        </ul>
-      </section>
-    
-  
-</main>
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>覺得崴寶的內容實用嗎？ Well崴寶程式開發天堂 電子報讀者募集中！歡迎
+          <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
+      </div>
+      <p><cen>在使用 Hugging Face 的 transformers 庫時，模型的下載和存儲位置通常默認在系統的緩存目錄中。然而，有時候你可能希望更改這個位置，以便於管理存儲或在特定環境（如 Docker）中使用。本文將介紹如何設定 Hugging Face 下載模型的位置。</p>
+<p><img src="/assets/images/%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9-Hugging-Face-%E6%A8%A1%E5%9E%8B%E9%A0%90%E8%A8%AD%E4%B8%8B%E8%BC%89%E4%BD%8D%E7%BD%AE%EF%BC%9A%E4%B8%80%E9%BB%9E%E9%83%BD%E4%B8%8D%E9%9B%A3/0.png"></p>
+<h2 id="為什麼需要更改下載位置？"><a href="#為什麼需要更改下載位置？" class="headerlink" title="為什麼需要更改下載位置？"></a>為什麼需要更改下載位置？</h2><p>在某些情況下，默認的下載位置可能不合適。</p>
+<ul>
+<li><strong>空間不足</strong>：如果你的系統磁碟空間有限，需要將模型下載到其他位置。</li>
+<li><strong>環境管理</strong>：在 Docker 容器中，希望將模型儲存在特定的掛載路徑。</li>
+<li><strong>版本控制</strong>：為了更好地管理不同版本的模型，將其存儲在指定位置有助於組織。</li>
+</ul>
+<h2 id="如何設定模型下載位置？"><a href="#如何設定模型下載位置？" class="headerlink" title="如何設定模型下載位置？"></a>如何設定模型下載位置？</h2><ul>
+<li><p><strong>使用 <code>cache_dir</code> 參數</strong><br> 在從 Hugging Face 下載模型時，你可以使用 <code>cache_dir</code> 參數指定模型的緩存目錄。以下是一個範例代碼：</p>
+<pre><code>  def main(prompt, output_filename):
+      # 設定模型 ID
+      model_id = &quot;runwayml/stable-diffusion-v1-5&quot;
 
-<div id="cursor-effect" class="cursor-effect"></div> 
+      # 從預訓練模型載入 Stable Diffusion 管道
+      pipe = StableDiffusionPipeline.from_pretrained(model_id, 
+          torch_dtype=torch.float32, cache_dir=&quot;/cache_wei/&quot;)
+</code></pre>
+<p>  在這段代碼中，<code>cache_dir</code>參數將指定下載的模型存儲位置。</p>
+<pre><code>  root@08d912ebf816:/# ls
+  app  bin  boot cache_wei  dev etc  home  lib lib64  media  mnt  opt proc  root  run  sbin  srv  sys  tmp  usr  var
+</code></pre>
+<p>  你可以看到在容器內的根目錄<code>cache_wei</code>出現了!</p>
+<pre><code>  root@08d912ebf816:/cache_wei# ls
+  models--runwayml--stable-diffusion-v1-5  models--shenzhi-wang--Llama3-8B-Chinese-Chat
+</code></pre>
+</li>
+</ul>
+<h3 id="這些目錄的命名通常由以下幾部分組成："><a href="#這些目錄的命名通常由以下幾部分組成：" class="headerlink" title="這些目錄的命名通常由以下幾部分組成："></a>這些目錄的命名通常由以下幾部分組成：</h3><ul>
+<li><strong>models</strong>：這是根目錄，表示這裡存放的是模型相關的數據。</li>
+<li>**–**：這是分隔符，用來分隔不同的部分。Hugging Face 使用雙破折號 <code>--</code> 作為分隔符，以處理名稱中的特殊字符和空格。</li>
+<li><strong>模型擁有者&#x2F;組織</strong>：例如 <code>runwayml</code> 和 <code>shenzhi-wang</code>，這些是模型的擁有者或開發者的名稱，指示該模型的來源。</li>
+<li><strong>模型名稱</strong>：如 <code>stable-diffusion-v1-5</code> 和 <code>Llama3-8B-Chinese-Chat</code>，這是模型的具體名稱，通常會包含版本號或其他識別信息。</li>
+</ul>
+<h3 id="models–runwayml–stable-diffusion-v1-5："><a href="#models–runwayml–stable-diffusion-v1-5：" class="headerlink" title="models–runwayml–stable-diffusion-v1-5："></a>models–runwayml–stable-diffusion-v1-5：</h3><ul>
+<li><code>runwayml</code> 是模型的擁有者或組織名稱。</li>
+<li><code>stable-diffusion-v1-5</code> 是模型的名稱和版本號，表示這是 Stable Diffusion 模型的第 1.5 版本。</li>
+</ul>
+<h3 id="models–shenzhi-wang–Llama3-8B-Chinese-Chat："><a href="#models–shenzhi-wang–Llama3-8B-Chinese-Chat：" class="headerlink" title="models–shenzhi-wang–Llama3-8B-Chinese-Chat："></a>models–shenzhi-wang–Llama3-8B-Chinese-Chat：</h3><ul>
+<li><code>shenzhi-wang</code> 是這個模型的擁有者。</li>
+<li><code>Llama3-8B-Chinese-Chat</code> 是模型的名稱，表示這是一個 8 億參數的 Llama 3 模型，專門用於中文對話。</li>
+</ul>
+<h2 id="模型緩存目錄的結構"><a href="#模型緩存目錄的結構" class="headerlink" title="模型緩存目錄的結構"></a>模型緩存目錄的結構</h2><pre><code>root@08d912ebf816:/cache_wei/models--runwayml--stable-diffusion-v1-5# ls
+blobs  refs  snapshots
+</code></pre>
+<p>在 Hugging Face 的模型緩存目錄中，你會看到以下子目錄：</p>
+<ul>
+<li><p><strong>blobs</strong>：這個目錄包含實際的模型權重檔案和其他大型文件的數據。這些檔案的格式通常是 Hugging Face 特定的，以支持模型的快速加載和使用。這些權重檔案對於模型的正確運行至關重要。</p>
+<pre><code>  root@08d912ebf816:/cache_wei/models--runwayml--stable-diffusion-v1-5# cd blobs/
+  root@08d912ebf816:/cache_wei/models--runwayml--stable-diffusion-v1-5/blobs# ls
+  19da7aaa4b880e59d56843f1fcb4dd9b599c28a1d9d9af7c1143057c8ffae9f1  5dbd88952e7e521aa665e5052e6db7def3641d03
+  1a02ee8abc93e840ffbcb2d68b66ccbcb74b3ab3     76e821f1b6f0a9709293c3b6b51ed90980b3166b
+  2c2130b544c0c5a72d5d00da071ba130a9800fb2     82d05b0e688d7ea94675678646c427907419346e
+  469be27c5c010538f845f518c4f5e8574c78f7c8     9d6a233ff6fd5ccb9f76fd99618d73369c52dd3d8222376384d0e601911089e8
+  4d3e873ab5086ad989f407abd50fdce66db8d657     a2b5134f4dbc140d9c11f11cba3233099e00af40f262f136c691fb7d38d2194c
+  5294955ff7801083f720b34b55d0f1f51313c5c5     d008943c017f0092921106440254dbbe00b6a285f7883ec8ba160c3faad88334
+  55d78924fee13e4220f24320127c5f16284e13b9     daf7e2e2dfc64fb437a2b44525667111b00cb9fc
+</code></pre>
+</li>
+<li><p><strong>refs</strong>：這個目錄包含對應的模型引用，如不同版本的標籤或指向特定提交的引用。這有助於在需要時追蹤或切換到特定的模型版本，從而方便管理和使用不同版本的模型。</p>
+<pre><code>  root@08d912ebf816:/cache_wei/models--runwayml--stable-diffusion-v1-5/refs# ls
+  main
+</code></pre>
+</li>
+<li><p><strong>snapshots</strong>：這個目錄包含模型的快照，通常是在特定時間點上保存的模型版本。這對於版本控制和恢復特定狀態的模型非常有用，特別是在進行實驗或調整模型參數時。</p>
+<pre><code>  root@08d912ebf816:/cache_wei/models--runwayml--stable-diffusion-v1-5/snapshots# ls
+  f03de327dd89b501a01da37fc5240cf4fdba85a1
+</code></pre>
+</li>
+</ul>
+<h2 id="Docker掛載本地目錄進入cache-dir之中"><a href="#Docker掛載本地目錄進入cache-dir之中" class="headerlink" title="Docker掛載本地目錄進入cache_dir之中"></a>Docker掛載本地目錄進入cache_dir之中</h2><pre><code>docker run -v D:/local/:/cache_wei &lt;image_name&gt;
+</code></pre>
+<p>你在下docker run指令的時候，就要掛載cache_wei到本地目錄D:&#x2F;local中</p>
+<p>這樣你在容器內的 Hugging Face 模型緩存目錄才會一起出現在本地端唷!</p>
+<h2 id="不用Docker直接在本地跑模型會存在哪"><a href="#不用Docker直接在本地跑模型會存在哪" class="headerlink" title="不用Docker直接在本地跑模型會存在哪?"></a>不用Docker直接在本地跑模型會存在哪?</h2><pre><code>def main(prompt, output_filename):
+    # 設定模型 ID
+    model_id = &quot;runwayml/stable-diffusion-v1-5&quot;
+
+    # 從預訓練模型載入 Stable Diffusion 管道
+    pipe = StableDiffusionPipeline.from_pretrained(model_id, 
+        torch_dtype=torch.float32)
+</code></pre>
+<p>直接在本地跑，並且不設定 <code>cache_dir</code> 的話，模型會存放在 <code>~/.cache/huggingface/hub</code> 裡面！</p>
+<pre><code>ubuntu@ubuntu:~/.cache/huggingface/hub$ ls
+models--stabilityai--stable-diffusion-2-inpainting  version_diffusers_cache.txt
+models--THUDM--chatglm2-6b                          version.txt
+models--THUDM--chatglm-6b
+
+ubuntu@ubuntu:~/.cache/huggingface/hub$ cd models--stabilityai--stable-diffusion-2-inpainting/
+ubuntu@ubuntu:~/.cache/huggingface/hub/models--stabilityai--stable-diffusion-2-inpainting$ ls
+blobs  refs  snapshots
+
+ubuntu@ubuntu:~/.cache/huggingface/hub/models--stabilityai--stable-diffusion-2-inpainting$ cd blobs/
+ubuntu@ubuntu:~/.cache/huggingface/hub/models--stabilityai--stable-diffusion-2-inpainting/blobs$ ls
+1d7b0e6916576464d3bbb0a6ab3792e4cf8c3cbf
+297118f6c192917e8712ae6f76054e2090b03a12
+4260d8ba1dc67225503a3a6a6a582c9e6dff8595
+469be27c5c010538f845f518c4f5e8574c78f7c8
+5294955ff7801083f720b34b55d0f1f51313c5c5
+74a85ab991aa7f0aa14a95799b475e70f6640da9
+76e821f1b6f0a9709293c3b6b51ed90980b3166b
+9bcbb17f54b039f58bf78677fab8cd8a35dd686f6c9dd553e3646a8b0aaff41a
+a1d993488569e928462932c8c38a0760b874d166399b14414135bd9c42df5815
+ae0c5be6f35217e51c4c000fd325d8de0294e99c
+cce6febb0b6d876ee5eb24af35e27e764eb4f9b1d0b7c026c8c3333d4cfc916c
+d30e3eb38cf0609c58ad5b0c0da476d1463d9f8b
+d56b14868b81a50d952b0ebf1455568a5f0fa717
+</code></pre>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>在使用 Hugging Face 的 <code>transformers</code> 庫時，自定義模型下載位置就像為你的模型選擇一個舒適的家🏡。透過 <code>cache_dir</code> 參數，你能靈活管理你的模型儲存位置，讓每個模型都有自己獨特的空間✨。這樣不僅能讓你的磁碟空間保持井然有序，還能確保下次使用時不會重複下載，節省時間和流量⏳。</p>
+<p>希望這篇文章能幫助你在 Hugging Face 的旅程中輕鬆駕馭，讓探索模型的過程充滿樂趣！如果還有其他問題，隨時來找我，讓我們一起把 AI 玩得更精彩！🚀</p>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 崴寶 Weibert Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
       </div>
       
       <!-- 側邊欄 -->
