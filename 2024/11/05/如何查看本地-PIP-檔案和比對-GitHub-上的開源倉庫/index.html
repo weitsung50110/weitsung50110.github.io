@@ -22,8 +22,8 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
-  <div class="post_bg" style="">
-    <div class="archive_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy15.png&#39;);">
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
+    <div class="archive_bg" style="">
       
       <header>
   <div class="header-content">
@@ -119,36 +119,175 @@
   </div>
 </div>
         
-<main id="archives">
+<article class="post">
+  <h1>如何查看本地 PIP 檔案和比對 GitHub 上的開源倉庫</h1>
+  <!-- <p class="post-date">日期：Tue Nov 05 2024 14:56:26 GMT+0000</p> -->
+  <p class="post-date">日期：2024-11-05</p>
+  <!-- <p class="post-author">作者：</p> -->
   
-  <h1></h1>
-
-  
-
-  
-    
-      <section class="archive-year">
-        <h2 class="year-title" id="year-2024">2024</h2>
-        <div class="post-list" id="posts-2024">
-          
-            <div class="post-item">
-              
-                <a href="/2024/08/09/hexo-theme-animal%E9%97%9C%E6%96%BC.ejs%E7%9A%84%E8%A8%AD%E5%AE%9A%EF%BC%8C%E5%8C%85%E6%8B%ACarchives,tag...%E7%AD%89%E7%AD%89/">
-                  hexo-theme-animal關於.ejs的設定，包括archives,tag...等等
-                </a>
-              
-              <time datetime="2024-08-09T13:22:11.000Z">
-                2024-08-09
-              </time>
-            </div>
-          
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/GitHub/">GitHub</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/%E9%96%8B%E6%BA%90/">開源</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Python/">Python</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/PIP/">PIP</a></li>
+            
+          </ul>
         </div>
-      </section>
-    
-  
-</main>
+      
 
-<div id="cursor-effect" class="cursor-effect"></div> 
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/PIP/">PIP</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>查看和比對本地安裝的 PIP 檔案，並學習如何與 GitHub 上的開源庫進行比對，從而提升開發效率和理解庫的運作。</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>覺得崴寶的內容實用嗎？ Well崴寶程式天堂 電子報讀者募集中！歡迎
+          <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
+      </div>
+      <p><cen>在開發和調試 Python 應用時，了解安裝的庫和它們的實現是非常重要的。本文將指導你如何在 Docker 環境中查看本地 pip 安裝的庫檔案，特別是 LangChain 版本，並解釋為何這對開發和維護至關重要。</p>
+<h2 id="為何要查看本地-PIP-檔案"><a href="#為何要查看本地-PIP-檔案" class="headerlink" title="為何要查看本地 PIP 檔案"></a>為何要查看本地 PIP 檔案</h2><h3 id="1-理解庫的實現"><a href="#1-理解庫的實現" class="headerlink" title="1. 理解庫的實現"></a>1. 理解庫的實現</h3><p>查看庫的源碼幫助開發者理解其內部邏輯，這對於解決問題或擴展功能非常重要。</p>
+<h3 id="2-理解問題"><a href="#2-理解問題" class="headerlink" title="2. 理解問題"></a>2. 理解問題</h3><p>如果在使用某個庫時遇到問題，直接查看其源碼可以幫助你更快地定位問題。</p>
+<h3 id="3-學習最佳實踐"><a href="#3-學習最佳實踐" class="headerlink" title="3. 學習最佳實踐"></a>3. 學習最佳實踐</h3><p>開源庫的實現往往包含許多最佳實踐和設計模式，透過學習這些源碼可以提升自己的編程能力。</p>
+<h2 id="如何在-Docker-中查看-PIP-檔案"><a href="#如何在-Docker-中查看-PIP-檔案" class="headerlink" title="如何在 Docker 中查看 PIP 檔案"></a>如何在 Docker 中查看 PIP 檔案</h2><h3 id="進入-Docker-容器"><a href="#進入-Docker-容器" class="headerlink" title="- 進入 Docker 容器"></a>- 進入 Docker 容器</h3><p>使用 <code>docker exec</code> 命令進入正在運行的容器：</p>
+<pre><code>docker exec -it &lt;容器ID或名稱&gt; /bin/bash
+</code></pre>
+<h3 id="確認-PIP-安裝的庫："><a href="#確認-PIP-安裝的庫：" class="headerlink" title="- 確認 PIP 安裝的庫："></a>- 確認 PIP 安裝的庫：</h3><p>檢查 <code>pip</code> 版本和安裝路徑：</p>
+<pre><code>root@08d912ebf816:/usr/local/lib# pip --version
+pip 23.0.1 from /usr/local/lib/python3.9/site-packages/pip (python 3.9)
+</code></pre>
+<h3 id="導航至-site-packages-目錄："><a href="#導航至-site-packages-目錄：" class="headerlink" title="- 導航至 site-packages 目錄："></a>- 導航至 site-packages 目錄：</h3><p>找到 <code>site-packages</code> 目錄並查看已安裝的庫，使用以下命令：</p>
+<pre><code>cd /usr/local/lib/python3.9/site-packages
+ls
+</code></pre>
+<h3 id="查看特定庫的源碼："><a href="#查看特定庫的源碼：" class="headerlink" title="- 查看特定庫的源碼："></a>- 查看特定庫的源碼：</h3><p>如果你想查看某個特定庫的源碼（例如 <code>langchain_community</code>），可以進入該庫的目錄並查看其 <code>.py</code> 檔案：</p>
+<pre><code>root@08d912ebf816:/usr/local/lib/python3.9/site-packages/langchain_community# ls
+__init__.py cache.py  chat_models       document_loaders      graphs      py.typed  utilities
+__pycache__ callbacks  cross_encoders       document_transformers  indexes      retrievers  utils
+adapters chat_loaders  docstore       embeddings      llms      storage  vectorstores
+agent_toolkits chat_message_histories document_compressors  example_selectors      output_parsers  tools
+
+root@08d912ebf816:/usr/local/lib/python3.9/site-packages/langchain_community# cd embeddings/
+
+root@08d912ebf816:/usr/local/lib/python3.9/site-packages/langchain_community/embeddings# ls
+__init__.py     cohere.py      gpt4all.py      llamafile.py   ollama.py         tensorflow_hub.py
+__pycache__     dashscope.py      gradient_ai.py     llm_rails.py   openai.py         text2vec.py
+aleph_alpha.py     databricks.py     huggingface.py     localai.py    openvino.py         vertexai.py
+anyscale.py     deepinfra.py      huggingface_hub.py     minimax.py    optimum_intel.py        volcengine.py
+awa.py      edenai.py      infinity.py     mlflow.py    premai.py         voyageai.py
+azure_openai.py     elasticsearch.py  infinity_local.py     mlflow_gateway.py   sagemaker_endpoint.py        xinference.py
+baichuan.py     embaas.py      itrex.py      modelscope_hub.py   self_hosted.py        yandex.py
+baidu_qianfan_endpoint.py  ernie.py      javelin_ai_gateway.py  mosaicml.py    self_hosted_hugging_face.py
+bedrock.py     fake.py      jina.py      nemo.py    sentence_transformer.py
+bookend.py     fastembed.py      johnsnowlabs.py     nlpcloud.py    solar.py
+clarifai.py     gigachat.py      laser.py      oci_generative_ai.py  spacy_embeddings.py
+cloudflare_workersai.py    google_palm.py    llamacpp.py     octoai_embeddings.py  sparkllm.py
+</code></pre>
+<p>在CMD中用<code>cat</code> 來查看 ollama.py 檔案</p>
+<pre><code>root@08d912ebf816:/usr/local/lib/python3.9/site-packages/langchain_community/embeddings# cat ollama.py
+</code></pre>
+<h3 id="查看Python安裝位置"><a href="#查看Python安裝位置" class="headerlink" title="- 查看Python安裝位置"></a>- 查看Python安裝位置</h3><pre><code>root@08d912ebf816:/usr# which python
+/usr/local/bin/python
+</code></pre>
+<h2 id="在-Unix-和-Linux-系統中，lib-和-bin-目錄的比較"><a href="#在-Unix-和-Linux-系統中，lib-和-bin-目錄的比較" class="headerlink" title="在 Unix 和 Linux 系統中，lib 和 bin 目錄的比較"></a>在 Unix 和 Linux 系統中，<code>lib</code> 和 <code>bin</code> 目錄的比較</h2><h3 id="1-bin-目錄"><a href="#1-bin-目錄" class="headerlink" title="1. bin 目錄"></a>1. <code>bin</code> 目錄</h3><ul>
+<li><strong>用途</strong>：<code>bin</code> 是 <code>binary</code> 的縮寫，通常用來存放可執行文件。這些文件是可以直接運行的程序或腳本。</li>
+<li><strong>位置</strong>：在不同的系統中，常見的 <code>bin</code> 目錄包括：<ul>
+<li><code>/bin</code>：存放系統啟動和修復時需要的基本命令。</li>
+<li><code>/usr/bin</code>：存放大多數用戶應用程序的可執行文件。</li>
+<li><code>/usr/local/bin</code>：用來存放本地安裝的應用程序的可執行文件。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-lib-目錄"><a href="#2-lib-目錄" class="headerlink" title="2. lib 目錄"></a>2. <code>lib</code> 目錄</h3><ul>
+<li><strong>用途</strong>：<code>lib</code> 是 <code>library</code> 的縮寫，通常用來存放庫文件（libraries）。這些文件是用於支持可執行文件的共享代碼。它們通常不是直接運行的，而是被程序調用。</li>
+<li><strong>位置</strong>：常見的 <code>lib</code> 目錄包括：<ul>
+<li><code>/lib</code>：存放核心系統庫，這些庫通常在啟動時需要。</li>
+<li><code>/usr/lib</code>：存放用戶程序所需的庫。</li>
+<li><code>/usr/local/lib</code>：用於本地安裝的庫文件。</li>
+</ul>
+</li>
+</ul>
+<h3 id="小整理："><a href="#小整理：" class="headerlink" title="小整理："></a>小整理：</h3><ul>
+<li><code>bin</code> 目錄：存放可執行文件，讓用戶可以直接運行。</li>
+<li><code>lib</code> 目錄：存放庫文件，為可執行文件提供支持和功能。</li>
+</ul>
+<h2 id="為何比對-GitHub-上的開源-LangChain-倉庫"><a href="#為何比對-GitHub-上的開源-LangChain-倉庫" class="headerlink" title="為何比對 GitHub 上的開源 LangChain 倉庫"></a>為何比對 GitHub 上的開源 LangChain 倉庫</h2><h3 id="獲取最新更新"><a href="#獲取最新更新" class="headerlink" title="- 獲取最新更新"></a>- 獲取最新更新</h3><p>開源庫可能經常更新，通過比對 GitHub 倉庫，你可以確保使用的是最新的功能和修復。</p>
+<h3 id="查看變更紀錄"><a href="#查看變更紀錄" class="headerlink" title="- 查看變更紀錄"></a>- 查看變更紀錄</h3><p>通過查看提交歷史，你可以了解哪些改動可能影響到你使用的功能，幫助你在升級時做好準備。</p>
+<h3 id="提交問題或貢獻代碼"><a href="#提交問題或貢獻代碼" class="headerlink" title="- 提交問題或貢獻代碼"></a>- 提交問題或貢獻代碼</h3><p>如果你發現 bug 或想要添加功能，比對源碼能幫助你更好地定位問題並提出改進建議。</p>
+<h3 id="比較本地安裝的-LangChain-套件版本"><a href="#比較本地安裝的-LangChain-套件版本" class="headerlink" title="- 比較本地安裝的 LangChain 套件版本"></a>- 比較本地安裝的 LangChain 套件版本</h3><p>比較你本地安裝的 <code>langchain-community</code> 套件版本（如 <code>0.0.33</code>）和 GitHub 上開源版本的對應關係。</p>
+<h2 id="查看-GitHub-上的-Releases-或-Tags"><a href="#查看-GitHub-上的-Releases-或-Tags" class="headerlink" title="查看 GitHub 上的 Releases 或 Tags"></a>查看 GitHub 上的 Releases 或 Tags</h2><p>在 GitHub 倉庫的主頁上，你可以找到 <strong>Releases</strong> 或 <strong>Tags</strong> 標籤，這裡會列出所有發佈的版本。</p>
+<h3 id="1-點擊-Releases-頁面"><a href="#1-點擊-Releases-頁面" class="headerlink" title="1. 點擊 Releases 頁面"></a>1. 點擊 Releases 頁面</h3><p>在 Releases 頁面，你可以看到所有的版本號和相關的變更說明。</p>
+<h3 id="2-查看-Tags-標籤"><a href="#2-查看-Tags-標籤" class="headerlink" title="2. 查看 Tags 標籤"></a>2. 查看 Tags 標籤</h3><p>在 Tags 標籤下，你也能找到不同版本的標記。</p>
+<p>也可以選擇某個版本號，並查看當時程式碼的變化</p>
+<h2 id="直接編輯本地-pip-安裝的庫的-py-檔案是否生效"><a href="#直接編輯本地-pip-安裝的庫的-py-檔案是否生效" class="headerlink" title="直接編輯本地 pip 安裝的庫的 .py 檔案是否生效"></a>直接編輯本地 pip 安裝的庫的 <code>.py</code> 檔案是否生效</h2><h3 id="1-直接編輯會生效"><a href="#1-直接編輯會生效" class="headerlink" title="1. 直接編輯會生效"></a>1. 直接編輯會生效</h3><ul>
+<li><strong>立即生效</strong><br>你對 <code>.py</code> 檔案的任何修改會立即反映在你的 Python 環境中。當你下次導入該庫時，修改過的代碼會被執行。</li>
+</ul>
+<h3 id="2-風險和注意事項"><a href="#2-風險和注意事項" class="headerlink" title="2. 風險和注意事項"></a>2. 風險和注意事項</h3><ul>
+<li><strong>不可預測的行為</strong>：如果你不熟悉該庫的內部邏輯，直接編輯可能會導致錯誤或不穩定的行為。</li>
+<li><strong>未來更新問題</strong>：當你使用 <code>pip install --upgrade</code> 或 <code>pip uninstall</code> 重新安裝庫時，這些修改將會被覆蓋或丟失。</li>
+<li><strong>無法跟踪修改</strong>：直接編輯後，這些變更不會記錄在版本控制系統中（如 Git），所以無法輕易追蹤或還原。</li>
+</ul>
+<h3 id="3-建議的做法"><a href="#3-建議的做法" class="headerlink" title="3. 建議的做法"></a>3. 建議的做法</h3><p>如果你希望對某個庫進行持久的修改，這裡有幾個建議：</p>
+<ul>
+<li><strong>Fork 倉庫</strong>：如果該庫是開源的，你可以從 GitHub 上 fork 一份，然後在自己的版本中進行修改，這樣可以保留原始代碼的完整性。</li>
+<li><strong>使用虛擬環境</strong>：在虛擬環境中進行測試和修改，可以防止對全局環境造成影響。</li>
+<li><strong>記錄你的改動</strong>：無論是使用 Git 來記錄版本，還是做一些註釋，以便日後回顧。</li>
+</ul>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>了解如何查看和比對本地 <code>pip</code> 檔案是 Python 開發中的一項重要技能。</p>
+<p>透過這些步驟，你可以更好地理解你正在使用的庫，進而提升你的開發效率和能力。</p>
+<p>希望這篇文章能幫助你在日常開發中更加得心應手！🐍✨</p>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 崴寶 Weibert Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
       </div>
       
       <!-- 側邊欄 -->
