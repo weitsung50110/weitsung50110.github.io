@@ -22,7 +22,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
-  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
+  <div class="post_bg" style="">
     <div class="archive_bg" style="">
       
       <header>
@@ -123,248 +123,26 @@
     <div id="search-results"></div>
   </div>
 </div>
+        <div id="tags" >
+    <h1></h1>
+    
+    
+      <ul class="post-list">
         
-<article class="post">
-  <h1>Linux Git LFS安裝教學+Unable to locate package git lfs解決方法</h1>
-  <!-- <p class="post-date">日期：Tue Jun 18 2024 15:21:22 GMT+0000</p> -->
-  <p class="post-date">日期：2024-06-18</p>
-  <!-- <p class="post-author">作者：崴寶 Weibert Weiberson</p> -->
-  
-    <div class="post-meta">
-      
-        <div class="post-tags">
-          <span>標籤:</span>
-          <ul>
+          <li>
             
-              <li><a href="https://weitsung50110.github.io/tags/git/">git</a></li>
+              <a href="/2024/11/05/LangChain-%E9%80%B2%E8%A1%8C-SQL-%E6%9F%A5%E8%A9%A2%E5%92%8C%E8%87%AA%E5%8B%95%E5%8C%96%E7%AD%94%E6%A1%88%E7%94%9F%E6%88%90%EF%BC%9A%E5%AF%A6%E4%BD%9C%E8%88%87%E6%95%99%E5%AD%B8/">
+                LangChain 進行 SQL 查詢和自動化答案生成：實作與教學
+              </a>
             
-              <li><a href="https://weitsung50110.github.io/tags/Git-LFS/">Git-LFS</a></li>
-            
-              <li><a href="https://weitsung50110.github.io/tags/Linux/">Linux</a></li>
-            
-              <li><a href="https://weitsung50110.github.io/tags/Ubuntu/">Ubuntu</a></li>
-            
-          </ul>
-        </div>
-      
-
-      
-        <div class="post-categories">
-          <span>類別:</span>
-          <ul>
-            
-              <li><a href="https://weitsung50110.github.io/categories/Git-LFS/">Git-LFS</a></li>
-            
-          </ul>
-        </div>
-      
-    </div>
-  
-  
-      <div class="excerpt">
-          <p>介紹如何在 Linux 上安裝 Git LFS，並提供遇到 &#34;Unable to locate package git-lfs&#34; 錯誤的解決方法。</p>
-      </div>
-  
-
-  <!-- 目錄容器 -->
-  <div class="article-container">
-    <div class="article-content">
-      <div class="newsletter-subscription">
-        <p>覺得崴寶的內容實用嗎？ Well崴寶程式天堂 電子報讀者募集中！歡迎
-          <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
-      </div>
-      <p><cen>這篇主要會講安裝教學，以及遇到錯誤怎麼解決。</p>
-<p>此文章也有發表在Medium上 &gt;&gt;</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/linux-git-lfs%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-unable-to-locate-package-git-lfs%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95-28e228d71a02">Linux Git LFS 安裝教學：Unable to locate package git-lfs 解決方法</a></li>
-</ul>
-<p>關於LFS的介紹可以參考我之前寫過的這篇-<a target="_blank" rel="noopener" href="https://medium.com/@weiberson/git-lfs%E4%BB%8B%E7%B4%B9-%E7%82%BA%E4%BD%95%E9%9C%80%E8%A6%81%E5%AE%83-86d9ea3f3ed7">Git LFS 介紹：為何需要它</a>。</p>
-<h2 id="在-Linux-上安裝-Git-LFS-的步驟"><a href="#在-Linux-上安裝-Git-LFS-的步驟" class="headerlink" title="在 Linux 上安裝 Git LFS 的步驟"></a>在 Linux 上安裝 Git LFS 的步驟</h2><ol>
-<li><p><strong>安裝 Git</strong><br>首先，確保你的系統上已經安裝了 Git。你可以使用以下命令來安裝 Git（以 Debian&#x2F;Ubuntu 為例）：</p>
-<pre><code> sudo apt-get update
- sudo apt-get install git
-</code></pre>
-</li>
-</ol>
-<p>對於其他發行版，可以使用相應的包管理器，如 <code>yum</code>（CentOS&#x2F;RHEL）或 <code>dnf</code>（Fedora）。</p>
-<ol start="2">
-<li><strong>下載並安裝 Git LFS</strong><br>Git LFS 可以通過包管理器或手動下載安裝。</li>
-</ol>
-<h3 id="使用包管理器安裝"><a href="#使用包管理器安裝" class="headerlink" title="使用包管理器安裝"></a>使用包管理器安裝</h3><ul>
-<li><p>Debian&#x2F;Ubuntu:</p>
-<pre><code>  sudo apt-get install git-lfs
-</code></pre>
-</li>
-<li><p>CentOS&#x2F;RHEL:</p>
-<pre><code>  sudo yum install epel-release
-  sudo yum install git-lfs
-</code></pre>
-</li>
-<li><p>Fedora:</p>
-<pre><code>  sudo dnf install git-lfs
-</code></pre>
-</li>
-</ul>
-<h2 id="錯誤-Unable-to-locate-package-git-lfs解決方法"><a href="#錯誤-Unable-to-locate-package-git-lfs解決方法" class="headerlink" title="錯誤:Unable to locate package git lfs解決方法"></a>錯誤:Unable to locate package git lfs解決方法</h2><pre><code>ubuntu@ubuntu:~/LFS$ apt-get install git-lfs
-E: 無法開啟鎖定檔 /var/lib/dpkg/lock-frontend - open (13: 拒絕不符權限的操作)
-E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
-ubuntu@ubuntu:~/LFS$ sudo apt-get install git-lfs
-[sudo] password for ubuntu:
-正在讀取套件清單... 完成
-正在重建相依關係
-正在讀取狀態資料... 完成
-E: 找不到套件 git-lfs
-</code></pre>
-<p>我的作業系統是Ubuntu16（amd64），結果跑出來出現錯誤如下:</p>
-<pre><code>Unable to locate package git lfs
-</code></pre>
-<blockquote>
-<p>這時候就只能手動下載安裝，來解決問題了~</p>
-</blockquote>
-<p>下載 Git LFS 的最新版本。你可以在 <code>GitHub Releases</code> 頁面找到最新的 Git LFS 版本：<a target="_blank" rel="noopener" href="https://github.com/git-lfs/git-lfs/releases">Git LFS Releases</a>。</p>
-<p><img src="/assets/images/Linux-Git-LFS%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-Unable-to-locate-package-git-lfs%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/0.png"></p>
-<ol>
-<li><p><strong>下載下來會有一個名叫<code>git-lfs-linux-amd64-v3.5.1.tar.gz</code>的檔案</strong></p>
-<pre><code> ubuntu@ubuntu:~/LFS$ ls
- git-lfs-linux-amd64-v3.5.1.tar.gz
-</code></pre>
-</li>
-<li><p><strong>用<code>tar -xzvf</code>把.gz檔案給解壓縮</strong></p>
-<pre><code> ubuntu@ubuntu:~/LFS$ tar git-lfs-linux-amd64-v3.5.1.tar.gz
- tar: Old option &#39;g&#39; requires an argument.
- Try &#39;tar --help&#39; or &#39;tar --usage&#39; for more information.
- ubuntu@ubuntu:~/LFS$ tar -xzvf git-lfs-linux-amd64-v3.5.1.tar.gz
- git-lfs-3.5.1/README.md
- git-lfs-3.5.1/CHANGELOG.md
- git-lfs-3.5.1/man/
- git-lfs-3.5.1/man/man7/
- git-lfs-3.5.1/man/man7/git-lfs-faq.7
- git-lfs-3.5.1/man/man1/
- git-lfs-3.5.1/man/man1/git-lfs-completion.1
- git-lfs-3.5.1/man/man1/git-lfs.1
- git-lfs-3.5.1/man/man1/git-lfs-update.1
- git-lfs-3.5.1/man/man1/git-lfs-lock.1
- git-lfs-3.5.1/man/man1/git-lfs-uninstall.1
- git-lfs-3.5.1/man/man1/git-lfs-pointer.1
- git-lfs-3.5.1/man/man1/git-lfs-unlock.1
- git-lfs-3.5.1/man/man1/git-lfs-checkout.1
- git-lfs-3.5.1/man/man1/git-lfs-env.1
- git-lfs-3.5.1/man/man1/git-lfs-pull.1
- git-lfs-3.5.1/man/man1/git-lfs-install.1
- git-lfs-3.5.1/man/man1/git-lfs-ls-files.1
- git-lfs-3.5.1/man/man1/git-lfs-dedup.1
- git-lfs-3.5.1/man/man1/git-lfs-prune.1
- git-lfs-3.5.1/man/man1/git-lfs-post-checkout.1
- git-lfs-3.5.1/man/man1/git-lfs-untrack.1
- git-lfs-3.5.1/man/man1/git-lfs-locks.1
- git-lfs-3.5.1/man/man1/git-lfs-ext.1
- git-lfs-3.5.1/man/man1/git-lfs-post-merge.1
- git-lfs-3.5.1/man/man1/git-lfs-post-commit.1
- git-lfs-3.5.1/man/man1/git-lfs-track.1
- git-lfs-3.5.1/man/man1/git-lfs-clone.1
- git-lfs-3.5.1/man/man1/git-lfs-logs.1
- git-lfs-3.5.1/man/man1/git-lfs-standalone-file.1
- git-lfs-3.5.1/man/man1/git-lfs-merge-driver.1
- git-lfs-3.5.1/man/man1/git-lfs-migrate.1
- git-lfs-3.5.1/man/man1/git-lfs-status.1
- git-lfs-3.5.1/man/man1/git-lfs-fetch.1
- git-lfs-3.5.1/man/man1/git-lfs-pre-push.1
- git-lfs-3.5.1/man/man1/git-lfs-filter-process.1
- git-lfs-3.5.1/man/man1/git-lfs-smudge.1
- git-lfs-3.5.1/man/man1/git-lfs-fsck.1
- git-lfs-3.5.1/man/man1/git-lfs-push.1
- git-lfs-3.5.1/man/man1/git-lfs-clean.1
- git-lfs-3.5.1/man/html/
- git-lfs-3.5.1/man/html/git-lfs-faq.7.html
- git-lfs-3.5.1/man/html/git-lfs-config.5.html
- git-lfs-3.5.1/man/html/git-lfs-unlock.1.html
- git-lfs-3.5.1/man/html/git-lfs-post-checkout.1.html
- git-lfs-3.5.1/man/html/git-lfs-dedup.1.html
- git-lfs-3.5.1/man/html/git-lfs-uninstall.1.html
- git-lfs-3.5.1/man/html/git-lfs-logs.1.html
- git-lfs-3.5.1/man/html/git-lfs-pointer.1.html
- git-lfs-3.5.1/man/html/git-lfs-migrate.1.html
- git-lfs-3.5.1/man/html/git-lfs-completion.1.html
- git-lfs-3.5.1/man/html/git-lfs-update.1.html
- git-lfs-3.5.1/man/html/git-lfs-fsck.1.html
- git-lfs-3.5.1/man/html/git-lfs-smudge.1.html
- git-lfs-3.5.1/man/html/git-lfs-filter-process.1.html
- git-lfs-3.5.1/man/html/git-lfs-merge-driver.1.html
- git-lfs-3.5.1/man/html/git-lfs.1.html
- git-lfs-3.5.1/man/html/git-lfs-clean.1.html
- git-lfs-3.5.1/man/html/git-lfs-prune.1.html
- git-lfs-3.5.1/man/html/git-lfs-lock.1.html
- git-lfs-3.5.1/man/html/git-lfs-post-merge.1.html
- git-lfs-3.5.1/man/html/git-lfs-clone.1.html
- git-lfs-3.5.1/man/html/git-lfs-pull.1.html
- git-lfs-3.5.1/man/html/git-lfs-standalone-file.1.html
- git-lfs-3.5.1/man/html/git-lfs-push.1.html
- git-lfs-3.5.1/man/html/git-lfs-untrack.1.html
- git-lfs-3.5.1/man/html/git-lfs-checkout.1.html
- git-lfs-3.5.1/man/html/git-lfs-fetch.1.html
- git-lfs-3.5.1/man/html/git-lfs-track.1.html
- git-lfs-3.5.1/man/html/git-lfs-pre-push.1.html
- git-lfs-3.5.1/man/html/git-lfs-ls-files.1.html
- git-lfs-3.5.1/man/html/git-lfs-locks.1.html
- git-lfs-3.5.1/man/html/git-lfs-status.1.html
- git-lfs-3.5.1/man/html/git-lfs-install.1.html
- git-lfs-3.5.1/man/html/git-lfs-post-commit.1.html
- git-lfs-3.5.1/man/html/git-lfs-env.1.html
- git-lfs-3.5.1/man/html/git-lfs-ext.1.html
- git-lfs-3.5.1/man/man5/
- git-lfs-3.5.1/man/man5/git-lfs-config.5
- git-lfs-3.5.1/git-lfs
- git-lfs-3.5.1/install.sh
-</code></pre>
-</li>
-<li><p><strong>這時候可以看到目錄中多出<code>git-lfs-3.5.1</code>資料夾，請cd進入</strong></p>
-<pre><code> ubuntu@ubuntu:~/LFS$ ls
- git-lfs-3.5.1  git-lfs-linux-amd64-v3.5.1.tar.gz
-
- ubuntu@ubuntu:~/LFS$ cd git-lfs-3.5.1/
-</code></pre>
-</li>
-<li><p><strong>輸入<code>sudo ./install.sh</code>安裝</strong></p>
-<pre><code> ubuntu@ubuntu:~/LFS/git-lfs-3.5.1$ sudo ./install.sh
- Git LFS initialized.
-</code></pre>
-</li>
-</ol>
-<h2 id="初始化-Git-LFS"><a href="#初始化-Git-LFS" class="headerlink" title="初始化 Git LFS"></a>初始化 Git LFS</h2><p>安裝完成後，使用以下命令<code>初始化 Git LFS</code>：</p>
-<pre><code>ubuntu@ubuntu:~/LFS/git-lfs-3.5.1$ git lfs install
-Git LFS initialized.
-</code></pre>
-<p>到這裡理論上就安裝成功，恭喜大功告成😚</p>
-<p><img src="/assets/images/Linux-Git-LFS%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-Unable-to-locate-package-git-lfs%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/1.png"></p>
-
-    </div>
-    <div id="toc" class="toc">
-      <ul></ul>
-    </div>
-  </div>
-  
-  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
-
-  <div id="gitalk-p">
-    <p>喜歡 崴寶 Weibert Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
-  </div>
-
-  <div id="gitalk-container"></div>
-  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-  <script>
-    var gitalk = new Gitalk({
-      clientID: 'Ov23ctkBVw5yvCF7tTYy',
-      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
-      repo: 'weitsung50110.github.io',
-      owner: 'weitsung50110',
-      admin: ['weitsung50110'],
-      id: location.pathname.slice(0, 50),
-      distractionFreeMode: false
-    });
-    gitalk.render('gitalk-container');
-  </script>
-</article>
- 
+            <time datetime="2024-11-05T13:27:37.000Z">
+              2024-11-05
+            </time>
+          </li>
+        
+      </ul>
+    
+  </div> 
       </div>
       
       <!-- 側邊欄 -->

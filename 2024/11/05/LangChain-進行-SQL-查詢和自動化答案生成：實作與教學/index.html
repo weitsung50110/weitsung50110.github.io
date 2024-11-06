@@ -125,9 +125,9 @@
 </div>
         
 <article class="post">
-  <h1>Linux Git LFS安裝教學+Unable to locate package git lfs解決方法</h1>
-  <!-- <p class="post-date">日期：Tue Jun 18 2024 15:21:22 GMT+0000</p> -->
-  <p class="post-date">日期：2024-06-18</p>
+  <h1>LangChain 進行 SQL 查詢和自動化答案生成：實作與教學</h1>
+  <!-- <p class="post-date">日期：Tue Nov 05 2024 13:27:37 GMT+0000</p> -->
+  <p class="post-date">日期：2024-11-05</p>
   <!-- <p class="post-author">作者：崴寶 Weibert Weiberson</p> -->
   
     <div class="post-meta">
@@ -136,13 +136,9 @@
           <span>標籤:</span>
           <ul>
             
-              <li><a href="https://weitsung50110.github.io/tags/git/">git</a></li>
+              <li><a href="https://weitsung50110.github.io/tags/LangChain/">LangChain</a></li>
             
-              <li><a href="https://weitsung50110.github.io/tags/Git-LFS/">Git-LFS</a></li>
-            
-              <li><a href="https://weitsung50110.github.io/tags/Linux/">Linux</a></li>
-            
-              <li><a href="https://weitsung50110.github.io/tags/Ubuntu/">Ubuntu</a></li>
+              <li><a href="https://weitsung50110.github.io/tags/sql/">sql</a></li>
             
           </ul>
         </div>
@@ -153,7 +149,7 @@
           <span>類別:</span>
           <ul>
             
-              <li><a href="https://weitsung50110.github.io/categories/Git-LFS/">Git-LFS</a></li>
+              <li><a href="https://weitsung50110.github.io/categories/LangChain/">LangChain</a></li>
             
           </ul>
         </div>
@@ -162,7 +158,7 @@
   
   
       <div class="excerpt">
-          <p>介紹如何在 Linux 上安裝 Git LFS，並提供遇到 &#34;Unable to locate package git-lfs&#34; 錯誤的解決方法。</p>
+          <p>使用 LangChain 框架來構建一個能夠自動生成 SQL 查詢並基於查詢結果返回自然語言答案的應用</p>
       </div>
   
 
@@ -173,169 +169,189 @@
         <p>覺得崴寶的內容實用嗎？ Well崴寶程式天堂 電子報讀者募集中！歡迎
           <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
       </div>
-      <p><cen>這篇主要會講安裝教學，以及遇到錯誤怎麼解決。</p>
-<p>此文章也有發表在Medium上 &gt;&gt;</p>
+      <p><cen>我們將學習如何使用 LangChain 框架來構建一個能夠自動生成 SQL 查詢並基於查詢結果返回自然語言答案的應用。這樣的工具可以大大提升與資料庫互動的效率，特別是在處理自然語言查詢並轉化為 SQL 查詢的過程中。</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/linux-git-lfs%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-unable-to-locate-package-git-lfs%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95-28e228d71a02">Linux Git LFS 安裝教學：Unable to locate package git-lfs 解決方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit">Github Repository - Huggingface_Langchain_kit</a></li>
 </ul>
-<p>關於LFS的介紹可以參考我之前寫過的這篇-<a target="_blank" rel="noopener" href="https://medium.com/@weiberson/git-lfs%E4%BB%8B%E7%B4%B9-%E7%82%BA%E4%BD%95%E9%9C%80%E8%A6%81%E5%AE%83-86d9ea3f3ed7">Git LFS 介紹：為何需要它</a>。</p>
-<h2 id="在-Linux-上安裝-Git-LFS-的步驟"><a href="#在-Linux-上安裝-Git-LFS-的步驟" class="headerlink" title="在 Linux 上安裝 Git LFS 的步驟"></a>在 Linux 上安裝 Git LFS 的步驟</h2><ol>
-<li><p><strong>安裝 Git</strong><br>首先，確保你的系統上已經安裝了 Git。你可以使用以下命令來安裝 Git（以 Debian&#x2F;Ubuntu 為例）：</p>
-<pre><code> sudo apt-get update
- sudo apt-get install git
-</code></pre>
-</li>
-</ol>
-<p>對於其他發行版，可以使用相應的包管理器，如 <code>yum</code>（CentOS&#x2F;RHEL）或 <code>dnf</code>（Fedora）。</p>
-<ol start="2">
-<li><strong>下載並安裝 Git LFS</strong><br>Git LFS 可以通過包管理器或手動下載安裝。</li>
-</ol>
-<h3 id="使用包管理器安裝"><a href="#使用包管理器安裝" class="headerlink" title="使用包管理器安裝"></a>使用包管理器安裝</h3><ul>
-<li><p>Debian&#x2F;Ubuntu:</p>
-<pre><code>  sudo apt-get install git-lfs
-</code></pre>
-</li>
-<li><p>CentOS&#x2F;RHEL:</p>
-<pre><code>  sudo yum install epel-release
-  sudo yum install git-lfs
-</code></pre>
-</li>
-<li><p>Fedora:</p>
-<pre><code>  sudo dnf install git-lfs
-</code></pre>
-</li>
+<p>本文是使用到裡面的：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/langchain_sqlite.py">langchain_sqlite.py</a></li>
+<li>SQLite 資料庫 <a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/sql_db/weibert.sqlite3">weibert.sqlite3</a></li>
 </ul>
-<h2 id="錯誤-Unable-to-locate-package-git-lfs解決方法"><a href="#錯誤-Unable-to-locate-package-git-lfs解決方法" class="headerlink" title="錯誤:Unable to locate package git lfs解決方法"></a>錯誤:Unable to locate package git lfs解決方法</h2><pre><code>ubuntu@ubuntu:~/LFS$ apt-get install git-lfs
-E: 無法開啟鎖定檔 /var/lib/dpkg/lock-frontend - open (13: 拒絕不符權限的操作)
-E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
-ubuntu@ubuntu:~/LFS$ sudo apt-get install git-lfs
-[sudo] password for ubuntu:
-正在讀取套件清單... 完成
-正在重建相依關係
-正在讀取狀態資料... 完成
-E: 找不到套件 git-lfs
-</code></pre>
-<p>我的作業系統是Ubuntu16（amd64），結果跑出來出現錯誤如下:</p>
-<pre><code>Unable to locate package git lfs
-</code></pre>
-<blockquote>
-<p>這時候就只能手動下載安裝，來解決問題了~</p>
-</blockquote>
-<p>下載 Git LFS 的最新版本。你可以在 <code>GitHub Releases</code> 頁面找到最新的 Git LFS 版本：<a target="_blank" rel="noopener" href="https://github.com/git-lfs/git-lfs/releases">Git LFS Releases</a>。</p>
-<p><img src="/assets/images/Linux-Git-LFS%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-Unable-to-locate-package-git-lfs%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/0.png"></p>
+<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><p>我們的目標是實現一個系統，能夠：</p>
 <ol>
-<li><p><strong>下載下來會有一個名叫<code>git-lfs-linux-amd64-v3.5.1.tar.gz</code>的檔案</strong></p>
-<pre><code> ubuntu@ubuntu:~/LFS$ ls
- git-lfs-linux-amd64-v3.5.1.tar.gz
-</code></pre>
-</li>
-<li><p><strong>用<code>tar -xzvf</code>把.gz檔案給解壓縮</strong></p>
-<pre><code> ubuntu@ubuntu:~/LFS$ tar git-lfs-linux-amd64-v3.5.1.tar.gz
- tar: Old option &#39;g&#39; requires an argument.
- Try &#39;tar --help&#39; or &#39;tar --usage&#39; for more information.
- ubuntu@ubuntu:~/LFS$ tar -xzvf git-lfs-linux-amd64-v3.5.1.tar.gz
- git-lfs-3.5.1/README.md
- git-lfs-3.5.1/CHANGELOG.md
- git-lfs-3.5.1/man/
- git-lfs-3.5.1/man/man7/
- git-lfs-3.5.1/man/man7/git-lfs-faq.7
- git-lfs-3.5.1/man/man1/
- git-lfs-3.5.1/man/man1/git-lfs-completion.1
- git-lfs-3.5.1/man/man1/git-lfs.1
- git-lfs-3.5.1/man/man1/git-lfs-update.1
- git-lfs-3.5.1/man/man1/git-lfs-lock.1
- git-lfs-3.5.1/man/man1/git-lfs-uninstall.1
- git-lfs-3.5.1/man/man1/git-lfs-pointer.1
- git-lfs-3.5.1/man/man1/git-lfs-unlock.1
- git-lfs-3.5.1/man/man1/git-lfs-checkout.1
- git-lfs-3.5.1/man/man1/git-lfs-env.1
- git-lfs-3.5.1/man/man1/git-lfs-pull.1
- git-lfs-3.5.1/man/man1/git-lfs-install.1
- git-lfs-3.5.1/man/man1/git-lfs-ls-files.1
- git-lfs-3.5.1/man/man1/git-lfs-dedup.1
- git-lfs-3.5.1/man/man1/git-lfs-prune.1
- git-lfs-3.5.1/man/man1/git-lfs-post-checkout.1
- git-lfs-3.5.1/man/man1/git-lfs-untrack.1
- git-lfs-3.5.1/man/man1/git-lfs-locks.1
- git-lfs-3.5.1/man/man1/git-lfs-ext.1
- git-lfs-3.5.1/man/man1/git-lfs-post-merge.1
- git-lfs-3.5.1/man/man1/git-lfs-post-commit.1
- git-lfs-3.5.1/man/man1/git-lfs-track.1
- git-lfs-3.5.1/man/man1/git-lfs-clone.1
- git-lfs-3.5.1/man/man1/git-lfs-logs.1
- git-lfs-3.5.1/man/man1/git-lfs-standalone-file.1
- git-lfs-3.5.1/man/man1/git-lfs-merge-driver.1
- git-lfs-3.5.1/man/man1/git-lfs-migrate.1
- git-lfs-3.5.1/man/man1/git-lfs-status.1
- git-lfs-3.5.1/man/man1/git-lfs-fetch.1
- git-lfs-3.5.1/man/man1/git-lfs-pre-push.1
- git-lfs-3.5.1/man/man1/git-lfs-filter-process.1
- git-lfs-3.5.1/man/man1/git-lfs-smudge.1
- git-lfs-3.5.1/man/man1/git-lfs-fsck.1
- git-lfs-3.5.1/man/man1/git-lfs-push.1
- git-lfs-3.5.1/man/man1/git-lfs-clean.1
- git-lfs-3.5.1/man/html/
- git-lfs-3.5.1/man/html/git-lfs-faq.7.html
- git-lfs-3.5.1/man/html/git-lfs-config.5.html
- git-lfs-3.5.1/man/html/git-lfs-unlock.1.html
- git-lfs-3.5.1/man/html/git-lfs-post-checkout.1.html
- git-lfs-3.5.1/man/html/git-lfs-dedup.1.html
- git-lfs-3.5.1/man/html/git-lfs-uninstall.1.html
- git-lfs-3.5.1/man/html/git-lfs-logs.1.html
- git-lfs-3.5.1/man/html/git-lfs-pointer.1.html
- git-lfs-3.5.1/man/html/git-lfs-migrate.1.html
- git-lfs-3.5.1/man/html/git-lfs-completion.1.html
- git-lfs-3.5.1/man/html/git-lfs-update.1.html
- git-lfs-3.5.1/man/html/git-lfs-fsck.1.html
- git-lfs-3.5.1/man/html/git-lfs-smudge.1.html
- git-lfs-3.5.1/man/html/git-lfs-filter-process.1.html
- git-lfs-3.5.1/man/html/git-lfs-merge-driver.1.html
- git-lfs-3.5.1/man/html/git-lfs.1.html
- git-lfs-3.5.1/man/html/git-lfs-clean.1.html
- git-lfs-3.5.1/man/html/git-lfs-prune.1.html
- git-lfs-3.5.1/man/html/git-lfs-lock.1.html
- git-lfs-3.5.1/man/html/git-lfs-post-merge.1.html
- git-lfs-3.5.1/man/html/git-lfs-clone.1.html
- git-lfs-3.5.1/man/html/git-lfs-pull.1.html
- git-lfs-3.5.1/man/html/git-lfs-standalone-file.1.html
- git-lfs-3.5.1/man/html/git-lfs-push.1.html
- git-lfs-3.5.1/man/html/git-lfs-untrack.1.html
- git-lfs-3.5.1/man/html/git-lfs-checkout.1.html
- git-lfs-3.5.1/man/html/git-lfs-fetch.1.html
- git-lfs-3.5.1/man/html/git-lfs-track.1.html
- git-lfs-3.5.1/man/html/git-lfs-pre-push.1.html
- git-lfs-3.5.1/man/html/git-lfs-ls-files.1.html
- git-lfs-3.5.1/man/html/git-lfs-locks.1.html
- git-lfs-3.5.1/man/html/git-lfs-status.1.html
- git-lfs-3.5.1/man/html/git-lfs-install.1.html
- git-lfs-3.5.1/man/html/git-lfs-post-commit.1.html
- git-lfs-3.5.1/man/html/git-lfs-env.1.html
- git-lfs-3.5.1/man/html/git-lfs-ext.1.html
- git-lfs-3.5.1/man/man5/
- git-lfs-3.5.1/man/man5/git-lfs-config.5
- git-lfs-3.5.1/git-lfs
- git-lfs-3.5.1/install.sh
-</code></pre>
-</li>
-<li><p><strong>這時候可以看到目錄中多出<code>git-lfs-3.5.1</code>資料夾，請cd進入</strong></p>
-<pre><code> ubuntu@ubuntu:~/LFS$ ls
- git-lfs-3.5.1  git-lfs-linux-amd64-v3.5.1.tar.gz
-
- ubuntu@ubuntu:~/LFS$ cd git-lfs-3.5.1/
-</code></pre>
-</li>
-<li><p><strong>輸入<code>sudo ./install.sh</code>安裝</strong></p>
-<pre><code> ubuntu@ubuntu:~/LFS/git-lfs-3.5.1$ sudo ./install.sh
- Git LFS initialized.
-</code></pre>
-</li>
+<li>接受用戶的自然語言問題。</li>
+<li>根據資料庫的結構生成相應的 SQL 查詢。</li>
+<li>執行 SQL 查詢並返回結果。</li>
+<li>根據 SQL 查詢結果生成自然語言答案。</li>
 </ol>
-<h2 id="初始化-Git-LFS"><a href="#初始化-Git-LFS" class="headerlink" title="初始化 Git LFS"></a>初始化 Git LFS</h2><p>安裝完成後，使用以下命令<code>初始化 Git LFS</code>：</p>
-<pre><code>ubuntu@ubuntu:~/LFS/git-lfs-3.5.1$ git lfs install
-Git LFS initialized.
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><ul>
+<li><p>告訴我全部共有幾個人</p>
+<pre><code>  root@4be643ba6a94:/app# python3 langchain_sqlite.py
+
+  &gt;&gt;&gt; 告訴我全部共有幾個人
+  SQL&gt; SELECT COUNT(*) FROM Users;
+  問題: 告訴我全部共有幾個人
+  執行: SELECT COUNT(*) FROM Users;
+  查詢結果: [(4,)]
+  回答: 有 4 人。
 </code></pre>
-<p>到這裡理論上就安裝成功，恭喜大功告成😚</p>
-<p><img src="/assets/images/Linux-Git-LFS%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8-Unable-to-locate-package-git-lfs%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95/1.png"></p>
+</li>
+<li><p>告訴我id2和id3的資訊</p>
+<pre><code>  root@4be643ba6a94:/app# python3 langchain_sqlite.py
+
+  &gt;&gt;&gt; 告訴我id2和id3的資訊
+  SQL&gt; SELECT * FROM Users WHERE id IN (2, 3);
+  問題: 告訴我id2和id3的資訊
+  執行: SELECT * FROM Users WHERE id IN (2, 3);
+  查詢結果: [(2, &#39;cccc&#39;, &#39;cccc@cccc.com.tw&#39;), (3, &#39;zzcx&#39;, &#39;zzxc@zzxc.com.tw&#39;)]
+  回答: id2是&#39;cccc&#39;，email是&#39;cccc@cccc.com.tw&#39;。id3是&#39;zzcx&#39;，email是&#39;zzxc@zzxc.com.tw&#39;。&gt;&gt;&gt;
+</code></pre>
+</li>
+</ul>
+<p><img src="/assets/images/LangChain-%E9%80%B2%E8%A1%8C-SQL-%E6%9F%A5%E8%A9%A2%E5%92%8C%E8%87%AA%E5%8B%95%E5%8C%96%E7%AD%94%E6%A1%88%E7%94%9F%E6%88%90%EF%BC%9A%E5%AF%A6%E4%BD%9C%E8%88%87%E6%95%99%E5%AD%B8/0.png"></p>
+<h2 id="設定環境"><a href="#設定環境" class="headerlink" title="設定環境"></a>設定環境</h2><p>需要安裝一些必要的套件。這些套件來自 LangChain 和 SQLAlchemy，它們將幫助我們構建整個應用：</p>
+<pre><code>pip install langchain langchain-community sqlalchemy
+</code></pre>
+<p>崴寶創了一個DB名為 <code>weibert.sqlite3</code> 的SQLite 資料庫，我們將使用它來結合Langchain，裡面內容是我亂打的xD</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>username</th>
+<th>email</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>aa</td>
+<td><a href="mailto:&#x61;&#x61;&#x40;&#97;&#97;&#x61;&#x2e;&#99;&#x63;">&#x61;&#x61;&#x40;&#97;&#97;&#x61;&#x2e;&#99;&#x63;</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>cccc</td>
+<td><a href="mailto:&#x63;&#x63;&#x63;&#99;&#x40;&#99;&#x63;&#99;&#x63;&#x2e;&#x63;&#x6f;&#x6d;&#46;&#116;&#119;">&#x63;&#x63;&#x63;&#99;&#x40;&#99;&#x63;&#99;&#x63;&#x2e;&#x63;&#x6f;&#x6d;&#46;&#116;&#119;</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>zzcx</td>
+<td><a href="mailto:&#x7a;&#x7a;&#x78;&#x63;&#x40;&#x7a;&#122;&#120;&#99;&#46;&#99;&#x6f;&#x6d;&#x2e;&#x74;&#x77;">&#x7a;&#x7a;&#x78;&#x63;&#x40;&#x7a;&#122;&#120;&#99;&#46;&#99;&#x6f;&#x6d;&#x2e;&#x74;&#x77;</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>apple</td>
+<td><a href="mailto:&#x61;&#x70;&#x70;&#x6c;&#x65;&#64;&#113;&#x71;&#113;&#113;&#46;&#99;&#x6f;&#109;&#x2e;&#x74;&#x77;">&#x61;&#x70;&#x70;&#x6c;&#x65;&#64;&#113;&#x71;&#113;&#113;&#46;&#99;&#x6f;&#109;&#x2e;&#x74;&#x77;</a></td>
+</tr>
+</tbody></table>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://hub.docker.com/r/weitsung50110/ollama_flask/tags">Docker Hub Repository: weitsung50110&#x2F;ollama_flask</a> &gt;&gt; 此為我安裝好的 Docker image 環境。</p>
+<pre><code>  docker pull weitsung50110/ollama_flask:1.0
+</code></pre>
+</li>
+</ul>
+<h2 id="步驟-1：Ollama-LLM"><a href="#步驟-1：Ollama-LLM" class="headerlink" title="步驟 1：Ollama LLM"></a>步驟 1：Ollama LLM</h2><p>這次的大語言模型和之前的教學都不同，崴寶是選用<code>kenneth85/llama-3-taiwan:8b-instruct</code>。</p>
+<pre><code>llm = ChatOllama(model=&#39;kenneth85/llama-3-taiwan:8b-instruct&#39;, callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
+</code></pre>
+<h2 id="步驟-2：初始化資料庫連接"><a href="#步驟-2：初始化資料庫連接" class="headerlink" title="步驟 2：初始化資料庫連接"></a>步驟 2：初始化資料庫連接</h2><p>首先，我們將建立一個 SQLite 資料庫的連接，並通過 <code>SQLDatabase</code> 類別來訪問資料庫。</p>
+<pre><code>from langchain_community.utilities import SQLDatabase
+
+# 連接到 SQLite 資料庫
+db = SQLDatabase.from_uri(&quot;sqlite:///./weibert.sqlite3&quot;)
+</code></pre>
+<h2 id="步驟-3：創建-SQL-查詢生成的流程"><a href="#步驟-3：創建-SQL-查詢生成的流程" class="headerlink" title="步驟 3：創建 SQL 查詢生成的流程"></a>步驟 3：創建 SQL 查詢生成的流程</h2><p>創建一個模型提示模板來生成 SQL 查詢。這是通過 <code>ChatPromptTemplate</code> 完成的，該模板包含了用戶輸入的問題和資料庫的結構，模型將根據這些信息生成 SQL 查詢。</p>
+<pre><code>from langchain_core.prompts import ChatPromptTemplate
+
+gen_sql_prompt = ChatPromptTemplate.from_messages([
+    (&#39;system&#39;, &#39;根據下面的資料庫結構，編寫一個 SQL 查詢來回答使用者的問題：&#123;db_schema&#125;&#39;),
+    (&#39;user&#39;, &#39;請為以下問題生成一個 SQL 查詢：&quot;&#123;input&#125;&quot;。\
+    查詢應該格式化為以下方式，並且不附加任何額外的解釋：\
+    SQL&gt; &lt;sql_query&gt;\
+    &#39;),
+])
+</code></pre>
+<p>這段程式碼中的 <code>system</code> 和 <code>user</code> 訊息將引導模型根據資料庫結構生成正確的 SQL 查詢。模型會根據用戶輸入的問題生成相應的 SQL 查詢，並以 <code>SQL&gt;</code> 為標誌格式化返回的查詢。</p>
+<h2 id="步驟-4：創建-SQL-查詢解析器"><a href="#步驟-4：創建-SQL-查詢解析器" class="headerlink" title="步驟 4：創建 SQL 查詢解析器"></a>步驟 4：創建 SQL 查詢解析器</h2><p>為了處理模型生成的查詢，我們需要一個解析器來提取純粹的 SQL 查詢語句，並清除掉多餘的文字。</p>
+<pre><code>from langchain_core.output_parsers import StrOutputParser
+
+class SqlQueryParser(StrOutputParser):
+    def parse(self, s):
+        r = s.split(&#39;SQL&gt; &#39;)
+        if len(r) &gt; 1:
+            return r[1].strip()  # 提取出 SQL 查詢部分
+        return s.strip()
+</code></pre>
+<p>這個 <code>SqlQueryParser</code> 類別將會提取從模型生成的文本中的 SQL 查詢部分。</p>
+<h2 id="步驟-5：執行-SQL-查詢"><a href="#步驟-5：執行-SQL-查詢" class="headerlink" title="步驟 5：執行 SQL 查詢"></a>步驟 5：執行 SQL 查詢</h2><p>當我們得到 SQL 查詢後，需要執行它並獲取查詢結果。以下是執行 SQL 查詢並捕獲異常的代碼：</p>
+<pre><code>from sqlalchemy.exc import OperationalError
+
+def run_query(query):
+    try:
+        return db.run(query)
+    except (OperationalError, Exception) as e:
+        return str(e)
+</code></pre>
+<p>這段代碼會執行 SQL 查詢並返回結果。如果有任何錯誤（例如 SQL 語法錯誤），則返回錯誤信息。</p>
+<h2 id="步驟-6：生成自然語言回答"><a href="#步驟-6：生成自然語言回答" class="headerlink" title="步驟 6：生成自然語言回答"></a>步驟 6：生成自然語言回答</h2><p>當 SQL 查詢執行完畢後，我們需要生成一個自然語言的回答來解釋查詢結果。我們會使用另一個 <code>ChatPromptTemplate</code>，讓模型根據問題、SQL 查詢和查詢結果生成一個簡潔的回答。</p>
+<pre><code>gen_answer_prompt = ChatPromptTemplate.from_template(&quot;&quot;&quot;
+根據提供的問題、SQL 查詢和查詢結果，撰寫一個自然語言的回答。
+不應包含任何額外的解釋。
+
+回答應該格式化為以下形式：
+&#39;&#39;&#39;
+問題: &#123;input&#125;
+執行: &#123;query&#125;
+查詢結果: &#123;result&#125;
+回答: &lt;answer&gt;
+&#39;&#39;&#39;
+&quot;&quot;&quot;)
+</code></pre>
+<p>這個模板將指導模型根據提供的資料庫查詢結果，生成最終的自然語言回應。</p>
+<h2 id="步驟-7：整合流程"><a href="#步驟-7：整合流程" class="headerlink" title="步驟 7：整合流程"></a>步驟 7：整合流程</h2><p>最後，我們將所有部分組合在一起，形成一個完整的流程。這個流程包括了生成 SQL 查詢、執行查詢和生成最終答案。</p>
+<pre><code>from langchain_core.runnables import RunnablePassthrough
+
+gen_query_chain = (
+    RunnablePassthrough.assign(db_schema=get_db_schema)
+    | gen_sql_prompt
+    | llm
+    | SqlQueryParser()
+)
+
+chain = (
+    RunnablePassthrough.assign(query=gen_query_chain).assign(
+        result=lambda x: run_query(x[&quot;query&quot;]),
+    )
+    | gen_answer_prompt
+    | llm
+)
+</code></pre>
+<p>在這裡，我們創建了一個 <code>chain</code>，這個 <code>chain</code> 包含了所有步驟的組合，從生成 SQL 查詢到最終的自然語言回應。</p>
+<h2 id="步驟-8：交互式使用"><a href="#步驟-8：交互式使用" class="headerlink" title="步驟 8：交互式使用"></a>步驟 8：交互式使用</h2><p>現在我們已經建立了完整的系統，接下來是創建一個簡單的命令行界面，用戶可以在其中輸入問題並獲得答案：</p>
+<pre><code>input_text = input(&#39;&gt;&gt;&gt; &#39;)
+while input_text.lower() != &#39;bye&#39;:
+    if input_text:
+        response = chain.invoke(&#123;
+            &#39;input&#39;: input_text,
+        &#125;)
+        print(response)  # 顯示回答
+    input_text = input(&#39;&gt;&gt;&gt; &#39;)
+</code></pre>
+<p>這段代碼讓用戶可以輸入問題，並根據模型生成的 SQL 查詢和資料庫結果來獲得回答。如果用戶輸入 “<strong>bye</strong>”，系統將終止。</p>
+<h3 id="print-gen-query-chain"><a href="#print-gen-query-chain" class="headerlink" title="print(gen_query_chain)"></a>print(gen_query_chain)</h3><pre><code>root@4be643ba6a94:/app# python3 langchain_sqlite.py
+first=RunnableAssign(mapper=&#123;
+db_schema: RunnableLambda(get_db_schema)
+&#125;) middle=[ChatPromptTemplate(input_variables=[&#39;db_schema&#39;, &#39;input&#39;], 
+messages=[SystemMessagePromptTemplate(prompt=PromptTemplate(
+input_variables=[&#39;db_schema&#39;], 
+template=&#39;根據下面的資料庫結構，編寫一個 SQL 查詢來回答使用者的問題：&#123;db_schema&#125;&#39;)), 
+HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=[&#39;input&#39;], 
+template=&#39;請為以下問題生成一個 SQL 查詢：&quot;&#123;input&#125;&quot;。     
+查詢應該格式化為以下方式，並且不附加任何額外的解釋：     SQL&gt; &lt;sql_query&gt;    &#39;))]), 
+ChatOllama(callbacks=&lt;
+langchain_core.callbacks.manager.CallbackManager object at 0x7f409b773730&gt;, 
+model=&#39;kenneth85/llama-3-taiwan:8b-instruct&#39;)] last=SqlQueryParser()
+</code></pre>
+<h2 id="崴寶結語"><a href="#崴寶結語" class="headerlink" title="崴寶結語"></a>崴寶結語</h2><p>在這篇教學中，我們展示了如何使用 LangChain 和 Ollama 架設一個基於自然語言的 SQL 查詢系統，並基於查詢結果生成清晰的自然語言答案。這種方式讓非技術用戶也能夠輕鬆地與資料庫進行互動。🌟</p>
+<p>你可以根據需要擴展這個系統來處理更多的資料庫和問題場景。</p>
 
     </div>
     <div id="toc" class="toc">
