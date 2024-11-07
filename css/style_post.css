@@ -260,6 +260,19 @@ ol li::marker {
   margin-top: 10px;
   margin-bottom: 25px;
   padding: 0px 10px;
+  position: relative; /* 用於定位偽元素 */
+}
+
+.custom-quote::before {
+  content: '|'; /* 顯示符號 */
+  position: absolute;
+  left: -5px; /* 控制符號的位置 */
+  top: 50%;
+  transform: translateY(-50%); /* 垂直置中 */
+  font-size: 40px; /* 符號大小 */
+  color: #fbc7c7; /* 符號顏色 */
+  font-weight: bold; /* 加粗符號 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影 */
 }
 
 .custom-quote img {
