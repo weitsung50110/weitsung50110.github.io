@@ -188,15 +188,6 @@
 </ul>
 <h2 id="選擇模型"><a href="#選擇模型" class="headerlink" title="選擇模型"></a>選擇模型</h2><p>我們以這個Repo為例子: <a target="_blank" rel="noopener" href="https://huggingface.co/shenzhi-wang/Llama3-8B-Chinese-Chat">shenzhi-wang&#x2F;Llama3–8B Chinese Chat</a></p>
 <p>這個Model我上次在<a target="_blank" rel="noopener" href="https://medium.com/@weiberson/langchain-rag%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-flask-chatbotweb-%E7%B6%B2%E7%AB%99-3372ab320bfd#9f67">LangChain RAG 打造個人化 Llama3 Flask Chatbot 網站</a>的Ollama中文模型使用推薦也有提過，真的非常好用，很推薦。</p>
-<p>可以選用的檔案&gt; </p>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/hugging_dialog/hugging_chinese_dialog.py">hugging_chinese_dialog.py</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/hugging_dialog/hugging_taiwan_dialog.py">hugging_taiwan_dialog.py</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/hugging_dialog/hugging_taiwan_dialog2.py">hugging_taiwan_dialog2.py</a></p>
-</li>
-</ul>
 <h2 id="作法一"><a href="#作法一" class="headerlink" title="作法一"></a>作法一</h2><p>這做法比較不建議。</p>
 <ol>
 <li><p><strong>前往Files and versions</strong><br><img src="/assets/images/%E5%A6%82%E4%BD%95%E5%BE%9E-Hugging-Face-%E4%BD%BF%E7%94%A8%E5%92%8C%E4%B8%8B%E8%BC%89%E6%A8%A1%E5%9E%8B%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%AB%AF%EF%BC%9A%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/0.png"></p>
@@ -226,7 +217,16 @@
 <li><code>git lfs pull</code>: 這是 Git LFS 的命令，用於<strong>從遠程存儲庫下載大型文件</strong>。</li>
 <li><code>--include=&quot;*.safetensors&quot;</code>: 這個選項指定了你希望下載的文件擴展名模式。<br>它表示你希望下載所有<strong>以 .safetensors 結尾的文件</strong>。</li>
 </ul>
-<h2 id="Hugging-Face-本地模型使用教學"><a href="#Hugging-Face-本地模型使用教學" class="headerlink" title="Hugging Face 本地模型使用教學"></a>Hugging Face 本地模型使用教學</h2><ol>
+<h2 id="Hugging-Face-本地模型使用教學"><a href="#Hugging-Face-本地模型使用教學" class="headerlink" title="Hugging Face 本地模型使用教學"></a>Hugging Face 本地模型使用教學</h2><p><strong>可以選用的檔案&gt;</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/hugging_dialog/hugging_chinese_dialog.py">hugging_chinese_dialog.py</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/hugging_dialog/hugging_taiwan_dialog.py">hugging_taiwan_dialog.py</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/hugging_dialog/hugging_taiwan_dialog2.py">hugging_taiwan_dialog2.py</a></p>
+</li>
+</ul>
+<ol>
 <li><strong>Model Card 查看</strong></li>
 </ol>
 <p>Model Card 裡面常常會有範例可以看，像我的 <a target="_blank" rel="noopener" href="https://huggingface.co/shenzhi-wang/Llama3-8B-Chinese-Chat">shenzhi-wang&#x2F;Llama3–8B Chinese Chat</a> 裡面就有 Usage 示範。</p>

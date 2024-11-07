@@ -254,13 +254,14 @@ ol li::marker {
 /* 使用 > 符號來創建引用框 */
 .custom-quote {
   border: 1px dashed #ccc;
-  background-color: #fef7f7; /* 背景顏色 */
-  font-size: 17.5px;
+  background-color: rgba(253, 227, 227, 0.2); /* 背景顏色 */
+  font-size: 17px;
   border-radius: 8px; /* 圓角 */
   margin-top: 10px;
   margin-bottom: 25px;
   padding: 0px 10px;
   position: relative; /* 用於定位偽元素 */
+  font-style: italic; /* 讓文字變成斜體 */
 }
 
 .custom-quote::before {
