@@ -67,6 +67,9 @@
     .nav-top {
       position: relative; /* 固定在頁面上 */
       background-color:rgba(0, 0, 0, 0.6); /* 半透明底色 */
+      display: flex; /* 使用彈性布局 */
+      flex-wrap: wrap; /* 讓項目換行 */
+      justify-content: flex-start; /* 項目靠左對齊 */
     }
 
     .mobile-nav.active {
@@ -93,7 +96,8 @@
     
     .mobile-nav ul li {
         display: block;
-        margin: 10px 0;
+        margin: 2px 5px 0px 5px;
+        border: 1px dashed #ddd;
     }
     
     .mobile-nav ul li a {
