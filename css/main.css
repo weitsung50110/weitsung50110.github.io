@@ -149,13 +149,13 @@
     }
 
     .toc-toggle-btn {
-      bottom: 50%;
+      bottom: 40%;
       padding: 5px 10px; /* 上下 10px，左右 15px */
       background-color: rgba(0, 0, 0, 0.02); /* 恢復原本的背景色 */
     }
 
     .toc-toggle-btn:hover {
-      background-color: rgba(0, 0, 0, 0.07); /* 恢復原本的背景色 */
+      background-color: rgba(0, 0, 0, 0.06); /* 恢復原本的背景色 */
     }
 
     .scroll-to-top-btn {
@@ -248,14 +248,11 @@
       max-width: 98%; /* 使主內容區域的最大寬度為100% */
     }
 
-
-
     .toc {
       position: fixed;
-      bottom: 0; 
+      bottom: 0;
       right: 0;
       width: 100%;
-      max-height: 150px; /* 限制最大高度 */
       height: auto; /* 高度自動調整 */
       box-shadow: none; /* 移除陰影 */
       border-left: none; /* 移除邊框 */
