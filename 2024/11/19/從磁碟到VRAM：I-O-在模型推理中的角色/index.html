@@ -22,7 +22,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
-  <div class="post_bg" style="">
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
     <div class="archive_bg" style="">
       
       <header>
@@ -124,26 +124,267 @@
     <div id="search-results"></div>
   </div>
 </div>
-        <div id="category">
-    <h1></h1>
-    
-    
-      <ul class="post-list">
         
-          <li>
+<article class="post">
+  <h1>從磁碟到VRAM：I/O 在模型推理中的角色</h1>
+  <!-- <p class="post-date">日期：Tue Nov 19 2024 15:09:10 GMT+0000</p> -->
+  <p class="post-date">日期：2024-11-19</p>
+  <!-- <p class="post-author">作者：崴寶 Weibert Weiberson</p> -->
+  
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
             
-              <a href="/2024/01/01/%E5%B4%B4%E5%AF%B6%E7%A8%8B%E5%BC%8F%E8%A8%8E%E8%AB%96%E7%A4%BE%E5%9C%98/">
-                崴寶程式討論社團
-              </a>
+              <li><a href="https://weitsung50110.github.io/tags/VRAM/">VRAM</a></li>
             
-            <time datetime="2024-01-01T14:49:40.000Z">
-              2024-01-01
-            </time>
-          </li>
-        
-      </ul>
-    
-  </div> 
+              <li><a href="https://weitsung50110.github.io/tags/SSD/">SSD</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/GGUF/">GGUF</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%87%8F%E5%8C%96/">模型量化</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/I-O/">I/O</a></li>
+            
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/I-O/">I/O</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>模型在執行推理時的輸入/輸出（Input/Output）操作，指模型權重從存儲設備（如磁碟或內存）讀取到CPU 或 GPU的過程。</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>電子報讀者募集中！歡迎
+          <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
+      </div>
+      <p><cen>I&#x2F;O 是指模型在執行推理時的輸入&#x2F;輸出（Input&#x2F;Output）操作，具體是指模型權重從存儲設備（如磁碟或內存）讀取到計算設備（如 CPU 或 GPU）的過程。</p>
+<p><img src="/assets/images/%E5%BE%9E%E7%A3%81%E7%A2%9F%E5%88%B0VRAM%EF%BC%9AI-O-%E5%9C%A8%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E4%B8%AD%E7%9A%84%E8%A7%92%E8%89%B2/0.jpg"></p>
+<h2 id="I-O-在模型推理中的角色"><a href="#I-O-在模型推理中的角色" class="headerlink" title="I&#x2F;O 在模型推理中的角色"></a>I&#x2F;O 在模型推理中的角色</h2><h3 id="模型權重的讀取"><a href="#模型權重的讀取" class="headerlink" title="模型權重的讀取"></a>模型權重的讀取</h3><ol>
+<li><p><strong>模型權重載入</strong><br>模型推理開始時，需要將模型的權重從磁碟（硬碟或 SSD）載入到內存（RAM）或顯存（VRAM）中。  </p>
+<p>如果模型權重很大（如幾十 GB），這個過程可能耗時且佔用大量 I&#x2F;O 資源。</p>
+</li>
+<li><p><strong>運行時數據的傳輸</strong><br>在推理過程中，還涉及輸入數據、臨時張量和生成結果在內存（RAM）與顯存（VRAM）之間的傳輸。</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>臨時張量（Intermediate Tensors）</strong>：指在深度學習模型推理過程中，模型執行計算時生成的中間結果數據，這些數據並非最終輸出，但會作為後續計算的輸入或參數。</p>
+</blockquote>
+<h2 id="GGUF-格式如何優化-I-O？"><a href="#GGUF-格式如何優化-I-O？" class="headerlink" title="GGUF 格式如何優化 I&#x2F;O？"></a>GGUF 格式如何優化 I&#x2F;O？</h2><p>相比於 GPTQ 或 PyTorch 原生格式，GGUF 通過以下方式降低 I&#x2F;O 開銷：</p>
+<ol>
+<li><p><strong>權重壓縮與結構化存儲</strong>  </p>
+<ul>
+<li><strong>GGUF 格式</strong>對權重數據進行量化壓縮（如 <strong>Q4</strong>、<strong>Q5</strong>），並以高效的結構化方式存儲。  </li>
+<li>減少了磁碟存儲佔用，同時也縮短了讀取時間。</li>
+</ul>
+</li>
+<li><p><strong>針對推理的設計</strong>  </p>
+<ul>
+<li><strong>GGUF 格式</strong>設計簡單且直接，避免了像 PyTorch 原生權重那樣的額外格式信息或開銷。  </li>
+<li>支援逐步加載（<strong>lazy loading</strong>），在需要時才讀取部分權重，而非一次性加載全部。</li>
+</ul>
+</li>
+<li><p><strong>I&#x2F;O 高效工具的支持</strong>  </p>
+<ul>
+<li>工具如 <code>llama.cpp</code> 和 <code>alpaca.cpp</code> 已針對 GGUF 格式進行優化，可以在最小內存（RAM）需求下完成推理過程。</li>
+</ul>
+</li>
+</ol>
+<h2 id="I-O-的實際影響"><a href="#I-O-的實際影響" class="headerlink" title="I&#x2F;O 的實際影響"></a>I&#x2F;O 的實際影響</h2><p>假設有一個 <strong>10GB</strong> 的未量化模型：  </p>
+<ol>
+<li><p><strong>PyTorch 原生權重格式</strong>  </p>
+<ul>
+<li>需要一次性將整個模型載入內存，耗時較長，對 <strong>I&#x2F;O 系統</strong>的壓力較大。</li>
+</ul>
+</li>
+<li><p><strong>GGUF 格式的量化權重（如 Q4 格式，壓縮到 2.5GB）</strong>  </p>
+<ul>
+<li>較小的權重文件減少了讀取時間。  </li>
+<li>更有效的數據結構縮短了數據傳輸的延遲。</li>
+</ul>
+</li>
+</ol>
+<h2 id="為什麼減少-I-O-開銷重要？"><a href="#為什麼減少-I-O-開銷重要？" class="headerlink" title="為什麼減少 I&#x2F;O 開銷重要？"></a>為什麼減少 I&#x2F;O 開銷重要？</h2><ol>
+<li><p><strong>提升加載速度</strong>  </p>
+<ul>
+<li>I&#x2F;O 開銷越低，模型啟動和推理的初始加載時間越短。</li>
+</ul>
+</li>
+<li><p><strong>降低硬體需求</strong>  </p>
+<ul>
+<li>減少了磁碟到內存（RAM）的頻繁數據傳輸，尤其對低內存（RAM）或慢速硬碟（如 HDD）的設備很有幫助。</li>
+</ul>
+</li>
+<li><p><strong>適合實時應用</strong>  </p>
+<ul>
+<li>在需要快速響應的應用場景（如聊天機器人）中，降低 <strong>I&#x2F;O 延遲</strong>直接提升用戶體驗。</li>
+</ul>
+</li>
+</ol>
+<h2 id="I-O-傳輸過程"><a href="#I-O-傳輸過程" class="headerlink" title="I&#x2F;O 傳輸過程"></a>I&#x2F;O 傳輸過程</h2><p>I&#x2F;O 的重點是模型權重和運行時數據在<strong>磁碟（硬碟或 SSD）</strong>、<strong>主內存（RAM）</strong>和<strong>顯存（VRAM）</strong>之間的傳輸過程。</p>
+<p>以下詳細解釋其與 GPU 的關係以及這些傳輸過程：</p>
+<h3 id="1-磁碟-→-VRAM-的傳輸"><a href="#1-磁碟-→-VRAM-的傳輸" class="headerlink" title="1. 磁碟 → VRAM 的傳輸"></a>1. 磁碟 → VRAM 的傳輸</h3><p>當你運行一個模型時：</p>
+<ul>
+<li><p><strong>初始加載（磁碟 → RAM → VRAM）</strong>  </p>
+<ul>
+<li>模型的權重文件（例如 <strong>GGUF</strong>、<strong>GPTQ</strong> 或 <strong>PyTorch 格式</strong>）存儲在磁碟中。  </li>
+<li>在推理開始時，這些權重需要從<code>磁碟</code>讀取到<code>主內存（RAM）</code>，然後進一步傳輸到<code>顯存（VRAM）</code>，以便 GPU 進行計算。  </li>
+<li>這個過程依賴於硬體的 <strong>I&#x2F;O 性能</strong>（磁碟讀取速度、內存頻寬等）。</li>
+</ul>
+</li>
+<li><p><strong>對 I&#x2F;O 的壓力</strong>  </p>
+<ul>
+<li>如果模型權重很大（例如 <strong>20GB</strong>），但 VRAM 容量有限（例如 <strong>10GB</strong>），通常不能一次性將所有權重加載到 VRAM 中。需要通過<strong>分段加載</strong>的方式動態加載權重。  </li>
+<li><strong>GGUF 格式</strong> 等針對這種情況進行了優化，可以逐塊加載權重，減少 <strong>I&#x2F;O 瓶頸</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-RAM-↔-VRAM-的傳輸"><a href="#2-RAM-↔-VRAM-的傳輸" class="headerlink" title="2. RAM ↔ VRAM 的傳輸"></a>2. RAM ↔ VRAM 的傳輸</h3><p>在 GPU 上執行推理時，數據在以下部分之間進行傳輸：  </p>
+<ol>
+<li><p><strong>輸入數據（Input Data）</strong>  </p>
+<ul>
+<li>從主內存（RAM）傳輸到顯存（VRAM），以便 GPU 處理輸入的文本、圖像或其他數據。</li>
+</ul>
+</li>
+<li><p><strong>中間結果（Intermediate Tensors）</strong>  </p>
+<ul>
+<li>在推理過程中，GPU 生成的<strong>中間結果</strong>會保存在顯存（VRAM）中。如果顯存（VRAM）不足，可能需要將部分數據轉移到主內存（RAM），這會導致性能下降。</li>
+</ul>
+</li>
+<li><p><strong>生成結果（Output Data）</strong>  </p>
+<ul>
+<li>推理完成後，生成的結果（如文本）從顯存（VRAM）傳回主內存（RAM），最終輸出到應用程式。</li>
+</ul>
+</li>
+</ol>
+<h2 id="GPU-的角色"><a href="#GPU-的角色" class="headerlink" title="GPU 的角色"></a>GPU 的角色</h2><p>GPU 的主要作用是在數據已加載到顯存（VRAM）後，利用其並行計算能力快速完成推理或訓練的數值計算。</p>
+<p>GPU 和 I&#x2F;O 的關係如下：  </p>
+<ol>
+<li><strong>與 I&#x2F;O 的協作</strong>  <ul>
+<li>GPU 本身無法直接訪問磁碟上的數據。  </li>
+<li>GPU 需要 CPU 幫助將數據從磁碟或主內存加載到顯存。  </li>
+<li>如果顯存不足，CPU 和磁碟可能會頻繁交換數據，這會大幅降低推理速度。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>CPU 和磁碟會頻繁交換數據的主要原因是<strong>顯存（VRAM）不足以容納模型的全部權重或運行所需的中間數據</strong>，導致數據必須存儲在主內存（RAM）甚至磁碟中，並在推理過程中進行頻繁交換。</p>
+</blockquote>
+<ol start="2">
+<li><strong>顯存的容量與速度</strong>  <ul>
+<li><p><strong>顯存容量（VRAM）</strong>  </p>
+<ul>
+<li>影響模型權重和中間結果能否完全存儲在顯存中。  </li>
+<li>如果顯存不足，需要依賴 CPU 的內存作為補充，但這會增加傳輸延遲。</li>
+</ul>
+</li>
+<li><p><strong>顯存頻寬（Bandwidth）</strong>  </p>
+<ul>
+<li>影響數據在顯存內的處理速度，這是 GPU 計算效能的基礎。  </li>
+<li>頻寬越高，推理速度越快。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>顯存頻寬是指<strong>GPU 的顯存與 GPU 核心之間數據傳輸的速度</strong>。具體來說，它表示顯存在單位時間內可以傳輸的數據量，通常以 GB&#x2F;s（每秒千兆字節）為單位。</p>
+</blockquote>
+<h2 id="為什麼-I-O-是瓶頸？"><a href="#為什麼-I-O-是瓶頸？" class="headerlink" title="為什麼 I&#x2F;O 是瓶頸？"></a>為什麼 I&#x2F;O 是瓶頸？</h2><ol>
+<li><p><strong>速度差異</strong>  </p>
+<ul>
+<li><p>磁碟（特別是傳統 HDD）的讀寫速度遠低於 RAM 和 VRAM：  </p>
+<ul>
+<li>HDD 讀取速度：約 100 MB&#x2F;s。  </li>
+<li>SSD 讀取速度：約 500 MB&#x2F;s - 5 GB&#x2F;s。  </li>
+<li>RAM 傳輸速度：約 20–50 GB&#x2F;s。  </li>
+<li>VRAM 傳輸速度（顯存頻寬）：通常超過 500 GB&#x2F;s。</li>
+</ul>
+</li>
+<li><p>因此，從磁碟到 VRAM 的數據傳輸過程中，磁碟 I&#x2F;O 成為性能瓶頸。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>頻繁的權重交換</strong>  </p>
+<ul>
+<li>如果顯存不足以容納整個模型，GPU 需要頻繁地從主內存（或磁碟）中加載權重，這會導致顯著的性能下降。</li>
+</ul>
+</li>
+</ol>
+<h2 id="如何減少-I-O-瓶頸？"><a href="#如何減少-I-O-瓶頸？" class="headerlink" title="如何減少 I&#x2F;O 瓶頸？"></a>如何減少 I&#x2F;O 瓶頸？</h2><ol>
+<li><p><strong>選擇高效格式（如 GGUF）</strong>  </p>
+<ul>
+<li>使用針對分塊加載優化的格式，減少磁碟到顯存的 <strong>I&#x2F;O 開銷</strong>。</li>
+</ul>
+</li>
+<li><p><strong>動態權重加載（Lazy Loading）</strong>  </p>
+<ul>
+<li>只在需要時從磁碟加載權重，避免一次性加載過多數據。</li>
+</ul>
+</li>
+<li><p><strong>擴展顯存容量</strong>  </p>
+<ul>
+<li>使用具有較大 VRAM 的 GPU（如 A100、4090），盡量將所有數據保存在顯存中。</li>
+</ul>
+</li>
+<li><p><strong>使用 CPU 加速工具</strong>  </p>
+<ul>
+<li>在無法使用高端 GPU 時，使用工具（如 llama.cpp）直接在 CPU 上高效處理量化模型。</li>
+</ul>
+</li>
+</ol>
+<h2 id="崴寶總結"><a href="#崴寶總結" class="headerlink" title="崴寶總結"></a>崴寶總結</h2><ul>
+<li><strong>I&#x2F;O</strong> 涉及模型權重、數據和結果在<strong>磁碟</strong>、<strong>RAM</strong> 和 <strong>VRAM</strong> 之間的傳輸。  </li>
+<li>GPU 是執行數值計算的核心，但它需要顯存來存儲權重和運算數據，並依賴 I&#x2F;O 系統加載數據。  </li>
+<li>使用高效格式（如 <strong>GGUF</strong>）和大容量顯存可以顯著減少 <strong>I&#x2F;O 開銷</strong>並提升性能。</li>
+</ul>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 崴寶 Weibert Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
       </div>
       
       <!-- 側邊欄 -->
@@ -191,10 +432,6 @@
         
           <a href="#" class="side_category-item" data-category="Docker">Docker</a>
         
-          <a href="#" class="side_category-item" data-category="線上課程">線上課程</a>
-        
-          <a href="#" class="side_category-item" data-category="社團群組">社團群組</a>
-        
           <a href="#" class="side_category-item" data-category="git">git</a>
         
           <a href="#" class="side_category-item" data-category="fb">fb</a>
@@ -210,6 +447,8 @@
           <a href="#" class="side_category-item" data-category="Quantization">Quantization</a>
         
           <a href="#" class="side_category-item" data-category="GGUF">GGUF</a>
+        
+          <a href="#" class="side_category-item" data-category="I/O">I/O</a>
         
       </div>
     </div>
@@ -294,12 +533,6 @@
         
           <a href="#" class="side_tag-item" data-tag="Gitalk">Gitalk</a>
         
-          <a href="#" class="side_tag-item" data-tag="程式教學">程式教學</a>
-        
-          <a href="#" class="side_tag-item" data-tag="線上課程">線上課程</a>
-        
-          <a href="#" class="side_tag-item" data-tag="社團群組">社團群組</a>
-        
           <a href="#" class="side_tag-item" data-tag="fb">fb</a>
         
           <a href="#" class="side_tag-item" data-tag="粉絲專頁">粉絲專頁</a>
@@ -327,6 +560,8 @@
           <a href="#" class="side_tag-item" data-tag="模型量化">模型量化</a>
         
           <a href="#" class="side_tag-item" data-tag="Quantization">Quantization</a>
+        
+          <a href="#" class="side_tag-item" data-tag="I/O">I/O</a>
         
       </div>
     </div>
@@ -401,10 +636,6 @@
             
               <a href="#" class="category-item" data-category="Docker">Docker</a>
             
-              <a href="#" class="category-item" data-category="線上課程">線上課程</a>
-            
-              <a href="#" class="category-item" data-category="社團群組">社團群組</a>
-            
               <a href="#" class="category-item" data-category="git">git</a>
             
               <a href="#" class="category-item" data-category="fb">fb</a>
@@ -420,6 +651,8 @@
               <a href="#" class="category-item" data-category="Quantization">Quantization</a>
             
               <a href="#" class="category-item" data-category="GGUF">GGUF</a>
+            
+              <a href="#" class="category-item" data-category="I/O">I/O</a>
             
           </div>
         </div>
@@ -504,12 +737,6 @@
             
               <a href="#" class="tag-item" data-tag="Gitalk">Gitalk</a>
             
-              <a href="#" class="tag-item" data-tag="程式教學">程式教學</a>
-            
-              <a href="#" class="tag-item" data-tag="線上課程">線上課程</a>
-            
-              <a href="#" class="tag-item" data-tag="社團群組">社團群組</a>
-            
               <a href="#" class="tag-item" data-tag="fb">fb</a>
             
               <a href="#" class="tag-item" data-tag="粉絲專頁">粉絲專頁</a>
@@ -537,6 +764,8 @@
               <a href="#" class="tag-item" data-tag="模型量化">模型量化</a>
             
               <a href="#" class="tag-item" data-tag="Quantization">Quantization</a>
+            
+              <a href="#" class="tag-item" data-tag="I/O">I/O</a>
             
           </div>
         </div>
@@ -618,12 +847,6 @@
         
           <a href="https://weitsung50110.github.io/tags/Gitalk/" class="tag-item">Gitalk</a>
         
-          <a href="https://weitsung50110.github.io/tags/%E7%A8%8B%E5%BC%8F%E6%95%99%E5%AD%B8/" class="tag-item">程式教學</a>
-        
-          <a href="https://weitsung50110.github.io/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" class="tag-item">線上課程</a>
-        
-          <a href="https://weitsung50110.github.io/tags/%E7%A4%BE%E5%9C%98%E7%BE%A4%E7%B5%84/" class="tag-item">社團群組</a>
-        
           <a href="https://weitsung50110.github.io/tags/fb/" class="tag-item">fb</a>
         
           <a href="https://weitsung50110.github.io/tags/%E7%B2%89%E7%B5%B2%E5%B0%88%E9%A0%81/" class="tag-item">粉絲專頁</a>
@@ -652,6 +875,8 @@
         
           <a href="https://weitsung50110.github.io/tags/Quantization/" class="tag-item">Quantization</a>
         
+          <a href="https://weitsung50110.github.io/tags/I-O/" class="tag-item">I/O</a>
+        
       </div>
       
       <div id="category-content" style="display:none;">
@@ -670,10 +895,6 @@
         
           <a href="https://weitsung50110.github.io/categories/Docker/" class="category-item">Docker</a>
         
-          <a href="https://weitsung50110.github.io/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" class="category-item">線上課程</a>
-        
-          <a href="https://weitsung50110.github.io/categories/%E7%A4%BE%E5%9C%98%E7%BE%A4%E7%B5%84/" class="category-item">社團群組</a>
-        
           <a href="https://weitsung50110.github.io/categories/git/" class="category-item">git</a>
         
           <a href="https://weitsung50110.github.io/categories/fb/" class="category-item">fb</a>
@@ -689,6 +910,8 @@
           <a href="https://weitsung50110.github.io/categories/Quantization/" class="category-item">Quantization</a>
         
           <a href="https://weitsung50110.github.io/categories/GGUF/" class="category-item">GGUF</a>
+        
+          <a href="https://weitsung50110.github.io/categories/I-O/" class="category-item">I/O</a>
         
       </div> -->
       
