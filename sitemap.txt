@@ -84,7 +84,7 @@ https://weitsung50110.github.io/tags/OpenAI/
 https://weitsung50110.github.io/tags/GGUF/
 https://weitsung50110.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%87%8F%E5%8C%96/
 https://weitsung50110.github.io/tags/Quantization/
-https://weitsung50110.github.io/tags/I-O/
+https://weitsung50110.github.io/tags/InputOutput/
 https://weitsung50110.github.io/categories/GitHub/
 https://weitsung50110.github.io/categories/Hexo%E4%B8%BB%E9%A1%8C/
 https://weitsung50110.github.io/categories/NLP/
@@ -100,4 +100,4 @@ https://weitsung50110.github.io/categories/Ollama/
 https://weitsung50110.github.io/categories/DALLE3/
 https://weitsung50110.github.io/categories/Quantization/
 https://weitsung50110.github.io/categories/GGUF/
-https://weitsung50110.github.io/categories/I-O/
+https://weitsung50110.github.io/categories/InputOutput/
