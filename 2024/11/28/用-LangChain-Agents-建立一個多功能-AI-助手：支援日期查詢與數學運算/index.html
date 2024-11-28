@@ -131,11 +131,47 @@
 </div>
         
 <article class="post">
-  <h1>About 崴寶</h1>
-  <!-- <p class="post-date">日期：Wed Aug 07 2024 22:12:49 GMT+0000</p> -->
-  <p class="post-date">日期：2024-08-08</p>
+  <h1>用 LangChain Agents 建立一個多功能 AI 助手：支援日期查詢與數學運算</h1>
+  <!-- <p class="post-date">日期：Thu Nov 28 2024 14:55:00 GMT+0000</p> -->
+  <p class="post-date">日期：2024-11-28</p>
   <!-- <p class="post-author">作者：崴寶 Weibert Weiberson</p> -->
   
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/NLP/">NLP</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LangChain/">LangChain</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Ollama/">Ollama</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LLM/">LLM</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Agents/">Agents</a></li>
+            
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/Agents/">Agents</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>建立一個支援日期查詢與數學運算的 AI 助手，用 LangChain Agents 的工具整合方式，讓助理可根據需求選擇合適的工具回答使用者問題。</p>
+      </div>
   
 
   <!-- 目錄容器 -->
@@ -145,242 +181,201 @@
         <p>電子報讀者募集中！歡迎
           <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
       </div>
-      <h2 id="自我介紹"><a href="#自我介紹" class="headerlink" title="自我介紹"></a>自我介紹</h2><blockquote>
-<p><img src="/assets/images/about/a2.jpg"></p>
-</blockquote>
-<h3 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge:"></a>Knowledge:</h3><pre><code>NLP: Lanchain, RAG, HuggingFace, BERT
-CV: OpenCV, PyTorch, YOLOR, YOLOv7, PRB-FPN, Attention Mechanism
+      <p><cen>崴寶帶你一步步學習如何利用 Python 和 LangChain 開發一個簡單但實用的 AI 助手。這個助手可以回答使用者的日期問題，也能進行簡單的數學運算。教學內容適合有基本 Python 基礎的讀者，讓你快速上手 AI 工具的實作。</p>
+<p><strong>崴寶 Weibert 教學目標：</strong></p>
+<ul>
+<li>建立一個支援<code>日期查詢</code>與<code>數學運算</code>的 AI 助手。</li>
+<li>使用 <code>LangChain Agents</code> 的工具整合方式，讓<code>助理可根據需求選擇合適的工具</code>回答使用者問題。</li>
+</ul>
+<p>Github Repository : <a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit">weitsung50110&#x2F;Huggingface_Langchain_kit</a>  </p>
+<p>本文是使用到裡面的</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/agents/langchain_agents_math.py">agents&#x2F;langchain_agents_math.py</a> 檔案。</li>
+</ul>
+<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */">
+  <iframe 
+    src="https://youtube.com/embed/MK1y-YEz0o4?si=O95TN0TudSW7lanR" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+  ></iframe>
+</div>
+
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a><strong>成果展示</strong></h2><ol>
+<li><p>告訴你今天的日期和星期幾。</p>
+</li>
+<li><p>處理數學運算。</p>
+<pre><code> root@4be643ba6a94:/app# python3 langchain_agents_math.py
+
+ 請輸入您的問題：今天是幾月幾號
+
+ &gt; Entering new AgentExecutor chain...
+ 我需要獲取今天的日期。
+ Action: get today date(_)
+ Action Input: 空白（這個工具不需要輸入我需要獲取今天的日期。
+ Action: get today date(_)
+ Action Input: 空白（這個工具不需要輸入
+ Observation: 今天是 2024 年 11 月 27 日，星期Wed。
+ Thought:現在我們知道了今天的日期。
+ Final Answer: 今天是 2024 年 11 月 27 日，星期三。現在我們知道了今天的日期。
+ Final Answer: 今天是 2024 年 11 月 27 日，星期三。
+
+ &gt; Finished chain.
+
+ AI 助手的回答：
+ 今天是 2024 年 11 月 27 日，星期三。
+ 請輸入您的問題：幫我算出5的三次方是多少
+
+
+ &gt; Entering new AgentExecutor chain...
+ 我們需要使用 Python Calculator 來計算數學表達式。
+ Action: Python Calculator
+ Action Input: &#39;5**3我們需要使用 Python Calculator 來計算數學表達式。
+ Action: Python Calculator
+ Action Input: &#39;5**3
+ Observation: 計算結果是: 125
+ Thought:現在我已經知道了最終答案。
+ Final Answer: 5的三次方等於125。現在我已經知道了最終答案。
+ Final Answer: 5的三次方等於125。
+
+ &gt; Finished chain.
+
+ AI 助手的回答：
+ 5的三次方等於125。
 </code></pre>
-<h3 id="Additional-Skills"><a href="#Additional-Skills" class="headerlink" title="Additional Skills:"></a>Additional Skills:</h3><pre><code>Others: Git Version Control, Docker, Linux / Ubuntu, SQLite, MySQL, Firebase, NoSQL
-, RESTful API, AJAX fetch, Vue3, Node.js, Express, WebPack, Bootstrap RWD, Unity, 
-Android Development, VM
-</code></pre>
-<p>嘿，我是<code>崴寶 Weibert Weiberson</code>，資訊科學碩士，目前在台灣某上市公司擔任 AI 軟體工程師。🎓</p>
-<p>崴寶曾做過電腦視覺、大型語言模型LLM、機器學習，還寫過手機遊戲！🎮<br>同時也喜歡架設網站，前端與後端開發，還有APP開發💡</p>
-<p>讓我們一起<strong>學習</strong>、<strong>成長</strong>，<strong>實現程式設計夢想</strong>吧！💪✨</p>
-<h3 id="社交媒體"><a href="#社交媒體" class="headerlink" title="社交媒體"></a>社交媒體</h3><p>想了解更多關於我的資訊，請參考以下連結：</p>
-<ul>
-<li><strong>GitHub</strong>: <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">weitsung50110</a></li>
-<li><strong>Medium</strong>: <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">@weiberson</a></li>
-<li><strong>Instagram</strong>:<a target="_blank" rel="noopener" href="https://www.instagram.com/weibert_music/">@weibert_music</a>、<a target="_blank" rel="noopener" href="https://www.instagram.com/weibert_coding/">@weibert_coding</a><!-- - **崴寶網站**: [Well崴寶程式天堂](https://weitsung50110.github.io/) --></li>
-<li><strong>YouTube</strong>: <a target="_blank" rel="noopener" href="https://www.youtube.com/@weibert">Well崴寶程式天堂</a></li>
-<li><strong>Threads</strong>: <a target="_blank" rel="noopener" href="https://www.threads.net/@weibert_music">@weibert_music</a>、<a target="_blank" rel="noopener" href="https://www.threads.net/@weibert_coding">@weibert_coding</a></li>
-<li><strong>Facebook</strong>: <a target="_blank" rel="noopener" href="https://www.facebook.com/weibert1/">Well崴寶程式天堂</a></li>
-<li><strong>TikTok</strong>: <a target="_blank" rel="noopener" href="https://www.tiktok.com/@weibert1">崴寶Weibert</a></li>
-<li><strong>Email</strong>: <a href="mailto:&#x77;&#101;&#105;&#x62;&#101;&#x72;&#116;&#x77;&#x65;&#105;&#x62;&#x65;&#x72;&#115;&#x6f;&#x6e;&#x40;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#x77;&#101;&#105;&#x62;&#101;&#x72;&#116;&#x77;&#x65;&#105;&#x62;&#x65;&#x72;&#115;&#x6f;&#x6e;&#x40;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a></li>
-</ul>
-<h3 id="程式討論社團"><a href="#程式討論社團" class="headerlink" title="程式討論社團"></a>程式討論社團</h3><ul>
-<li><strong>Discord</strong>: <a target="_blank" rel="noopener" href="https://discord.gg/5YsHCRJv8X">點擊這裡加入 Discord 群組</a>  </li>
-<li><strong>LINE</strong>: <a target="_blank" rel="noopener" href="https://line.me/ti/g2/Yer7Cw5gxxxr-hWLfKsnDTNug0T1mq5Ml0A3gg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">點擊這裡加入 LINE 社團</a></li>
-</ul>
-<h2 id="Academic-Background"><a href="#Academic-Background" class="headerlink" title="Academic Background"></a>Academic Background</h2><h3 id="Master-of-Science-MS-in-Computer-Science"><a href="#Master-of-Science-MS-in-Computer-Science" class="headerlink" title="Master of Science (MS) in Computer Science"></a>Master of Science (MS) in Computer Science</h3><ul>
-<li><strong>University</strong>: University of Taipei</li>
-<li><strong>Department</strong>: Computer Science</li>
-<li><strong>Activities and Achievements</strong>:<ul>
-<li>Speaker’s Award: Taipei City Council, 2023</li>
-<li>Obtained a scholarship for the master’s program</li>
+</li>
+</ol>
+<h2 id="步驟一：環境準備與安裝依賴套件"><a href="#步驟一：環境準備與安裝依賴套件" class="headerlink" title="步驟一：環境準備與安裝依賴套件"></a><strong>步驟一：環境準備與安裝依賴套件</strong></h2><p>在開始之前，請先確認已安裝以下工具與套件：</p>
+<ol>
+<li><strong>Python 版本</strong>（建議 3.8 以上）</li>
+<li><strong>必要的 Python 套件</strong>：<ul>
+<li><code>langchain</code></li>
+<li><code>datetime</code></li>
 </ul>
 </li>
-</ul>
-<h3 id="Bachelor-of-Science-BS-in-Information-Management"><a href="#Bachelor-of-Science-BS-in-Information-Management" class="headerlink" title="Bachelor of Science (BS) in Information Management"></a>Bachelor of Science (BS) in Information Management</h3><ul>
-<li><strong>University</strong>: National Taipei University of Nursing and Health Sciences</li>
-<li><strong>Department</strong>: Information Management</li>
-<li><strong>Activities and Achievements</strong>:<ul>
-<li>Participating in a Computer Information Service Club</li>
-<li>Completion of the Big Data Program</li>
-</ul>
-</li>
-</ul>
-<h2 id="出版作品"><a href="#出版作品" class="headerlink" title="出版作品"></a>出版作品</h2><ul>
-<li><strong>Video Analytics for Detecting Motorcyclist Helmet Rule Violations</strong>:<ul>
-<li>Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, 2023, pp. 5365-5373</li>
-<li><strong>Co-Author</strong></li>
-<li>發表日期: 2023年6月19日</li>
-<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2023W/AICity/html/Tsai_Video_Analytics_for_Detecting_Motorcyclist_Helmet_Rule_Violations_CVPRW_2023_paper.html">閱讀論文</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="榮譽獎項"><a href="#榮譽獎項" class="headerlink" title="榮譽獎項"></a>榮譽獎項</h2><ul>
-<li><p><strong>Speaker’s Award from Taipei City Council</strong></p>
-<ul>
-<li>Taipei City Council</li>
-<li>2023年6月</li>
-</ul>
-</li>
-<li><p><strong>4th Place, 4&#x2F;267, Ranking Top 1.49%</strong>:</p>
-<ul>
-<li>AI CITY CHALLENGE</li>
-<li>2023年4月</li>
-<li>AI CITY CHALLENGE - Challenge Track 5: Detecting Violation of Helmet Rule for Motorcyclists, 2023.</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.07500">Arxiv: 2304.07500</a></li>
-</ul>
-</li>
-<li><p><strong>First Place, Trend Micro Inc. Student Pre-hired Award&#x2F;金牌獎</strong>:</p>
-<ul>
-<li>Ministry of Education, Taiwan</li>
-<li>2023年3月</li>
-<li>AI CUP - Intelligent Counting Competition for Unmanned Aerial Vehicles (UAVs), 2022</li>
-<li><a target="_blank" rel="noopener" href="https://cs.utaipei.edu.tw/p/406-1081-100902,r204.php?Lang=zh-tw">News of the University of Taipei</a></li>
-<li><a target="_blank" rel="noopener" href="https://tbrain.trendmicro.com.tw/Competitions/Details/25">AI CUP Competition Page</a></li>
-</ul>
-</li>
-<li><p><strong>Second Place</strong>:</p>
-<ul>
-<li>Department of Information Management, National Taipei University of Nursing and Health Sciences</li>
-<li>2020年12月</li>
-<li>109學年度實務專題競賽 系統B組 第二名</li>
-</ul>
-</li>
-</ul>
-<h2 id="作品集"><a href="#作品集" class="headerlink" title="作品集"></a>作品集</h2><h3 id="Machine-Learning-Projects"><a href="#Machine-Learning-Projects" class="headerlink" title="Machine Learning Projects"></a>Machine Learning Projects</h3><ul>
-<li><strong>During Master’s Program&#x2F;碩士期間</strong><ul>
-<li>使用深度學習結合注意力機制、數據擴增和圖像處理方法進行非法停車檢測和車牌識別。<ul>
-<li>Python (Linux)</li>
-</ul>
-</li>
-<li>使用深度學習結合視頻分析技術檢測摩托車頭盔規則違規。<ul>
-<li>Python (Linux)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Front-End-Back-End-Development"><a href="#Front-End-Back-End-Development" class="headerlink" title="Front-End &#x2F; Back-End Development"></a>Front-End &#x2F; Back-End Development</h3><ul>
-<li><strong>2020年1月 - 2023年12月</strong><ul>
-<li><strong>RWD Shopping Forum</strong>:<ul>
-<li>PHP + MySQL</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/RWD_php_shopping_forum">GitHub: RWD php shopping forum</a></li>
-</ul>
-</li>
-<li><strong>MongoDB Ajax RESTful API Membership System</strong>:<ul>
-<li>MongoDB &#x2F; Mongoose + RESTful API &#x2F; AJAX fetch + Node.js + Bootstrap RWD + SCSS + WebPack</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/MongoDB_Ajax_RESTfulAPI_membership_system">GitHub: MongoDB Ajax RESTful API membership system</a></li>
-</ul>
-</li>
-<li><strong>WebSocket 即時聊天室</strong>:<ul>
-<li>WebSocket + Vue3 + Node.js</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/WebSocket_OnlineChatroom_NodeJS_Vue">GitHub: WebSocket Online Chatroom NodeJS Vue</a></li>
-</ul>
-</li>
-<li><strong>Docker Compose MySQL Notepad Site</strong>:<ul>
-<li>Docker-Compose + Dockerfile + MySQL Container + Vue3 + Node.js Container</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/DockerCompose_Mysql_NotepadSite_node.js">GitHub: Docker Compose MySQL Notepad Site node.js</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Android-Development"><a href="#Android-Development" class="headerlink" title="Android Development"></a>Android Development</h3><ul>
-<li><strong>2020年1月 - 2020年12月</strong><ul>
-<li><strong>TextToSpeech 字典</strong>:<ul>
-<li>Kotlin + Firebase</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/TextToSpeech_dictionary">GitHub: TextToSpeech dictionary</a></li>
-</ul>
-</li>
-<li><strong>Intelligent Dietary Management and Recommendation App</strong>:<ul>
-<li>Kotlin + Firebase + SQLite</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/RecipeRecommend_app">GitHub: Recipe Recommend app</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Unity-Development"><a href="#Unity-Development" class="headerlink" title="Unity Development"></a>Unity Development</h3><ul>
-<li><strong>2019年1月 - 2019年12月</strong><ul>
-<li><strong>Runaway Boy</strong>:<ul>
-<li>C# (Unity)</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/RunawayBoy_game_app">GitHub: RunawayBoy_game_app</a></li>
-<li><a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.Weicat.Runawayboy">Google Play: Runaway Boy</a></li>
-</ul>
-</li>
-<li><strong>Muyu Goddess</strong>:<ul>
-<li>C# (Unity)</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/weitsung50110/MuyuGoddess_game_app">GitHub: MuyuGoddess_game_app</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="還有更多作品"><a href="#還有更多作品" class="headerlink" title="&gt; 還有更多作品"></a>&gt; 還有更多作品</h3><p>後來有做更多專案，但沒有列在這裡 (專案太多要打好久…)</p>
-<blockquote>
-<p>2024年後新的作品，請自行去我的<a target="_blank" rel="noopener" href="https://github.com/weitsung50110/">Github查看</a>，感謝您!!</p>
-</blockquote>
+</ol>
 <hr>
-<ul>
-<li><p><strong>llama_flask_langchain_ChatbotWeb Demo</strong>:</p>
-<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */">
-<iframe 
-  src="https://www.youtube.com/embed/Stx88BpwC54?si=uLj4pLMQOVBCOEBr" 
-  title="YouTube video player" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  referrerpolicy="strict-origin-when-cross-origin" 
-  allowfullscreen 
-  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-></iframe>
-</div>
+<h2 id="步驟二：初始化-Ollama-LLM-模型"><a href="#步驟二：初始化-Ollama-LLM-模型" class="headerlink" title="步驟二：初始化 Ollama LLM 模型"></a><strong>步驟二：初始化 Ollama LLM 模型</strong></h2><p>LangChain 支援多種 LLM（大型語言模型），這裡我們使用 <code>kenneth85/llama-3-taiwan:8b-instruct</code> 模型，並透過回調機制實現輸出串流。</p>
+<pre><code>from langchain_community.llms import Ollama
+from langchain.callbacks.manager import CallbackManager
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+
+llm = Ollama(
+    model=&quot;kenneth85/llama-3-taiwan:8b-instruct&quot;,
+    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
+)
+</code></pre>
+<hr>
+<h2 id="步驟三：建立兩個工具（Tool）"><a href="#步驟三：建立兩個工具（Tool）" class="headerlink" title="步驟三：建立兩個工具（Tool）"></a><strong>步驟三：建立兩個工具（Tool）</strong></h2><p>我們將定義兩個功能工具：</p>
+<ol>
+<li><p><strong>日期工具</strong>：回答今天的日期和星期幾。</p>
+<pre><code> from datetime import datetime
+
+ def get_today_date(_):
+     &quot;&quot;&quot;
+     返回今天的日期和星期幾
+     &quot;&quot;&quot;
+     return datetime.now().strftime(&quot;今天是 %Y 年 %m 月 %d 日，星期%a。&quot;)
+</code></pre>
 </li>
-<li><p><strong>RAG llama LangChain flask chatbotWeb</strong>:</p>
-<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */">
-<iframe 
-  src="https://www.youtube.com/embed/nqQu_OATq_4?si=3mYbL5H9id8UoqXt" 
-  title="YouTube video player" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  referrerpolicy="strict-origin-when-cross-origin" 
-  allowfullscreen 
-  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-></iframe>
-</div>
+<li><p><strong>數學運算工具</strong>：處理簡單數學表達式。</p>
+<pre><code> def calculate_math(expression):
+     &quot;&quot;&quot;
+     計算數學表達式，添加預處理和檢查
+     &quot;&quot;&quot;
+     try:
+         # 清理輸入表達式
+         expression = expression.strip().strip(&quot;&#39;&quot;).strip(&#39;&quot;&#39;)
+         
+         # 檢查表達式是否合法
+         allowed_chars = &quot;0123456789+-*/(). &quot;
+         if not all(char in allowed_chars for char in expression):
+             return &quot;數學表達式包含無效字符，請檢查輸入。&quot;
+         
+         # 計算表達式
+         result = eval(expression)
+         return f&quot;計算結果是: &#123;result&#125;&quot;
+     except Exception as e:
+         return f&quot;計算過程中發生錯誤: &#123;e&#125;&quot;
+</code></pre>
 </li>
-<li><p><strong>Runaway Boy</strong>:</p>
-<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */">
-<iframe 
-  src="https://www.youtube.com/embed/mqBIDLdGKTw?si=flr9YRs8Q9UfnnIk" 
-  title="YouTube video player" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  referrerpolicy="strict-origin-when-cross-origin" 
-  allowfullscreen 
-  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-></iframe>
-</div></li>
-</ul>
-<p><img src="/assets/images/about/0.png"></p>
-<ul>
-<li><strong>Muyu Goddess</strong>:<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */">
-<iframe 
-  src="https://www.youtube.com/embed/mBKTa3RHbTw?si=CRmWrXpbbi3nIYOe" 
-  title="YouTube video player" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  referrerpolicy="strict-origin-when-cross-origin" 
-  allowfullscreen 
-  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-></iframe>
-</div></li>
-</ul>
-<p><img src="/assets/images/about/2.png"></p>
-<ul>
-<li><strong>TextToSpeech 字典</strong>:<div style="position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */">
-<iframe 
-  src="https://www.youtube.com/embed/oBl6HfmIn9g?si=wTUsYcCpJe19TIPh" 
-  title="YouTube video player" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  referrerpolicy="strict-origin-when-cross-origin" 
-  allowfullscreen 
-  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-></iframe>
-</div></li>
-</ul>
-<p><img src="/assets/images/about/4.png"></p>
-<ul>
-<li><p><strong>Intelligent Dietary Management and Recommendation App</strong>:<br><img src="/assets/images/about/1.png"></p>
-</li>
-<li><p><strong>RWD Shopping Forum</strong>:<br><img src="/assets/images/about/3.png"></p>
-</li>
-</ul>
+</ol>
+<hr>
+<h2 id="步驟四：將工具轉換為-LangChain-的-Tool"><a href="#步驟四：將工具轉換為-LangChain-的-Tool" class="headerlink" title="步驟四：將工具轉換為 LangChain 的 Tool"></a><strong>步驟四：將工具轉換為 LangChain 的 Tool</strong></h2><p>LangChain 提供了 <code>Tool</code> 類別來封裝功能函式。<br>我們需要分別為<code>日期工具</code>和<code>數學運算工具</code>定義對應的 <code>Tool 實例</code>。</p>
+<pre><code>from langchain.agents import Tool
+
+# 日期工具
+get_today_date_tool = Tool(
+    name=&quot;get today date(_)&quot;,
+    func=get_today_date,
+    description=&quot;回答今天的日期和星期幾。&quot;
+)
+
+# 數學工具
+math_tool = Tool(
+    name=&quot;Python Calculator&quot;,
+    func=calculate_math,
+    description=&quot;可以計算數學表達式的工具。&quot;
+)
+</code></pre>
+<hr>
+<h2 id="步驟五：定義自訂-Prompt-模板"><a href="#步驟五：定義自訂-Prompt-模板" class="headerlink" title="步驟五：定義自訂 Prompt 模板"></a><strong>步驟五：定義自訂 Prompt 模板</strong></h2><p>為了讓 AI 更精確地選擇工具，我們需要定義一個 <code>Prompt 模板</code>。<br>這個<code>模板將告訴 AI 具體有哪些工具可以使用</code>，並鼓勵它<strong>選擇合適的工具解決問題</strong>。</p>
+<pre><code>from langchain_core.prompts import PromptTemplate
+
+custom_prompt = PromptTemplate(
+    input_variables=[&quot;input&quot;],
+    template=&quot;&quot;&quot;\
+你是一個智慧型 AI 助手，可以使用以下工具來完成任務：
+- get today date(_): 回答今天是幾月幾號以及星期幾。
+- Python Calculator: 計算數學表達式的工具。
+
+請根據使用者的問題，選擇最適合的工具並提供準確、簡潔的回答。
+
+使用者問題：&#123;input&#125;
+&quot;&quot;&quot;
+)
+</code></pre>
+<hr>
+<h2 id="步驟六：整合工具與模型並初始化-Agent"><a href="#步驟六：整合工具與模型並初始化-Agent" class="headerlink" title="步驟六：整合工具與模型並初始化 Agent"></a><strong>步驟六：整合工具與模型並初始化 Agent</strong></h2><p><em><strong>完成工具和 Prompt 的定義後</strong></em>，我們可以利用 <code>initialize_agent</code> 函數將它們整合，<br>形成一個<code>完整的 AI 助手</code>。</p>
+<pre><code>from langchain.agents import initialize_agent
+
+tools = [get_today_date_tool, math_tool]
+
+agent = initialize_agent(
+    tools=tools,
+    llm=llm,
+    agent=&quot;zero-shot-react-description&quot;,
+    verbose=True,
+    agent_prompt=custom_prompt,
+    handle_parsing_errors=True
+)
+</code></pre>
+<hr>
+<h2 id="步驟七：實作主程式邏輯"><a href="#步驟七：實作主程式邏輯" class="headerlink" title="步驟七：實作主程式邏輯"></a><strong>步驟七：實作主程式邏輯</strong></h2><p>最後，我們撰寫主程式，讓使用者能與這個 AI 助手進行互動。<br>該主程式將<code>允許用戶輸入問題</code>，並<code>由 AI 助手根據需求選擇工具並回答</code>。</p>
+<pre><code>if __name__ == &quot;__main__&quot;:
+    try:
+        while True:
+            user_query = input(&quot;請輸入您的問題：&quot;)
+            if user_query.lower() in [&quot;退出&quot;, &quot;結束&quot;, &quot;exit&quot;, &quot;quit&quot;]:
+                print(&quot;感謝您的使用，再見！&quot;)
+                break
+
+            response = agent.run(&#123;&quot;input&quot;: user_query&#125;)
+            print(&quot;\nAI 助手的回答：&quot;)
+            print(response)
+    except Exception as e:
+        print(f&quot;執行時發生錯誤：&#123;e&#125;&quot;)
+</code></pre>
+<hr>
+<h2 id="崴寶結語"><a href="#崴寶結語" class="headerlink" title="崴寶結語"></a><strong>崴寶結語</strong></h2><p>現在，你的 AI 助手已經可以回答日期問題，也能進行數學運算。  </p>
+<p>如果想進一步擴展功能，可以考慮以下方向：</p>
+<ol>
+<li>添加更多工具，例如天氣查詢或翻譯功能。</li>
+<li>使用更強大的 LLM 模型，提升回答的準確性與多樣性。</li>
+</ol>
 
     </div>
     <div id="toc" class="toc">
