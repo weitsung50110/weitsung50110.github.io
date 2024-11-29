@@ -13,9 +13,6 @@
   overflow-x: hidden; /* 水平方向不顯示滾動條 */
 }
 
-body.post-page #sidebar   {
-  left: 0;
-}
 
 /* 基本滾動條樣式 */
 #sidebar::-webkit-scrollbar {

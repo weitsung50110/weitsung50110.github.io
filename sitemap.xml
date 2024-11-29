@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://weitsung50110.github.io/2024/11/29/%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90-RAG%EF%BC%88Retrieval-Augmented-Generation%EF%BC%89/</loc>
+    <loc>https://weitsung50110.github.io/2024/05/28/LangChain-RAG%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8%EF%BC%8C%E7%B5%90%E5%90%88Llama3%E8%AE%93LLM%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96PDF%E5%92%8CDOC%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89/</loc>
     
     <lastmod>2024-11-29</lastmod>
     
@@ -20,7 +20,16 @@
   </url>
   
   <url>
-    <loc>https://weitsung50110.github.io/2024/05/28/LangChain-RAG%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8%EF%BC%8C%E7%B5%90%E5%90%88Llama3%E8%AE%93LLM%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96PDF%E5%92%8CDOC%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89/</loc>
+    <loc>https://weitsung50110.github.io/2024/11/29/RAG-%E4%B8%AD%E6%96%87%E6%9C%AC%E5%88%86%E5%89%B2%EF%BC%9Achunk-size-%E5%92%8C-chunk-overlap-%E5%AF%A6%E8%B8%90%E6%8C%87%E5%8D%97/</loc>
+    
+    <lastmod>2024-11-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://weitsung50110.github.io/2024/11/29/%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90-RAG%EF%BC%88Retrieval-Augmented-Generation%EF%BC%89/</loc>
     
     <lastmod>2024-11-29</lastmod>
     
@@ -764,6 +773,13 @@
   
   <url>
     <loc>https://weitsung50110.github.io/tags/Agents/</loc>
+    <lastmod>2024-11-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://weitsung50110.github.io/tags/Text-Splitter/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -29,6 +29,10 @@
   padding: 5px;
 }
 
+.post h1:hover {
+  background-color: rgba(253, 196, 196, 0.1);
+}
+
 .post h2 {
   font-size: 2em;
   margin-top: 1em; /* 調整標題與上方內容的距離 */

@@ -205,6 +205,18 @@
   }
   
   @media (max-width: 480px) {
+    /* 標題樣式 */
+    .post h1 {
+      font-size: 2em;
+      margin-top: 0em; /* 調整標題與上方內容的距離 */
+      margin-bottom: 0.1em; /* 調整標題與下方內容的距離 */
+      padding: 0px;
+    }
+
+    .post h2 {
+      font-size: 1.8em;
+    }
+
     .home-intro h2 {
       font-size: 1.2em; /* 手機屏幕的字體大小 */
     }
