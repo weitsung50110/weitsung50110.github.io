@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://weitsung50110.github.io/history/index.html</loc>
+    
+    <lastmod>2024-11-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://weitsung50110.github.io/club/index.html</loc>
+    
+    <lastmod>2024-11-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://weitsung50110.github.io/course/index.html</loc>
+    
+    <lastmod>2024-11-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://weitsung50110.github.io/about/index.html</loc>
+    
+    <lastmod>2024-11-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://weitsung50110.github.io/2024/06/20/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/</loc>
     
     <lastmod>2024-11-29</lastmod>
@@ -32,15 +68,6 @@
     <loc>https://weitsung50110.github.io/2024/11/29/%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90-RAG%EF%BC%88Retrieval-Augmented-Generation%EF%BC%89/</loc>
     
     <lastmod>2024-11-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://weitsung50110.github.io/about/index.html</loc>
-    
-    <lastmod>2024-11-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -146,15 +173,6 @@
   </url>
   
   <url>
-    <loc>https://weitsung50110.github.io/club/index.html</loc>
-    
-    <lastmod>2024-11-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://weitsung50110.github.io/2024/06/18/Git-LFS%E4%BB%8B%E7%B4%B9%EF%BC%8C%E7%82%BA%E4%BD%95%E9%9C%80%E8%A6%81%E5%AE%83/</loc>
     
     <lastmod>2024-11-19</lastmod>
@@ -203,15 +221,6 @@
     <loc>https://weitsung50110.github.io/2024/06/12/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/</loc>
     
     <lastmod>2024-11-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://weitsung50110.github.io/course/index.html</loc>
-    
-    <lastmod>2024-11-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
