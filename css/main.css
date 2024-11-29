@@ -17,7 +17,7 @@
 @import url('weimeng_indexPost.css');
 
 /* 響應式設計 */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
     .post {
       max-width: 100%; 
       width: 100%; /* 手機模式目錄不會直接跳出 因此可以直接滿版 */
@@ -138,7 +138,6 @@
     #sidebar {
       width: 250px; /* 在小屏幕上縮小側邊欄的寬度 */
     }
-
 
     .toc {
       display: none; /* 隱藏目錄 */
@@ -303,6 +302,10 @@
       top: 0px; /* 距離頂部20px */
       right: 0px; /* 距離右邊20px */
       font-size: 38px;
+    }
+
+    body.post-page #sidebar   {
+      left: -250px;
     }
     
     .info-wrapper {

@@ -13,6 +13,10 @@
   overflow-x: hidden; /* 水平方向不顯示滾動條 */
 }
 
+body.post-page #sidebar   {
+  left: 0;
+}
+
 /* 基本滾動條樣式 */
 #sidebar::-webkit-scrollbar {
   width: 12px; /* 設定滾動條寬度 */
@@ -87,7 +91,7 @@
   /* margin-bottom: 15px; 圖片和文字之間的間距 */
 }
 
-body{
+body.index-page{
   transition: margin-left 0.3s ease; /* 讓主內容區域的移動平滑 */
   /* padding: 20px; */
 }

@@ -21,9 +21,9 @@
 <link rel="stylesheet" href="/css/main.css">
 
 <meta name="generator" content="Hexo 7.3.0"></head>
-<body class=" ">
-  <div class="post_bg" style="">
-    <div class="archive_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy15.png&#39;);">
+<body class=" post-page">
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
+    <div class="archive_bg" style="">
       
       <header>
   <div class="header-content">
@@ -130,69 +130,229 @@
   </div>
 </div>
         
-<main id="archives">
+<article class="post">
+  <h1>全面解析 RAG（Retrieval-Augmented Generation）</h1>
+  <!-- <p class="post-date">日期：Fri Nov 29 2024 13:28:36 GMT+0000</p> -->
+  <p class="post-date">日期：2024-11-29</p>
+  <!-- <p class="post-author">作者：崴寶 Weibert Weiberson</p> -->
   
-  <h1></h1>
-
-  
-
-  
-    
-      <section class="archive-year">
-        <h2 class="year-title" id="year-2024">2024</h2>
-        <div class="post-list" id="posts-2024">
-          
-            <div class="post-item">
-              
-                <a href="/2024/10/29/%E5%BE%9E%E6%97%A5%E5%B8%B8%E5%88%B0AI%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%9A%84%E6%9C%80%E4%BD%B3-RAM%E3%80%81VRAM-%E8%88%87-SSD-%E7%A1%AC%E9%AB%94%E9%81%B8%E6%93%87%EF%BC%8C%E8%B2%B7%E9%9B%BB%E8%85%A6%E5%BF%85%E7%9C%8B/">
-                  從日常到AI機器學習的最佳 RAM、VRAM 與 SSD 硬體選擇，買電腦必看
-                </a>
-              
-              <time datetime="2024-10-29T14:01:38.000Z">
-                2024-10-29
-              </time>
-            </div>
-          
-            <div class="post-item">
-              
-                <a href="/2024/10/25/2025%E6%89%8B%E6%A9%9F-%E8%AE%8A%E6%9B%B4FB%E7%B2%89%E7%B5%B2%E5%B0%88%E6%A5%AD%E5%90%8D%E7%A8%B1%E6%95%99%E5%AD%B8/">
-                  2025手機-變更FB粉絲專頁名稱教學
-                </a>
-              
-              <time datetime="2024-10-25T14:24:19.000Z">
-                2024-10-25
-              </time>
-            </div>
-          
-            <div class="post-item">
-              
-                <a href="/2024/10/22/Git%E8%B6%85%E7%B0%A1%E5%96%AE-%E5%9F%BA%E6%9C%AC-Git-%E5%91%BD%E4%BB%A4%E6%95%99%E5%AD%B8/">
-                  Git超簡單-基本 Git 命令教學
-                </a>
-              
-              <time datetime="2024-10-22T14:01:23.000Z">
-                2024-10-22
-              </time>
-            </div>
-          
-            <div class="post-item">
-              
-                <a href="/2024/10/17/%E5%AE%89%E8%A3%9DDocker%E9%80%B2D%E6%A7%BD%E6%95%99%E5%AD%B8/">
-                  安裝Docker進D槽教學
-                </a>
-              
-              <time datetime="2024-10-17T14:59:23.000Z">
-                2024-10-17
-              </time>
-            </div>
-          
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/NLP/">NLP</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LangChain/">LangChain</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/RAG/">RAG</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Ollama/">Ollama</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LLM/">LLM</a></li>
+            
+          </ul>
         </div>
-      </section>
-    
-  
-</main>
+      
 
-<div id="cursor-effect" class="cursor-effect"></div> 
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/RAG/">RAG</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>RAG 將檢索（Retrieval）與生成（Generation）相結合的 AI 框架，能透過檢索外部知識來增強生成模型的回答能力。</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>電子報讀者募集中！歡迎
+          <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
+      </div>
+      <p><cen>Retrieval-Augmented Generation (RAG) 是一種結合檢索（Retrieval）與生成（Generation）的混合技術框架。其核心目標是利用外部知識源來增強生成式人工智慧（Generative AI）的能力。</p>
+<h2 id="RAG-的特色"><a href="#RAG-的特色" class="headerlink" title="RAG 的特色"></a>RAG 的特色</h2><ol>
+<li><p><strong>檢索外部知識</strong><br>RAG 能利用外部數據庫（如文檔庫或向量數據庫）<code>檢索與查詢</code>相關的資訊，而不僅依賴模型內部的預訓練知識。</p>
+</li>
+<li><p><strong>生成專業回答</strong><br>結合檢索到的<code>上下文內容</code>，生成模型可生成更準確且有針對性的回答。</p>
+</li>
+<li><p><strong>動態更新</strong><br>外部知識庫的內容可<code>持續更新</code>，<strong>無需重新訓練模型</strong>。</p>
+</li>
+</ol>
+<hr>
+<h2 id="RAG-的運作原理"><a href="#RAG-的運作原理" class="headerlink" title="RAG 的運作原理"></a>RAG 的運作原理</h2><p>RAG 通常由兩個核心組件構成：<code>檢索模塊</code>和<code>生成模塊</code>。</p>
+<h3 id="檢索模塊（Retriever）"><a href="#檢索模塊（Retriever）" class="headerlink" title="檢索模塊（Retriever）"></a>檢索模塊（Retriever）</h3><ul>
+<li>負責從外部知識來源中檢索與用戶查詢相關的文本。</li>
+<li>通過<strong>嵌入模型（Embeddings）</strong>將文本轉換為高維向量，以捕捉文本的語義特徵。</li>
+<li>檢索過程基於<strong>向量相似度</strong>（如餘弦相似度）來篩選最相關的文本片段。</li>
+</ul>
+<h3 id="生成模塊（Generator）"><a href="#生成模塊（Generator）" class="headerlink" title="生成模塊（Generator）"></a>生成模塊（Generator）</h3><ul>
+<li>接收檢索模塊提供的相關文本片段作為上下文。</li>
+<li>利用<strong>生成式模型</strong>（如 GPT、LLaMA）生成基於上下文的回答。</li>
+<li><strong>生成的結果</strong>不僅依賴查詢語句，還受到檢索到的外部文本片段的影響。</li>
+</ul>
+<hr>
+<h2 id="RAG-的技術流程"><a href="#RAG-的技術流程" class="headerlink" title="RAG 的技術流程"></a>RAG 的技術流程</h2><h3 id="RAG流程圖"><a href="#RAG流程圖" class="headerlink" title="RAG流程圖"></a>RAG流程圖</h3><p><img src="/assets/images/LangChain-RAG%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8%EF%BC%8C%E7%B5%90%E5%90%88Llama3%E8%AE%93LLM%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96PDF%E5%92%8CDOC%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89/0.png"></p>
+<p>RAG運作圖參考自 <a target="_blank" rel="noopener" href="https://huggingface.co/learn/cookbook/zh-CN/advanced_rag">https://huggingface.co/learn/cookbook/zh-CN/advanced_rag</a></p>
+<p><img src="/assets/images/LangChain-RAG%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8%EF%BC%8C%E7%B5%90%E5%90%88Llama3%E8%AE%93LLM%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96PDF%E5%92%8CDOC%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89/1.png"><br>圖引用自 <a target="_blank" rel="noopener" href="https://python.langchain.com/docs/modules/data_connection/">Langchain</a></p>
+<ol>
+<li><p><strong>數據準備</strong>  </p>
+<ul>
+<li>將外部知識庫（如 PDF、文檔）轉換為可檢索的格式。  </li>
+<li>使用<strong>嵌入模型</strong>生成每段文本的向量，並存入向量數據庫（如 <code>Chroma</code> 或 <code>FAISS</code>）。</li>
+</ul>
+</li>
+<li><p><strong>查詢處理</strong>  </p>
+<ul>
+<li>將用戶查詢轉換為<strong>嵌入向量</strong>。  </li>
+<li>在向量數據庫中根據查詢向量檢索最相關的文本片段。</li>
+</ul>
+</li>
+<li><p><strong>文本生成</strong>  </p>
+<ul>
+<li>將檢索到的文本與查詢一同傳入生成式模型。  </li>
+<li>根據檢索到的上下文生成針對性的回答。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="RAG-的核心優勢"><a href="#RAG-的核心優勢" class="headerlink" title="RAG 的核心優勢"></a>RAG 的核心優勢</h2><h3 id="1-準確性提升"><a href="#1-準確性提升" class="headerlink" title="1. 準確性提升"></a>1. <strong>準確性提升</strong></h3><ul>
+<li><strong>結合外部知識</strong>，使生成模型在回答時能依據最新且相關的內容，而不僅依賴訓練期間的數據。</li>
+<li>特別適用於需要高度專業知識的領域，如<strong>法律、醫療、技術文檔</strong>。</li>
+</ul>
+<h3 id="2-動態性與靈活性"><a href="#2-動態性與靈活性" class="headerlink" title="2. 動態性與靈活性"></a>2. <strong>動態性與靈活性</strong></h3><ul>
+<li>知識庫可以<strong>動態更新</strong>，無需對生成模型進行重新訓練。</li>
+<li>支持處理<strong>多種格式</strong>的知識來源（PDF、Word、網頁）。</li>
+</ul>
+<h3 id="3-節省計算資源"><a href="#3-節省計算資源" class="headerlink" title="3. 節省計算資源"></a>3. <strong>節省計算資源</strong></h3><ul>
+<li>檢索模塊有效縮小了生成模型的處理範圍，<strong>減少不必要的推理工作</strong>。</li>
+</ul>
+<hr>
+<h2 id="RAG-與傳統生成模型的區別"><a href="#RAG-與傳統生成模型的區別" class="headerlink" title="RAG 與傳統生成模型的區別"></a>RAG 與傳統生成模型的區別</h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>傳統生成模型</th>
+<th>RAG</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>知識來源</td>
+<td>模型內部預訓練知識</td>
+<td>外部知識庫</td>
+</tr>
+<tr>
+<td>回答更新</td>
+<td>固定，無法動態更新</td>
+<td>支持<strong>知識庫動態更新</strong></td>
+</tr>
+<tr>
+<td>準確性</td>
+<td>依賴模型訓練數據</td>
+<td><strong>結合檢索</strong>，回答更精確</td>
+</tr>
+<tr>
+<td>計算成本</td>
+<td>處理整個上下文較昂貴</td>
+<td>聚焦檢索結果，計算更高效</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="RAG-與相關技術的對比"><a href="#RAG-與相關技術的對比" class="headerlink" title="RAG 與相關技術的對比"></a>RAG 與相關技術的對比</h2><p>RAG 作為一種結合檢索與生成的技術框架，與其他知識增強技術相比具有獨特的優勢。以下是一些關鍵技術的對比分析：</p>
+<h3 id="1-Fine-tuning-vs-RAG"><a href="#1-Fine-tuning-vs-RAG" class="headerlink" title="1. Fine-tuning vs. RAG"></a><strong>1. Fine-tuning vs. RAG</strong></h3><ul>
+<li><strong>Fine-tuning</strong> 是透過額外的數據對生成模型進行再訓練，以增強其在特定領域的能力。</li>
+<li><strong>RAG 的優勢</strong>：<ul>
+<li>無需重新訓練模型，只需更新<strong>外部知識庫</strong>即可快速適應新知識。</li>
+<li>適合<strong>動態性強</strong>的場景，例如新聞摘要或實時問答。</li>
+<li>節省大量的<strong>計算資源</strong>，避免模型再訓練的高昂成本。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-Prompt-Engineering-vs-RAG"><a href="#2-Prompt-Engineering-vs-RAG" class="headerlink" title="2. Prompt Engineering vs. RAG"></a><strong>2. Prompt Engineering vs. RAG</strong></h3><ul>
+<li><strong>Prompt Engineering</strong> 是通過設計精巧的提示（Prompts）來引導模型生成更準確的回答。</li>
+<li><strong>RAG 的優勢</strong>：<ul>
+<li>在提示中結合檢索到的上下文，提供更加具體和針對性的回應。</li>
+<li>Prompt Engineering 依賴於模型內部的知識，而 RAG 能補充<strong>外部最新資訊</strong>，克服模型知識過時的缺陷。</li>
+<li><strong>兩者結合</strong>：RAG 可以利用經過優化的提示工程進一步提升生成質量。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-Retriever-Only-System-vs-RAG"><a href="#3-Retriever-Only-System-vs-RAG" class="headerlink" title="3. Retriever-Only System vs. RAG"></a><strong>3. Retriever-Only System vs. RAG</strong></h3><ul>
+<li><strong>Retriever-Only System</strong> 只檢索外部知識庫並直接返回檢索結果，無生成過程。</li>
+<li><strong>RAG 的優勢</strong>：<ul>
+<li><strong>結合檢索內容進行定制化生成</strong>，針對複雜查詢提供更豐富的上下文回答。</li>
+<li>解決檢索結果格式化和語意銜接的問題，例如將檢索到的多個片段整合為<strong>流暢的回答</strong>。</li>
+<li>提升用戶體驗，減少用戶對檢索結果的<strong>二次理解成本</strong>。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="RAG-的挑戰與改進方向"><a href="#RAG-的挑戰與改進方向" class="headerlink" title="RAG 的挑戰與改進方向"></a>RAG 的挑戰與改進方向</h2><h3 id="1-檢索質量"><a href="#1-檢索質量" class="headerlink" title="1. 檢索質量"></a>1. 檢索質量</h3><ul>
+<li><strong>問題</strong>：檢索模塊可能檢索到與查詢無關或不完全相關的文本片段。  </li>
+<li><strong>解決方法</strong>：提高<strong>向量數據庫</strong>的檢索精度，如使用更好的嵌入模型。</li>
+</ul>
+<h3 id="2-生成模型的依賴"><a href="#2-生成模型的依賴" class="headerlink" title="2. 生成模型的依賴"></a>2. 生成模型的依賴</h3><ul>
+<li><strong>問題</strong>：如果生成模型處理檢索文本的能力不足，回答可能仍不夠準確。  </li>
+<li><strong>解決方法</strong>：選用性能更強的生成模型，或通過<strong>提示工程（Prompt Engineering）</strong>優化生成過程。</li>
+</ul>
+<h3 id="3-文本分割策略"><a href="#3-文本分割策略" class="headerlink" title="3. 文本分割策略"></a>3. 文本分割策略</h3><ul>
+<li><strong>問題</strong>：如何設置適合的 <code>chunk_size</code> 和 <code>chunk_overlap</code> 是一大挑戰。  </li>
+<li><strong>解決方法</strong>：根據文檔特性調整文本分割參數，確保上下文連續性。</li>
+</ul>
+<h3 id="4-計算資源需求"><a href="#4-計算資源需求" class="headerlink" title="4. 計算資源需求"></a>4. 計算資源需求</h3><ul>
+<li><strong>問題</strong>：大規模文檢索和生成可能需要較多的計算資源。  </li>
+<li><strong>解決方法</strong>：優化檢索模塊效率，並選用適當的硬件資源。</li>
+</ul>
+<hr>
+<h2 id="RAG-的未來發展"><a href="#RAG-的未來發展" class="headerlink" title="RAG 的未來發展"></a>RAG 的未來發展</h2><h3 id="1-多模態支持"><a href="#1-多模態支持" class="headerlink" title="1. 多模態支持"></a>1. 多模態支持</h3><ul>
+<li>未來的 RAG 框架可能支持<strong>多模態數據</strong>（如圖片、視頻）的檢索和生成。</li>
+<li><strong>例如</strong>：結合圖像檢索和文本生成，用於<strong>醫學影像報告</strong>。</li>
+</ul>
+<h3 id="2-增強型檢索技術"><a href="#2-增強型檢索技術" class="headerlink" title="2. 增強型檢索技術"></a>2. 增強型檢索技術</h3><ul>
+<li>引入更加智能的檢索方法，如基於深度學習的<strong>增強檢索模塊</strong>，進一步提升相關性。</li>
+</ul>
+<hr>
+<h2 id="崴寶結語"><a href="#崴寶結語" class="headerlink" title="崴寶結語"></a>崴寶結語</h2><p><strong>RAG</strong> 是一種強大的技術框架，它成功將檢索和生成相結合，使得生成式 AI 能夠處理更加複雜的知識密集型任務。</p>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 好崴寶 Weibert Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
       </div>
       
       <!-- 側邊欄 -->
