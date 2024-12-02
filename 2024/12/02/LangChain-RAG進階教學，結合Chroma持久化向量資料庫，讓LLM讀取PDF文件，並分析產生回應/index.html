@@ -22,8 +22,8 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body class="">
-  <div class="post_bg" style="">
-    <div class="archive_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy15.png&#39;);">
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
+    <div class="archive_bg" style="">
       
       <header>
   <div class="header-content">
@@ -130,36 +130,367 @@
   </div>
 </div>
         
-<main id="archives">
+<article class="post">
+  <h1>LangChain RAG進階教學，結合Chroma持久化向量資料庫，讓LLM讀取PDF文件，並分析產生回應</h1>
+  <!-- <p class="post-date">日期：Mon Dec 02 2024 13:58:16 GMT+0000</p> -->
+  <p class="post-date">日期：2024-12-02</p>
+  <!-- <p class="post-author">作者：崴寶 Weibert Weiberson</p> -->
   
-  <h1></h1>
-
-  
-
-  
-    
-      <section class="archive-year">
-        <h2 class="year-title" id="year-2022">2022</h2>
-        <div class="post-list" id="posts-2022">
-          
-            <div class="post-item">
-              
-                <a href="/2022/09/15/Hello%20World/">
-                  Hello World
-                </a>
-              
-              <time datetime="2022-09-15T03:49:40.000Z">
-                2022-09-15
-              </time>
-            </div>
-          
+    <div class="post-meta">
+      
+        <div class="post-tags">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LangChain/">LangChain</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/RAG/">RAG</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Ollama/">Ollama</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LLM/">LLM</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Chroma/">Chroma</a></li>
+            
+          </ul>
         </div>
-      </section>
-    
-  
-</main>
+      
 
-<div id="cursor-effect" class="cursor-effect"></div> 
+      
+        <div class="post-categories">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/RAG/">RAG</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>實現一個基於 LangChain 的檢索增強生成（RAG，Retrieval-Augmented Generation）模型，讓你可以對 PDF 文檔進行智能問答，並支援動態更新數據庫</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>電子報讀者募集中！歡迎
+          <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
+      </div>
+      <p><cen>本教學好崴寶Weibert將帶你一步步實現一個基於 LangChain 的檢索增強生成（RAG，Retrieval-Augmented Generation）模型，讓你可以對 PDF 文檔進行智能問答，並支援動態更新數據庫。</p>
+<h2 id="需要知識"><a href="#需要知識" class="headerlink" title="需要知識"></a>需要知識</h2><ul>
+<li><a href="https://weitsung50110.github.io/2024/05/28/LangChain-RAG%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8%EF%BC%8C%E7%B5%90%E5%90%88Llama3%E8%AE%93LLM%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96PDF%E5%92%8CDOC%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89/">LangChain RAG實作教學，結合Llama3讓LLM可以讀取PDF和DOC文件，並產生回應</a></li>
+<li><a href="https://weitsung50110.github.io/2024/11/29/%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90-RAG%EF%BC%88Retrieval-Augmented-Generation%EF%BC%89/">全面解析 RAG（Retrieval-Augmented Generation）</a></li>
+<li><a href="https://weitsung50110.github.io/2024/11/29/RAG-%E4%B8%AD%E6%96%87%E6%9C%AC%E5%88%86%E5%89%B2%EF%BC%9Achunk-size-%E5%92%8C-chunk-overlap-%E5%AF%A6%E8%B8%90%E6%8C%87%E5%8D%97/">RAG 中文本分割：chunk_size 和 chunk_overlap 實踐指南）</a></li>
+</ul>
+<h2 id="需要文件下載"><a href="#需要文件下載" class="headerlink" title="需要文件下載"></a>需要文件下載</h2><ul>
+<li>Github Repository — <a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit">weitsung50110&#x2F;Huggingface Langchain kit</a></li>
+</ul>
+<p>本文是使用到裡面的<a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/langchain_rag_pdf_chroma_advanced.py">langchain_rag_pdf_chroma_advanced.py</a>檔案。</p>
+<h2 id="教學目標"><a href="#教學目標" class="headerlink" title="教學目標"></a>教學目標</h2><p><strong>實現功能</strong></p>
+<ul>
+<li>載入 PDF 文檔。</li>
+<li>將 PDF 文檔分割為小段進行嵌入生成。</li>
+<li>構建向量數據庫（Vector Database）來支持快速檢索。</li>
+<li>使用檢索增強生成（RAG）模型回答用戶問題。</li>
+<li>動態檢測 PDF 更新，自動重建數據庫，保證查詢內容的準確性。</li>
+</ul>
+<h2 id="技術架構"><a href="#技術架構" class="headerlink" title="技術架構"></a>技術架構</h2><p><strong>使用工具與框架</strong></p>
+<ul>
+<li><strong>LangChain</strong>：構建檢索與生成的核心框架。</li>
+<li><strong>Chroma 向量數據庫</strong>：用於存儲和檢索嵌入向量。</li>
+<li><strong>Ollama LLM</strong>：生成自然語言回應。</li>
+<li><strong>PDF 處理與文本分割</strong>：提取 PDF 文件中的文本並分段存儲。</li>
+</ul>
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><pre><code>root@4be643ba6a94:/app# python3 langchain_rag_pdf_chroma_advanced.py
+---PDF 文件已更新，正在重新生成數據庫...
+---正在刪除舊的向量數據庫...
+---正在載入文件，請稍候...
+---PDF 加載完成，共 3 頁
+第 1 頁內容（部分）:
+崴寶  Weibert Weiberson - AI 軟體工程師
+關於崴寶
+🎓 崴寶，資訊科
+第 2 頁內容（部分）:
+ Instagram : @weibert_coding
+ YouTube : Well崴寶
+第 3 頁內容（部分）:
+工具與技術
+ Git 版本控制
+ Docker
+ Linux / Ubuntu
+
+---正在分割文本...
+---分割後的文檔數量: 3
+第一段內容（部分）:
+崴寶  Weibert Weiberson - AI 軟體工程師
+關於崴寶
+🎓 崴寶，資訊科
+
+---正在生成向量數據庫...
+/app/langchain_agents_React-docstore.py:87: LangChainDeprecationWarning: Since Chroma 0.4.x the manual persistence method is no longer supported as docs are automatically persisted.
+vectorstore.persist()
+---向量數據庫已保存！
+
+請輸入查詢內容（輸入 &#39;bye&#39; 退出）：崴寶的Threads帳號是？
+Number of requested results 4 is greater than number of elements in index 3, updating n_results = 3
+@weibert_coding
+
+請輸入查詢內容（輸入 &#39;bye&#39; 退出）：崴寶的專長？
+Number of requested results 4 is greater than number of elements in index 3, updating n_results = 3
+崴寶的專長包括：
+
+1. NLP（自然語言處理）：熟悉 LangChain、RAG、HuggingFace、BERT 等技術。
+2. CV（電腦視覺）：精通 OpenCV、PyTorch、YOLOR / YOLOv7、PRB-FPN 和 
+Attention Mechanism 等工具和技術。
+
+請輸入查詢內容（輸入 &#39;bye&#39; 退出）：介紹一下崴寶
+Number of requested results 4 is greater than number of elements in index 3, updating n_results = 3
+崴寶（Weibert Weiberson）是一位 AI 軟體工程師，目前在台灣某上市公司擔任。
+他具有資訊科學碩士學歷，並涉足多個領域，如電腦視覺、機器學習、大型語言模型、手機遊戲開發、
+網站架設和 APP 開發等。崴寶的使命是攜手程式設計愛好者一起學習、成長，實現他們的程式夢想。
+
+他在社群媒體上提供各種工具與技術，如 Git 版本控制、Docker、Linux / Ubuntu、
+SQLite, MySQL, Firebase, NoSQL 等。他也是一位活躍的 YouTuber，
+在頻道「Weibert好崴寶程式」分享更多程式教學影片。
+崴寶擅長 NLP（自然語言處理）和 CV（電腦視覺），
+使用了 LangChain、RAG、HuggingFace、BERT 等工具。
+他是一位多才多藝的程式設計師，對於想要學習程式的人來說，是個很好的夥伴。
+</code></pre>
+<h2 id="前置條件"><a href="#前置條件" class="headerlink" title="前置條件"></a>前置條件</h2><ol>
+<li>確保本地環境已安裝 <strong>Ollama</strong>。</li>
+<li>下載所需的 LLM 模型，例如：<code>kenneth85/llama-3-taiwan:8b-instruct</code>。</li>
+<li>準備 PDF 測試文檔，將其命名為 <code>pdf_test.pdf</code> 並放置於程式的根目錄。</li>
+</ol>
+<blockquote>
+<p>本文有在GitHub放了我寫的PDF測試檔案叫做<a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit/blob/master/pdf/pdf_test.pdf">pdf_test.pdf</a>，大家也可以拿來測試用。</p>
+</blockquote>
+<h2 id="1-初始化環境"><a href="#1-初始化環境" class="headerlink" title="1. 初始化環境"></a>1. 初始化環境</h2><p>首先，我們需要初始化 LangChain 中的主要組件：</p>
+<ul>
+<li><p><strong>Ollama</strong>：作為生成模型（LLM）。</p>
+</li>
+<li><p><strong>OllamaEmbeddings</strong>：生成向量嵌入，用於文本檢索匹配。</p>
+</li>
+<li><p><strong>Chroma</strong>：用於存儲和檢索嵌入向量。</p>
+<pre><code>  from langchain_community.llms import Ollama
+  from langchain_community.embeddings import OllamaEmbeddings
+  from langchain.vectorstores import Chroma
+  from langchain.callbacks.manager import CallbackManager
+  from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+
+  # 初始化 Callback Manager
+  callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
+
+  # 初始化 Ollama LLM
+  llm = Ollama(
+      model=&quot;kenneth85/llama-3-taiwan:8b-instruct&quot;,
+      callback_manager=callback_manager
+  )
+
+  # 初始化 Ollama Embeddings
+  embeddings = OllamaEmbeddings(model=&quot;kenneth85/llama-3-taiwan:8b-instruct&quot;)
+</code></pre>
+</li>
+</ul>
+<h2 id="2-設置文件與向量數據庫存儲路徑"><a href="#2-設置文件與向量數據庫存儲路徑" class="headerlink" title="2. 設置文件與向量數據庫存儲路徑"></a>2. 設置文件與向量數據庫存儲路徑</h2><p>我們需要指定 PDF 文件的路徑和向量數據庫的存儲目錄，並設置一個哈希文件用於檢測 PDF 文件的變更。</p>
+<ul>
+<li><p>指定 PDF 文件的路徑和向量數據庫的存儲目錄。</p>
+<pre><code>  import hashlib
+  import os
+
+  # PDF 文件路徑
+  pdf_path = &quot;pdf_test.pdf&quot;
+
+  # 向量資料庫存儲目錄
+  persist_directory = &quot;chroma_vectorstore&quot;
+
+  # 哈希文件存儲路徑
+  hash_file_path = os.path.join(persist_directory, &quot;pdf_hash.txt&quot;)
+</code></pre>
+</li>
+</ul>
+<p>為了檢測文件是否發生變更，我們計算 PDF 文件的 MD5 哈希值。</p>
+<ul>
+<li><p>設置哈希文件，用於檢測 PDF 文件的變更。</p>
+<pre><code>  def calculate_file_hash(file_path):
+      hasher = hashlib.md5()
+      with open(file_path, &quot;rb&quot;) as f:
+          buf = f.read()
+          hasher.update(buf)
+      return hasher.hexdigest()
+</code></pre>
+</li>
+</ul>
+<h2 id="3-檢測-PDF-文件變更"><a href="#3-檢測-PDF-文件變更" class="headerlink" title="3. 檢測 PDF 文件變更"></a>3. 檢測 PDF 文件變更</h2><p>通過比對當前 PDF 文件的哈希值和之前保存的哈希值，來確定是否需要更新向量數據庫。</p>
+<ul>
+<li><p>計算 PDF 文件的 MD5 哈希值。</p>
+</li>
+<li><p>若哈希值與記錄不符，表示文件內容已更改，需要更新數據庫。</p>
+<pre><code>  # 檢查是否需要更新數據庫
+  def needs_update(pdf_path, hash_file_path):
+      new_hash = calculate_file_hash(pdf_path)
+      if not os.path.exists(hash_file_path):
+          return True, new_hash
+      with open(hash_file_path, &quot;r&quot;) as f:
+          existing_hash = f.read().strip()
+      return new_hash != existing_hash, new_hash
+
+  update_required, new_hash = needs_update(pdf_path, hash_file_path)
+</code></pre>
+</li>
+</ul>
+<h2 id="4：生成向量數據庫"><a href="#4：生成向量數據庫" class="headerlink" title="4：生成向量數據庫"></a>4：生成向量數據庫</h2><h3 id="文件變更檢測與數據庫更新"><a href="#文件變更檢測與數據庫更新" class="headerlink" title="文件變更檢測與數據庫更新"></a>文件變更檢測與數據庫更新</h3><ol>
+<li>如果檢測到 PDF 文件有變更，則重新生成向量數據庫。</li>
+<li>如果文件無變更，則直接加載現有的數據庫。</li>
+</ol>
+<h3 id="清理舊數據庫"><a href="#清理舊數據庫" class="headerlink" title="清理舊數據庫"></a>清理舊數據庫</h3><ul>
+<li><p>若 PDF 文件有更新，需要刪除舊數據庫以保證內容一致性。</p>
+</li>
+<li><p>刪除舊數據庫後，重新生成新的向量數據庫。</p>
+<pre><code>  if os.path.exists(persist_directory) and not update_required:
+      print(&quot;---正在加載現有的向量數據庫...&quot;)
+      vectorstore = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
+  else:
+      print(&quot;---PDF 文件已更新，正在重新生成數據庫...&quot;)
+
+      # 清理舊數據庫
+      if os.path.exists(persist_directory):
+          print(&quot;---正在刪除舊的向量數據庫...&quot;)
+          import shutil
+          shutil.rmtree(persist_directory)
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3 id="載入-PDF-並分割文本"><a href="#載入-PDF-並分割文本" class="headerlink" title="載入 PDF 並分割文本"></a>載入 PDF 並分割文本</h3><ol>
+<li><p><strong>提取 PDF 文本</strong>：<br>使用 <strong>PyPDFLoader</strong> 從 PDF 文件中提取文本。</p>
+</li>
+<li><p><strong>分割文本</strong>：<br>使用 <strong>RecursiveCharacterTextSplitter</strong> 按指定大小和重疊率分割文本：</p>
+<ul>
+<li><code>chunk_size=500</code></li>
+<li><code>chunk_overlap=50</code></li>
+</ul>
+</li>
+<li><p>完成後，記錄分割的段數以供後續使用。</p>
+<pre><code> from langchain.document_loaders import PyPDFLoader
+ from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+ # 步驟 1：載入 PDF
+ loader = PyPDFLoader(pdf_path)
+ documents = loader.load()
+
+ # 步驟 2：分割文本
+ text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+ docs = text_splitter.split_documents(documents)
+
+ print(f&quot;---PDF 分割完成，共 &#123;len(docs)&#125; 段&quot;)
+</code></pre>
+</li>
+</ol>
+<hr>
+<h3 id="生成並持久化向量數據庫"><a href="#生成並持久化向量數據庫" class="headerlink" title="生成並持久化向量數據庫"></a>生成並持久化向量數據庫</h3><ol>
+<li><p>將分割後的文本轉換為向量。</p>
+</li>
+<li><p>使用 <strong>Chroma</strong> 持久化數據庫，存儲生成的向量。</p>
+</li>
+<li><p>保存新的 PDF 哈希值，以便下次對比文件變更。</p>
+<pre><code> from langchain.vectorstores import Chroma
+
+ # 步驟 3：生成向量數據庫
+ vectorstore = Chroma.from_documents(docs, embeddings, persist_directory=persist_directory)
+ vectorstore.persist()
+
+ # 保存新的 PDF 哈希值
+ with open(hash_file_path, &quot;w&quot;) as f:
+     f.write(new_hash)
+</code></pre>
+</li>
+</ol>
+<hr>
+<h2 id="5：構建檢索問答鏈"><a href="#5：構建檢索問答鏈" class="headerlink" title="5：構建檢索問答鏈"></a>5：構建檢索問答鏈</h2><p>利用生成模型（LLM）和檢索數據庫構建檢索問答鏈：</p>
+<ul>
+<li><p>將數據庫設為檢索器。</p>
+</li>
+<li><p>通過 <strong>RetrievalQA</strong> 模組，實現檢索增強生成（RAG）的功能。</p>
+<pre><code>  from langchain.chains import RetrievalQA
+
+  retriever = vectorstore.as_retriever()
+  qa_chain = RetrievalQA.from_chain_type(llm=llm, chain_type=&quot;stuff&quot;, retriever=retriever)
+</code></pre>
+</li>
+</ul>
+<hr>
+<h2 id="6：提供查詢功能"><a href="#6：提供查詢功能" class="headerlink" title="6：提供查詢功能"></a>6：提供查詢功能</h2><ol>
+<li>提供一個互動式查詢介面，讓用戶輸入問題進行查詢。</li>
+<li>功能描述：<ul>
+<li><p>用戶輸入查詢內容。</p>
+</li>
+<li><p>系統檢索相關內容並生成答案。</p>
+</li>
+<li><p>當用戶輸入 <code>bye</code>，系統退出。</p>
+<pre><code>   # 提供查詢功能
+   while True:
+       query = input(&quot;請輸入查詢內容（輸入 &#39;bye&#39; 退出）：&quot;)
+       if query.lower() == &quot;bye&quot;:
+           print(&quot;已退出查詢系統。&quot;)
+           break
+       result = qa_chain.invoke(query)
+       print(f&quot;查詢結果:\n&#123;result&#125;&quot;)
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="完整流程"><a href="#完整流程" class="headerlink" title="完整流程"></a>完整流程</h2><h3 id="1-檢測-PDF-文件變更"><a href="#1-檢測-PDF-文件變更" class="headerlink" title="1. 檢測 PDF 文件變更"></a>1. 檢測 PDF 文件變更</h3><ul>
+<li>若文件有更新，刪除舊數據庫並重新生成。</li>
+<li>若無變更，直接加載現有數據庫。</li>
+</ul>
+<h3 id="2-生成向量數據庫"><a href="#2-生成向量數據庫" class="headerlink" title="2. 生成向量數據庫"></a>2. 生成向量數據庫</h3><ul>
+<li>分割 PDF 文本。</li>
+<li>生成嵌入向量並存儲於數據庫。</li>
+</ul>
+<h3 id="3-檢索與生成"><a href="#3-檢索與生成" class="headerlink" title="3. 檢索與生成"></a>3. 檢索與生成</h3><ul>
+<li>基於用戶查詢，檢索相關內容並生成答案。</li>
+</ul>
+<hr>
+<h2 id="崴寶結語"><a href="#崴寶結語" class="headerlink" title="崴寶結語"></a>崴寶結語</h2><p>之前崴寶教導大家的基礎 RAG 是使用 <strong>Faiss</strong> 向量數據庫（詳見：<a href="https://weitsung50110.github.io/2024/05/28/LangChain-RAG%E5%AF%A6%E4%BD%9C%E6%95%99%E5%AD%B8%EF%BC%8C%E7%B5%90%E5%90%88Llama3%E8%AE%93LLM%E5%8F%AF%E4%BB%A5%E8%AE%80%E5%8F%96PDF%E5%92%8CDOC%E6%96%87%E4%BB%B6%EF%BC%8C%E4%B8%A6%E7%94%A2%E7%94%9F%E5%9B%9E%E6%87%89/">LangChain RAG實作教學，結合Llama3讓LLM可以讀取PDF和DOC文件，並產生回應</a>）。</p>
+<blockquote>
+<p>本次進階教學則使用 <strong>Chroma</strong> 向量數據庫，並藉由哈希值來達成動態檢測 PDF 文件更新，<strong>自動重建Vector Database</strong>。</p>
+</blockquote>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 好崴寶 Weibert Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
       </div>
       
       <!-- 側邊欄 -->
@@ -355,6 +686,8 @@
           <a href="#" class="side_tag-item" data-tag="Agents">Agents</a>
         
           <a href="#" class="side_tag-item" data-tag="Text-Splitter">Text-Splitter</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Chroma">Chroma</a>
         
       </div>
     </div>
@@ -578,6 +911,8 @@
             
               <a href="#" class="tag-item" data-tag="Text-Splitter">Text-Splitter</a>
             
+              <a href="#" class="tag-item" data-tag="Chroma">Chroma</a>
+            
           </div>
         </div>
       
@@ -699,6 +1034,8 @@
           <a href="https://weitsung50110.github.io/tags/Agents/" class="tag-item">Agents</a>
         
           <a href="https://weitsung50110.github.io/tags/Text-Splitter/" class="tag-item">Text-Splitter</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Chroma/" class="tag-item">Chroma</a>
         
       </div>
       
