@@ -22,7 +22,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body class="">
-  <div class="post_bg" style="">
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
     <div class="archive_bg" style="">
       
       <header>
@@ -129,70 +129,343 @@
     <div id="search-results"></div>
   </div>
 </div>
-        <div id="tags" >
-    <h1></h1>
-    
-    
-      <ul class="post-list">
         
-          <li>
+<article class="post">
+  <h1>LangChain Agents 和 Ollama 建一個有多輪對話和上下文記憶能力的 LLM 聊天機器人 Chatbot</h1>
+  <!-- <p class="post-date">日期：Thu Dec 05 2024 14:52:24 GMT+0000</p> -->
+  <p class="post-date">日期：2024-12-05</p>
+  <!-- <p class="post-author">作者：崴寶 Weibert Weiberson</p> -->
+  
+    <div class="post-meta">
+      
+        <div class="post-tags post-tags-margin">
+          <span>標籤:</span>
+          <ul>
             
-              <a href="/2024/LangChain-Agents-%E5%92%8C-Ollama-%E5%BB%BA%E4%B8%80%E5%80%8B%E6%9C%89%E5%A4%9A%E8%BC%AA%E5%B0%8D%E8%A9%B1%E5%92%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E8%A8%98%E6%86%B6%E8%83%BD%E5%8A%9B%E7%9A%84-LLM-%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA-Chatbot/">
-                LangChain Agents 和 Ollama 建一個有多輪對話和上下文記憶能力的 LLM 聊天機器人 Chatbot
-              </a>
+              <li><a href="https://weitsung50110.github.io/tags/LangChain/">LangChain</a></li>
             
-            <time datetime="2024-12-05T14:52:24.000Z">
-              2024-12-05
-            </time>
-          </li>
-        
-          <li>
+              <li><a href="https://weitsung50110.github.io/tags/Ollama/">Ollama</a></li>
             
-              <a href="/2024/LangChain-RAG%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-Flask-ChatbotWeb-%E7%B6%B2%E7%AB%99/">
-                LangChain RAG打造個人化 llama3 Flask ChatbotWeb 網站
-              </a>
+              <li><a href="https://weitsung50110.github.io/tags/LLM/">LLM</a></li>
             
-            <time datetime="2024-06-20T14:25:34.000Z">
-              2024-06-20
-            </time>
-          </li>
-        
-          <li>
+              <li><a href="https://weitsung50110.github.io/tags/Chatbot/">Chatbot</a></li>
             
-              <a href="/2024/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/">
-                利用LLM、Flask、LangChain實作聊天機器人chat bot網站
-              </a>
+              <li><a href="https://weitsung50110.github.io/tags/Agents/">Agents</a></li>
             
-            <time datetime="2024-06-12T14:53:10.000Z">
-              2024-06-12
-            </time>
-          </li>
-        
-          <li>
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories post-categories-margin">
+          <span>類別:</span>
+          <ul>
             
-              <a href="/2024/LangChain%E7%B5%90%E5%90%88%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8B-LLM-%E8%AE%80%E5%8F%96%E7%B6%B2%E9%A0%81%EF%BC%8C%E5%88%86%E6%9E%90%E7%B6%B2%E9%A0%81%E4%B8%A6%E7%94%A2%E7%94%9F%E9%87%8D%E9%BB%9E%E6%91%98%E8%A6%81%EF%BC%8C%E9%80%B2%E8%A1%8C%E6%9C%89%E8%A8%98%E6%86%B6%E6%80%A7%E7%9A%84%E5%B0%8D%E8%A9%B1/">
-                LangChain結合大型語言模型(LLM)讀取網頁，分析網頁並產生重點摘要，進行有記憶性的對話
-              </a>
+              <li><a href="https://weitsung50110.github.io/categories/Agents/">Agents</a></li>
             
-            <time datetime="2024-06-07T14:19:11.000Z">
-              2024-06-07
-            </time>
-          </li>
-        
-          <li>
-            
-              <a href="/2024/%E4%BD%BF%E7%94%A8LangChain%E5%92%8C%E5%A4%A7%E5%9E%8B%E8%AA%9E%E8%A8%80%E6%A8%A1%E5%9E%8B-LLM-%E5%AF%A6%E4%BD%9C%E6%9C%89%E8%A8%98%E6%86%B6%E6%80%A7%E7%9A%84%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA-Conversational-Retrieval-Chain/">
-                使用LangChain和大型語言模型(LLM)實作有記憶性的聊天機器人(Conversational Retrieval Chain)
-              </a>
-            
-            <time datetime="2024-06-04T13:24:09.000Z">
-              2024-06-04
-            </time>
-          </li>
-        
-      </ul>
-    
-  </div> 
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>使用 LangChain 來構建 LLM 聊天機器人。此助手具備多輪對話的能力，並能記住上下文，還可以執行特定工具來回答問題（查詢今天的日期）。</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>電子報讀者募集中！歡迎
+          <a href="https://weibertweiberson.ck.page/00a0b8d361" target="_blank">訂閱電子報</a>！</p>
+      </div>
+      <p><cen>崴寶教你如何使用 LangChain 來構建 LLM 聊天機器人。此助手具備多輪對話的能力，並能記住上下文，還可以執行特定工具來回答問題（查詢今天的日期）。</p>
+<h2 id="所需檔案下載"><a href="#所需檔案下載" class="headerlink" title="所需檔案下載"></a>所需檔案下載</h2><p><strong>Github Repository</strong> — <a target="_blank" rel="noopener" href="https://github.com/weitsung50110/Huggingface_Langchain_kit">weitsung50110&#x2F;Huggingface_Langchain_kit</a></p>
+<p>本文使用裡面的 <code>langchain_agents_conversational-react_memory.py</code> 檔案。</p>
+<p>在 <code>initialize_agent</code> 中有非常多的 Agents，詳細介紹可以參考這篇:<br><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/langchain-agents-%E9%A1%9E%E5%9E%8B%E8%A7%A3%E6%9E%90-%E5%A6%82%E4%BD%95%E9%81%B8%E6%93%87%E6%9C%80%E9%81%A9%E5%90%88%E4%BD%A0%E7%9A%84%E6%87%89%E7%94%A8%E5%A0%B4%E6%99%AF-1de970dbfe22">LangChain Agents 預設代理類型解析：initialize_agent 選擇最適合你的應用場景</a></p>
+<p>本文使用 <strong>Conversational-react-description</strong> 進行實作。</p>
+<p>若想使用 <strong>zero-shot-react-description</strong> 進行實作，可以參考這篇:<br><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/%E7%94%A8-langchain-agents-%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%A4%9A%E5%8A%9F%E8%83%BD-ai-%E5%8A%A9%E6%89%8B-%E6%94%AF%E6%8F%B4%E6%97%A5%E6%9C%9F%E6%9F%A5%E8%A9%A2%E8%88%87%E6%95%B8%E5%AD%B8%E9%81%8B%E7%AE%97-11949813964f">用 LangChain Agents 和 Ollama 建立 LLM 多功能 AI 助手：支援日期查詢與數學運算</a></p>
+<h2 id="程式架構"><a href="#程式架構" class="headerlink" title="程式架構"></a>程式架構</h2><ol>
+<li><strong>初始化 LLM</strong> — 使用 Ollama 的語言模型。</li>
+<li><strong>定義工具</strong> — 如查詢日期的工具。</li>
+<li><strong>自定義 Prompt</strong> — 指導 AI 如何回應問題。</li>
+<li><strong>管理記憶</strong> — 記住上下文對話。</li>
+<li><strong>建立對話型代理（Agent）</strong> — 將 LLM、工具和記憶結合。</li>
+<li><strong>互動主程式</strong> — 實現人機互動，處理多輪對話。</li>
+</ol>
+<h2 id="Docker-Image"><a href="#Docker-Image" class="headerlink" title="Docker Image"></a>Docker Image</h2><p><strong>Image 名稱</strong>: <code>weitsung50110/ollama_flask</code><br>此為已安裝好的 Docker image 環境。</p>
+<p><strong>使用說明</strong>:</p>
+<p>有關 <code>docker run</code> 等使用方法，請進入 Docker Hub 的說明欄查看詳細資訊。</p>
+<p><strong>Docker Hub 連結</strong>: <a target="_blank" rel="noopener" href="https://hub.docker.com/r/weitsung50110/ollama_flask">weitsung50110&#x2F;ollama_flask</a></p>
+<pre><code>docker pull weitsung50110/ollama_flask:1.0
+</code></pre>
+<h2 id="1-初始化-LLM"><a href="#1-初始化-LLM" class="headerlink" title="1. 初始化 LLM"></a>1. 初始化 LLM</h2><p>這一步是引入 <strong>Ollama 語言模型</strong>，並設定模型參數（使用 <code>kenneth85/llama-3-taiwan:8b-instruct</code> 模型）。</p>
+<p><strong>注意</strong>: <code>model</code> 是可以調整更動的。</p>
+<blockquote>
+<p>model&#x3D;’更換成你載入的模型’<br>Ex：llm &#x3D; Ollama(model&#x3D;’llama3’)</p>
+</blockquote>
+<pre><code>llm = Ollama(
+    model=&quot;kenneth85/llama-3-taiwan:8b-instruct&quot;, 
+    callback_manager=CallbackManager([StreamingStdOutCallbackHandler()])
+)
+</code></pre>
+<p><code>CallbackManager</code> 用於處理事件回調，而 <code>StreamingStdOutCallbackHandler</code> 則允許在終端上顯示輸出的過程。</p>
+<h2 id="2-定義工具"><a href="#2-定義工具" class="headerlink" title="2.定義工具"></a>2.定義工具</h2><pre><code>def get_today_date(_):
+    print(datetime.now().strftime(&quot;今天是 %Y 年 %m 月 %d 日，星期%a。&quot;))
+    return datetime.now().strftime(&quot;今天是 %Y 年 %m 月 %d 日，星期%a。&quot;)
+
+tools = [
+    Tool(
+        name=&quot;get today date&quot;, 
+        func=get_today_date, 
+        description=&quot;回答今天的日期和星期幾。&quot;
+    )
+]
+</code></pre>
+<ul>
+<li><p><strong>工具函數</strong><br>定義查詢今天日期的功能，返回格式化的日期和星期。</p>
+</li>
+<li><p><strong>工具列表</strong><br>將工具封裝為一個 Tool，指定工具的名稱和用途。</p>
+</li>
+<li><p><strong>工具調用</strong><br>當用戶詢問日期時，代理 Agent 會調用此工具提供答案。</p>
+</li>
+</ul>
+<h2 id="3-自定義-Prompt"><a href="#3-自定義-Prompt" class="headerlink" title="3.自定義 Prompt"></a>3.自定義 Prompt</h2><pre><code>custom_prompt = PromptTemplate(
+    input_variables=[&quot;input&quot;, &quot;chat_history&quot;],
+    template=&quot;&quot;&quot;\
+你是一個智慧型 AI 助手，能回答問題並記住上下文。
+可以使用以下工具：
+1. get today date: 提供今天的日期和星期幾。
+
+當問題可以直接回答時，請直接回答。只有在必須使用工具時才使用它們。
+
+以下是目前的對話記錄：
+&#123;chat_history&#125;
+
+使用者的最新問題是：&#123;input&#125;
+請根據上下文回答問題，並僅在必要時使用工具。
+&quot;&quot;&quot;
+)
+</code></pre>
+<p><code>PromptTemplate</code> 定義 AI 回應問題的規則</p>
+<ul>
+<li><p><strong>包含對工具的描述</strong><br>提供工具的功能與使用方式，讓 AI 瞭解如何正確使用工具。</p>
+</li>
+<li><p><strong>提示 AI 考慮對話記錄</strong><br>引導 AI 根據上下文與對話記錄回答問題，保持對話的一致性。</p>
+</li>
+<li><p><strong>指導 AI 僅在必要時使用工具</strong><br>明確要求 AI 只在需要時調用工具，避免不必要的操作。</p>
+</li>
+</ul>
+<h2 id="4-初始化記憶"><a href="#4-初始化記憶" class="headerlink" title="4.初始化記憶"></a>4.初始化記憶</h2><pre><code>memory = ConversationBufferMemory(memory_key=&quot;chat_history&quot;, return_messages=True)
+</code></pre>
+<p><strong>記憶（Memory）與 ConversationBufferMemory</strong></p>
+<ul>
+<li><p><strong>記憶用途</strong><br>記憶用於儲存對話歷史，<code>ConversationBufferMemory</code> 將每次對話記錄起來，方便 AI 回顧。</p>
+</li>
+<li><p><strong>主要設定</strong>  </p>
+<ul>
+<li><code>memory_key=&quot;chat_history&quot;</code>：指定記憶的鍵值。</li>
+<li><code>return_messages=True</code>：返回完整的對話訊息。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="為什麼使用-ConversationBufferMemory？"><a href="#為什麼使用-ConversationBufferMemory？" class="headerlink" title="為什麼使用 ConversationBufferMemory？"></a>為什麼使用 ConversationBufferMemory？</h3><p><code>ConversationBufferMemory</code> 是 LangChain 中一種常見的記憶類型，主要用於儲存對話的完整歷史記錄，以便在多輪對話中保持上下文連貫性。</p>
+<hr>
+<h3 id="特點"><a href="#特點" class="headerlink" title="特點"></a>特點</h3><ol>
+<li><p><strong>完整記錄對話</strong><br>將每次用戶與 AI 的對話訊息按順序儲存。</p>
+</li>
+<li><p><strong>上下文參考</strong><br>代理可以根據歷史對話來理解當前問題，避免忘記先前的對話。</p>
+</li>
+<li><p><strong>簡單易用</strong><br>設置與管理相對容易，適合基礎對話應用。</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>記憶方式</th>
+<th>適合情境</th>
+<th>優點</th>
+<th>缺點</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ConversationBufferMemory</td>
+<td>短期對話，內容不多時適用</td>
+<td>簡單直觀，實現快速</td>
+<td>無法處理長對話或多主題場景</td>
+</tr>
+<tr>
+<td>ConversationSummaryMemory</td>
+<td>長期對話，需保持全局概念時適用</td>
+<td>節省資源，保持上下文連貫</td>
+<td>易丟失細節，回應可能不夠準確</td>
+</tr>
+<tr>
+<td>VectorStoreMemory</td>
+<td>多主題對話，需快速檢索時適用</td>
+<td>高效檢索，支持大規模數據</td>
+<td>複雜實現，需配置向量數據庫</td>
+</tr>
+<tr>
+<td>CombinedMemory</td>
+<td>複雜應用，多種需求並存時適用</td>
+<td>彈性高，適用廣泛</td>
+<td>資源需求高，實現成本高</td>
+</tr>
+</tbody></table>
+<h2 id="5-初始化對話型代理（Agent）"><a href="#5-初始化對話型代理（Agent）" class="headerlink" title="5.初始化對話型代理（Agent）"></a>5.初始化對話型代理（Agent）</h2><pre><code>agent = initialize_agent(
+    tools=tools,
+    llm=llm,
+    agent=&quot;conversational-react-description&quot;,
+    verbose=False,
+    agent_prompt=custom_prompt,
+    handle_parsing_errors=True,
+    memory=memory
+)
+</code></pre>
+<h3 id="代理結合-LLM、工具與記憶"><a href="#代理結合-LLM、工具與記憶" class="headerlink" title="代理結合 LLM、工具與記憶"></a>代理結合 LLM、工具與記憶</h3><p>在這裡，我們將 LLM、工具和記憶結合到一個代理中，以實現多輪對話的功能。</p>
+<h3 id="結合的元素"><a href="#結合的元素" class="headerlink" title="結合的元素"></a>結合的元素</h3><ol>
+<li><p><strong>tools</strong><br>包含查詢日期的工具，用於執行特定任務。</p>
+</li>
+<li><p><strong>llm</strong><br>指定的語言模型，負責生成自然語言回應。</p>
+</li>
+<li><p><strong>agent_prompt</strong><br>使用自定義的 Prompt 指導代理的回應行為。</p>
+</li>
+<li><p><strong>memory</strong><br>整合對話記憶，用於儲存對話歷史，保持上下文的連貫性。</p>
+</li>
+<li><p><strong>handle_parsing_errors</strong><br>用於處理解析錯誤，避免因語法或其他錯誤導致程式崩潰。</p>
+</li>
+<li><p><strong>agent&#x3D;”conversational-react-description”</strong><br>表明這是一個對話型代理，適合多輪對話應用場景。</p>
+</li>
+</ol>
+<h2 id="6-主程式互動"><a href="#6-主程式互動" class="headerlink" title="6.主程式互動"></a>6.主程式互動</h2><pre><code>def main():
+    print(&quot;歡迎使用智慧型 AI 助手！可以進行多輪對話，並記住上下文。&quot;)
+    print(&quot;隨時輸入問題，例如：『今天是幾號？』，或『你剛剛問了什麼？』&quot;)
+    print(&quot;如果想結束對話，請輸入 &#39;bye&#39;, &#39;exit&#39; 或 &#39;quit&#39;。\n&quot;)
+
+    while True:
+        user_query = input(&quot;請輸入您的問題：&quot;)
+        if user_query.lower() in [&quot;bye&quot;, &quot;exit&quot;, &quot;quit&quot;]:
+            print(&quot;感謝您的使用，再見！&quot;)
+            break
+
+        try:
+            response = agent.invoke(&#123;&quot;input&quot;: user_query&#125;)
+            print(&quot;\nAI 助手的回答紀錄：&quot;)
+            print(response)
+        except Exception as e:
+            print(f&quot;抱歉，處理你的問題時出現了一些錯誤：&#123;e&#125;&quot;)
+</code></pre>
+<h3 id="用戶與-AI-助手互動的主邏輯"><a href="#用戶與-AI-助手互動的主邏輯" class="headerlink" title="用戶與 AI 助手互動的主邏輯"></a>用戶與 AI 助手互動的主邏輯</h3><p>主邏輯步驟</p>
+<ol>
+<li><p><strong>提示用戶輸入問題</strong><br>當用戶輸入問題後，將其傳遞給代理處理。</p>
+</li>
+<li><p><strong>檢查退出條件</strong><br>如果用戶輸入 <code>bye</code>、<code>exit</code> 或 <code>quit</code>，則結束程式。</p>
+</li>
+<li><p><strong>捕捉錯誤</strong><br>捕捉異常情況，避免因錯誤導致程式中斷運行。</p>
+</li>
+</ol>
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><blockquote>
+<p>執行程式</p>
+</blockquote>
+<pre><code>root@4be643ba6a94:/app# python3 langchain_agents_conversational-react_memory.py
+/app/langchain_agents_conversational-react_memory.py:10: LangChainDeprecationWarning: The class `Ollama` was deprecated in LangChain 0.3.1 and will be removed in 1.0.0. An updated version of the class exists in the :class:`~langchain-ollama package and should be used instead. To use it run `pip install -U :class:`~langchain-ollama` and import as `from :class:`~langchain_ollama import OllamaLLM``.
+llm = Ollama(model=&quot;kenneth85/llama-3-taiwan:8b-instruct&quot;, callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
+/app/langchain_agents_conversational-react_memory.py:10: DeprecationWarning: callback_manager is deprecated. Please use callbacks instead.
+llm = Ollama(model=&quot;kenneth85/llama-3-taiwan:8b-instruct&quot;, callback_manager=CallbackManager([StreamingStdOutCallbackHandler()]))
+/app/langchain_agents_conversational-react_memory.py:44: LangChainDeprecationWarning: Please see the migration guide at: https://python.langchain.com/docs/versions/migrating_memory/
+memory = ConversationBufferMemory(memory_key=&quot;chat_history&quot;, return_messages=True)
+/app/langchain_agents_conversational-react_memory.py:47: LangChainDeprecationWarning: The function `initialize_agent` was deprecated in LangChain 0.1.0 and will be removed in 1.0. Use :meth:`~Use new agent constructor methods like create_react_agent, create_json_agent, create_structured_chat_agent, etc.` instead.
+agent = initialize_agent(
+歡迎使用智慧型 AI 助手！可以進行多輪對話，並記住上下文。
+隨時輸入問題，例如：『今天是幾號？』，或『你剛剛問了什麼？』
+如果想結束對話，請輸入 &#39;bye&#39;, &#39;exit&#39; 或 &#39;quit&#39;。
+
+請輸入您的問題：
+</code></pre>
+<blockquote>
+<p>Q: 請問今天是幾號？<br>AI: 今天是 2024 年 12 月 5 日，星期四。</p>
+</blockquote>
+<pre><code>請輸入您的問題：請問今天是幾號？
+Thought: Do I need to use a tool? Yes
+Action: get today date
+Action Input: None今天是 2024 年 12 月 05 日，星期Thu。
+Do I need to use a tool? No
+AI: 今天是 2024 年 12 月 5 日，星期四。
+AI 助手的回答紀錄：
+&#123;&#39;input&#39;: &#39;請問今天是幾號？&#39;, &#39;chat_history&#39;: [HumanMessage(content=&#39;請問今天是幾號？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;今天是 2024 年 12 月 5 日，星期四。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;)], &#39;output&#39;: &#39;今天是 2024 年 12 月 5 日，星期四。&#39;&#125;
+</code></pre>
+<blockquote>
+<p>Q: 我是好崴寶Weibert Weiberson,很高興認識你, 我的ig是@weibert_coding, 我的yt是Weibert好崴寶程式, 歡迎訂閱我！<br>AI: 你好，好崴寶！很高興認識你。謝謝你在 Instagram 和 YouTube 上追蹤我。我希望能提供有用的資訊和見解來回答你的問題或與你進行對話。請隨時提出任何問題或讓我們討論任何主題。你今天想談什麼？</p>
+</blockquote>
+<pre><code>請輸入您的問題：我是好崴寶Weibert Weiberson,很高興認識你, 我的ig是@weibert_coding, 我的yt是Weibert好崴寶程式, 歡迎訂閱我！
+Thought: Do I need to use a tool? No
+AI: 你好，好崴寶！很高興認識你。謝謝你在 Instagram 和 YouTube 上追蹤我。我希望能提供有用的資訊和見解來回答你的問題或與你進行對話。請隨時提出任何問題或讓我們討論任何主題。你今天想談什麼？
+AI 助手的回答紀錄：
+&#123;&#39;input&#39;: &#39;我是好崴寶Weibert Weiberson,很高興認識你, 我的ig是@weibert_coding, 我的yt是Weibert好崴寶程式, 歡迎訂閱我！&#39;, &#39;chat_history&#39;: [HumanMessage(content=&#39;請問今天是幾號？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;今天是 2024 年 12 月 5 日，星期四。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;我是好崴寶Weibert Weiberson,很高興認識你, 我的ig是@weibert_coding, 我的yt是Weibert好崴寶程式, 歡迎訂閱我！&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;你好，好崴寶！很高興認識你。謝謝你在 Instagram 和 YouTube 上追蹤我。我希望能提供有用的資訊和見解來回答你的問題或與你進行對話。請隨時提出任何問題或讓我們討論任何主題。你今天想談什麼？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;)], &#39;output&#39;: &#39;你好，好崴寶！很高興認識你。謝謝你在 Instagram 和 YouTube 上追蹤我。我希望能提供有用的資訊和見解來回答你的問題或與你進行對話。請隨時提出任何問題或讓我們討論任何主題。你今天想談什麼？&#39;&#125;
+</code></pre>
+<blockquote>
+<p>Q: 請問你記得我的ig是多少嗎<br>AI: 我記得你告訴我你的 Instagram 帳號是 @weibert_coding。</p>
+</blockquote>
+<pre><code>請輸入您的問題：請問你記得我的ig是多少嗎
+Thought: Do I need to use a tool? No
+AI: 我記得你告訴我你的 Instagram 帳號是 @weibert_coding。
+AI 助手的回答紀錄：
+&#123;&#39;input&#39;: &#39;請問你記得我的ig是多少嗎&#39;, &#39;chat_history&#39;: [HumanMessage(content=&#39;請問今天是幾號？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;今天是 2024 年 12 月 5 日，星期四。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;我是好崴寶Weibert Weiberson,很高興認識你, 我的ig是@weibert_coding, 我的yt是Weibert好崴寶程式, 歡迎訂閱我！&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;你好，好崴寶！很高興認識你。謝謝你在 Instagram 和 YouTube 上追蹤我。我希望能提供有用的資訊和見解來回答你的問題或與你進行對話。請隨時提出任何問題或讓我們討論任何主題。你今天想談什麼？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;請問你記得我的ig是多少嗎&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;我記得你告訴我你的 Instagram 帳號是 @weibert_coding。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;)], &#39;output&#39;: &#39;我記得你告訴我你的 Instagram 帳號是 @weibert_coding。&#39;&#125;
+</code></pre>
+<blockquote>
+<p>Q: 你記得我的yt帳號名稱嗎<br>AI: 我記得你告訴我你的 YouTube 頻道名稱是 Weibert好崴寶程式。</p>
+</blockquote>
+<pre><code>請輸入您的問題：你記得我的yt帳號名稱嗎
+Thought: Do I need to use a tool? No
+AI: 我記得你告訴我你的 YouTube 頻道名稱是 Weibert好崴寶程式。
+AI 助手的回答紀錄：
+&#123;&#39;input&#39;: &#39;你記得我的yt帳號\udce5名稱嗎&#39;, &#39;chat_history&#39;: [HumanMessage(content=&#39;請問今天是幾號？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;今天是 2024 年 12 月 5 日，星期四。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;我是好崴寶Weibert Weiberson,很高興認識你, 我的ig是@weibert_coding, 我的yt是Weibert好崴寶程式, 歡迎訂閱我！&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;你好，好崴寶！很高興認識你。謝謝你在 Instagram 和 YouTube 上追蹤我。我希望能提供有用的資訊和見解來回答你的問題或與你進行對話。請隨時提出任何問題或讓我們討論任何主題。你今天想談什麼？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;請問你記得我的ig是多少嗎&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;我記得你告訴我你的 Instagram 帳號是 @weibert_coding。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;你記得我的yt帳號\udce5名稱嗎&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;我記得你告訴我你的 YouTube 頻道名稱是 Weibert好崴寶程式。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;)], &#39;output&#39;: &#39;我記得你告訴我你的 YouTube 頻道名稱是 Weibert好崴寶程式。&#39;&#125;
+</code></pre>
+<blockquote>
+<p>Q: 你記得我的名字嗎？<br>AI: 我記得你提到過你的名字是好崴寶。你還想讓我查找任何其他資訊嗎？</p>
+</blockquote>
+<pre><code>請輸入您的問題：你記得我的名字嗎？
+Thought: Do I need to use a tool? No
+AI: 我記得你提到過你的名字是好崴寶。你還想讓我查找任何其他資訊嗎？
+AI 助手的回答紀錄：
+&#123;&#39;input&#39;: &#39;你記得我的名字嗎？&#39;, &#39;chat_history&#39;: [HumanMessage(content=&#39;請問今天是幾號？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;今天是 2024 年 12 月 5 日，星期四。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;我是好崴寶Weibert Weiberson,很高興認識你, 我的ig是@weibert_coding, 我的yt是Weibert好崴寶程式, 歡迎訂閱我！&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;你好，好崴寶！很高興認識你。謝謝你在 Instagram 和 YouTube 上追蹤我。我希望能提供有用的資訊和見解來回答你的問題或與你進行對話。請隨時提出任何問題或讓我們討論任何主題。你今天想談什麼？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;請問你記得我的ig是多少嗎&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;我記得你告訴我你的 Instagram 帳號是 @weibert_coding。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;你記得我的yt帳號\udce5名稱嗎&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;我記得你告訴我你的 YouTube 頻道名稱是 Weibert好崴寶程式。&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), HumanMessage(content=&#39;你記得我的名字嗎？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;), AIMessage(content=&#39;我記得你提到過你的名字是好崴寶。你還想讓我查找任何其他資訊嗎？&#39;, additional_kwargs=&#123;&#125;, response_metadata=&#123;&#125;)], &#39;output&#39;: &#39;我記得你提到過你的名字是好崴寶。你還想讓我查找任何其他資訊嗎？&#39;&#125;
+</code></pre>
+<h2 id="崴寶總結"><a href="#崴寶總結" class="headerlink" title="崴寶總結"></a>崴寶總結</h2><p>本教學帶你探索如何用 <strong>LangChain Agents</strong> 構建一個超聰明的 LLM 聊天機器人！  </p>
+<p>這不僅僅是一個簡單的對話機器人，它還能記住上下文，進行多輪對話，讓你感覺像是在和一位聰明的朋友聊天！</p>
+<p>此外，崴寶還教你如何加入一個超實用的自定義工具（例如：「今天是幾號？」）來讓它完成有趣的小任務。🥰</p>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 好崴寶 Weibert Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
       </div>
       
       <!-- 側邊欄 -->
