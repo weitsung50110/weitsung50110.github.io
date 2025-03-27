@@ -17,10 +17,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
+  const closeButton = document.querySelector('.close-button');
 
   menuToggle.addEventListener('click', function() {
     // 切換菜單的顯示狀態
     mobileNav.classList.toggle('active');
+  });
+
+  // 點擊關閉按鈕關閉菜單
+  closeButton.addEventListener('click', function() {
+    mobileNav.classList.remove('active');
   });
 });
 
@@ -42,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     img.style.position = 'absolute'; // 使圖片絕對定位
     
     // 設置圖片在游標旁邊的位置
-    img.style.left = `${x + 5}px`; // 向右偏移10像素
+    img.style.left = `${x - 10}px`; // 向右偏移10像素
     img.style.top = `${y - 25}px`; // 向上偏移25像素（根據圖片大小調整）
     
     // 設置圖片大小

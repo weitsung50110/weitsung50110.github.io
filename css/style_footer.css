@@ -1,19 +1,17 @@
 footer {
-  text-align: center;
-  padding: 20px;
+  width: 100%; /* 確保 footer 的寬度為 100% */
+  padding: 20px; /* 增加內邊距 */
+  text-align: center; /* 置中所有文字 */
+  overflow: hidden; /* 隱藏任何溢出的內容 */
+  margin: 0; /* 確保沒有額外的邊距 */
   background: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
   color: #fff7df;
 }
 
-footer p {
+footer span {
   margin: 0;
-}
-
-footer {
-  width: 100%; /* 確保 footer 的寬度為 100% */
-  overflow: hidden; /* 隱藏任何溢出的內容 */
-  padding: 0; /* 確保沒有額外的填充 */
-  margin: 0; /* 確保沒有額外的邊距 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #fff; /* 文字顏色 */
 }
 
 .footer-logo {

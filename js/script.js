@@ -31,8 +31,8 @@ document.addEventListener('mousemove', function(e) {
   if (isOverScrollbar) {
     cursorEffect.style.opacity = 0; // 隱藏特效
   } else {
-    cursorEffect.style.left = (e.pageX + 3) + 'px'; // 向右偏移 3 像素
-    cursorEffect.style.top = (e.pageY + 10) + 'px'; // 向下偏移 10 像素
+    cursorEffect.style.left = (e.pageX -25) + 'px'; // 向右偏移 3 像素
+    cursorEffect.style.top = (e.pageY -35) + 'px'; // 向下偏移 10 像素
     cursorEffect.style.opacity = 1; // 顯示特效
   }
 });

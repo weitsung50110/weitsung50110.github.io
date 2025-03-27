@@ -24,7 +24,7 @@
 #search-button {
   padding: 8px 12px;
   border: 1px solid #ddd;
-  background-color: #007bff;
+  background-color: #d7670b;
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -32,7 +32,7 @@
 }
 
 #search-button:hover {
-  background-color: #0056b3;
+  background-color: #f08024;
 }
 
 /* 模態框背景 */
