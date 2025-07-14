@@ -1,0 +1,431 @@
+/* main.css */
+
+/* 全局樣式 */
+/* 引入其他 CSS 文件 */
+@import url('style.css');
+@import url('style_archives_tagCatego.css');
+@import url('style_header.css');
+@import url('style_index_post.css');
+@import url('style_post.css');
+@import url('style_popup_tag.css');
+@import url('style_search.css');
+@import url('style_post_tags_categories.css');
+@import url('style_sidebar.css');
+@import url('style_toc.css');
+@import url('style_post_comments.css');
+@import url('style_footer.css');
+@import url('weimeng_indexPost.css');
+
+/* 響應式設計 */
+@media (max-width: 820px) {
+    .post {
+      max-width: 100%; 
+      width: 100%; /* 手機模式目錄不會直接跳出 因此可以直接滿版 */
+    }
+
+    .header-content img {
+      order: 1; /* 確保圖片顯示在標題左邊 */
+    }
+
+    .header-content h1 {
+      order: 2; /* 確保標題顯示在圖片右邊 */
+    }
+
+    .home-intro h2 {
+      font-size: 1em; /* 平板或小屏幕的字體大小 */
+    }
+
+    header h1 {
+      font-size: 1.33em; /* 根據需要調整 */
+    }
+
+    header .logo2 {
+      display: none; /* 隱藏 logo2 */
+    }
+  
+    header {
+      flex-direction: column;
+    }
+  
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    nav a {
+      margin-bottom: 10px;
+    }
+  
+    /* Archives 主內容 */
+    main {
+      padding: 10px;
+    }
+
+    
+
+    /* 移動版選單的顯示 */
+    .nav-top {
+      position: relative; /* 固定在頁面上 */
+      background-color:rgba(0, 0, 0, 0.6); /* 半透明底色 */
+      display: flex; /* 使用彈性布局 */
+      flex-wrap: wrap; /* 讓項目換行 */
+      justify-content: space-between; /* ✅ 調整為平均分布 */
+      max-height: 200px; /* 限制高度，避免太長 */
+      overflow-y: auto; /* 超出時垂直捲動 */
+      overflow-x: hidden;
+      padding: 5px;
+      gap: 5px;
+      width: 100%;
+    }
+
+    .nav-top li {
+      flex: 0 0 calc(33.33% - 7px); /* 考慮 gap 空間 */
+      box-sizing: border-box;
+    }
+
+    .nav-top li a {
+      display: block;
+      padding: 0px 22px; /* ✅ 按鈕內部更大 */
+      font-size: 1.1em;
+      font-weight: bold;
+      text-align: center;
+      border: 3px dashed rgba(255, 255, 255, 0.4);
+      border-radius: 10px;
+      background-color: rgb(168, 31, 68);
+      color: #ffffff;
+    }
+    
+    .nav-top li a:hover {
+      background-color: rgb(200, 50, 90); /* 背景色變亮一點 */
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.6); /* 邊框變更明亮 */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 加入陰影 */
+      transform: translateY(-2px); /* 輕微上移，像浮起來 */
+      transition: all 0.2s ease; /* 平滑過渡效果 */
+    }
+    
+    .mobile-nav.active {
+        display: block; /* 顯示菜單 */
+    }
+
+    .menu-toggle {
+      display: block;
+  }
+    
+    .mobile-nav {
+      display: none; /* 初始隱藏 */
+      position: fixed; /* 使用固定定位 */
+      top: 50px; /* 調整為適合的距離 */
+      right: 10px; /* 調整為適合的距離 */
+      width: 95%; /* 設置為螢幕的 90% 寬度 */
+      /* max-width: 300px; 最大寬度限制 */
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    header .close-button {
+      display: block;
+      background-color: rgba(255, 222, 222, 0.3);
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      top: -50px;
+      right: 50px;
+    }
+
+    .nav-menu {
+      position: fixed; /* 固定定位 */
+      top: 200px; /* 調整下拉選單距離頂部的位置 */
+      right: 0;
+      left: 0;
+    }
+
+
+
+    #open-btn {
+      width: 60px; /* 在小屏幕上設置較小的寬度 */
+      height: 60px; /* 在小屏幕上設置較小的高度 */
+      font-size: 30px; /* 減少字體大小 */
+    }
+
+    #sidebar {
+      width: 250px; /* 在小屏幕上縮小側邊欄的寬度 */
+    }
+
+    .toc {
+      display: none; /* 隱藏目錄 */
+    }
+    
+    .toc.show {
+      display: block; /* 顯示目錄 */
+    }
+
+    .toc-toggle-btn {
+      bottom: 130px;
+      padding: 5px 8px; /* 上下 10px，左右 15px */
+      background-color: rgba(0, 0, 0, 0.02); /* 恢復原本的背景色 */
+    }
+
+    .toc-toggle-btn:hover {
+      background-color: rgba(0, 0, 0, 0.03); /* 恢復原本的背景色 */
+    }
+
+    .scroll-to-top-btn {
+      padding: 10px 13px;
+    }
+
+    .scroll-to-top-btn:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    /* 背景設定 */
+    .posts-container{
+      background-size: 0%; /* 設置背景圖片的大小0 */
+    }
+
+    .post_bg, .archive_bg {
+      background-position: center top; /* 置中對齊 */
+    }
+
+    .footer-logo {
+      display: none; /* 隱藏一般 logo */
+    }
+    
+    .footer-rwd-logo {
+      display: block; /* 顯示 RWD logo */
+    }
+
+    /* video-container */
+    vd_cont {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+    
+    vd_cont iframe {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+
+    .option {
+      width: 80%; /* 小型螢幕時每個選項佔 100% 寬度 */
+      margin-bottom: 5px; /* 選項間距 */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* 標題樣式 */
+    .post h1 {
+      font-size: 2em;
+      margin-top: 0em; /* 調整標題與上方內容的距離 */
+      margin-bottom: 0.1em; /* 調整標題與下方內容的距離 */
+      padding: 0px;
+    }
+
+    .post h2 {
+      font-size: 1.8em;
+    }
+
+    .home-intro h2 {
+      font-size: 1.2em; /* 手機屏幕的字體大小 */
+    }
+  
+    header h1 {
+      font-size: 1.33em; /* 根據需要調整 */
+    }
+
+    .title2{
+      font-size: 0.98em; /* 根據需要調整 */
+    }
+
+    header .logo2 {
+      display: none; /* 隱藏 logo2 */
+    }
+    
+    header img {
+      max-width: 130px;
+      height: auto;
+      border-radius: 100%;
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+  
+    header {
+      padding: 15px;
+    }
+
+  
+    nav {
+      align-items: center;
+    }
+  
+    button {
+      padding: 8px 16px;
+      font-size: 0.9em;
+    }
+  
+    /* Archives 主內容 */
+    main {
+      padding: 5px;
+      max-width: 98%; /* 使主內容區域的最大寬度為100% */
+    }
+
+    .toc {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: auto; /* 高度自動調整 */
+      box-shadow: none; /* 移除陰影 */
+      border-left: none; /* 移除邊框 */
+      border-top: 1px solid #ddd; /* 增加上邊框 */
+      background: #f9f9f9;
+    }
+  
+    .toc ul {
+      padding: 10px; /* 增加內邊距 */
+    }
+  
+    .toc ul li a {
+      font-size: 0.9em; /* 調整字體大小 */
+      padding: 12px; /* 增加內邊距 */
+    }
+
+    .welcome-desktop {
+      display: none; /* 隱藏桌面版本 */
+    }
+  
+    .welcome-mobile {
+      display: block; /* 顯示手機版本 */
+    }
+
+
+
+    #open-btn {
+      width: 50px; /* 在非常小的屏幕上設置最小的寬度 */
+      height: 55px; /* 在非常小的屏幕上設置最小的高度 */
+      left: 2px;
+      font-size: 30px; /* 進一步減少字體大小 */
+      padding: 0px; /* 內邊距 */
+      box-shadow: none;
+    }
+
+    #sidebar {
+      width: 240px; /* 在更小屏幕上進一步縮小側邊欄的寬度 */
+    }
+
+    #sidebar #close-btn {
+      font-size: 24px;
+      padding: 9px;
+      cursor: pointer;
+      top: 0px; /* 距離頂部20px */
+      right: 0px; /* 距離右邊20px */
+      font-size: 38px;
+    }
+
+    body.post-page #sidebar   {
+      left: -250px;
+    }
+    
+    .info-wrapper {
+      flex-direction: column; /* 在手機模式下改為垂直排列 */
+      align-items: center; /* 水平居中 */
+    }
+  
+    .social-icons {
+      flex-direction: row; /* 改為橫向排列 */
+      margin-bottom: 10px; /* 上方間距 */
+      justify-content: center; /* 水平居中 */
+    }
+
+    .social-icon {
+      margin: 0 5px; /* 左右間距 */
+      width: 30px; /* 圖標寬度 */
+      height: 30px; /* 圖標高度 */
+      padding: 0%;
+    }
+
+    .hover-icon {
+      left: 66%; /* 讓圖片在標題右側顯示 */
+      top: 30%; /* 垂直居中 */
+    }
+    
+
+    /* 使用 > 符號來創建引用框 */
+    .custom-quote img {
+      max-width: 100%; /* 最大寬度為父元素的 80% */
+      height: auto; /* 自動調整高度 */
+      margin: 0 auto; /* 置中顯示 */
+      display: block; /* 使圖片成為塊級元素以便於置中 */
+      border-radius: 0%; /* 圓角 */
+    }
+
+
+    /* 整體文章區域 */
+    .posts-container {
+      gap: 10px; /* 文章之间的间距 */
+    }
+
+    /* 每篇文章的樣式 */
+    .posts-container .index_post {
+      padding: 15px; /* 減少內邊距以適應小螢幕 */
+    }
+
+    /* 標題樣式 */
+    .posts-container .index_post h2 {
+      font-size: 1.4em; /* 減小字體大小 */
+      text-align: left; /* 左對齊 */
+    }
+
+    /* 文章信息區 */
+    .posts-container .index_post p {
+      text-align: center; /* 左對齊 */
+      margin: 0px 0; /* 減小外邊距 */
+      display: none;
+    }
+
+    /* 摘要區 */
+    .posts-container .index_post .excerpt {
+      line-height: 1.5; /* 調整行高 */
+      text-align: left; /* 左對齊 */
+    }
+
+    /* 讀更多連結 */
+    .posts-container .index_post .read-more {
+      display: none;
+    }
+
+    /* 標籤和類別樣式 */
+    .posts-container .post-tags,
+    .posts-container .post-categories {
+      margin: 3px 0; /* 減少外邊距 */
+      display: none;
+    }
+  }
+
+  .dropdown_section a {
+    display: block;
+    padding: 8px 12px;
+    margin: 4px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown_section a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
