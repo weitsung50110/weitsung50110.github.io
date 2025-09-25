@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weibert好崴寶程式 - 好崴寶 Weibert Weiberson</title>
+<meta name="description" content="well崴寶、Weibert崴寶、AI、機器學習、LangChain教學、LLM、Ollama、HuggingFace、llama3中文、Hexo、深度學習、well威寶、好威寶、威寶Weibert">
+<meta name="keywords" content="Well崴寶, Well威寶, 威寶weiberson, 威寶,威寶weibert, 崴寶Weibert, Weibert, Weiberson, 崴寶,Weiberson Chang, AI, 深度學習, 機器學習, Hexo, GitHub, 教學, 開源, BERT, Transformers, weitsung50110">
+<meta name="author" content="好崴寶 Weibert Weiberson">
+<meta name="google-site-verification" content="jWAoNzh1Gol-JoVVT5Q0DjtDlWhLkB2STELvHuQipNE" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q85YRD51M0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q85YRD51M0');
+</script>
+<link rel="icon" href="https://weitsung50110.github.io/images/a2.ico" type="image/x-icon">
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="">
+  <div class="post_bg" style="background-image: url(&#39;https://weitsung50110.github.io/images/boy0.png&#39;);">
+    <div class="archive_bg" style="">
+      
+      <header>
+  <div class="header-content">
+    <img property="og:image" src="https://weitsung50110.github.io/images/boy11.png" alt="Logo" class="logo">
+    <h1>
+      <a href="https://weitsung50110.github.io">
+        Weibert好崴寶程式<br/>
+        <span class="title2">好崴寶 Weibert Weiberson</span>
+      </a>
+    </h1>    
+    <img src="https://weitsung50110.github.io/images/boy5.png" alt="Logo2" class="logo2">
+
+    <!-- 在 nav 中包裹選單 -->
+    <nav class="mobile-nav">
+      <button class="close-button" aria-label="Close Menu">✖</button>
+      <ul class="nav-top">
+        <!-- <li><a href="https://weitsung50110.github.io/">首頁</a></li> -->
+        <li><a href="https://weitsung50110.github.io/about">關於</a></li>
+        <li><a href="https://weitsung50110.github.io/archives">文章</a></li>
+        <li><a id="tag_toggleButton">分類</a></li>
+        <!-- <li><a href="/club/#加入好崴寶的-電子報！">電子報</a></li> -->
+        <!-- <li><a href="/club/#崴寶程式社團和電子報">社團</a></li> -->
+        <li><a href="https://weitsung50110.github.io/2025/崴寶出書了-本地端%20Ollama%20×%20LangChain%20×%20LangGraph%20×%20LangSmith%20開發手冊：打造%20RAG、Agent、SQL%20應用/"">崴寶書</a></li>
+        <li class="dropdown">
+          <a class="menu-button">跟隨</a>
+          <div class="nav-menu">
+            <div class="menu-content">
+              <!-- <a target="_blank" rel="noopener" href="https://github.com/weitsung50110">
+                <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="dropdown_social-icon">
+                GitHub</a>
+              <a target="_blank" rel="noopener" href="https://medium.com/@weiberson">
+                <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="dropdown_social-icon">
+                Medium</a>
+              <a target="_blank" rel="noopener" href="https://www.instagram.com/weibert_music/">
+                <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="dropdown_social-icon">
+                IG</a> -->
+                <div class="dropdown_section">
+                  <strong>🩵 Threads:</strong>
+                  <!-- <a href="https://www.threads.net/@weibert_music" target="_blank">@weibert_music</a> -->
+                  <a href="https://www.threads.net/@weibert_coding" target="_blank">@weibert_coding</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 GitHub:</strong>
+                  <a href="https://github.com/weitsung50110" target="_blank">weitsung50110</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 Medium:</strong>
+                  <a href="https://medium.com/@weiberson" target="_blank">@weiberson</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 YouTube:</strong>
+                  <a href="https://www.youtube.com/@weibert" target="_blank">Weibert好崴寶程式</a>
+                </div>
+                <div class="dropdown_section">
+                  <strong>🩵 Instagram:</strong>
+                  <a href="https://www.instagram.com/weibert_coding/" target="_blank">@weibert_coding</a>
+                  <a href="https://www.instagram.com/weibert_music/" target="_blank">@weibert_music</a>
+                </div>
+                <!-- <div class="dropdown_section">
+                  <strong>🩵 Facebook:</strong>
+                  <a href="https://www.facebook.com/weibert1/" target="_blank">崴寶Weibert</a>
+                </div> -->
+                <div class="dropdown_section">
+                  <strong>🩵 TikTok:</strong>
+                  <a href="https://www.tiktok.com/@weibert1" target="_blank">崴寶Weibert</a>
+                </div>
+                <!-- <div class="dropdown_section">
+                  <strong>🩵 加入崴寶社團:</strong>
+                  <a href="https://www.facebook.com/groups/weibert/" target="_blank">加入Facebook社團</a>
+                  <a href="https://discord.gg/5YsHCRJv8X" target="_blank">加入Discord群組</a>
+                  <a href="https://line.me/ti/g2/Yer7Cw5gxxxr-hWLfKsnDTNug0T1mq5Ml0A3gg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">加入Line社團</a>
+                </div> -->
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- 搜尋框 -->
+      <ul class="nav-bottom">
+        <li>
+          <div id="search-container">
+            <input type="text" id="search-input" placeholder="搜尋文章..." />
+            <button id="search-button">搜尋</button>
+            
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- 在 header 中添加漢堡選單 -->
+  <button class="menu-toggle" aria-label="Toggle Navigation">
+    ☰
+  </button>
+  
+  <div id="press_show_cute"></div>
+</header>
+
+    
+      <div id="container">
+        <div id="search-modal" class="search-modal">
+  <div class="search-modal-content">
+    <h3>搜尋結果</h3>
+    <span id="search-close" class="search-close">&times;</span>
+    <div id="search-results"></div>
+  </div>
+</div>
+        
+<article class="post">
+  <h1>利用LLM、Flask、LangChain實作聊天機器人chat bot網站</h1>
+  <!-- <p class="post-date">日期：Wed Jun 12 2024 14:53:10 GMT+0000</p> -->
+  <p class="post-date">日期：2024-06-12</p>
+  <!-- <p class="post-author">作者：崴寶 Weibert Weiberson</p> -->
+  
+    <div class="post-meta">
+      
+        <div class="post-tags post-tags-margin">
+          <span>標籤:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LangChain/">LangChain</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/LLM/">LLM</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Chatbot/">Chatbot</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/JavaScript/">JavaScript</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Flask/">Flask</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Jinja2/">Jinja2</a></li>
+            
+              <li><a href="https://weitsung50110.github.io/tags/Tailwind-CSS/">Tailwind-CSS</a></li>
+            
+          </ul>
+        </div>
+      
+
+      
+        <div class="post-categories post-categories-margin">
+          <span>類別:</span>
+          <ul>
+            
+              <li><a href="https://weitsung50110.github.io/categories/LangChain/">LangChain</a></li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+  
+      <div class="excerpt">
+          <p>利用 Ollama LLM 和 Flask，結合 LangChain 架構，打造一個響應式的聊天機器人網站，實現即時對話功能。</p>
+      </div>
+  
+
+  <!-- 目錄容器 -->
+  <div class="article-container">
+    <div class="article-content">
+      <div class="newsletter-subscription">
+        <p>電子報讀者募集中！歡迎
+          <a href="/club/#加入好崴寶的-電子報！">訂閱電子報</a>！</p>
+      </div>
+      <p><cen>我們將介紹如何使用Ollama LLM結合Flask來構建一個聊天機器人chat bot網站。本教學將會使用Llama3作為我們的LLM，並且採用LangChain, , JavaScript, Jinja2和Tailwind CSS框架，確保你在任何設備上都能獲得最佳的響應式設計（RWD）體驗。</p>
+<p>會用到的資料集為 <a target="_blank" rel="noopener" href="https://github.com/weitsung50110/llama_flask_langchain_ChatbotWeb">GitHub Repository - llama flask langchain ChatbotWeb</a></p>
+<h2 id="技術介紹"><a href="#技術介紹" class="headerlink" title="技術介紹"></a>技術介紹</h2><ul>
+<li><strong>Ollama LLM</strong>：提供強大的自然語言處理能力。</li>
+<li><strong>Flask</strong>：輕量級的 Python 網頁框架，適合快速開發應用。</li>
+<li><strong>LangChain</strong>：用於構建和操作語言模型應用的框架。</li>
+<li><strong>Tailwind CSS</strong>：實現高度可定制和響應式設計的 CSS 框架。</li>
+<li><strong>Jinja2</strong>：在 Flask 中預設的模板引擎，用於渲染 HTML 模板。</li>
+<li><strong>Server-Sent Events</strong>：一種 Web 技術，用於從伺服器向客戶端推送即f時數據。</li>
+</ul>
+<p>此文章也有發表在Medium上 &gt;&gt;</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/%E5%88%A9%E7%94%A8ollama-llm-flask-langchain%E5%92%8Ctailwind-css%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99-b98a891977e8">利用LLM、Flask、LangChain實作聊天機器人chat bot網站</a></li>
+</ul>
+<h2 id="網站功能概覽"><a href="#網站功能概覽" class="headerlink" title="網站功能概覽"></a>網站功能概覽</h2><p><vd_cont><iframe width="560" height="315" src="https://www.youtube.com/embed/Stx88BpwC54?si=uLj4pLMQOVBCOEBr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
+<p><img src="/assets/images/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/0.gif"></p>
+<h3 id="主頁"><a href="#主頁" class="headerlink" title="主頁"></a>主頁</h3><p>在主頁上，你可以看到一個我設計的漂亮Logo，因為我們使用的是Llama3作為LLM，所以在Logo中間放置了一隻可愛的羊駝。</p>
+<p><img src="/assets/images/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/1.png"></p>
+<h3 id="導航欄"><a href="#導航欄" class="headerlink" title="導航欄"></a>導航欄</h3><p>你可以通過導航欄連接到我的所有資源連結，包括<a target="_blank" rel="noopener" href="https://tw.linkedin.com/in/weiberson">LinkedIn - Weiberson</a>、<a target="_blank" rel="noopener" href="https://medium.com/@weiberson">Medium - Weiberson</a>和<a target="_blank" rel="noopener" href="https://github.com/weitsung50110">GitHub - weitsung50110</a>。</p>
+<p><img src="/assets/images/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/2.png"></p>
+<h3 id="輸入區域"><a href="#輸入區域" class="headerlink" title="輸入區域"></a>輸入區域</h3><p><img src="/assets/images/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/3.png"></p>
+<p>這裡是你與Llama3對話的地方。你可以問它各種問題，例如：</p>
+<ul>
+<li><p>你是誰？<br><img src="/assets/images/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/4.png"></p>
+</li>
+<li><p>你愛我嗎？<br><img src="/assets/images/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/5.png"></p>
+</li>
+</ul>
+<h3 id="Loading字樣"><a href="#Loading字樣" class="headerlink" title="Loading字樣"></a>Loading字樣</h3><p><img src="/assets/images/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/6.png"></p>
+<h3 id="即時時間"><a href="#即時時間" class="headerlink" title="即時時間"></a>即時時間</h3><p><img src="/assets/images/%E5%88%A9%E7%94%A8LLM%E3%80%81Flask%E3%80%81LangChain%E5%AF%A6%E4%BD%9C%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BAchat-bot%E7%B6%B2%E7%AB%99/7.png"></p>
+<h2 id="使用Docker設置環境"><a href="#使用Docker設置環境" class="headerlink" title="使用Docker設置環境"></a>使用Docker設置環境</h2><h3 id="1：下載-Docker-映像"><a href="#1：下載-Docker-映像" class="headerlink" title="1：下載 Docker 映像"></a>1：下載 Docker 映像</h3><p>首先，下載我們已經配置好的 Docker 映像：</p>
+<pre><code>docker pull weitsung50110/ollama_flask
+</code></pre>
+<h3 id="2：運行Image以生成容器"><a href="#2：運行Image以生成容器" class="headerlink" title="2：運行Image以生成容器"></a>2：運行Image以生成容器</h3><p>將主機的<code>~/trans_project</code>目錄掛載到容器內的<code>/app</code>資料夾下：</p>
+<pre><code>docker run -d \
+-v ollama:/root/.ollama \
+-v ~/trans_project:/app \
+-p 5066:5000 \
+-p 11466:11434 \
+--name ollama_flask \
+weitsung50110/ollama_flask:1.0
+</code></pre>
+<h4 id="端口映射講解"><a href="#端口映射講解" class="headerlink" title="端口映射講解"></a>端口映射講解</h4><ul>
+<li><code>-p 5066:5000</code>：將主機的5066端口映射到容器內部的5000端口，用於Flask。</li>
+<li><code>-p 11466:11434</code>：將主機的11466端口映射到容器內部的11434端口，用於Ollama。</li>
+</ul>
+<h3 id="3：進入容器"><a href="#3：進入容器" class="headerlink" title="3：進入容器"></a>3：進入容器</h3><p>進入剛剛創建的<code>ollama_flask</code>容器：</p>
+<pre><code>docker exec -it ollama_flask /bin/bash
+</code></pre>
+<h3 id="4：啟動Llama3"><a href="#4：啟動Llama3" class="headerlink" title="4：啟動Llama3"></a>4：啟動Llama3</h3><p>進入容器後，先運行以下指令啟動Llama3：</p>
+<pre><code>ollama run llama3
+</code></pre>
+<p>這一步確保Llama3已經安裝並運行，否則Flask將無法打開。</p>
+<h3 id="5：啟動Flask應用"><a href="#5：啟動Flask應用" class="headerlink" title="5：啟動Flask應用"></a>5：啟動Flask應用</h3><p>進入<code>/app</code>目錄：</p>
+<pre><code>cd app/
+</code></pre>
+<p>運行Flask應用：</p>
+<pre><code>python3 app.py
+</code></pre>
+<p>確保指定了port，這樣你才能通過<code>127.0.0.1:xxxx</code>訪問Flask應用：</p>
+<pre><code>docker run -d -v ollama:/root/.ollama -v ~/trans_project:/app -p 5066:5000 -p 11466:11434 --name ollama_flask weitsung50110/ollama_flask:1.0
+</code></pre>
+<h3 id="6：確認成功運行"><a href="#6：確認成功運行" class="headerlink" title="6：確認成功運行"></a>6：確認成功運行</h3><p>如果一切順利，你應該會看到如下輸出：</p>
+<pre><code>Running on http://127.0.0.1:5000
+</code></pre>
+<p>根據你在<code>docker run</code>時指定的port來訪問應用，例如：</p>
+<ul>
+<li>如果port指定為<code>5066:5000</code>，則訪問<code>127.0.0.1:5066</code>。</li>
+</ul>
+<h2 id="重點程式講解"><a href="#重點程式講解" class="headerlink" title="重點程式講解"></a>重點程式講解</h2><h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><p>你在資料集中的app.py，也就是server看到<code>render_template</code>代表要渲染網頁了，這時我有把一些<strong>值</strong>傳到index.html網頁當中。</p>
+<pre><code>return render_template(&#39;index.html&#39;, query_input=query_input, output=output)
+</code></pre>
+<ul>
+<li>query_input : 使用者詢問LLM所輸入的問題</li>
+<li>output : LLM的回應</li>
+</ul>
+<h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3><p><code>Jinja2</code> 提供了一些強大的模板語法，讓我們可以在 HTML 文件中使用 Python 風格的控制結構。</p>
+<p>可以看到我在html藉由jinja2使用條件判斷。</p>
+<pre><code>&lt;div class=&quot;mt-6&quot;&gt;
+    &#123;% if query_input %&#125;
+        <div class="bg-gray-100 p-4 rounded mb-4">
+            <p class="text-gray-700">&#123;&#123; query_input &#125;&#125;</p>
+        </div>
+        &#123;% endif %&#125;
+    &#123;% if output %&#125;
+        <div class="bg-gray-100 p-4 rounded">
+            <p class="text-gray-700">&#123;&#123; output &#125;&#125;</p> <!-- Use the safe filter to render HTML from output -->
+        </div>
+        &#123;% endif %&#125;
+&lt;/div&gt;
+</code></pre>
+<p>接下來我們將探討 Jinja2 模板語法中的控制結構，特別是條件判斷和迴圈語法，我舉幾個簡單的例子給大家，。</p>
+<h3 id="Jinja2-模板語法"><a href="#Jinja2-模板語法" class="headerlink" title="Jinja2 模板語法"></a>Jinja2 模板語法</h3><p>Jinja2 提供了一些強大的模板語法，讓我們可以在 HTML 文件中使用 Python 風格的控制結構。以下是一些常用的控制結構：</p>
+<ol>
+<li>條件判斷 <code>if</code><figure class="highlight jinja"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml">（</span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> %&#125;</span><span class="language-xml">）</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>條件判斷允許我們根據變數的值來決定是否渲染某些內容。<figure class="highlight jinja"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> condition %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="comment">&lt;!-- 當條件為真時渲染這段內容 --&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">elif</span></span> other_condition %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="comment">&lt;!-- 當另一個條件為真時渲染這段內容 --&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">else</span></span> %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="comment">&lt;!-- 當所有條件都不成立時渲染這段內容 --&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>迴圈 <code>for</code><figure class="highlight jinja"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml">（</span><span class="template-tag">&#123;% <span class="name"><span class="name">for</span></span> %&#125;</span><span class="language-xml">）</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>迴圈允許我們遍歷列表或其他可迭代對象，並渲染每個元素。<figure class="highlight jinja"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">for</span></span> item <span class="keyword">in</span> items %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="comment">&lt;!-- 渲染每個 item 的內容 --&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endfor</span></span> %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">```    </span></span><br><span class="line"><span class="language-xml">3. 範圍迴圈 `for i in range`</span></span><br><span class="line"><span class="language-xml">```jinja</span></span><br><span class="line"><span class="language-xml">（</span><span class="template-tag">&#123;% <span class="name"><span class="name">for</span></span> i <span class="keyword">in</span> range(start, end) %&#125;</span><span class="language-xml">）</span></span><br></pre></td></tr></table></figure></li>
+<li>我們也可以使用範圍迴圈來遍歷一個數字範圍：<figure class="highlight jinja"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">for</span></span> i <span class="keyword">in</span> range(1, 11) %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>數字：</span><span class="template-variable">&#123;&#123; i &#125;&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endfor</span></span> %&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>在 Jinja2 模板語法中，所有的控制結構（如條件判斷和迴圈）都必須以相應的 <code>&#123;% end %&#125;</code> 語句來結束。這是為了明確定義控制結構的範圍，避免代碼混淆。</p>
+<p>我們可以看到，<code>if</code> 條件判斷用 <code>&#123;% endif %&#125;</code> 結束，<code>for</code> 迴圈用 <code>&#123;% endfor %&#125;</code> 結束。這些結束標記是必不可少的，否則模板引擎會無法正確解析模板，並且會拋出錯誤。</p>
+<h3 id="Server-Sent-Events-SSE"><a href="#Server-Sent-Events-SSE" class="headerlink" title="Server-Sent Events (SSE)"></a>Server-Sent Events (SSE)</h3><p>是一種 Web 技術，用於<strong>從伺服器向客戶端推送即時數據</strong>。</p>
+<h3 id="生成器函數-generate-詳解："><a href="#生成器函數-generate-詳解：" class="headerlink" title="生成器函數 generate() 詳解："></a>生成器函數 <code>generate()</code> 詳解：</h3><pre><code>def generate():
+    while True:
+        current_time = datetime.now().strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)  # 取得當前時間並格式化
+        data = f&quot;data: &#123;current_time&#125;\n\n&quot;  # 根據SSE格式要求構建數據字符串
+        yield data  # 通過生成器返回數據給調用者（客戶端）
+        time.sleep(1)  # 每秒推送一次數據
+</code></pre>
+<ul>
+<li><p><code>generate()</code> 函數使用了一個無窮循環 (<code>while True</code>)，每次循環都取得當前時間 (<code>datetime.now()</code>)，並將其格式化為 <code>%Y-%m-%d %H:%M:%S</code> 的字串形式。</p>
+</li>
+<li><p>使用 f-string 將格式化後的時間插入到 <code>data</code> 字串中，並按照 SSE 的規範構建數據。</p>
+</li>
+<li><p>通過 <code>yield</code> 返回 <code>data</code> 給調用者（客戶端），使得生成器可以被迭代並逐步返回新的數據。</p>
+</li>
+<li><p><code>time.sleep(1)</code> 使生成器每秒鐘推送一次數據，實現即時更新效果。</p>
+</li>
+</ul>
+<h3 id="使用-n-n-來結束事件"><a href="#使用-n-n-來結束事件" class="headerlink" title="使用 \n\n 來結束事件"></a>使用 <code>\n\n</code> 來結束事件</h3><p>在 Server-Sent Events (SSE，伺服器推送事件) 中，事件的數據部分使用 <code>\n\n</code> 來標記每個事件的結束。</p>
+<ul>
+<li>第一個 <code>\n</code> 表示數據的結束。</li>
+<li>第二個 <code>\n</code> 表示兩個事件之間的分隔。</li>
+</ul>
+<p>在 SSE 中，每個事件的數據應當以 <code>data: ...</code> 開頭，然後使用 <code>\n\n</code> 來結束這個事件。</p>
+<pre><code>data: 2024-06-13 15:30:00\n\n
+</code></pre>
+<h3 id="SSE-路由-stream-的設置："><a href="#SSE-路由-stream-的設置：" class="headerlink" title="SSE 路由 (/stream) 的設置："></a>SSE 路由 <code>(/stream)</code> 的設置：</h3><p>在 Flask 應用中設置 <code>/stream</code> 路由，當客戶端訪問該路由時，會返回一個 <code>Response</code> 對象，其內容由 <code>generate()</code> 函數生成，並設置 <code>mimetype=&#39;text/event-stream&#39;</code> 以指定這是一個 SSE 流。</p>
+<pre><code>@app.route(&#39;/stream&#39;)
+def stream():
+    return Response(generate(), mimetype=&#39;text/event-stream&#39;)
+</code></pre>
+<p>當客戶端通過訪問 <code>/stream</code> 路由來訂閱事件流時，伺服器會每秒鐘推送一次當前時間，並由客戶端進行處理和顯示。這樣的應用場景包括即時股票價格更新、即時聊天消息等需要即時更新的應用。</p>
+<p><code>mimetype=&#39;text/event-stream&#39;</code> 是在使用 Server-Sent Events (SSE，伺服器推送事件) 時用來指定 HTTP 響應的內容類型（Content-Type）。</p>
+<ul>
+<li><p><code>text/event-stream</code> 是一種特殊的 MIME 類型，它指示了服務器將通過此響應傳送一系列事件給客戶端。這些事件是使用 SSE 標準格式傳送的，每個事件以 <code>data:</code> 開頭，並以兩個連續的新行 <code>\n\n</code> 結束。</p>
+</li>
+<li><p><code>Content-Type</code> 是 HTTP 標頭的一部分，用來描述 HTTP 響應的內容類型。在這種情況下，<code>mimetype=&#39;text/event-stream&#39;</code> 告訴瀏覽器或客戶端，這個響應包含了 SSE 格式的數據流，它應該按照 SSE 的規範來處理和解析這些數據。</p>
+</li>
+</ul>
+<p>使用 <code>mimetype=&#39;text/event-stream&#39;</code> 是確保伺服器正確地傳送 SSE 數據流到客戶端的關鍵。</p>
+<h3 id="JavaScript-說明："><a href="#JavaScript-說明：" class="headerlink" title="JavaScript 說明："></a>JavaScript 說明：</h3><p>JavaScript 代碼中，使用了 <code>EventSource</code> 對象來實現 Server-Sent Events (SSE，伺服器推送事件) 的客戶端訂閱和接收。</p>
+<pre><code>&lt;script&gt;
+    const eventSource = new EventSource(&#39;/stream&#39;);
+            
+    eventSource.onmessage = function(event) &#123;
+        document.getElementById(&#39;datetime&#39;).innerHTML = event.data;
+    &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol>
+<li>const eventSource &#x3D; new EventSource(‘&#x2F;stream’);</li>
+</ol>
+<ul>
+<li><p><code>EventSource</code> 是 HTML5 中引入的一種 API，它允許網頁從服務器端接收推送的事件。</p>
+</li>
+<li><p><code>new EventSource(&#39;/stream&#39;)</code> 創建了一個新的 <code>EventSource</code> 對象，並指定了要訂閱的服務器端端點 <code>/stream</code>。這意味著客戶端將會向 <code>/stream</code> 發起 HTTP GET 請求來訂閱事件流。</p>
+</li>
+</ul>
+<ol start="2">
+<li>eventSource.onmessage &#x3D; function(event) { … };</li>
+</ol>
+<ul>
+<li><p>一旦客戶端訂閱成功，當服務器端向 <code>/stream</code> 發送一條新的事件消息時，JavaScript 會自動觸發 <code>onmessage</code> 事件處理器函數。</p>
+</li>
+<li><p><code>event</code> 參數包含了從服務器端發送來的事件消息的相關信息，包括數據內容。</p>
+</li>
+</ul>
+<ol start="3">
+<li>document.getElementById(‘datetime’).innerHTML &#x3D; event.data;</li>
+</ol>
+<ul>
+<li><p>在 <code>onmessage</code> 事件處理器函數內部，這行代碼將服務器端發送來的數據 <code>event.data</code> 更新到 HTML 文檔中具有 <code>id=&quot;datetime&quot;</code> 的元素內。</p>
+</li>
+<li><p>通常情況下，<code>event.data</code> 是一段文本數據，它包含了服務器端發送的即時信息，例如時間戳、消息內容等。</p>
+</li>
+</ul>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><ol>
+<li><p><strong>頁面加載</strong><br>當頁面加載時，JavaScript 代碼會創建一個 <code>EventSource</code> 對象，並發起對 <code>/stream</code> 的 HTTP GET 請求。</p>
+</li>
+<li><p><strong>服務器端推送事件</strong><br>一旦服務器端有新的事件消息到來，它會將該消息推送到所有訂閱了 <code>/stream</code> 的客戶端（即這裡的網頁）。</p>
+</li>
+<li><p><strong>更新 HTML 元素</strong><br>客戶端接收到來自服務器端的事件消息後，透過 <code>onmessage</code> 事件處理器函數將消息內容更新到 HTML 中的指定元素（這裡是 <code>id=&quot;datetime&quot;</code> 的元素）。</p>
+</li>
+</ol>
+<p>這樣就實現了一個基本的 SSE 客戶端，用於接收服務器端推送的事件消息並即時更新到網頁上。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><blockquote>
+<p>通過這篇教學文章，我們學習了如何使用Ollama NLP LLM結合Flask來構建智能對話機器人網站。希望你能成功搭建並享受與Llama3的互動過程！</p>
+</blockquote>
+<p>未來會把記憶性的聊天機器人, RAG取得PDF和DOC, 等等的應用結合到Flask的Web介面中，敬請期待!!🥰</p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@weiberson/langchain-rag%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E5%8C%96-llama3-flask-chatbotweb-%E7%B6%B2%E7%AB%99-3372ab320bfd">LangChain RAG 打造個人化 LLaMA3 Flask Chatbot 網站</a></p>
+
+    </div>
+    <div id="toc" class="toc">
+      <ul></ul>
+    </div>
+  </div>
+  
+  <button id="toc-toggle-btn" class="toc-toggle-btn">📖</button>
+
+  <div id="gitalk-p">
+    <p>喜歡 好崴寶 Weibert Weiberson 的文章嗎？在這裡留下你的評論！本留言區支援 <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown 語法</a>。</p>
+  </div>
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'Ov23ctkBVw5yvCF7tTYy',
+      clientSecret: 'bcc4f669d8af0b713f5dc119bf58520a4345084d',  // 替換為最新的 client secret
+      repo: 'weitsung50110.github.io',
+      owner: 'weitsung50110',
+      admin: ['weitsung50110'],
+      id: location.pathname.slice(0, 50),
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk-container');
+  </script>
+</article>
+ 
+      </div>
+      
+      <!-- 側邊欄 -->
+<div id="sidebar">
+  <button id="close-btn">&times;</button>
+  <div class="author-info">
+    <div class="info-wrapper">
+      <!-- <div class="social-icons">
+        <a href="https://github.com/weitsung50110" target="_blank">
+          <img src="https://weitsung50110.github.io/images/github.png" alt="GitHub" class="social-icon">
+        </a>
+        <a href="https://medium.com/@weiberson" target="_blank">
+          <img src="https://weitsung50110.github.io/images/medium.png" alt="Medium" class="social-icon">
+        </a>
+        <a href="https://www.instagram.com/weibert_music/" target="_blank">
+          <img src="https://weitsung50110.github.io/images/ig.png" alt="Instagram" class="social-icon">
+        </a>
+      </div> -->
+      <img src="https://weitsung50110.github.io/images/a2.jpg" alt="作者照片" class="author_photo">
+    </div>
+    <h2>好崴寶</h2>
+    <p>(Weibert Weiberson)</p>
+    <!-- <span>Master of Computer Science / AI Software Engineer</span> -->
+    <div class="About">
+      <a href="https://weitsung50110.github.io/about">About me</a>
+    </div>
+  </div>
+
+  <!-- 
+    <div class="side_categories-section">
+      <h3 class="h3-toggle-section">類別</h3>
+      <div class="side_categories-container">
+        
+          <a href="#" class="side_category-item" data-category="GitHub">GitHub</a>
+        
+          <a href="#" class="side_category-item" data-category="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_category-item" data-category="NLP">NLP</a>
+        
+          <a href="#" class="side_category-item" data-category="LangChain">LangChain</a>
+        
+          <a href="#" class="side_category-item" data-category="Hugging-Face">Hugging-Face</a>
+        
+          <a href="#" class="side_category-item" data-category="Git-LFS">Git-LFS</a>
+        
+          <a href="#" class="side_category-item" data-category="Docker">Docker</a>
+        
+          <a href="#" class="side_category-item" data-category="git">git</a>
+        
+          <a href="#" class="side_category-item" data-category="fb">fb</a>
+        
+          <a href="#" class="side_category-item" data-category="PIP">PIP</a>
+        
+          <a href="#" class="side_category-item" data-category="Ollama">Ollama</a>
+        
+          <a href="#" class="side_category-item" data-category="DALLE3">DALLE3</a>
+        
+          <a href="#" class="side_category-item" data-category="向量資料庫">向量資料庫</a>
+        
+          <a href="#" class="side_category-item" data-category="Agents">Agents</a>
+        
+          <a href="#" class="side_category-item" data-category="RAG">RAG</a>
+        
+          <a href="#" class="side_category-item" data-category="崴寶書">崴寶書</a>
+        
+      </div>
+    </div>
+  
+
+  
+    <div class="side_tags-section">
+      <h3 class="h3-toggle-section">標籤</h3>
+      <div class="side_tags-container">
+        
+          <a href="#" class="side_tag-item" data-tag="GitHub">GitHub</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RWD">RWD</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hexo主題">Hexo主題</a>
+        
+          <a href="#" class="side_tag-item" data-tag="開源">開源</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Transformers">Transformers</a>
+        
+          <a href="#" class="side_tag-item" data-tag="BERT">BERT</a>
+        
+          <a href="#" class="side_tag-item" data-tag="NLP">NLP</a>
+        
+          <a href="#" class="side_tag-item" data-tag="ML">ML</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+        
+          <a href="#" class="side_tag-item" data-tag="git">git</a>
+        
+          <a href="#" class="side_tag-item" data-tag="fork">fork</a>
+        
+          <a href="#" class="side_tag-item" data-tag="EJS">EJS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+        
+          <a href="#" class="side_tag-item" data-tag="LangChain">LangChain</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Llama3">Llama3</a>
+        
+          <a href="#" class="side_tag-item" data-tag="RAG">RAG</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Ollama">Ollama</a>
+        
+          <a href="#" class="side_tag-item" data-tag="SEO">SEO</a>
+        
+          <a href="#" class="side_tag-item" data-tag="LLM">LLM</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Chatbot">Chatbot</a>
+        
+          <a href="#" class="side_tag-item" data-tag="DuckDuckGo">DuckDuckGo</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Wikipedia">Wikipedia</a>
+        
+          <a href="#" class="side_tag-item" data-tag="YouTube">YouTube</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+        
+          <a href="#" class="side_tag-item" data-tag="JavaScript">JavaScript</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Flask">Flask</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Jinja2">Jinja2</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Tailwind-CSS">Tailwind-CSS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Git-LFS">Git-LFS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Docker">Docker</a>
+        
+          <a href="#" class="side_tag-item" data-tag="WSL">WSL</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Windows-11">Windows-11</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Gitalk">Gitalk</a>
+        
+          <a href="#" class="side_tag-item" data-tag="fb">fb</a>
+        
+          <a href="#" class="side_tag-item" data-tag="粉絲專頁">粉絲專頁</a>
+        
+          <a href="#" class="side_tag-item" data-tag="社群">社群</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Python">Python</a>
+        
+          <a href="#" class="side_tag-item" data-tag="PIP">PIP</a>
+        
+          <a href="#" class="side_tag-item" data-tag="sql">sql</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Prompt">Prompt</a>
+        
+          <a href="#" class="side_tag-item" data-tag="OpenAI">OpenAI</a>
+        
+          <a href="#" class="side_tag-item" data-tag="FAISS">FAISS</a>
+        
+          <a href="#" class="side_tag-item" data-tag="語義檢索">語義檢索</a>
+        
+          <a href="#" class="side_tag-item" data-tag="向量資料庫">向量資料庫</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Bing">Bing</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Agents">Agents</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Text-Splitter">Text-Splitter</a>
+        
+          <a href="#" class="side_tag-item" data-tag="Chroma">Chroma</a>
+        
+          <a href="#" class="side_tag-item" data-tag="崴寶書">崴寶書</a>
+        
+      </div>
+    </div>
+   -->
+
+  <div class="social-links">
+    <ul>
+      <li><strong>Threads:</strong> 
+        <!-- <a href="https://www.threads.net/@weibert_music" target="_blank">@weibert_music</a> -->
+        <a href="https://www.threads.net/@weibert_coding" target="_blank">@weibert_coding</a>
+      </li>
+      <li><strong>GitHub:</strong> 
+        <a href="https://github.com/weitsung50110" target="_blank">weitsung50110</a>
+      </li>
+      <li><strong>Medium:</strong> 
+        <a href="https://medium.com/@weiberson" target="_blank">@weiberson</a>
+      </li>
+      <li><strong>YouTube:</strong> 
+        <a href="https://www.youtube.com/@weibert" target="_blank">Weibert好崴寶程式</a>
+      </li>
+      <li><strong>Instagram:</strong> 
+        <a href="https://www.instagram.com/weibert_coding/" target="_blank">@weibert_coding</a>
+        <a href="https://www.instagram.com/weibert_music/" target="_blank">@weibert_music</a>
+      </li>
+      <li><strong>TikTok:</strong> 
+        <a href="https://www.tiktok.com/@weibert1" target="_blank">崴寶Weibert</a> 
+      </li>
+      <!-- <li><strong>Facebook:</strong> 
+        <a href="https://www.facebook.com/weibert1/" target="_blank">崴寶Weibert</a>
+      </li> -->
+      <!-- <li><strong>加入崴寶社團:</strong>
+        <a href="https://www.facebook.com/groups/weibert/" target="_blank">加入Facebook社團</a>
+        <a href="https://discord.gg/5YsHCRJv8X" target="_blank">加入Discord群組</a>
+        <a href="https://line.me/ti/g2/Yer7Cw5gxxxr-hWLfKsnDTNug0T1mq5Ml0A3gg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">加入Line社團</a>
+      </li> -->
+      <li><strong>Email:</strong> <a href="mailto:weibertweiberson@gmail.com">weibertweiberson@gmail.com</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<button id="open-btn">🤗</button>
+      <!-- 彈跳視窗容器 -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="closeButton">&times;</span>
+    <div class="modal-sections">
+      <!-- <div class="social-links-section">
+        <h3>跟隨</h3>
+        <div class="social-links">
+          <a href="https://github.com/weitsung50110" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+          <a href="https://medium.com/@weiberson" target="_blank"><i class="fab fa-medium"></i>Medium</a>
+        </div>
+      </div> -->
+      
+      
+        <div class="categories-section">
+          <h3>類別</h3>
+          <div class="categories-container">
+            
+              <a href="#" class="category-item" data-category="GitHub">GitHub</a>
+            
+              <a href="#" class="category-item" data-category="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="category-item" data-category="NLP">NLP</a>
+            
+              <a href="#" class="category-item" data-category="LangChain">LangChain</a>
+            
+              <a href="#" class="category-item" data-category="Hugging-Face">Hugging-Face</a>
+            
+              <a href="#" class="category-item" data-category="Git-LFS">Git-LFS</a>
+            
+              <a href="#" class="category-item" data-category="Docker">Docker</a>
+            
+              <a href="#" class="category-item" data-category="git">git</a>
+            
+              <a href="#" class="category-item" data-category="fb">fb</a>
+            
+              <a href="#" class="category-item" data-category="PIP">PIP</a>
+            
+              <a href="#" class="category-item" data-category="Ollama">Ollama</a>
+            
+              <a href="#" class="category-item" data-category="DALLE3">DALLE3</a>
+            
+              <a href="#" class="category-item" data-category="向量資料庫">向量資料庫</a>
+            
+              <a href="#" class="category-item" data-category="Agents">Agents</a>
+            
+              <a href="#" class="category-item" data-category="RAG">RAG</a>
+            
+              <a href="#" class="category-item" data-category="崴寶書">崴寶書</a>
+            
+          </div>
+        </div>
+      
+
+      
+        <div class="tags-section">
+          <h3>標籤</h3>
+          <div class="tags-container">
+            
+              <a href="#" class="tag-item" data-tag="GitHub">GitHub</a>
+            
+              <a href="#" class="tag-item" data-tag="RWD">RWD</a>
+            
+              <a href="#" class="tag-item" data-tag="Hexo主題">Hexo主題</a>
+            
+              <a href="#" class="tag-item" data-tag="開源">開源</a>
+            
+              <a href="#" class="tag-item" data-tag="Transformers">Transformers</a>
+            
+              <a href="#" class="tag-item" data-tag="BERT">BERT</a>
+            
+              <a href="#" class="tag-item" data-tag="NLP">NLP</a>
+            
+              <a href="#" class="tag-item" data-tag="ML">ML</a>
+            
+              <a href="#" class="tag-item" data-tag="Fine-tuning">Fine-tuning</a>
+            
+              <a href="#" class="tag-item" data-tag="git">git</a>
+            
+              <a href="#" class="tag-item" data-tag="fork">fork</a>
+            
+              <a href="#" class="tag-item" data-tag="EJS">EJS</a>
+            
+              <a href="#" class="tag-item" data-tag="Hugging-Face">Hugging-Face</a>
+            
+              <a href="#" class="tag-item" data-tag="Text-to-Image">Text-to-Image</a>
+            
+              <a href="#" class="tag-item" data-tag="Stable-Diffusion">Stable-Diffusion</a>
+            
+              <a href="#" class="tag-item" data-tag="LangChain">LangChain</a>
+            
+              <a href="#" class="tag-item" data-tag="Llama3">Llama3</a>
+            
+              <a href="#" class="tag-item" data-tag="RAG">RAG</a>
+            
+              <a href="#" class="tag-item" data-tag="Ollama">Ollama</a>
+            
+              <a href="#" class="tag-item" data-tag="SEO">SEO</a>
+            
+              <a href="#" class="tag-item" data-tag="LLM">LLM</a>
+            
+              <a href="#" class="tag-item" data-tag="Chatbot">Chatbot</a>
+            
+              <a href="#" class="tag-item" data-tag="DuckDuckGo">DuckDuckGo</a>
+            
+              <a href="#" class="tag-item" data-tag="Wikipedia">Wikipedia</a>
+            
+              <a href="#" class="tag-item" data-tag="YouTube">YouTube</a>
+            
+              <a href="#" class="tag-item" data-tag="Web-Scraping">Web-Scraping</a>
+            
+              <a href="#" class="tag-item" data-tag="JavaScript">JavaScript</a>
+            
+              <a href="#" class="tag-item" data-tag="Flask">Flask</a>
+            
+              <a href="#" class="tag-item" data-tag="Jinja2">Jinja2</a>
+            
+              <a href="#" class="tag-item" data-tag="Tailwind-CSS">Tailwind-CSS</a>
+            
+              <a href="#" class="tag-item" data-tag="Git-LFS">Git-LFS</a>
+            
+              <a href="#" class="tag-item" data-tag="Docker">Docker</a>
+            
+              <a href="#" class="tag-item" data-tag="WSL">WSL</a>
+            
+              <a href="#" class="tag-item" data-tag="Windows-11">Windows-11</a>
+            
+              <a href="#" class="tag-item" data-tag="Gitalk">Gitalk</a>
+            
+              <a href="#" class="tag-item" data-tag="fb">fb</a>
+            
+              <a href="#" class="tag-item" data-tag="粉絲專頁">粉絲專頁</a>
+            
+              <a href="#" class="tag-item" data-tag="社群">社群</a>
+            
+              <a href="#" class="tag-item" data-tag="Python">Python</a>
+            
+              <a href="#" class="tag-item" data-tag="PIP">PIP</a>
+            
+              <a href="#" class="tag-item" data-tag="sql">sql</a>
+            
+              <a href="#" class="tag-item" data-tag="Prompt">Prompt</a>
+            
+              <a href="#" class="tag-item" data-tag="OpenAI">OpenAI</a>
+            
+              <a href="#" class="tag-item" data-tag="FAISS">FAISS</a>
+            
+              <a href="#" class="tag-item" data-tag="語義檢索">語義檢索</a>
+            
+              <a href="#" class="tag-item" data-tag="向量資料庫">向量資料庫</a>
+            
+              <a href="#" class="tag-item" data-tag="Bing">Bing</a>
+            
+              <a href="#" class="tag-item" data-tag="Agents">Agents</a>
+            
+              <a href="#" class="tag-item" data-tag="Text-Splitter">Text-Splitter</a>
+            
+              <a href="#" class="tag-item" data-tag="Chroma">Chroma</a>
+            
+              <a href="#" class="tag-item" data-tag="崴寶書">崴寶書</a>
+            
+          </div>
+        </div>
+      
+      
+      <!-- <div id="tag-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/tags/GitHub/" class="tag-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RWD/" class="tag-item">RWD</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hexo%E4%B8%BB%E9%A1%8C/" class="tag-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E9%96%8B%E6%BA%90/" class="tag-item">開源</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Transformers/" class="tag-item">Transformers</a>
+        
+          <a href="https://weitsung50110.github.io/tags/BERT/" class="tag-item">BERT</a>
+        
+          <a href="https://weitsung50110.github.io/tags/NLP/" class="tag-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/tags/ML/" class="tag-item">ML</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Fine-tuning/" class="tag-item">Fine-tuning</a>
+        
+          <a href="https://weitsung50110.github.io/tags/git/" class="tag-item">git</a>
+        
+          <a href="https://weitsung50110.github.io/tags/fork/" class="tag-item">fork</a>
+        
+          <a href="https://weitsung50110.github.io/tags/EJS/" class="tag-item">EJS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Hugging-Face/" class="tag-item">Hugging-Face</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Text-to-Image/" class="tag-item">Text-to-Image</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Stable-Diffusion/" class="tag-item">Stable-Diffusion</a>
+        
+          <a href="https://weitsung50110.github.io/tags/LangChain/" class="tag-item">LangChain</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Llama3/" class="tag-item">Llama3</a>
+        
+          <a href="https://weitsung50110.github.io/tags/RAG/" class="tag-item">RAG</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Ollama/" class="tag-item">Ollama</a>
+        
+          <a href="https://weitsung50110.github.io/tags/SEO/" class="tag-item">SEO</a>
+        
+          <a href="https://weitsung50110.github.io/tags/LLM/" class="tag-item">LLM</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Chatbot/" class="tag-item">Chatbot</a>
+        
+          <a href="https://weitsung50110.github.io/tags/DuckDuckGo/" class="tag-item">DuckDuckGo</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Wikipedia/" class="tag-item">Wikipedia</a>
+        
+          <a href="https://weitsung50110.github.io/tags/YouTube/" class="tag-item">YouTube</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Web-Scraping/" class="tag-item">Web-Scraping</a>
+        
+          <a href="https://weitsung50110.github.io/tags/JavaScript/" class="tag-item">JavaScript</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Flask/" class="tag-item">Flask</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Jinja2/" class="tag-item">Jinja2</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Tailwind-CSS/" class="tag-item">Tailwind-CSS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Git-LFS/" class="tag-item">Git-LFS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Docker/" class="tag-item">Docker</a>
+        
+          <a href="https://weitsung50110.github.io/tags/WSL/" class="tag-item">WSL</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Windows-11/" class="tag-item">Windows-11</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Gitalk/" class="tag-item">Gitalk</a>
+        
+          <a href="https://weitsung50110.github.io/tags/fb/" class="tag-item">fb</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E7%B2%89%E7%B5%B2%E5%B0%88%E9%A0%81/" class="tag-item">粉絲專頁</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E7%A4%BE%E7%BE%A4/" class="tag-item">社群</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Python/" class="tag-item">Python</a>
+        
+          <a href="https://weitsung50110.github.io/tags/PIP/" class="tag-item">PIP</a>
+        
+          <a href="https://weitsung50110.github.io/tags/sql/" class="tag-item">sql</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Prompt/" class="tag-item">Prompt</a>
+        
+          <a href="https://weitsung50110.github.io/tags/OpenAI/" class="tag-item">OpenAI</a>
+        
+          <a href="https://weitsung50110.github.io/tags/FAISS/" class="tag-item">FAISS</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E8%AA%9E%E7%BE%A9%E6%AA%A2%E7%B4%A2/" class="tag-item">語義檢索</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/" class="tag-item">向量資料庫</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Bing/" class="tag-item">Bing</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Agents/" class="tag-item">Agents</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Text-Splitter/" class="tag-item">Text-Splitter</a>
+        
+          <a href="https://weitsung50110.github.io/tags/Chroma/" class="tag-item">Chroma</a>
+        
+          <a href="https://weitsung50110.github.io/tags/%E5%B4%B4%E5%AF%B6%E6%9B%B8/" class="tag-item">崴寶書</a>
+        
+      </div>
+      
+      <div id="category-content" style="display:none;">
+        
+          <a href="https://weitsung50110.github.io/categories/GitHub/" class="category-item">GitHub</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Hexo%E4%B8%BB%E9%A1%8C/" class="category-item">Hexo主題</a>
+        
+          <a href="https://weitsung50110.github.io/categories/NLP/" class="category-item">NLP</a>
+        
+          <a href="https://weitsung50110.github.io/categories/LangChain/" class="category-item">LangChain</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Hugging-Face/" class="category-item">Hugging-Face</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Git-LFS/" class="category-item">Git-LFS</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Docker/" class="category-item">Docker</a>
+        
+          <a href="https://weitsung50110.github.io/categories/git/" class="category-item">git</a>
+        
+          <a href="https://weitsung50110.github.io/categories/fb/" class="category-item">fb</a>
+        
+          <a href="https://weitsung50110.github.io/categories/PIP/" class="category-item">PIP</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Ollama/" class="category-item">Ollama</a>
+        
+          <a href="https://weitsung50110.github.io/categories/DALLE3/" class="category-item">DALLE3</a>
+        
+          <a href="https://weitsung50110.github.io/categories/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/" class="category-item">向量資料庫</a>
+        
+          <a href="https://weitsung50110.github.io/categories/Agents/" class="category-item">Agents</a>
+        
+          <a href="https://weitsung50110.github.io/categories/RAG/" class="category-item">RAG</a>
+        
+          <a href="https://weitsung50110.github.io/categories/%E5%B4%B4%E5%AF%B6%E6%9B%B8/" class="category-item">崴寶書</a>
+        
+      </div> -->
+      
+      <!-- 顯示內容的區域 -->
+      <div id="content-area"></div>
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <img src="https://weitsung50110.github.io/images/boy10.png" class="footer-logo"> 
+  <img src="https://weitsung50110.github.io/images/boy9.png" class="footer-rwd-logo"> 
+  <div class="newsletter-subscription">
+    <p>聯絡信箱：weibertweiberson@gmail.com</p>
+    <p>電子報讀者募集中！歡迎
+      <a href="/club/#加入好崴寶的-電子報！">訂閱電子報</a>！</p>
+  </div>
+
+  <p>&copy; 2023 - 2025 好崴寶 Weibert Weiberson. All rights reserved.</p>
+  <!-- <script src="/js/main.js"></script> -->
+  <!-- <script src="/js/script.js"></script> -->
+  <script src="/js/script.js"></script>
+  <script src="/js/popup_tag.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="/js/sidebar.js"></script>
+  <script src="/js/toc.js"></script>
+  <script src="/js/post.js"></script>  
+  <script src="/js/header.js"></script>  
+  <script src="/js/archive.js"></script>  
+  
+  
+</footer>
+
+      
+    </div>
+  </div>
+  
+  <!-- 返回頂部按鈕 -->
+  <button id="scroll-to-top-btn" class="scroll-to-top-btn">▲</button>
+  
+</body>
+</html>
