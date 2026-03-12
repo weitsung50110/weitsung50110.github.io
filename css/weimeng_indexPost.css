@@ -1,0 +1,116 @@
+.large-options {
+  display: flex;
+  flex-wrap: wrap; /* 允許元素換行 */
+  justify-content: space-around;
+  /* margin: 20px 0; */
+  position: relative; /* 使其子元素的定位基於此 */
+}
+
+.large-hover-image {
+  display: none; /* 預設隱藏背景圖片 */
+  position: absolute; /* 絕對定位 */
+  top: 50%; /* 垂直中心 */
+  left: 50%; /* 水平中心 */
+  transform: translate(-50%, -50%) scale(0.8) rotate(0deg); /* 初始縮放和旋轉 */
+  width: 19%; /* 填滿寬度 */
+  height: auto; /* 自動調整高度 */
+  z-index: -1; /* 確保背景在後面 */
+  opacity: 0; /* 預設透明度 */
+}
+
+.large-options:hover .large-hover-image {
+  display: block; /* 懸停時顯示背景圖片 */
+  opacity: 1; /* 懸停時完全顯示 */
+  transform: translate(-50%, -50%) scale(1) rotate(5deg); /* 懸停時放大和輕微旋轉 */
+}
+
+/* 針對每個選項的樣式 */
+.option {
+  position: relative;
+  background-color: #ffffff; /* 粉紅色背景 */
+  border: 5px dashed #de4873; /* 邊框顏色 */
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  width: 32%; /* 默認為 30% 寬度 */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* 添加變換效果 */
+}
+
+.option:hover {
+  background-color: #f5f5f5; /* 背景顏色 */
+  transform: translateY(-5px); /* 懸停時上升 */
+}
+
+.home-intro h2 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  color: #ffe9ef;
+  text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
+  animation: textPulse 1.5s ease infinite;
+  border-bottom: 1.7px solid #de4873; /* 使用邊框作為底線 */
+}
+
+@keyframes textPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+}
+
+/* 調整字體顏色 */
+.option:hover h2,
+.option:hover p {
+  color: #ee648b; /* 懸停時字體顏色 */
+  border-bottom: 1px solid #ee648b; /* 使用邊框作為底線 */
+  font-weight: bold;
+}
+
+@keyframes textPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+}
+
+.hover-image {
+  position: absolute;
+  bottom: -100%; /* 預設隱藏圖片 */
+  left: 0%;
+  transform: translate(-50%, 0);
+  opacity: 0; /* 初始不顯示 */
+  visibility: hidden; /* 初始設置為隱藏 */
+  pointer-events: none; /* 讓圖片不攔截滑鼠事件 */
+  transition: bottom 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s; /* 動畫效果 */
+  width: 200px; /* 調整圖片大小 */
+  z-index: 1; /* 確保圖片在上層 */
+}
+
+.option:hover .hover-image {
+  bottom: -20px; /* 懸停時圖片顯示位置 */
+  opacity: 1; /* 懸停時顯示圖片 */
+  visibility: visible; /* 懸停時可見 */
+  transition: bottom 0.3s ease, opacity 0.3s ease, visibility 0s; /* 動畫效果 */
+}
+
+.option ul {
+  text-align: left; /* 將 ul 的文字對齊設為左邊 */
+  padding-left: 20px; /* 可選：增加左側內邊距 */
+}
+
+.option li {
+  text-align: left; /* 確保 li 的文字也左對齊 */
+}
+
+/* 按鈕樣式 */
+.cta-button {
+  background-color: #ff6b81; /* 粉紅色背景 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* 添加過渡效果 */
+}
+
+.cta-button:hover {
+  background-color: #ff3f55; /* 更深的粉紅色 */
+  transform: scale(1.05); /* 按鈕懸停時稍微放大 */
+}
